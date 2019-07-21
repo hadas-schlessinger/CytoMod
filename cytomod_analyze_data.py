@@ -71,7 +71,6 @@ use: pip install palettable
 import os
 import sys
 import pandas as pd
-os.chdir('C:/Users/liel-/Dropbox/PyCharm/PycharmProjectsNew/cytoMod/')
 sys.path.append(os.getcwd())
 sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 import matplotlib.pyplot as plt
