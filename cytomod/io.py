@@ -48,7 +48,7 @@ def plot_modules(clust_object, folder):
     plt.figure(43, figsize=(15.5, 9.5))
     colInds = cyplot.plotHierClust(1 - clust_object.pwrel, clust_object.Z, labels=clust_object.labels,
                                    titleStr='Pairwise reliability (%s)' % clust_object.name.replace('_', ' '), vRange=(0, 1))
-    plt.figure(43).savefig(os.path.join(folder, '%s_pwrel.png' % clust_object.name))
+    plt.figure(43).savefig(os.path.join(folder, '%s_pwrel.png' % clust_object.name), dpi=300)
 
     """color_label_legend"""
     plt.figure(48, figsize=(3, 3))
@@ -64,13 +64,13 @@ def plot_modules(clust_object, folder):
     axh.set_yticks([])
     axh.set_facecolor('white')
 
-    plt.figure(48).savefig(os.path.join(folder, 'color_label_legend.png'))
+    plt.figure(48).savefig(os.path.join(folder, 'color_label_legend.png'), dpi=300)
 
     """Plot intra-module correlation"""
     plt.figure(50, figsize=(15, 9))
     for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
-        plt.figure(50).savefig(os.path.join(folder, '%s_mod_corr_%s.png' % (clust_object.name, lab)))
+        plt.figure(50).savefig(os.path.join(folder, '%s_mod_corr_%s.png' % (clust_object.name, lab)), dpi=300)
 
     """Cytokine embedding"""
     plt.figure(901, figsize=(13, 9.7))
@@ -78,13 +78,13 @@ def plot_modules(clust_object, folder):
     colors = palettable.colorbrewer.get_map('Set1', 'qualitative', len(np.unique(clust_object.labels))).mpl_colors
     colorLegend(colors, ['%s%1.0f' % (clust_object.sampleStr, i) for i in np.unique(clust_object.labels)],
                 loc='lower left')
-    plt.figure(901).savefig(os.path.join(folder, '%sembed.png' % clust_object.name))
+    plt.figure(901).savefig(os.path.join(folder, '%sembed.png' % clust_object.name), dpi=300)
 
-def plot_modules(clust_object, folder):
+def plot_modules(clust_object, folder, heatmap_figsize=(15.5, 9.5)):
     '''Plot cytomod object modules information'''
 
     """Hierarchical clustering heatmap"""
-    plt.figure(41, figsize=(15.5, 9.5))
+    plt.figure(41, figsize=heatmap_figsize)
     # colInds = plotHColCluster(ds[s].cyDf, method='complete', metric='pearson-signed', col_labels=ds[s].labels, col_dmat=ds[s].dmatDf)
     colInds = plotHColCluster(clust_object.cyDf, method='complete', metric='pearson-signed',
                               col_labels=clust_object.labels,
@@ -92,10 +92,10 @@ def plot_modules(clust_object, folder):
     # plt.figure(41).savefig(os.path.join(folder, '%s_hier.png' % clust_object.name))
 
     """Heatmaps of pairwise reliability"""
-    plt.figure(43, figsize=(15.5, 9.5))
+    plt.figure(43, figsize=heatmap_figsize)
     colInds = cyplot.plotHierClust(1 - clust_object.pwrel, clust_object.Z, labels=clust_object.labels,
                                    titleStr='Pairwise reliability (%s)' % clust_object.name.replace('_', ' '), vRange=(0, 1))
-    plt.figure(43).savefig(os.path.join(folder, '%s_reliability.png' % clust_object.name))
+    plt.figure(43).savefig(os.path.join(folder, '%s_reliability.png' % clust_object.name), dpi=300)
 
     """color_label_legend"""
     plt.figure(48, figsize=(3, 3))
@@ -110,13 +110,13 @@ def plot_modules(clust_object, folder):
     axh.set_xticks([])
     axh.set_yticks([])
     axh.set_facecolor('white')
-    plt.figure(48).savefig(os.path.join(folder, '%s_color_label_legend.png' % clust_object.name))
+    plt.figure(48).savefig(os.path.join(folder, '%s_color_label_legend.png' % clust_object.name), dpi=300)
 
     """Plot intra-module correlation"""
     plt.figure(50, figsize=(15, 9))
     for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
-        plt.figure(50).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)))
+        plt.figure(50).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
 
     """Cytokine embedding"""
     plt.figure(901, figsize=(13, 9.7))
@@ -124,23 +124,23 @@ def plot_modules(clust_object, folder):
     colors = palettable.colorbrewer.get_map('Set1', 'qualitative', len(np.unique(clust_object.labels))).mpl_colors
     colorLegend(colors, ['%s%1.0f' % (clust_object.sampleStr, i) for i in np.unique(clust_object.labels)],
                 loc='lower left')
-    plt.figure(901).savefig(os.path.join(folder, '%s_embedding.png' % clust_object.name))
+    plt.figure(901).savefig(os.path.join(folder, '%s_embedding.png' % clust_object.name), dpi=300)
 
-def plot_clustering_heatmap(clust_object, folder):
+def plot_clustering_heatmap(clust_object, folder, figsize=(15.5, 9.5)):
     """Hierarchical clustering heatmap"""
-    plt.figure(41, figsize=(15.5, 9.5))
+    plt.figure(41, figsize=figsize)
     # colInds = plotHColCluster(ds[s].cyDf, method='complete', metric='pearson-signed', col_labels=ds[s].labels, col_dmat=ds[s].dmatDf)
     colInds = plotHColCluster(clust_object.cyDf, method='complete', metric='pearson-signed',
-                              col_labels=clust_object.labels,
+                              col_labels=clust_object.labels, figsize=figsize,
                               save_path=os.path.join(folder, '%s_hierchical_clust_heatmap.png' % clust_object.name))
     # plt.figure(41).savefig(os.path.join(folder, '%s_hierchical_clust_heatmap.png' % clust_object.name))
 
-def plot_reliability(clust_object, folder):
+def plot_reliability(clust_object, folder, figsize=(15.5, 9.5)):
     """Heatmaps of pairwise reliability"""
-    plt.figure(43, figsize=(15.5, 9.5))
+    plt.figure(43, figsize=figsize)
     colInds = cyplot.plotHierClust(1 - clust_object.pwrel, clust_object.Z, labels=clust_object.labels,
                                    titleStr='Pairwise reliability (%s)' % clust_object.name.replace('_', ' '), vRange=(0, 1))
-    plt.figure(43).savefig(os.path.join(folder, '%s_reliability.png' % clust_object.name))
+    plt.figure(43).savefig(os.path.join(folder, '%s_reliability.png' % clust_object.name), dpi=300)
 
 def plot_color_legend(clust_object, folder):
     """color_label_legend"""
@@ -157,7 +157,7 @@ def plot_color_legend(clust_object, folder):
     axh.set_yticks([])
     axh.set_facecolor('white')
 
-    plt.figure(48).savefig(os.path.join(folder, '%s_color_label_legend.png' % clust_object.name))
+    plt.figure(48).savefig(os.path.join(folder, '%s_color_label_legend.png' % clust_object.name), dpi=300)
 
 def plot_module_correl(clust_object, folder):
     """Plot intra-module correlation"""
@@ -165,7 +165,7 @@ def plot_module_correl(clust_object, folder):
     for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
         plt.figure(50+i, figsize=(15, 9))
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
-        plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)))
+        plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
         i += 1
 
 def plot_cy_embedding(clust_object, folder):
@@ -175,4 +175,4 @@ def plot_cy_embedding(clust_object, folder):
     colors = palettable.colorbrewer.get_map('Set1', 'qualitative', len(np.unique(clust_object.labels))).mpl_colors
     colorLegend(colors, ['%s%1.0f' % (clust_object.sampleStr, i) for i in np.unique(clust_object.labels)],
                 loc='lower left')
-    plt.figure(901).savefig(os.path.join(folder, '%s_embedding.png' % clust_object.name))
+    plt.figure(901).savefig(os.path.join(folder, '%s_embedding.png' % clust_object.name), dpi=300)

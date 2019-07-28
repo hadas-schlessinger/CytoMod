@@ -1,11 +1,13 @@
 '''
+Welcome to the CytoMod example code!
+
 The full paper describing the method can be found at
 https://www.frontiersin.org/articles/10.3389/fimmu.2019.01338/
 
 The CytoMod folder contains a folder named data_files/data that contains
 files named cytokine_data.xlsx and patient_data.xlsx, which hold
 the data for the code's analysis.
-In the folder you can replace these files with your own data files
+You can replace these files with your own data files
 while following the format instructions bellow.
 
 # cytokine_data.xlsx: the first column is the subject IDs
@@ -24,6 +26,8 @@ data-frame should contain outcome variables to be analyzed in the
 associations to outcomes analysis. It may also contain covariate
 variables for controlling the regression models built for the
 associations calculation.
+*Make sure binary columns contain 0 and 1 values, or True and False values
+(and cells with unknown values are left empty)
 
 A folder named 'output' will be created by the code inside the
 data_files folder. The code writes all results and figures into this folder.
@@ -61,6 +65,8 @@ Arguments to be manually defined:
         and used by the code until the next time you decide to recalculate them,
         or if the best K files are deleted. If no best K files are found, will
         recalculate best K anyway.
+* args.seed
+        Seed for random numbers stream set before cytomod calculations.
 
 The code was written using the Anaconda3 Python interpreter and packages.
 The palettable module (https://pypi.org/project/palettable/) must also be installed.
@@ -92,11 +98,13 @@ args.name_compartment = 'Plasma'
 args.log_transform = True
 args.max_testing_k = 8
 args.max_final_k = 6 # Must be <= max_testing_k
-args.recalculate_best_k = False
+args.recalculate_modules = False
 args.outcomes = ['FluPositive'] # names of binary outcome columns
 args.covariates = ['Age'] # names of regression covariates to control for
 args.log_column_names = ['Age'] # or empty list: []
 args.cytokines = None # if none, will take all
+
+args.seed = 1234
 
 ########### ------------------- Define Output Folders ----------------- ###########
 
@@ -141,6 +149,7 @@ for col_name in args.outcomes + args.covariates + args.log_column_names:
 cy_data = tools.read_excel(os.path.join(args.paths['data'], 'cytokine_data.xlsx'),
                            indexCol=0)
 cy_data.dropna(axis='index', how='all', inplace=True)
+
 if args.cytokines is None:
     args.cytokines = list(cy_data.columns)
 else:
@@ -163,10 +172,6 @@ if args.log_transform:
             # log transform variable
             patient_data[new_col_name] = np.log10(patient_data[col_name])
 
-            # standardize variable
-            standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
-            patient_data[[new_col_name]] = patient_data[[new_col_name]].apply(standardizeFunc)
-
             # replace column with new log transformed column
             if col_name in args.covariates:
                 args.covariates.remove(col_name)
@@ -174,53 +179,73 @@ if args.log_transform:
 
 ########### ------------ Adjust and Cluster ------------- ###########
 
-cyto_mod_adj = cytomod.cytomod_class(args.name_data, args.name_compartment, True, cy_data)
-cyto_mod_abs = cytomod.cytomod_class(args.name_data, args.name_compartment, False, cy_data)
-cyto_modules = {'adj': cyto_mod_adj, 'abs': cyto_mod_abs}
+do_recalculate = args.recalculate_modules or \
+        not os.path.exists(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'))
 
-# Get best K. If first time or args.recalculate_best_k=True - compute best K. Otherwise - read from file.
-if args.recalculate_best_k or \
-        not os.path.exists(os.path.join(args.paths['clustering'], 'bestK.xlsx')):
-    k_adj = gap_stat.getBestK(cyto_modules['adj'].cyDf,
+# Get best K. If first time or args.recalculate_modules=True - compute best K. Otherwise - read from file.
+if do_recalculate:
+    random.seed(args.seed)
+    cyto_mod_adj = cytomod.cytomod_class(args.name_data, args.name_compartment, True, cy_data)
+    cyto_mod_abs = cytomod.cytomod_class(args.name_data, args.name_compartment, False, cy_data)
+    cyto_modules = {'adj': cyto_mod_adj, 'abs': cyto_mod_abs}
+
+    bestK = {}
+    bestK['adj'] = gap_stat.getBestK(cyto_mod_adj.cyDf,
                                        max_testing_k = args.max_testing_k,
                                        max_final_k=args.max_final_k,
                                        save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_adj.png'))
 
-    k_abs = gap_stat.getBestK(cyto_modules['abs'].cyDf,
+    bestK['abs'] = gap_stat.getBestK(cyto_mod_abs.cyDf,
                                        max_testing_k=args.max_testing_k,
                                        max_final_k=args.max_final_k,
                                        save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_abs.png'))
 
-    bestK = {'adj': k_adj, 'abs': k_abs}
     tools.write_DF_to_excel(os.path.join(args.paths['clustering'], 'bestK.xlsx'), bestK)
+
+    # Cluster
+    cyto_mod_adj.cluster_cytokines(K=bestK['adj'])
+    cyto_mod_abs.cluster_cytokines(K=bestK['abs'])
+    tools.write_to_dill(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'), cyto_mod_adj)
+    tools.write_to_dill(os.path.join(args.paths['clustering'], 'cyto_mod_abs.dill'), cyto_mod_abs)
 else:
+    # Get modules from storage
     bestK = tools.read_excel(os.path.join(args.paths['clustering'], 'bestK.xlsx'))
     bestK = dict(bestK['value'])
+    cyto_mod_adj = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'))
+    cyto_mod_abs = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_abs.dill'))
 
-# Cluster
-cyto_mod_adj.cluster_cytokines(K=bestK['adj'])
-cyto_mod_abs.cluster_cytokines(K=bestK['abs'])
+cyto_modules = {'adj': cyto_mod_adj, 'abs': cyto_mod_abs}
 
 ########### ------------ Output clustering results ------------- ###########
 
 # Output clustering results
-for cyto_object in cyto_modules.values():
-    cyplot.plotMeanCorr(cyto_object.withMean, cyto_object.meanS.name,
-                        cyList=sorted(cyto_object.cyDf.columns),
-                        save_path=os.path.join(args.paths['correlation_figures'],
-                                               '%s_cy_mean_correlation.png' % cyto_object.name))
+if do_recalculate:
+    for cyto_object in cyto_modules.values():
+        cyplot.plotMeanCorr(cyto_object.withMean, cyto_object.meanS.name,
+                            cyList=sorted(cyto_object.cyDf.columns), figsize=(10, 6),
+                            save_path=os.path.join(args.paths['correlation_figures'],
+                                                   '%s_cy_mean_correlation.png' % cyto_object.name))
 
-    plotHColCluster(cyto_object.cyDf, method='complete',
-                         metric='pearson-signed',
-                         save_path=os.path.join(args.paths['correlation_figures'],
-                                                '%s_correlation_heatmap.png' % cyto_object.name))
+        plotHColCluster(cyto_object.cyDf, method='complete',
+                             metric='pearson-signed', figsize=(10, 6),
+                             save_path=os.path.join(args.paths['correlation_figures'],
+                                                    '%s_correlation_heatmap.png' % cyto_object.name))
 
-    cytomod.io.write_modules(cyto_object, args.paths['clustering_info'])
-    cytomod.io.plot_modules(cyto_object, args.paths['clustering_figures'])
-
+        cytomod.io.write_modules(cyto_object, args.paths['clustering_info'])
+        cytomod.io.plot_modules(cyto_object, args.paths['clustering_figures'],
+                                heatmap_figsize=(10, 6))
 
 ########### ------------ Associations ------------- ###########
 
+# standardize numeric covariates
+if args.covariates != []:
+    standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
+
+    for covariate in args.covariates:
+        if len(patient_data[covariate].unique()) > 2:
+            patient_data[[covariate]] = patient_data[[covariate]].apply(standardizeFunc)
+
+# Analyze associations
 if args.outcomes != []:
     df_outcomes = patient_data[args.outcomes + args.covariates].join(cy_data)
 

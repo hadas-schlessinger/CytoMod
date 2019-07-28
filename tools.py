@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import dill
 
 __all__ = ['Object',
            'read_excel',
@@ -33,5 +34,13 @@ def assert_column_exists_in_path(file_path, col_name, sheet=0):
     if col_name not in df.columns:
         print('Column', col_name, 'does not exist')
         print('in file', file_path, '.')
-        print('Fix column name and re-run script.')
-        exit()
+        raise Exception('assert_column_exists_in_path: Fix column name and re-run script.')
+
+def write_to_dill(path, variable):
+    with open(path, 'wb') as d:
+        dill.dump(variable, d, protocol=-1)
+
+def read_from_dill(path):
+    with open(path, 'rb') as fh:
+        ans = dill.load(fh)
+    return ans

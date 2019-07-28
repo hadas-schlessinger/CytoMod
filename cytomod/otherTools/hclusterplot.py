@@ -187,9 +187,12 @@ def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_lab
     if not titleStr is None:
         heatmapAX.set_xlabel(titleStr,size='x-large')
 
-def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean', col_labels=None, titleStr=None, vRange=None, tickSz='small', cmap=None,  minN=1, K=None, labelCmap=None, noColorBar=False, interactive=False, save_path=None):
+def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean',
+                    col_labels=None, titleStr=None, vRange=None, tickSz='small',
+                    cmap=None,  minN=1, K=None, labelCmap=None, noColorBar=False,
+                    interactive=False, save_path=None, figsize=(15,10)):
     """Perform hierarchical clustering on df columns and plot square heatmap of pairwise distances"""
-    plt.figure(10, figsize=(15, 10))
+    plt.figure(10, figsize=figsize)
     if col_dmat is None and df is None:
         print('Need to provide df or col_dmat')
         # return
@@ -315,7 +318,7 @@ def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean
     plt.tight_layout()
 
     if save_path is not None:
-        plt.figure(10).savefig(save_path)
+        plt.figure(10).savefig(save_path, dpi=300)
 
     return colInd
 

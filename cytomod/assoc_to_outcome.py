@@ -169,7 +169,7 @@ def plotResultSummary(cytomod_obj,
 
     vals = np.log(foldH.values)
     pcParams = dict(vmin=-1, vmax=1, cmap=cmap)
-    scaleLabel = 'Fold-diff'
+    scaleLabel = 'OR'
     if scaleLabel == 'OR':
         scaleLabel = 'Odds Ratio'
     ytl = np.array(['1/2.5', '1/2', '1/1.5', 1, 1.5, 2, 2.5])
