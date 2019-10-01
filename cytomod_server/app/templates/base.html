@@ -1,0 +1,27 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - cytomod_server</title>
+      {% else %}
+      <title>Welcome to cytomod_server</title>
+      {% endif %}
+    </head>
+    <body>
+         <div>
+        cytomod_server:
+        <a href="{{ url_for('welcome') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+    </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
