@@ -1,42 +1,35 @@
 import os
+import io
 import sys
-import pandas as pd
 sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
-import matplotlib.pyplot as plt
-import cytomod
-import cytomod.run_gap_statistic as gap_stat
-import cytomod.assoc_to_outcome as outcome
-from cytomod import plotting as cyplot
-from hclusterplot import plotHColCluster
 import tools
 from .. import server_tools
-import numpy as np
-import random
 import warnings
+import app
+import csv
+
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 
 SEED = 1234
 
 
-def set_data(name_ds,name_comp,log,max_k,final_k,recalc, col_name,regrassion,log_col_name,cytokine = None):
+def set_data(args):
+    stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
+    csv_data = csv.reader(stream)
+    for row in csv.reader(stream, dialect=csv.excel):
+        if row:
+            data.append(row)
+
+
     data = server_tools.read_file()  # needs to be created
     data_path = server_tools.save_data_on_local_path(data)
     paths = set_path(data_path)
-    if check_input(name_ds,name_comp, log,max_k, final_k, recalc, col_name, regrassion, log_col_name, paths ):
-        args = tools.Object()
-        args.name_data = name_ds
-        args.name_compartment = name_comp
-        args.log_transform = log
-        args.max_testing_k = max_k
-        args.max_final_k = final_k  # Must be <= max_testing_k
-        args.recalculate_modules = recalc
-        args.outcomes = col_name  # names of binary outcome columns
-        args.covariates = regrassion  # names of regression covariates to control for
-        args.log_column_names = log_col_name  # or empty list: []
-        args.cytokines = cytokine  # if none, will analyze all
-        args.seed = SEED
+
+    if check_input(args, paths):
+        args.seed = app.config.get_namespace('SEED')
         return True
+    #dont forget to delete file!!!!
     return False
 
 
@@ -59,18 +52,20 @@ def set_path(args):
 
 
 
-def check_input(name_data, name_compartment, log_transform,max_testing_k, max_final_k, outcomes, covariates, log_column_names,paths):
-    assert type(name_data) is str
-    assert type(name_compartment) is str
-    assert type(log_transform) is bool
-    assert type(max_testing_k) is int
-    assert type(max_final_k) is int
-    assert max_final_k <= max_testing_k
-    assert type(outcomes) is list
-    assert type(covariates) is list
+def check_input(args,paths):
+    assert type(args.name_data) is str
+    assert type(args.name_compartment) is str
+    assert type(args.log_transform) is bool
+    assert type(args.max_testing_k) is int
+    assert type(args.max_final_k) is int
+    assert args.max_final_k <= args.max_testing_k
+    assert type(args.outcomes) is list
+    assert type(args.covariates) is list
 
-    for col_name in outcomes + covariates + log_column_names:
+    for col_name in args.outcomes + args.covariates + args.log_column_names:
         assert type(col_name) is str
         tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name)
 
 
+def transform(text_file_contents):
+    return text_file_contents.replace("=", ",")

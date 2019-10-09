@@ -5,13 +5,10 @@ import tools
 import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
+import pandas as pd
 
+def read_file(args):
 
-def read_file():
-#read from front end
-    if identify_file() == 'CSV':
-        pass
-    if identify_file() == 'Excell':
     pass
 
 
@@ -32,8 +29,6 @@ def save_figure():
 def save_var():
     pass
 
-def identify_file():
-    pass
 
 def make_pdf():
     pass
