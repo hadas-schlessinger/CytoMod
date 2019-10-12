@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, request
-from . import app
+from app import app
 import tools
 
 
