@@ -2,7 +2,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from matplotlib.gridspec import GridSpec
-
 import palettable
 import pandas as pd
 import scipy.spatial.distance as distance
@@ -10,8 +9,7 @@ import scipy.cluster.hierarchy as sch
 from sklearn.cluster.bicluster import SpectralBiclustering, SpectralCoclustering
 import numpy as np
 import itertools
-
-from corrplots import scatterfit
+from cytomod.otherTools.corrplots import scatterfit
 
 __all__ = ['plotHCluster',
             'plotHColCluster',
@@ -20,6 +18,7 @@ __all__ = ['plotHCluster',
             'computeDMat',
             'computeHCluster',
             'plotBicluster']
+
 
 def clean_axis(ax):
     """Remove ticks, tick labels, and frame from axis"""
@@ -30,6 +29,7 @@ def clean_axis(ax):
     ax.grid(False)
     ax.set_facecolor('white')
 
+
 def mapColors2Labels(labels, setStr='Set3', cmap=None):
     """Return pd.Series of colors based on labels"""
     if cmap is None:
@@ -37,6 +37,7 @@ def mapColors2Labels(labels, setStr='Set3', cmap=None):
         cmap = palettable.colorbrewer.get_map(setStr,'Qualitative',N).mpl_colors
     cmapLookup = {k:col for k,col in zip(sorted(np.unique(labels)),itertools.cycle(cmap))}
     return labels.map(cmapLookup.get)
+
 
 def computeDMat(df, metric=None, minN=1, dfunc=None):
     if dfunc is None:
@@ -72,6 +73,7 @@ def computeDMat(df, metric=None, minN=1, dfunc=None):
     assert dmat.shape[0] == df.shape[1]
     return dmat
 
+
 def computeHCluster(dmat, method='complete'):
     """Compute dmat, clusters and dendrogram of df using
     the linkage method and distance metric given"""
@@ -85,12 +87,14 @@ def computeHCluster(dmat, method='complete'):
     den = sch.dendrogram(clusters, color_threshold=np.inf, no_plot=True)
     return clusters, den
 
+
 def testData(rows=50,columns=20):
     data = np.random.multivariate_normal(rand(columns),rand(columns,columns),rows)
     df = pd.DataFrame(data,columns=[''.join([lett]*9) for lett in 'ABCDEFGHIJKLMNOPQRST'])
     rowLabels = pd.Series(rand(rows).round(),index=df.index)
     columnLabels = pd.Series(rand(columns).round(),index=df.columns)
     return {'df':df,'row_labels':rowLabels,'col_labels':columnLabels}
+
 
 def addColorbar(fig,cb_ax,data_ax,label='Correlation'):
     """Colorbar"""
@@ -99,6 +103,7 @@ def addColorbar(fig,cb_ax,data_ax,label='Correlation'):
     """Make colorbar labels smaller"""
     for t in cb.ax.yaxis.get_ticklabels():
         t.set_fontsize('small')
+
 
 def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_labels=None, titleStr=None, vRange=None, tickSz='small', cmap=None, dmat=None, cbLabel='Correlation', minN=1):
     """Plot a heatmap of a column-wise distance matrix defined by metric (can be 'spearman' as well)

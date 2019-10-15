@@ -7,22 +7,17 @@ from sklearn.decomposition import KernelPCA, PCA
 from sklearn.manifold import TSNE
 import itertools
 from functools import partial
-from myboxplot import manyboxplots
-
+from .otherTools.myboxplot import manyboxplots
 from matplotlib.gridspec import GridSpec
 from matplotlib import cm
 import scipy.cluster.hierarchy as sch
-
-from corrplots import validPairwiseCounts, partialcorr, combocorrplot, crosscorr, heatmap
-from hclusterplot import plotBicluster, plotCorrHeatmap
+from .otherTools.corrplots import validPairwiseCounts, partialcorr, combocorrplot, crosscorr, heatmap
+from .otherTools.hclusterplot import plotBicluster, plotCorrHeatmap
 import statsmodels.api as sm
 from scipy import stats
-
 import sklearn
-
 import seaborn as sns
 sns.set(style = 'darkgrid', palette = 'muted', font_scale = 1.75)
-
 from cytomod import labels2modules, makeModuleVariables, meanCorr
 from cytomod.comparison import *
 
@@ -35,7 +30,7 @@ __all__ = ['plotModuleEmbedding',
            'plotMeanCorr',
            'outcomeBoxplot',
            'plotROC',
-           'plotInterModuleCorr'
+           'plotInterModuleCorr',
            'plotClusterOverlap',
            'plotCrossCompartmentHeatmap',
            'plotCrossCompartmentBoxplot',
@@ -82,6 +77,7 @@ def plotModuleEmbedding(dmatDf, labels, dropped=None, method='kpca', plotLabels=
         axh.scatter(xy[cyi, plotDims[0]], xy[cyi, plotDims[1]], marker='o', s=s, alpha=alpha, c=col)
     plt.draw()
 
+
 def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='M', dropped=None, compCommVar=None):
     """Make a corr plot for a module."""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped=dropped, sampleStr=sampleStr)
@@ -101,6 +97,7 @@ def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='M', dropped=None, compCom
     axh = plt.gca()
     axh.annotate('%s%s' % (sampleStr, plotLabel), xy=(0.5, 0.99), xycoords='figure fraction', va = 'top', ha='center')
 
+
 def plotInterModuleCorr(cyDf, labels, dropped = None, compCommVar = None, sampleStr='M'):
     """Make a plot showing inter-module correlation"""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped = dropped, sampleStr=sampleStr)
@@ -112,6 +109,7 @@ def plotInterModuleCorr(cyDf, labels, dropped = None, compCommVar = None, sample
     figh = plt.gcf()
     figh.clf()
     combocorrplot(modDf[modVars], method = 'pearson')
+
 
 def cyBoxPlots(cyDf, ptidDf=None, hue=None, unLog=True, order=None):
     """Boxplots of cytokines sorted by median"""
@@ -144,6 +142,7 @@ def cyBoxPlots(cyDf, ptidDf=None, hue=None, unLog=True, order=None):
         plt.ylabel('Analyte level (log-scale)')
     plt.tight_layout()
 
+
 def logisticRegressionResults(df, outcome, predictors, adj=[]):
     k = len(predictors)
     assoc = np.zeros((k, 6))
@@ -172,6 +171,7 @@ def logisticRegressionResults(df, outcome, predictors, adj=[]):
     outDf['params'] = params
     outDf['pvalues']= pvalues
     return outDf
+
 
 def logisticRegressionBars(df, outcome, predictors, adj = [], useFDR = False, sigThreshold = 0.05, printPQ = False):
     """Forest plot of each predictor association with binary outcome."""
@@ -239,6 +239,7 @@ def logisticRegressionBars(df, outcome, predictors, adj = [], useFDR = False, si
     #plt.tight_layout()
     plt.show()
 
+
 def plotMeanCorr(cyDf, meanVar, cyList=None, method='pearson', save_path=None):
     plt.figure(212, figsize=(7, 11.8))
 
@@ -278,6 +279,7 @@ def plotCrossCompartmentBars(cyDfA, cyDfB, method='pearson'):
     plt.xlim((-1, 1))
     plt.tight_layout()
 
+
 def plotClusterOverlap(labelsA, labelsB, useCommon=False):
     if useCommon:
         labelsA, labelsB = labelsA.align(labelsB, join='inner')
@@ -306,6 +308,7 @@ def plotClusterOverlap(labelsA, labelsB, useCommon=False):
     plt.axis('off')
     plt.draw()
 
+
 def plotCrossCompartmentHeatmap(cyDfA, cyDfB, bicluster=False, n_clusters=4):
     rho, pvalue, qvalue = crosscorr(cyDfA[sorted(cyDfA.columns)], cyDfB[sorted(cyDfB.columns)])
     if n_clusters is None:
@@ -315,6 +318,7 @@ def plotCrossCompartmentHeatmap(cyDfA, cyDfB, bicluster=False, n_clusters=4):
             rho_sorted = plotBicluster(rho, n_clusters=n_clusters)
         else:
             plotCorrHeatmap(dmat=rho)
+
 
 def plotCrossCompartmentBoxplot(cyDfA, cyDfB):
     rho, pvalue, qvalue = crosscorr(cyDfA[sorted(cyDfA.columns)], cyDfB[sorted(cyDfB.columns)])
@@ -330,6 +334,7 @@ def plotCrossCompartmentBoxplot(cyDfA, cyDfB):
     plt.ylim((-1, 1))
     plt.tight_layout()
 
+
 def outcomeBoxplot(cyDf, cyVar, outcomeVar, printP=True, axh=None):
     if axh is None:
         axh = plt.gca()
@@ -343,6 +348,7 @@ def outcomeBoxplot(cyDf, cyVar, outcomeVar, printP=True, axh=None):
         annParams = dict(textcoords='offset points', xytext=(0, -5), ha='center', va='top', color='black', weight='bold', size='medium')
         plt.annotate('p = %1.3g' % pvalue, xy=(0.5, plt.ylim()[1]), **annParams)
     plt.show()
+
 
 def plotROC(cyDf, cyVarList, outcomeVar, n_folds=5):
     """Predict outcome with each cyVar and plot ROC for each, in a cross validation framework."""
@@ -377,9 +383,7 @@ def plotROC(cyDf, cyVarList, outcomeVar, n_folds=5):
             print('ROC: did not finish all folds (%d of %d)' % (counter, n_folds))
             plt.plot([0, 1], [0, 1], lw=2, label='%s (AUC = %0.2f)' % (cvarStr, 0.5))
 
-
     plt.plot([0, 1], [0, 1], '--', color='gray', label='Luck')
-
     plt.xlim([-0.05, 1.05])
     plt.ylim([-0.05, 1.05])
     plt.xlabel('False Positive Rate')
@@ -388,12 +392,14 @@ def plotROC(cyDf, cyVarList, outcomeVar, n_folds=5):
     plt.legend(loc="lower right")
     plt.show()
 
+
 def cyNHeatmap(cyDf):
     """Heatmap showing number of data points for each potential pairwise comparison of cytokines"""
     plt.clf()
     pwCounts = validPairwiseCounts(cyDf)
     heatmap(pwCounts, cmap=cm.gray, edgecolors='w', labelSize='medium')
     plt.tight_layout()
+
 
 def _colors2labels(labels, setStr = 'Set3', cmap = None):
     """Return pd.Series of colors based on labels"""
@@ -403,6 +409,7 @@ def _colors2labels(labels, setStr = 'Set3', cmap = None):
     cmapLookup = {k:col for k, col in zip(sorted(np.unique(labels)), itertools.cycle(cmap))}
     return labels.map(cmapLookup.get)
 
+
 def _clean_axis(ax):
     """Remove ticks, tick labels, and frame from axis"""
     ax.get_xaxis().set_ticks([])
@@ -411,6 +418,7 @@ def _clean_axis(ax):
         sp.set_visible(False)
     ax.grid(False)
     ax.set_facecolor('white')
+
 
 def plotHierClust(dmatDf, Z, labels=None, titleStr=None, vRange=None, tickSz='small', cmap=None, cmapLabel=''):
     """Display a hierarchical clustering result."""

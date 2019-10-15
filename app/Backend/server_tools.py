@@ -1,15 +1,16 @@
 import os
 import sys
-sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
+# sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 import tools
 import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
-import pandas as pd
+
 
 def read_file(args):
-
+    # insert reading function
     pass
+
 
 
 def save_data_on_local_path():
@@ -23,15 +24,15 @@ def create_folders(paths):
     tools.create_folder(paths['correlation_figures'])
     tools.create_folder(paths['association_figures'])
 
-def save_figure():
+
+def make_ans():
     pass
 
-def save_var():
-    pass
 
 
 def make_pdf():
     pass
+
 
 def download_pdf():
     pass

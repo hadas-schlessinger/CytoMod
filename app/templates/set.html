@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Settings</h1>
+    <form action="/generate" method="post">
+      name_data:<br>
+      <input type="text" name="name_data" value="Mickey">
+      <br>
+      name_compartment:<br>
+      <input type="text" name="name_compartment" value="Mouse">
+      <br>
+      max_testing_k:<br>
+      <input type="text" name="max_testing_k" value="Mouse">
+      <br>
+      max_final_k:<br>
+      <input type="text" name="max_final_k" value="Mouse">
+      <br>
+      outcomes:<br>
+      <input type="text" name="outcomes" value="Mouse">
+      <br>
+      covariates:<br>
+      <input type="text" name="covariates" value="Mouse">
+      <br>
+      covalog_column_namesriates:<br>
+      <input type="text" name="log_column_names" value="Mouse">
+      <br>
+      cytokines:<br>
+      <input type="text" name="cytokines" value="Mouse">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <p>If you click the "Submit" button, the form-data will be sent to a page called "/generate".</p>
+    </form>
+
+{% endblock %}
+
+<!--<p>{{ form.log_transform() }} {{ form.log_transform.label }}</p>-->
+        <!--<p>{{ form.recalculate_modules() }} {{ form.recalculate_modules.label }}</p>-->
+        <!--<p>{{ form.save_file() }} {{ form.save_file.label }}</p>-->
+    <!--</form>-->

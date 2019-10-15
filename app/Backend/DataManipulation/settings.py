@@ -7,36 +7,30 @@ from .. import server_tools
 import warnings
 import app
 import csv
-
+from . import import_data
+import numpy as np
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 
-SEED = 1234
-
 
 def set_data(args):
-    stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
-    csv_data = csv.reader(stream)
-    for row in csv.reader(stream, dialect=csv.excel):
-        if row:
-            data.append(row)
-
-
-    data = server_tools.read_file()  # needs to be created
-    data_path = server_tools.save_data_on_local_path(data)
-    paths = set_path(data_path)
-
-    if check_input(args, paths):
-        args.seed = app.config.get_namespace('SEED')
-        return True
-    #dont forget to delete file!!!!
+    if check_input(args, args.paths):
+        args.seed = os.environ.get("SEED")
+       # cy_data = server_tools.read_file()  # needs to be created
+       # data_path = server_tools.save_data_on_local_path(cy_data)
+        set_path(args)
+        args.cy_data = import_data.make_cyto_data(args)
+        args.patient_data = import_data.make_patiants_data(args)
+        log_transform(args, args.cy_data, args.patient_data)
+        return args
+    # dont forget to delete file!!!!
     return False
 
 
 def set_path(args):
-    #need to create a local file with the same architecture
+    # need to create a local file with the same architecture
 
-    #args.path_files = os.path.join(os.getcwd(), 'data_files')
+    args.path_files = os.path.join(os.getcwd(), 'data_files')
 
     args.paths = {'files': os.path.join(os.getcwd(), 'data_files'),
                   'data': os.path.join(os.getcwd(), 'data_files', 'data'),
@@ -48,11 +42,9 @@ def set_path(args):
                   'association_figures': os.path.join(os.getcwd(), 'data_files', 'output', 'associations'),
                   }
     server_tools.create_folders(args.paths)
-    return args.paths
 
 
-
-def check_input(args,paths):
+def check_input(args, paths):
     assert type(args.name_data) is str
     assert type(args.name_compartment) is str
     assert type(args.log_transform) is bool
@@ -64,8 +56,26 @@ def check_input(args,paths):
 
     for col_name in args.outcomes + args.covariates + args.log_column_names:
         assert type(col_name) is str
-        tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name)
+        tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name) #change to other things
+
+    return True
 
 
-def transform(text_file_contents):
-    return text_file_contents.replace("=", ",")
+def log_transform(args, cy_data, patient_data):
+
+    # needs to change to a better code writing
+
+    if args.log_transform:
+        cy_data = np.log10(cy_data)
+
+        if args.log_column_names != [] and args.outcomes != []:
+            for col_name in args.log_column_names:
+                new_col_name = 'log_' + col_name
+
+                # log transform variable
+                patient_data[new_col_name] = np.log10(patient_data[col_name])
+
+                # replace column with new log transformed column
+                if col_name in args.covariates:
+                    args.covariates.remove(col_name)
+                    args.covariates.append(new_col_name)
