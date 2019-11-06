@@ -11,14 +11,16 @@ from . import import_data
 import numpy as np
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
+import logging
 
 
 def set_data(args):
+    set_path(args)
     if check_input(args, args.paths):
-        args.seed = os.environ.get("SEED")
+        args.seed = os.environ.get("SEED") #by configuration!!!!!!!!!
+        logging.warning(f'seed: {args.seed}')
        # cy_data = server_tools.read_file()  # needs to be created
        # data_path = server_tools.save_data_on_local_path(cy_data)
-        set_path(args)
         args.cy_data = import_data.make_cyto_data(args)
         args.patient_data = import_data.make_patiants_data(args)
         log_transform(args, args.cy_data, args.patient_data)

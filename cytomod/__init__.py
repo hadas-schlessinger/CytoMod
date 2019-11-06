@@ -16,8 +16,8 @@
 
 from . import preprocessing
 from .clustering import *
-# from gapstat import computeGapStatistic
-from bootstrap_cluster import bootstrapFeatures, bootstrapObservations
+from .otherTools.gapstat import computeGapStatistic
+from .otherTools.bootstrap_cluster import bootstrapFeatures, bootstrapObservations
 from . import plotting
 from . import comparison
 from . import io

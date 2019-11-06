@@ -1,11 +1,11 @@
 import pandas as pd
 from os.path import join as opj
 
-from hclusterplot import plotHColCluster
+from .otherTools.hclusterplot import plotHColCluster
 import cytomod as cy
 from cytomod import plotting as cyplot
 import palettable
-from custom_legends import colorLegend
+from .otherTools.custom_legends import colorLegend
 import matplotlib.pyplot as plt
 import numpy as np
 import os

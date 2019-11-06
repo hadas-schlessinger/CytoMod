@@ -17,15 +17,15 @@ def pairwise_person(stage, args):
                                metric='pearson-signed', figsize=(10, 6),
                                save_path=os.path.join(args.paths['correlation_figures'],
                                                       '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
-
+        print('c')
         cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],
                                            figsize=(10, 6))
+        print('d')
     elif stage == 'adj':
         plotHColCluster(args.cyto_mod_adj.cyDf, method='complete',
                                metric='pearson-signed', figsize=(10, 6),
                                save_path=os.path.join(args.paths['correlation_figures'],
                                                       '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
-
 
 
 def mean_person(args):
@@ -87,6 +87,7 @@ def associations_to_outcomes(stage, args):
                                                         outcomeVars=args.outcomes,
                                                         adjustmentVars=args.covariates,
                                                         standardize=True)
+
 
 def figures(stage, args):
     if args.outcomes != []:

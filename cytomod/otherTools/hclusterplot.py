@@ -197,6 +197,7 @@ def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean
                     cmap=None,  minN=1, K=None, labelCmap=None, noColorBar=False,
                     interactive=False, save_path=None, figsize=(15,10)):
     """Perform hierarchical clustering on df columns and plot square heatmap of pairwise distances"""
+    print('a')
     plt.figure(10, figsize=figsize)
     if col_dmat is None and df is None:
         print('Need to provide df or col_dmat')

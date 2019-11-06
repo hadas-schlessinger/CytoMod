@@ -1,9 +1,10 @@
-from . import figure_scheme
-from ..DataManipulation import clustering
+from app.Backend.DataManipulation import clustering
+from app.Backend.Visualization import figure_scheme
+
 
 def calc_abs_figures(args):
     figure_scheme.pairwise_person('abs', args)
-    figure_scheme.mean_person('abs', args)
+    figure_scheme.mean_person(args)
     clustering.best_k(args)
     clustering.clustering(args)
     figure_scheme.pairwise_corelletion_with_moudles('abs', args)
@@ -11,6 +12,7 @@ def calc_abs_figures(args):
     figure_scheme.modules_cytokine_correlation('abs', args)
     figure_scheme.associations_to_outcomes('abs', args)
     figure_scheme.figures('abs', args)
+
 
 def calc_adj_figures(args):
     figure_scheme.pairwise_person('adj', args)

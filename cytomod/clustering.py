@@ -1,13 +1,13 @@
 import scipy.cluster.hierarchy as sch
 from scipy.spatial import distance
-from .otherTools.bootstrap_cluster import bootstrapFeatures, bootstrapObservations
+from cytomod.otherTools.bootstrap_cluster import bootstrapFeatures, bootstrapObservations
 import numpy as np
 import pandas as pd
 from functools import partial
-from .comparison import _alignClusterMats, alignClusters
-from .preprocessing import partialCorrNormalize
+from cytomod.comparison import _alignClusterMats, alignClusters
+from cytomod.preprocessing import partialCorrNormalize
 from copy import deepcopy
-from corrplots import partialcorr
+from cytomod.otherTools.corrplots import partialcorr
 
 import statsmodels.api as sm
 

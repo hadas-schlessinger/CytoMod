@@ -1,4 +1,4 @@
-import gapstat
+from .otherTools import gapstat
 import cytomod as cy
 import matplotlib.pyplot as plt
 from functools import partial
@@ -23,6 +23,7 @@ def getBestK(cyData, b=1000, max_testing_k=12, bootstraps=200, max_final_k=6, sa
         plt.savefig(save_fig_path)
 
     return(bestK)
+
 
 def extractK(stat, max_testing_k, max_final_k=6):
     final_k = 0

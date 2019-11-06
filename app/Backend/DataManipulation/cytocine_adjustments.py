@@ -1,6 +1,7 @@
 import os
 import cytomod
 import tools
+import logging
 
 
 def adjust_cytokine(args):

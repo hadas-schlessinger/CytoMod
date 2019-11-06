@@ -5,7 +5,7 @@ import itertools
 from sklearn import metrics
 import pandas as pd
 import statsmodels.api as sm
-from corrplots import partialcorr
+from .otherTools.corrplots  import partialcorr
 from functools import partial
 from scipy import stats
 
