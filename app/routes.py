@@ -35,21 +35,22 @@ def set():
 
 @app.route('/generate', methods=['GET', 'POST'])
 def generate():
-    args = tools.Object()
-    args.name_data = request.args.get('name_data')
-    args.name_compartment = request.args.get('name_compartment')
-    args.log_transform = request.args.get('log_transform') in ['true', '1', 'True', 'TRUE'] #change to bool
-    args.max_testing_k = request.args.get('max_testing_k', type=int)
-    args.max_final_k = request.args.get('max_final_k', type=int)  # Must be <= max_testing_k
-    args.recalculate_modules = request.args.get('recalculate_modules') in ['true', '1', 'True', 'TRUE'] # change to bool
-    args.outcomes = request.args.getlist('outcomes')  # names of binary outcome columns
-    args.covariates = request.args.getlist('covariates')  # names of regression covariates to control for
-    args.log_column_names = request.args.getlist('log_column_names')  # or empty list: []
-    args.cytokines = request.args.getlist('cytokines') # if none, will analyze all
-    args.save_file = request.args.get('save_file') in ['true', '1', 'True', 'TRUE']  # for saving the file in the server
-    args = dm.settings.set_data(args)
-    args = dm.cytocine_adjustments.adjust_cytokine(args)
-    Visualization.figures.calc_abs_figures(args)
+    parameters = tools.Object()
+    parameters.name_compartment = request.form.get('name_compartment')
+    parameters.name_data = request.form.get('name_data')
+    parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE'] #change to bool
+    parameters.max_testing_k = request.form.get('max_testing_k', type=int)
+    parameters.max_final_k = request.form.get('max_final_k', type=int)  # Must be <= max_testing_k
+    parameters.recalculate_modules = request.form.get('recalculate_modules') in ['true', '1', 'True', 'TRUE'] # change to bool
+    parameters.outcomes = request.args.getlist('outcomes')  # names of binary outcome columns
+    parameters.covariates = request.args.getlist('covariates')  # names of regression covariates to control for
+    parameters.log_column_names = request.args.getlist('log_column_names')  # or empty list: []
+    parameters.cytokines = request.args.getlist('cytokines') # if none, will analyze all
+    parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE']  # for saving the file in the server
+    print(parameters.save_file)
+    parameters = dm.settings.set_data(parameters)
+    parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
+    Visualization.figures.calc_abs_figures(parameters)
     #Visualization.figures.calc_adj_figures(args)
     # logging.warning('finished')
     # ans = server_tools.make_ans()
@@ -88,6 +89,6 @@ def generate():
 #            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
-#
+if __name__ == "__main__":
+  app.run(debug=True)
+

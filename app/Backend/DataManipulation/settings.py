@@ -24,6 +24,7 @@ def set_data(args):
         args.cy_data = import_data.make_cyto_data(args)
         args.patient_data = import_data.make_patiants_data(args)
         log_transform(args, args.cy_data, args.patient_data)
+        print('finished set_data')
         return args
     # dont forget to delete file!!!!
     return False
@@ -47,6 +48,7 @@ def set_path(args):
 
 
 def check_input(args, paths):
+    print(f'the name is {args.name_data}')
     assert type(args.name_data) is str
     assert type(args.name_compartment) is str
     assert type(args.log_transform) is bool

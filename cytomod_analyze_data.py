@@ -235,6 +235,7 @@ if do_recalculate:
         cytomod.io.plot_modules(cyto_object, args.paths['clustering_figures'],
                                 heatmap_figsize=(10, 6))
 
+
 ########### ------------ Associations ------------- ###########
 
 # standardize numeric covariates

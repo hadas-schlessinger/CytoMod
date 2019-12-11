@@ -20,6 +20,7 @@ __all__ = ['hierClusterFunc',
            'meanCorr',
            'silhouette']
 
+
 def corrDmatFunc(cyDf, metric='pearson-signed', dfunc=None, minN=None):
     if metric is None:
         metric = 'pearson-signed'

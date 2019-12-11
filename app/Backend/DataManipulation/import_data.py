@@ -1,9 +1,9 @@
 import os
 import sys
 import pandas as pd
-sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 import tools
 import warnings
+sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 
