@@ -47,7 +47,6 @@ def generate():
     parameters.log_column_names = request.args.getlist('log_column_names')  # or empty list: []
     parameters.cytokines = request.args.getlist('cytokines') # if none, will analyze all
     parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE']  # for saving the file in the server
-    print(parameters.save_file)
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     Visualization.figures.calc_abs_figures(parameters)

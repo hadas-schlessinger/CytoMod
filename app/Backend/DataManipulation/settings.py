@@ -14,28 +14,29 @@ warnings.simplefilter('ignore')
 import logging
 
 
-def set_data(args):
-    set_path(args)
-    if check_input(args, args.paths):
-        args.seed = os.environ.get("SEED") #by configuration!!!!!!!!!
-        logging.warning(f'seed: {args.seed}')
+def set_data(parameters):
+    set_path(parameters)
+    if check_input(parameters, parameters.paths):
+        parameters.seed = 1234
+            #os.environ.get("SEED") #by configuration!!!!!!!!!
        # cy_data = server_tools.read_file()  # needs to be created
        # data_path = server_tools.save_data_on_local_path(cy_data)
-        args.cy_data = import_data.make_cyto_data(args)
-        args.patient_data = import_data.make_patiants_data(args)
-        log_transform(args, args.cy_data, args.patient_data)
+        data = tools.Object
+        data.cy_data = import_data.make_cyto_data(parameters)
+        data.patient_data = import_data.make_patiants_data(parameters)
+        log_transform(parameters, parameters.cy_data, parameters.patient_data)
         print('finished set_data')
-        return args
+        return parameters
     # dont forget to delete file!!!!
     return False
 
 
-def set_path(args):
+def set_path(parameters):
     # need to create a local file with the same architecture
 
-    args.path_files = os.path.join(os.getcwd(), 'data_files')
+    parameters.path_files = os.path.join(os.getcwd(), 'data_files')
 
-    args.paths = {'files': os.path.join(os.getcwd(), 'data_files'),
+    parameters.paths = {'files': os.path.join(os.getcwd(), 'data_files'),
                   'data': os.path.join(os.getcwd(), 'data_files', 'data'),
                   'gap_statistic': os.path.join(os.getcwd(), 'data_files', 'output', 'gap_statistic'),
                   'clustering': os.path.join(os.getcwd(), 'data_files', 'output', 'clustering'),
@@ -44,42 +45,41 @@ def set_path(args):
                   'correlation_figures': os.path.join(os.getcwd(), 'data_files', 'output', 'correlations'),
                   'association_figures': os.path.join(os.getcwd(), 'data_files', 'output', 'associations'),
                   }
-    server_tools.create_folders(args.paths)
+    server_tools.create_folders(parameters.paths)
 
 
-def check_input(args, paths):
-    print(f'the name is {args.name_data}')
-    assert type(args.name_data) is str
-    assert type(args.name_compartment) is str
-    assert type(args.log_transform) is bool
-    assert type(args.max_testing_k) is int
-    assert type(args.max_final_k) is int
-    assert args.max_final_k <= args.max_testing_k
-    assert type(args.outcomes) is list
-    assert type(args.covariates) is list
+def check_input(parameters, paths):
+    assert type(parameters.name_data) is str
+    assert type(parameters.name_compartment) is str
+    assert type(parameters.log_transform) is bool
+    assert type(parameters.max_testing_k) is int
+    assert type(parameters.max_final_k) is int
+    assert parameters.max_final_k <= parameters.max_testing_k
+    assert type(parameters.outcomes) is list
+    assert type(parameters.covariates) is list
 
-    for col_name in args.outcomes + args.covariates + args.log_column_names:
+    for col_name in parameters.outcomes + parameters.covariates + parameters.log_column_names:
         assert type(col_name) is str
         tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name) #change to other things
 
     return True
 
 
-def log_transform(args, cy_data, patient_data):
+def log_transform(parameters, cy_data, patient_data):
 
     # needs to change to a better code writing
 
-    if args.log_transform:
+    if parameters.log_transform:
         cy_data = np.log10(cy_data)
 
-        if args.log_column_names != [] and args.outcomes != []:
-            for col_name in args.log_column_names:
+        if parameters.log_column_names != [] and parameters.outcomes != []:
+            for col_name in parameters.log_column_names:
                 new_col_name = 'log_' + col_name
 
                 # log transform variable
                 patient_data[new_col_name] = np.log10(patient_data[col_name])
 
                 # replace column with new log transformed column
-                if col_name in args.covariates:
-                    args.covariates.remove(col_name)
-                    args.covariates.append(new_col_name)
+                if col_name in parameters.covariates:
+                    parameters.covariates.remove(col_name)
+                    parameters.covariates.append(new_col_name)
