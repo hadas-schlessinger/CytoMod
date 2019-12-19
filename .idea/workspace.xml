@@ -3,9 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Backend/DataManipulation/import_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/DataManipulation/import_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Backend/DataManipulation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/DataManipulation/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/io.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/io.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/otherTools/gapstat.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/otherTools/gapstat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/bestK.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/bestK.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_abs.dill" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_abs.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_adj.dill" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_adj.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__color_label_legend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__color_label_legend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__hierchical_clust_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__hierchical_clust_heatmap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__reliability.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__reliability.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__cy_mean_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__cy_mean_correlation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_abs.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_abs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_adj.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_adj.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +37,11 @@
         <counts>
           <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -35,7 +54,7 @@
           <entry key="html" value="11" />
           <entry key="ipynb" value="4" />
           <entry key="png" value="5" />
-          <entry key="py" value="97" />
+          <entry key="py" value="103" />
           <entry key="variables" value="1" />
         </counts>
       </usages-collector>
@@ -46,7 +65,7 @@
           <entry key="IPNB" value="4" />
           <entry key="Image" value="5" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="98" />
+          <entry key="Python" value="104" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -57,14 +76,14 @@
           <entry key="data_manipulation" value="25" />
           <entry key="dummy" value="44" />
           <entry key="html" value="203" />
-          <entry key="py" value="5996" />
+          <entry key="py" value="6265" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="203" />
           <entry key="PLAIN_TEXT" value="67" />
-          <entry key="Python" value="6149" />
+          <entry key="Python" value="6418" />
         </counts>
       </usages-collector>
     </session>
@@ -75,19 +94,7 @@
         <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/cytocine_adjustments.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/import_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -98,16 +105,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="30">
+              <caret line="2" column="68" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="68" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1571416133718" expanded="true" signature="1311:1312" ph="..." />
-                <marker date="1571416133718" expanded="true" signature="2020:2257" ph="..." />
-                <marker date="1571416133718" expanded="true" signature="2397:2597" ph="..." />
-                <marker date="1571416133718" expanded="true" signature="2641:4780" ph="..." />
-                <marker date="1571416133718" expanded="true" signature="4805:4806" ph="..." />
+                <marker date="1576065121258" expanded="true" signature="1043:1044" ph="..." />
+                <marker date="1576065121258" expanded="true" signature="1752:1989" ph="..." />
+                <marker date="1576065121258" expanded="true" signature="2129:2329" ph="..." />
+                <marker date="1576065121258" expanded="true" signature="2373:4512" ph="..." />
+                <marker date="1576065121258" expanded="true" signature="4537:4538" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2730">
+              <caret line="193" selection-start-line="193" selection-end-line="193" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-279">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -115,12 +142,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="37" column="14" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="14" />
+            <state relative-caret-position="26">
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
-                <marker date="1576062577755" expanded="true" signature="899:941" ph="..." />
-                <marker date="1576062577755" expanded="true" signature="2363:2392" ph="..." />
+                <marker date="1576754993965" expanded="true" signature="910:952" ph="..." />
+                <marker date="1576754993965" expanded="true" signature="2387:2416" ph="..." />
               </folding>
             </state>
           </provider>
@@ -138,7 +165,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cytomod/clustering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
+            <state relative-caret-position="675">
               <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -150,8 +177,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state relative-caret-position="-23">
+              <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1576063183883" expanded="true" signature="305:306" ph="..." />
@@ -160,6 +187,15 @@
                 <marker date="1576063183883" expanded="true" signature="2010:2012" ph="..." />
                 <marker date="1576063183883" expanded="true" signature="2047:2048" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Backend/Visualization/figures.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -183,7 +219,10 @@
       <find>gapstat</find>
       <find>mapping</find>
       <find>plotHColCluster</find>
+      <find>cyto_mod_abs.name</find>
+      <find>print</find>
       <find>plt</find>
+      <find>plt.figu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -213,7 +252,6 @@
         <option value="$PROJECT_DIR$/CytoWebServer/run.py" />
         <option value="$PROJECT_DIR$/CytoWebServer/__init__.py" />
         <option value="$PROJECT_DIR$/CytoWebServer/app/routes.py" />
-        <option value="$PROJECT_DIR$/tools.py" />
         <option value="$PROJECT_DIR$/app/variables" />
         <option value="$PROJECT_DIR$/app/Backend/DataManipulation/__init__.py" />
         <option value="$PROJECT_DIR$/app/Backend/Visualization/adjusted_cytokine.py" />
@@ -233,23 +271,24 @@
         <option value="$PROJECT_DIR$/cytomod/__init__.py" />
         <option value="$PROJECT_DIR$/cytomod/comparison.py" />
         <option value="$PROJECT_DIR$/cytomod/run_gap_statistic.py" />
-        <option value="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" />
-        <option value="$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py" />
         <option value="$PROJECT_DIR$/app/Backend/DataManipulation/cytocine_adjustments.py" />
-        <option value="$PROJECT_DIR$/app/Backend/Visualization/figures.py" />
         <option value="$PROJECT_DIR$/cytomod/clustering.py" />
         <option value="$PROJECT_DIR$/cytomod_analyze_data.py" />
         <option value="$PROJECT_DIR$/app/Backend/DataManipulation/clustering.py" />
-        <option value="$PROJECT_DIR$/app/routes.py" />
         <option value="$PROJECT_DIR$/app/Backend/DataManipulation/settings.py" />
         <option value="$PROJECT_DIR$/app/Backend/DataManipulation/import_data.py" />
+        <option value="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" />
+        <option value="$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py" />
+        <option value="$PROJECT_DIR$/app/Backend/Visualization/figures.py" />
+        <option value="$PROJECT_DIR$/tools.py" />
+        <option value="$PROJECT_DIR$/app/routes.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="948" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -305,6 +344,19 @@
               <item name="data_files" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="data_files" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="data_files" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+              <item name="clustering" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -314,6 +366,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="dill&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/data_files/output/clustering/cyto_mod_abs.dill" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -503,10 +556,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="948" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="946" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19951779" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17721519" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -517,9 +569,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4996986" weight="0.3290398" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49909583" weight="0.3290398" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.893912" visible="true" weight="0.27686915" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.893912" visible="true" weight="0.51288056" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.106088005" side_tool="true" weight="0.24183674" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49909583" weight="0.38992974" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49909583" weight="0.38901868" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -577,13 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -695,20 +740,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cytomod/otherTools/gapstat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1905">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-1905" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/python3.7/site-packages/flask/app.py">
@@ -732,30 +766,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Backend/Visualization/figures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/clustering.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
-          <folding>
-            <marker date="1576057367498" expanded="true" signature="106:1227" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/cytocine_adjustments.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -766,16 +780,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cytomod_notebook.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="6" />
+    <entry file="file://$PROJECT_DIR$/cytomod/example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cytomod/assoc_to_outcome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="176" lean-forward="true" selection-start-line="176" selection-end-line="176" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/import_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2730">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cytomod/clustering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
+        <state relative-caret-position="675">
           <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
@@ -783,22 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="37" column="14" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-            <marker date="1576062577755" expanded="true" signature="899:941" ph="..." />
-            <marker date="1576062577755" expanded="true" signature="2363:2392" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        <state relative-caret-position="-23">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <marker date="1576063183883" expanded="true" signature="305:306" ph="..." />
@@ -810,28 +839,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/io/excel/_openpyxl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Backend/Visualization/figures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="30">
+          <caret line="2" column="68" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="68" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1571416133718" expanded="true" signature="1311:1312" ph="..." />
-            <marker date="1571416133718" expanded="true" signature="2020:2257" ph="..." />
-            <marker date="1571416133718" expanded="true" signature="2397:2597" ph="..." />
-            <marker date="1571416133718" expanded="true" signature="2641:4780" ph="..." />
-            <marker date="1571416133718" expanded="true" signature="4805:4806" ph="..." />
+            <marker date="1576065121258" expanded="true" signature="1043:1044" ph="..." />
+            <marker date="1576065121258" expanded="true" signature="1752:1989" ph="..." />
+            <marker date="1576065121258" expanded="true" signature="2129:2329" ph="..." />
+            <marker date="1576065121258" expanded="true" signature="2373:4512" ph="..." />
+            <marker date="1576065121258" expanded="true" signature="4537:4538" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/import_data.py">
+    <entry file="file://$PROJECT_DIR$/cytomod_notebook.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        <state relative-caret-position="26">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+            <marker date="1576754993965" expanded="true" signature="910:952" ph="..." />
+            <marker date="1576754993965" expanded="true" signature="2387:2416" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Backend/DataManipulation/cytocine_adjustments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-279">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

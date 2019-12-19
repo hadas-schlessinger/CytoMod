@@ -110,10 +110,9 @@ def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_lab
     Can provide dmat as a pd.DataFrame instead of df.
     Optionally supply a column index colInd to reorder the columns to match a previous clustering
     Optionally, col_labels will define a color strip along the yaxis to show groups"""
-
+    plt.switch_backend('Agg')
     fig = plt.gcf()
     fig.clf()
-
     if dmat is None and df is None:
         print('Need to provide df or dmat')
         return
@@ -192,12 +191,13 @@ def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_lab
     if not titleStr is None:
         heatmapAX.set_xlabel(titleStr,size='x-large')
 
+
 def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean',
                     col_labels=None, titleStr=None, vRange=None, tickSz='small',
                     cmap=None,  minN=1, K=None, labelCmap=None, noColorBar=False,
                     interactive=False, save_path=None, figsize=(15,10)):
     """Perform hierarchical clustering on df columns and plot square heatmap of pairwise distances"""
-    print('a')
+    plt.switch_backend('Agg')
     plt.figure(10, figsize=figsize)
     if col_dmat is None and df is None:
         print('Need to provide df or col_dmat')

@@ -87,7 +87,7 @@ def computeGapStatistic(data, pdistFunc, clusterFuncReal, clusterFuncNull, maxK,
 def plotGapStat(lsICD, mBSICD, errBSICD, gap):
     """Descriptive plot of the Gap statistic.
     Parameters are simply the output from computeGapStat."""
-
+    plt.switch_backend('Agg')
     maxK = len(gap)
     plt.clf()
     plt.figure(figsize=(20, 13))

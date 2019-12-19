@@ -12,6 +12,7 @@ import os
 
 __all__ = ['write_modules', 'plot_modules']
 
+
 def write_modules(clust_object, folder):
     """rawDf: pd.DataFrame with cytokines as columns and sample IDs along the index"""
     clust_object.rCyDf.to_csv(opj(folder, '{name}_raw_log-conc.csv'.format(name=clust_object.name)))
@@ -33,10 +34,12 @@ def write_modules(clust_object, folder):
 
     clust_object.rModDf.to_csv(opj(folder, '{name}_raw_modules.csv'.format(name=clust_object.name)))
 
+
 def plot_modules(clust_object, folder):
     '''Plot cytomod object modules information'''
 
     """Hierarchical clustering heatmap"""
+    plt.switch_backend('Agg')
     plt.figure(41, figsize=(15.5, 9.5))
     # colInds = plotHColCluster(ds[s].cyDf, method='complete', metric='pearson-signed', col_labels=ds[s].labels, col_dmat=ds[s].dmatDf)
     colInds = plotHColCluster(clust_object.cyDf, method='complete', metric='pearson-signed',
@@ -80,10 +83,12 @@ def plot_modules(clust_object, folder):
                 loc='lower left')
     plt.figure(901).savefig(os.path.join(folder, '%sembed.png' % clust_object.name), dpi=300)
 
+
 def plot_modules(clust_object, folder, heatmap_figsize=(15.5, 9.5)):
     '''Plot cytomod object modules information'''
 
     """Hierarchical clustering heatmap"""
+    plt.switch_backend('Agg')
     plt.figure(41, figsize=heatmap_figsize)
     # colInds = plotHColCluster(ds[s].cyDf, method='complete', metric='pearson-signed', col_labels=ds[s].labels, col_dmat=ds[s].dmatDf)
     colInds = plotHColCluster(clust_object.cyDf, method='complete', metric='pearson-signed',

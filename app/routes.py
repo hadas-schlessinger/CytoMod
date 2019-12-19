@@ -5,6 +5,7 @@ from app.Backend import DataManipulation as dm
 from app.Backend import Visualization
 from app.Backend import server_tools
 import logging
+import sys
 
 # from .forms import LoginForm
 # import os
@@ -35,6 +36,7 @@ def set():
 
 @app.route('/generate', methods=['GET', 'POST'])
 def generate():
+    sys.path
     parameters = tools.Object()
     parameters.name_compartment = request.form.get('name_compartment')
     parameters.name_data = request.form.get('name_data')
