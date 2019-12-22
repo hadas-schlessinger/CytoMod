@@ -9,10 +9,10 @@ def calc_abs_figures(args):
     clustering.clustering(args)
     figure_scheme.pairwise_corelletion_with_moudles('abs', args)
     figure_scheme.same_cluster_reliability('abs', args)
-    print('finished 6')
     figure_scheme.modules_cytokine_correlation('abs', args)
     figure_scheme.associations_to_outcomes('abs', args)
     figure_scheme.figures('abs', args)
+    print('finished creating abs figures')
     # add print tables
 
 
@@ -24,5 +24,6 @@ def calc_adj_figures(args):
     figure_scheme.write_results(args)
     figure_scheme.associations_to_outcomes('adj', args)
     figure_scheme.figures('adj', args)
+    print('finished creating adj figures')
     # add print tables
 

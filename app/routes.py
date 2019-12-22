@@ -24,7 +24,7 @@ ALLOWED_EXTENSIONS = set(['csv'])
 #     return render_template('login.html', title='Sign In', form=form)
 
 
-@app.route('/welcome', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
     return render_template('upload.html')
 
@@ -52,7 +52,7 @@ def generate():
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     Visualization.figures.calc_abs_figures(parameters)
-    #Visualization.figures.calc_adj_figures(args)
+    Visualization.figures.calc_adj_figures(parameters)
     # logging.warning('finished')
     # ans = server_tools.make_ans()
     # pdf_path = server_tools.make_pdf()
