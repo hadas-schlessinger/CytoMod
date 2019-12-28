@@ -4,50 +4,50 @@
 
     <h1>Settings</h1>
     <form action="/generate" method="post">
-       <h2>name_data</h2><br>
-        <p>Insert the name of the data/chort</p>
-      <input type="text" name="name_data" value="data_name">
+        <h3 style="color: #5e9ca0;">name_data</h3><br>
+        <p style="color: #0B7478">Insert the name of the data/chort</p>
+      <input type="text" name="name_data" placeholder="name">
       <br>
-      <h2>name_compartment</h2><br>
-         <p>Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
-      <input type="text" name="name_compartment" value="Plasma">
+        <h3 style="color: #5e9ca0;">name_compartment</h3><br>
+         <p style="color: #0B7478">Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
+      <input type="text" name="name_compartment" placeholder="Plasma">
       <br>
-      <h2>log_transform</h2><br>
-        <p>Marking this will generate log transformation on the cytokine data</p>
-      <input type="checkbox" name="log_transform" value="True">
+        <h3 style="color: #5e9ca0;">log_transform</h3><br>
+        <p style="color: #0B7478">Marking this will generate log transformation on the cytokine data</p>
+      <input type="checkbox" name="log_transform" checked="True">
       <br>
-      <h2>max_testing_k</h2><br>
-         <p>max number of cytokine groups to check.
+        <h3 style="color: #5e9ca0;">max_testing_k</h3><br>
+         <p style="color: #0B7478">max number of cytokine groups to check.
              i.e: maximal number of clusters to test the gap statistic for</p>
-      <input type="number" name="max_testing_k" value="8">
+      <input type="number" name="max_testing_k" placeholder="8">
       <br>
-      <h2>max_final_k</h2><br>
-         <p>max modules size - the maximal number of clusters that can be chosen. must be smaller then "max_testing_k"</p>
-      <input type="number" name="max_final_k" value="6">
+        <h3 style="color: #5e9ca0;">max_final_k</h3><br>
+         <p style="color: #0B7478">max modules size - the maximal number of clusters that can be chosen. must be smaller then "max_testing_k"</p>
+      <input type="number" name="max_final_k" placeholder="6">
       <br>
-      <h2>outcomes</h2><br>
-         <p>Optional. Names of outcome variables from the patients_data.xlsx data-frame to be analyzed.
+        <h3 style="color: #5e9ca0;">outcomes</h3><br>
+         <p style="color: #0B7478">Optional. Names of outcome variables from the patients_data.xlsx data-frame to be analyzed.
        If list is left empty (i.e., []), will not perform the associations to outcomes analysis.
        This code currently supports binary outcome variables only, by using logistic regression</p>
-      <input type="text" name="outcomes[]" >
+      <input type="text" name="outcomes" placeholder="outcome variables" >
       <br>
-      <h2>covariates</h2><br>
-        <p>Optional. Names of covariate variables (columns) from the patients_data.xlsx data-frame
+        <h3 style="color: #5e9ca0;">covariates</h3><br>
+        <p style="color: #0B7478">Optional. Names of covariate variables (columns) from the patients_data.xlsx data-frame
        to be controlled for in the regression models. If list is left empty (i.e., []),
        will not controll the associations to outcomes analysis with any covariate variables</p>
-      <input type="text" name="covariates[]" value="Age">
+      <input type="text" name="covariates" placeholder="Age">
       <br>
-      <h2>log_column_names</h2><br>
-        <p>List with names of covariate columns to be log-transformed, only if args.log_transform = True.
+        <h3 style="color: #5e9ca0;">log_column_names</h3><br>
+        <p style="color: #0B7478">List with names of covariate columns to be log-transformed, only if args.log_transform = True.
         If there are no columns you wish to transform, leave empty </p>
-      <input type="text" name="log_column_names" value="Age">
+      <input type="text" name="log_column_names" placeholder="Age">
       <br>
-      <h2>cytokines</h2><br>
-        <p>List of cytokines to be analyzed. If None, will analyze all cytokines in the cytokine_data file</p>
-      <input type="text" name="cytokines" value="">
+        <h3 style="color: #5e9ca0;">cytokines</h3><br>
+        <p style="color: #0B7478">List of cytokines to be analyzed. If None, will analyze all cytokines in the cytokine_data file</p>
+      <input type="text" name="cytokines">
       <br>
-     <h2>save_file</h2><br>
-        <p>Whether you agree us to keep your data saved in our database</p>
+     <h3 style="color: #5e9ca0;">save_file</h3><br>
+        <p style="color: #0B7478">Whether you agree us to keep your data saved in our database</p>
       <input type="checkbox" name="save_file" checked=True>
       <br><br>
       <input type="submit" value="Submit">

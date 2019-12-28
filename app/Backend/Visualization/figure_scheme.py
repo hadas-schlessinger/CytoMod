@@ -104,4 +104,4 @@ def figures(stage, args):
                                       compartmentName=args.name_compartment,
                                       figsize=(6, 9),
                                       save_fig_path=os.path.join(args.paths['association_figures'],
-                                                                 'associations_abs.png'))
+                                                                 'associations_adj.png'))

@@ -28,7 +28,7 @@ app.debug = True
 #         return redirect('welcome.html')
 #     return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -51,14 +51,11 @@ def upload_file():
     return render_template('upload.html')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def welcome():
-    return render_template('upload.html')
-
-
-@app.route('/set')
-def set():
-    return render_template('set.html')
+    if request.method == 'POST':
+        return render_template('upload.html')
+    return render_template('welcome.html')
 
 
 def allowed_file(filename):
@@ -70,17 +67,27 @@ def allowed_file(filename):
 def generate():
     parameters = tools.Object()
     parameters.name_compartment = request.form.get('name_compartment')
+    print(parameters.name_compartment)
+    print(request.form.get('name_compartment'))
     parameters.name_data = request.form.get('name_data')
-    parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE']
+    print(request.form.get('name_data'))
+    parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
+    print(parameters.log_transform)
     parameters.max_testing_k = request.form.get('max_testing_k', type=int)
+    print(parameters.max_testing_k)
     parameters.max_final_k = request.form.get('max_final_k', type=int)  # Must be <= max_testing_k
+    print(parameters.max_final_k)
     parameters.recalculate_modules = True
-    parameters.outcomes = request.args.getlist('outcomes[]')  # names of binary outcome columns
-    print(request.args.getlist('outcomes'))
-    parameters.covariates = request.args.getlist('covariates[]')  # names of regression covariates to control for
-    parameters.log_column_names = request.args.getlist('log_column_names')  # or empty list: []
-    parameters.cytokines = request.args.getlist('cytokines') # if none, will analyze all
-    parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE']  # for saving the file in the server
+    parameters.outcomes = request.form.getlist('outcomes')  # names of binary outcome columns
+    print(parameters.outcomes)
+    parameters.covariates = request.form.getlist('covariates') # names of regression covariates to control for
+    print(parameters.covariates)
+    parameters.log_column_names = request.form.getlist('log_column_names')  # or empty list: []
+    print(parameters.log_column_names)
+    parameters.cytokines = request.form.getlist('cytokines') # if none, will analyze all
+    print(parameters.cytokines)
+    parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
+    print(parameters.save_file)
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     Visualization.figures.calc_abs_figures(parameters)

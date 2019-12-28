@@ -5,15 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/set.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/set.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/data/cytokine_data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/data/patient_data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/welcome.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_files/output/clustering/bestK.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/bestK.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_abs.dill" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_abs.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_adj.dill" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/cyto_mod_adj.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__hierchical_clust_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__hierchical_clust_heatmap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__reliability.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__reliability.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_adjusted__reliability.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_adjusted__reliability.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_adjusted__correlation_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_adjusted__correlation_heatmap.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -226,7 +227,8 @@
       <updated>1570033566782</updated>
       <workItem from="1577026023156" duration="7146000" />
       <workItem from="1577276466555" duration="5397000" />
-      <workItem from="1577541906763" duration="6787000" />
+      <workItem from="1577541906763" duration="6895000" />
+      <workItem from="1577551718101" duration="6182000" />
     </task>
     <servers />
   </component>
@@ -251,5 +253,9 @@
       <screen x="0" y="23" width="1680" height="946" />
     </state>
     <state x="506" y="253" width="667" height="486" key="find.popup/0.23.1680.946@0.23.1680.946" timestamp="1577550149013" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1577573471934">
+      <screen x="0" y="23" width="1680" height="946" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.23.1680.946@0.23.1680.946" timestamp="1577573471934" />
   </component>
 </project>
