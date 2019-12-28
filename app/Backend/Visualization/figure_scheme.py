@@ -83,6 +83,7 @@ def associations_to_outcomes(stage, args):
 
 
 def figures(stage, args):
+    print(args.outcomes)
     if args.outcomes != []:
         if stage == 'abs':
             outcome.plotResultSummary(args.cyto_modules['abs'],

@@ -4,39 +4,58 @@
 
     <h1>Settings</h1>
     <form action="/generate" method="post">
-      name_data:<br>
-      <input type="text" name="name_data" value="Mickey">
+       <h2>name_data</h2><br>
+        <p>Insert the name of the data/chort</p>
+      <input type="text" name="name_data" value="data_name">
       <br>
-      name_compartment:<br>
-      <input type="text" name="name_compartment" value="Mouse">
+      <h2>name_compartment</h2><br>
+         <p>Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
+      <input type="text" name="name_compartment" value="Plasma">
       <br>
-      max_testing_k:<br>
-      <input type="text" name="max_testing_k" value="Mouse">
+      <h2>log_transform</h2><br>
+        <p>Marking this will generate log transformation on the cytokine data</p>
+      <input type="checkbox" name="log_transform" value="True">
       <br>
-      max_final_k:<br>
-      <input type="text" name="max_final_k" value="Mouse">
+      <h2>max_testing_k</h2><br>
+         <p>max number of cytokine groups to check.
+             i.e: maximal number of clusters to test the gap statistic for</p>
+      <input type="number" name="max_testing_k" value="8">
       <br>
-      outcomes:<br>
-      <input type="text" name="outcomes" value="Mouse">
+      <h2>max_final_k</h2><br>
+         <p>max modules size - the maximal number of clusters that can be chosen. must be smaller then "max_testing_k"</p>
+      <input type="number" name="max_final_k" value="6">
       <br>
-      covariates:<br>
-      <input type="text" name="covariates" value="Mouse">
+      <h2>outcomes</h2><br>
+         <p>Optional. Names of outcome variables from the patients_data.xlsx data-frame to be analyzed.
+       If list is left empty (i.e., []), will not perform the associations to outcomes analysis.
+       This code currently supports binary outcome variables only, by using logistic regression</p>
+      <input type="text" name="outcomes[]" >
       <br>
-      covalog_column_namesriates:<br>
-      <input type="text" name="log_column_names" value="Mouse">
+      <h2>covariates</h2><br>
+        <p>Optional. Names of covariate variables (columns) from the patients_data.xlsx data-frame
+       to be controlled for in the regression models. If list is left empty (i.e., []),
+       will not controll the associations to outcomes analysis with any covariate variables</p>
+      <input type="text" name="covariates[]" value="Age">
       <br>
-      cytokines:<br>
-      <input type="text" name="cytokines" value="Mouse">
+      <h2>log_column_names</h2><br>
+        <p>List with names of covariate columns to be log-transformed, only if args.log_transform = True.
+        If there are no columns you wish to transform, leave empty </p>
+      <input type="text" name="log_column_names" value="Age">
+      <br>
+      <h2>cytokines</h2><br>
+        <p>List of cytokines to be analyzed. If None, will analyze all cytokines in the cytokine_data file</p>
+      <input type="text" name="cytokines" value="">
+      <br>
+     <h2>save_file</h2><br>
+        <p>Whether you agree us to keep your data saved in our database</p>
+      <input type="checkbox" name="save_file" checked=True>
       <br><br>
       <input type="submit" value="Submit">
     </form>
 
-    <p>If you click the "Submit" button, the form-data will be sent to a page called "/generate".</p>
+    <p>Clicking the "Submit" button, will start the analysis</p>
     </form>
 
 {% endblock %}
 
-<!--<p>{{ form.log_transform() }} {{ form.log_transform.label }}</p>-->
-        <!--<p>{{ form.recalculate_modules() }} {{ form.recalculate_modules.label }}</p>-->
-        <!--<p>{{ form.save_file() }} {{ form.save_file.label }}</p>-->
-    <!--</form>-->
+

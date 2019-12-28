@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <form action = "http://localhost:5000/uploader" method = "POST"
-         enctype = "multipart/form-data">
+    <title>Upload Files</title>
+    <h1>Upload new File</h1>
+    <p>Please upload 2 excel files:
+        one for the cytokins row data and the other one for the patients data
+    </p>
+    <form method=post enctype=multipart/form-data>
          <input type = "file" name = "file" />
-         <input type = "submit"/>
+          <input type = "file" name = "file" />
+         <input type = "submit" value="Upload"/>
       </form>
 {% endblock %}

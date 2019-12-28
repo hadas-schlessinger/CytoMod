@@ -13,8 +13,8 @@ import os
 
 
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'excel'}
-app = Flask(__name__)
+ALLOWED_EXTENSIONS = {'xlsx'}
+#app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.debug = True
 
@@ -28,7 +28,7 @@ app.debug = True
 #         return redirect('welcome.html')
 #     return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/file', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -43,18 +43,13 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    '''
+            file.save(os.path.join(os.path.join(os.getcwd(), 'data_files', 'data'), filename))
+            return render_template('set.html')
+        else:
+            flash('please upload an excel file')
+            return redirect(request.url)
+    return render_template('upload.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
@@ -73,17 +68,16 @@ def allowed_file(filename):
 
 @app.route('/generate', methods=['GET', 'POST'])
 def generate():
-    sys.path
     parameters = tools.Object()
-    # parameters.file = request.form.
     parameters.name_compartment = request.form.get('name_compartment')
     parameters.name_data = request.form.get('name_data')
-    parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE'] #change to bool
+    parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE']
     parameters.max_testing_k = request.form.get('max_testing_k', type=int)
     parameters.max_final_k = request.form.get('max_final_k', type=int)  # Must be <= max_testing_k
-    parameters.recalculate_modules = request.form.get('recalculate_modules') in ['true', '1', 'True', 'TRUE'] # change to bool
-    parameters.outcomes = request.args.getlist('outcomes')  # names of binary outcome columns
-    parameters.covariates = request.args.getlist('covariates')  # names of regression covariates to control for
+    parameters.recalculate_modules = True
+    parameters.outcomes = request.args.getlist('outcomes[]')  # names of binary outcome columns
+    print(request.args.getlist('outcomes'))
+    parameters.covariates = request.args.getlist('covariates[]')  # names of regression covariates to control for
     parameters.log_column_names = request.args.getlist('log_column_names')  # or empty list: []
     parameters.cytokines = request.args.getlist('cytokines') # if none, will analyze all
     parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE']  # for saving the file in the server
