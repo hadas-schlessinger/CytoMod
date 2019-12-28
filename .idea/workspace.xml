@@ -3,12 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Backend/DataManipulation/cytocine_adjustments.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/DataManipulation/cytocine_adjustments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__cy_mean_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__cy_mean_correlation.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_abs.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_abs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_adj.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_adj.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/otherTools/hclusterplot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/bestK.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__color_label_legend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__hierchical_clust_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__modules_correlations_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_absolute__reliability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_adjusted__color_label_legend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_adjusted__modules_correlations_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_adjusted__modules_correlations_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/figures/FLU09_Plasma_adjusted__reliability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__cluster_labels.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__normalized_conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__normalized_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__pwrel_dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__raw_log-conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_absolute__raw_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__cluster_labels.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__normalized_conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__normalized_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__pwrel_dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__raw_log-conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/clustering/info/FLU09_Plasma_adjusted__raw_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_absolute__cy_mean_correlation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/correlations/FLU09_Plasma_adjusted__correlation_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_abs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_files/output/gap_statistic/gap_stat_adj.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,21 +53,6 @@
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>main</find>
-      <find>corrplots</find>
-      <find>gap_stat</find>
-      <find>getBestK</find>
-      <find>gapstat</find>
-      <find>mapping</find>
-      <find>plotHColCluster</find>
-      <find>cyto_mod_abs.name</find>
-      <find>print</find>
-      <find>plt</find>
-      <find>plt.figu</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -233,7 +249,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570033566782</updated>
-      <workItem from="1577026023156" duration="3011000" />
+      <workItem from="1577026023156" duration="7146000" />
+      <workItem from="1577276466555" duration="5230000" />
     </task>
     <servers />
   </component>
@@ -248,5 +265,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="506" y="253" width="667" height="486" key="find.popup" timestamp="1577541388800">
+      <screen x="0" y="23" width="1680" height="946" />
+    </state>
+    <state x="506" y="253" width="667" height="486" key="find.popup/0.23.1680.946@0.23.1680.946" timestamp="1577541388800" />
   </component>
 </project>

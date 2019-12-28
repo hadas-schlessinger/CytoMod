@@ -18,5 +18,6 @@ def adjust_cytokine(args):
     else:
         args.cyto_mod_abs = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_abs.dill'))
         args.cyto_mod_adj = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'))
-    print('finished adjustments')
+    args.cyto_modules = {'adj': args.cyto_mod_adj, 'abs': args.cyto_mod_abs}
+    logging.info('finished adjustments')
     return args

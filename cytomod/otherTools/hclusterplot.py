@@ -1,6 +1,7 @@
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import matplotlib.font_manager
 from matplotlib.gridspec import GridSpec
 import palettable
 import pandas as pd
@@ -102,7 +103,7 @@ def addColorbar(fig,cb_ax,data_ax,label='Correlation'):
     cb.set_label(label)
     """Make colorbar labels smaller"""
     for t in cb.ax.yaxis.get_ticklabels():
-        t.set_fontsize('small')
+        t.set_fontsize(10)
 
 
 def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_labels=None, titleStr=None, vRange=None, tickSz='small', cmap=None, dmat=None, cbLabel='Correlation', minN=1):
@@ -195,7 +196,7 @@ def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_lab
 def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean',
                     col_labels=None, titleStr=None, vRange=None, tickSz='small',
                     cmap=None,  minN=1, K=None, labelCmap=None, noColorBar=False,
-                    interactive=False, save_path=None, figsize=(15,10)):
+                    interactive=False, save_path=None, figsize=(20,15)):
     """Perform hierarchical clustering on df columns and plot square heatmap of pairwise distances"""
     plt.switch_backend('Agg')
     plt.figure(10, figsize=figsize)
@@ -299,12 +300,12 @@ def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean
     else:
         heatmapAX.set_yticks(np.arange(nCols))
         heatmapAX.yaxis.set_ticks_position('right')
-        heatmapAX.set_yticklabels(columnLabels[colInd], fontsize=tickSz, fontname='Consolas')
+        heatmapAX.set_yticklabels(columnLabels[colInd], fontsize=tickSz, fontname='Calibri')
 
         """Column tick labels"""
         heatmapAX.set_xticks(np.arange(nCols))
         heatmapAX.xaxis.set_ticks_position('top')
-        xlabelsL = heatmapAX.set_xticklabels(columnLabels[colInd], fontsize=tickSz, rotation=90, fontname='Consolas')
+        xlabelsL = heatmapAX.set_xticklabels(columnLabels[colInd], fontsize=tickSz, rotation=90, fontname='Calibri')
 
         """Remove the tick lines"""
         for l in heatmapAX.get_xticklines() + heatmapAX.get_yticklines(): 

@@ -15,7 +15,7 @@ def pairwise_person(stage, args):
     if stage == 'abs':
         plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
-    # cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],figsize=(10, 6))
+        #cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],figsize=(10, 6))
     elif stage == 'adj':
         plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))

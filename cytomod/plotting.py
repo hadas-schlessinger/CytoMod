@@ -420,7 +420,7 @@ def _clean_axis(ax):
     ax.set_facecolor('white')
 
 
-def plotHierClust(dmatDf, Z, labels=None, titleStr=None, vRange=None, tickSz='small', cmap=None, cmapLabel=''):
+def plotHierClust(dmatDf, Z, labels=None, titleStr=None, vRange=None, tickSz=8 , cmap=None, cmapLabel=''):
     """Display a hierarchical clustering result."""
     if vRange is None:
         vmin = np.min(np.ravel(dmatDf.values))
@@ -488,7 +488,7 @@ def plotHierClust(dmatDf, Z, labels=None, titleStr=None, vRange=None, tickSz='sm
     cb.set_label(cmapLabel)
     """Make colorbar labels smaller"""
     for t in cb.ax.yaxis.get_ticklabels():
-        t.set_fontsize('small')
+        t.set_fontsize(8)
 
     """Add title as xaxis label"""
     if not titleStr is None:
