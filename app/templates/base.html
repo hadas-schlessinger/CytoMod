@@ -1,14 +1,38 @@
 <html>
     <head>
       {% if title %}
-      <title>{{ title }} - cytomod_server</title>
+      <title>{{ title }} - cytomod server</title>
       {% else %}
-      <title>Welcome to cytomod_server</title>
+      <title>Welcome to cytomod server</title>
       {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px darkcyan;
+      border-bottom: 16px darkcyan;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      visibility: hidden
+    }
+
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
     </head>
     <body>
          <div>
-        cytomod_server:
+        upload data:
         <a href="{{ 'upload.html' }}">upload</a>
     </div>
         <hr>

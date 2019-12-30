@@ -21,6 +21,8 @@ sns.set(style = 'darkgrid', palette = 'muted', font_scale = 1.75)
 from cytomod import labels2modules, makeModuleVariables, meanCorr
 from cytomod.comparison import *
 
+plt.rcParams['font.size'] = 10
+
 __all__ = ['plotModuleEmbedding',
            'plotModuleCorr',
            'plotInterModuleCorr',
@@ -78,7 +80,7 @@ def plotModuleEmbedding(dmatDf, labels, dropped=None, method='kpca', plotLabels=
     plt.draw()
 
 
-def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='M', dropped=None, compCommVar=None):
+def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='S', dropped=None, compCommVar=None):
     """Make a corr plot for a module."""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped=dropped, sampleStr=sampleStr)
     modVar = '%s%s' % (sampleStr, plotLabel)
@@ -98,7 +100,7 @@ def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='M', dropped=None, compCom
     axh.annotate('%s%s' % (sampleStr, plotLabel), xy=(0.5, 0.99), xycoords='figure fraction', va = 'top', ha='center')
 
 
-def plotInterModuleCorr(cyDf, labels, dropped = None, compCommVar = None, sampleStr='M'):
+def plotInterModuleCorr(cyDf, labels, dropped = None, compCommVar = None, sampleStr='S'):
     """Make a plot showing inter-module correlation"""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped = dropped, sampleStr=sampleStr)
     modVars = modDf.columns.tolist()
@@ -492,5 +494,5 @@ def plotHierClust(dmatDf, Z, labels=None, titleStr=None, vRange=None, tickSz=8 ,
 
     """Add title as xaxis label"""
     if not titleStr is None:
-        heatmapAX.set_xlabel(titleStr, size='x-large')
+        heatmapAX.set_xlabel(titleStr, size='small')
 

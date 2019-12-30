@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+    {% if results %}
+        <table>
+            <tbody>
+            {% for path in results %}
+                <tr>
+                    <td><img src="{{ path }}" ></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        No results :(
+    {% endif %}
+</body>
+</html>

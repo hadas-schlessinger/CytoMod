@@ -7,15 +7,6 @@ warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 
 
-def read_file(args):
-    # insert reading function
-    pass
-
-
-
-def save_data_on_local_path():
-    pass
-
 
 def create_folders(paths):
     tools.create_folder(paths['gap_statistic'])
@@ -25,8 +16,11 @@ def create_folders(paths):
     tools.create_folder(paths['association_figures'])
 
 
-def make_ans():
-    pass
+def make_ans(parameters):
+    ans_pics_path=[]
+    for img in parameters.images:
+        ans_pics_path.append(os.path.join('/static', img))
+    return ans_pics_path
 
 
 

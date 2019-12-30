@@ -43,7 +43,7 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(os.path.join(os.getcwd(), 'data_files', 'data'), filename))
+            file.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
             return render_template('set.html')
         else:
             flash('please upload an excel file')
@@ -66,6 +66,7 @@ def allowed_file(filename):
 @app.route('/generate', methods=['GET', 'POST'])
 def generate():
     parameters = tools.Object()
+    parameters.images = []
     parameters.name_compartment = request.form.get('name_compartment')
     print(parameters.name_compartment)
     print(request.form.get('name_compartment'))
@@ -93,43 +94,15 @@ def generate():
     Visualization.figures.calc_abs_figures(parameters)
     Visualization.figures.calc_adj_figures(parameters)
     logging.warning('finished')
-    # ans = server_tools.make_ans()
+    ans = server_tools.make_ans(parameters)
     # pdf_path = server_tools.make_pdf()
-    # return ans
-    return "hayyyyy"
-    # upload data for later
-    # data = request.files['file']
-    # if not data:
-    #     return 'Upload a CSV file'
-    # if data.filename == '':
-    #     flash('No selected file')
-    #     return redirect(request.url)
-    # if data and allowed_file(data.filename):
-    #     filename = secure_filename(data.filename)
-    #     data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    #     #make calculations
-# another option
-    # stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
-    # # csv_input = csv.reader(stream)
-    #
-    # print(csv_input)
-    # for row in csv_input:
-    #     print(row)
-    #
-    # stream.seek(0)
-    # result = transform(stream.read())
-    #
-    # response = make_response(result)
-    # response.headers["Content-Disposition"] = "attachment; filename=result.csv"
-    # return ""
+    print(ans)
+    return render_template(
+        'results.html', results=ans)
 
 
-# def allowed_file(filename):
-#     return '.' in filename and \
-#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-# if __name__ == "__main__":
-#     app.debug = True
-#     app.run(debug=True)
+
+
 

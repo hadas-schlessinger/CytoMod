@@ -194,7 +194,7 @@ def plotCorrHeatmap(df=None, metric='pearson', rowInd=None, colInd=None, col_lab
 
 
 def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean',
-                    col_labels=None, titleStr=None, vRange=None, tickSz='small',
+                    col_labels=None, titleStr=None, vRange=None, tickSz=8,
                     cmap=None,  minN=1, K=None, labelCmap=None, noColorBar=False,
                     interactive=False, save_path=None, figsize=(20,15)):
     """Perform hierarchical clustering on df columns and plot square heatmap of pairwise distances"""
@@ -300,7 +300,7 @@ def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean
     else:
         heatmapAX.set_yticks(np.arange(nCols))
         heatmapAX.yaxis.set_ticks_position('right')
-        heatmapAX.set_yticklabels(columnLabels[colInd], fontsize=tickSz, fontname='Calibri')
+        heatmapAX.set_yticklabels(columnLabels[colInd], fontsize=tickSz, fontname='Consolas')
 
         """Column tick labels"""
         heatmapAX.set_xticks(np.arange(nCols))

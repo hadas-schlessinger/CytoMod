@@ -120,7 +120,7 @@ def labels2modules(labels, dropped = None):
 
     return out
 
-def makeModuleVariables(cyDf, labels, sampleStr='M', dropped=None):
+def makeModuleVariables(cyDf, labels, sampleStr='S', dropped=None):
     """Define variable for each module by standardizing all the cytokines in the
     module and taking the mean. Can be applied to a stacked df with multiple timepoints.
     Standardization will be performed across all data.

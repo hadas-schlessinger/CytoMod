@@ -12,10 +12,12 @@ def best_k(args):
                                               max_testing_k=args.max_testing_k,
                                               max_final_k=args.max_final_k,
                                               save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_adj.png'))
+        args.images.append('gap_stat_adj.png')
         args.bestK['abs'] = gap_stat.getBestK(args.cyto_mod_abs.cyDf,
                                               max_testing_k=args.max_testing_k,
                                               max_final_k=args.max_final_k,
                                               save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_abs.png'))
+        args.images.append('gap_stat_abs.png')
 
         tools.write_DF_to_excel(os.path.join(args.paths['clustering'], 'bestK.xlsx'), args.bestK)
     else:

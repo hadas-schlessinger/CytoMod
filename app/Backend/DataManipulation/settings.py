@@ -32,20 +32,26 @@ def set_data(parameters):
 
 
 def set_path(parameters):
-    # need to create a local file with the same architecture
+    parameters.path_files = os.path.join('app/static', 'data_files')
 
-    parameters.path_files = os.path.join(os.getcwd(), 'data_files')
-
-    parameters.paths = {'files': os.path.join(os.getcwd(), 'data_files'),
-                  'data': os.path.join(os.getcwd(), 'data_files', 'data'),
-                  'gap_statistic': os.path.join(os.getcwd(), 'data_files', 'output', 'gap_statistic'),
-                  'clustering': os.path.join(os.getcwd(), 'data_files', 'output', 'clustering'),
-                  'clustering_info': os.path.join(os.getcwd(), 'data_files', 'output', 'clustering', 'info'),
-                  'clustering_figures': os.path.join(os.getcwd(), 'data_files', 'output', 'clustering', 'figures'),
-                  'correlation_figures': os.path.join(os.getcwd(), 'data_files', 'output', 'correlations'),
-                  'association_figures': os.path.join(os.getcwd(), 'data_files', 'output', 'associations'),
+    parameters.paths = {'files': os.path.join('app/static', 'data_files'),
+                  'data': os.path.join('app/static', 'data_files', 'data'),
+                  'gap_statistic': os.path.join('app/static'),
+                  'clustering': os.path.join('app/static'),
+                  'clustering_info': os.path.join('app/static'),
+                  'clustering_figures': os.path.join('app/static'),
+                  'correlation_figures': os.path.join('app/static'),
+                  'association_figures': os.path.join('app/static'),
+                # 'data': os.path.join('app/static', 'data_files', 'data'),
+                # 'gap_statistic': os.path.join('app/static', 'data_files', 'output', 'gap_statistic'),
+                # 'clustering': os.path.join('app/static', 'data_files', 'output', 'clustering'),
+                # 'clustering_info': os.path.join('app/static', 'data_files', 'output', 'clustering', 'info'),
+                # 'clustering_figures': os.path.join('app/static', 'data_files', 'output', 'clustering',
+                #                                    'figures'),
+                # 'correlation_figures': os.path.join('app/static', 'data_files', 'output', 'correlations'),
+                # 'association_figures': os.path.join('app/static', 'data_files', 'output', 'associations'),
                   }
-    server_tools.create_folders(parameters.paths)
+    #server_tools.create_folders(parameters.paths)
 
 
 def check_input(parameters, paths):
@@ -60,7 +66,7 @@ def check_input(parameters, paths):
 
     for col_name in parameters.outcomes + parameters.covariates + parameters.log_column_names:
         assert type(col_name) is str
-        tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name) #change to other things
+        tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name) # change to other things
 
     return True
 
