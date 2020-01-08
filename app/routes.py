@@ -14,7 +14,6 @@ import os
 
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
 ALLOWED_EXTENSIONS = {'xlsx'}
-#app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.debug = True
 
@@ -78,7 +77,7 @@ def generate():
     print(parameters.max_testing_k)
     parameters.max_final_k = request.form.get('max_final_k', type=int)  # Must be <= max_testing_k
     print(parameters.max_final_k)
-    parameters.recalculate_modules = True
+    parameters.recalculate_modules = False
     parameters.outcomes = request.form.getlist('outcomes')  # names of binary outcome columns
     print(parameters.outcomes)
     parameters.covariates = request.form.getlist('covariates') # names of regression covariates to control for
@@ -96,7 +95,7 @@ def generate():
     logging.warning('finished')
     ans = server_tools.make_ans(parameters)
     # pdf_path = server_tools.make_pdf()
-    print(ans)
+    # server_tools.clean_static()
     return render_template(
         'results.html', results=ans)
 

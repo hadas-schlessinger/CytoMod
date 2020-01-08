@@ -1,12 +1,13 @@
 <html>
     <head>
       {% if title %}
-      <title>{{ title }} - cytomod server</title>
+      <title>{{ title }} CytoMod server</title>
       {% else %}
       <title>Welcome to cytomod server</title>
       {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
     .loader {
       border: 16px solid #f3f3f3;
       border-radius: 50%;
@@ -28,6 +29,7 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    body{  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/confectionary.png) ;    }
     </style>
     </head>
     <body>

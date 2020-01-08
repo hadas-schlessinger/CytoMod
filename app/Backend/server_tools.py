@@ -19,8 +19,17 @@ def create_folders(paths):
 def make_ans(parameters):
     ans_pics_path=[]
     for img in parameters.images:
-        ans_pics_path.append(os.path.join('/static', img))
+        ans = {'path': os.path.join('/static', img['name']),
+               'height': img['height'],
+               'headline': img['headline']}
+        ans_pics_path.append(ans)
     return ans_pics_path
+
+
+def clean_static():
+    for f in os.listdir('app/static'):
+        if f.endswith('.png'):
+            os.remove('app/static/' + f)
 
 
 

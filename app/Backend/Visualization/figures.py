@@ -25,7 +25,7 @@ def calc_adj_figures(args):
     logging.warning('starting associations for adjusted cytokines')
     figure_scheme.pairwise_person('adj', args)
     logging.warning('starting correlations for adjusted cytokines')
-    figure_scheme.pairwise_corelletion_with_moudles('abs', args)
+    figure_scheme.pairwise_corelletion_with_moudles('adj', args)
     figure_scheme.same_cluster_reliability('adj', args)
     figure_scheme.modules_cytokine_correlation('adj', args)
     figure_scheme.write_results(args)

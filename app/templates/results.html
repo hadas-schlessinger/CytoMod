@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +6,13 @@
 </head>
 <body>
     {% if results %}
+    <h1 style="color: #5e9ca0;">Results</h1>
         <table>
             <tbody>
-            {% for path in results %}
+            {% for var in results %}
                 <tr>
-                    <td><img src="{{ path }}" ></td>
+                    <td style="color: #0B7478"><span style= "font-size: 16pt;"> Image: {{var['headline']}}</span></td>
+                    <td><img src="{{ var['path'] }}" width="700" height=var['height'] ></td>
                 </tr>
             {% endfor %}
             </tbody>
