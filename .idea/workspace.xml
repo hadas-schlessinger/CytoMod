@@ -2,44 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/static/gap_stat_abs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/gap_stat_adj.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Backend/DataManipulation/clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/DataManipulation/clustering.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/server_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__cluster_labels.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__color_label_legend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__cy_mean_correlation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__hierchical_clust_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__modules_correlations_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__modules_correlations_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__modules_correlations_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__modules_correlations_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__normalized_conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__normalized_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__pwrel_dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__raw_log-conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__raw_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__reliability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__cluster_labels.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__color_label_legend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__correlation_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__hierchical_clust_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__modules_correlations_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__modules_correlations_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__normalized_conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__normalized_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__pwrel_dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__raw_log-conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__raw_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__reliability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/set.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/set.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytomod/io.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/io.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +220,7 @@
       <workItem from="1577276466555" duration="5397000" />
       <workItem from="1577541906763" duration="6895000" />
       <workItem from="1577551718101" duration="53187000" />
-      <workItem from="1578844314844" duration="9513000" />
+      <workItem from="1578844314844" duration="9752000" />
     </task>
     <servers />
   </component>
