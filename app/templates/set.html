@@ -27,8 +27,9 @@
       <br>
         <h3 style="color: #5e9ca0;">outcomes</h3><br>
          <p style="color: #0B7478">Optional. Names of outcome variables from the patients_data.xlsx data-frame to be analyzed.
-       If list is left empty (i.e., []), will not perform the associations to outcomes analysis.
-       This code currently supports binary outcome variables only, by using logistic regression</p>
+       If list is left empty, will not perform the associations to outcomes analysis.
+        To insert more then one column, please split the column names with ", " (i.e - outcome1, outcome2, ..., outcomeN)
+       Note - we currently supports binary outcome variables only, by using logistic regression</p>
       <input type="text" name="outcomes" placeholder="outcome variables" >
       <br>
         <h3 style="color: #5e9ca0;">covariates</h3><br>
@@ -46,10 +47,10 @@
         <p style="color: #0B7478">List of cytokines to be analyzed. If None, will analyze all cytokines in the cytokine_data file</p>
       <input type="text" name="cytokines">
       <br>
-     <h3 style="color: #5e9ca0;">save_file</h3><br>
-        <p style="color: #0B7478">Whether you agree us to keep your data saved in our database</p>
-      <input type="checkbox" name="save_file" checked=True>
-      <br><br>
+<!--     <h3 style="color: #5e9ca0;">save_file</h3><br>-->
+<!--        <p style="color: #0B7478">Whether you agree us to keep your data saved in our database</p>-->
+<!--      <input type="checkbox" name="save_file" checked=True></br>-->
+    </br>
       <input type="submit" value="Submit" onclick="loading();">
     </form>
     <p>Clicking the "Submit" button, will start the analysis</p>

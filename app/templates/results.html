@@ -7,15 +7,15 @@
 <body>
     {% if results %}
     <h1 style="color: #5e9ca0;">Results</h1>
+    <h2 style="color: #0B7478">For download a figure, click on it!</h2>
         <table>
             <tbody>
             {% for var in results %}
                 <tr>
-                    <td style="color: #0B7478"><span style= "font-size: 16pt;"> Image: {{var['headline']}}</span></td>
+                    <td style="color: #0B7478"><span style= "font-size: 16pt;"> {{var['headline']}} </span></td>
                     <td><a download="{{ var['name'] }}" href= "{{ var['path'] }}" title="Image: {{var['headline']}}">
                     <img src="{{ var['path'] }}" width=" {{var['width']}}" height=" {{var['height']}}" >
                     </a></td>
-                    <td style="color: #0B7478"><span style= "font-size: 16pt;"> Click the image ! You can download!</span></td>
                 </tr>
             {% endfor %}
             </tbody>

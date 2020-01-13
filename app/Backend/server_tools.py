@@ -34,11 +34,11 @@ def clean_static():
             os.remove('app/static/' + f)
 
 
+def clean_data():
+    print('cleaning data')
+    for f in os.listdir('app/static/data_files/data'):
+        print(f'deleting {f}')
+        os.remove('app/static/data_files/data' + f)
 
-def make_pdf():
-    pass
 
-
-def download_pdf():
-    pass
 

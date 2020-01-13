@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/static/gap_stat_abs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/gap_stat_adj.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Backend/Visualization/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/Visualization/figures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Backend/DataManipulation/clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/DataManipulation/clustering.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Backend/server_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__cluster_labels.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__color_label_legend.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" />
@@ -35,11 +37,9 @@
       <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__raw_log-conc.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__raw_modules.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09_Plasma_adjusted__reliability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/associations_abs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/associations_adj.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/set.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/set.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytomod/io.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/io.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytomod/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/plotting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,18 +68,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="dill&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/data_files/output/clustering/cyto_mod_abs.dill" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/static" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/CytoWebServer/Backend/Visualization" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/static" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/CytoWebServer/app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static" />
+      <recent name="$PROJECT_DIR$/CytoWebServer/Backend/Visualization" />
     </key>
   </component>
   <component name="RunManager" selected="Python.figures">
@@ -254,7 +256,7 @@
       <workItem from="1577276466555" duration="5397000" />
       <workItem from="1577541906763" duration="6895000" />
       <workItem from="1577551718101" duration="53187000" />
-      <workItem from="1578844314844" duration="5699000" />
+      <workItem from="1578844314844" duration="9513000" />
     </task>
     <servers />
   </component>
@@ -280,11 +282,11 @@
     </state>
     <state x="519" y="328" key="com.intellij.ide.util.TipDialog/-1920.-525.1920.1057/0.23.1680.946@0.23.1680.946" timestamp="1578844314566" />
     <state x="519" y="328" key="com.intellij.ide.util.TipDialog/0.23.1680.946@0.23.1680.946" timestamp="1577541907170" />
-    <state x="506" y="253" width="667" height="486" key="find.popup" timestamp="1578845623693">
+    <state x="506" y="253" width="667" height="486" key="find.popup" timestamp="1578906926571">
       <screen x="0" y="23" width="1680" height="946" />
     </state>
     <state x="506" y="253" width="667" height="486" key="find.popup/-1920.-525.1920.1057/0.23.1680.946@0.23.1680.946" timestamp="1578845623693" />
-    <state x="506" y="253" width="667" height="486" key="find.popup/0.23.1680.946@0.23.1680.946" timestamp="1578755711255" />
+    <state x="506" y="253" width="667" height="486" key="find.popup/0.23.1680.946@0.23.1680.946" timestamp="1578906926571" />
     <state x="506" y="254" width="667" height="489" key="find.popup/0.23.1680.951@0.23.1680.951" timestamp="1577817335469" />
     <state x="2258" y="-137" width="763" height="729" key="find.popup/1680.-423.1920.1177/0.23.1680.946@1680.-423.1920.1177" timestamp="1577709563539" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1577573471934">

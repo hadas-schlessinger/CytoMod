@@ -168,7 +168,7 @@ def plot_module_correl(clust_object, folder, args):
     """Plot intra-module correlation"""
     i = 0
     for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
-        plt.figure(50+i, figsize=(50, 34))
+        plt.figure(50+i, figsize=(40, 24))
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
         plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
         img = {'height': '900',
