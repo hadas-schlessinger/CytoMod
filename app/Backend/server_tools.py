@@ -21,6 +21,8 @@ def make_ans(parameters):
     for img in parameters.images:
         ans = {'path': os.path.join('/static', img['name']),
                'height': img['height'],
+               'width': img['width'],
+               'name': img['name'],
                'headline': img['headline']}
         ans_pics_path.append(ans)
     return ans_pics_path

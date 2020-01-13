@@ -15,7 +15,8 @@ def pairwise_person(stage, args):
     if stage == 'abs':
         plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
-        img = {'height': '900',
+        img = {'height': '700',
+               'width': '1000',
                'name': '%s_correlation_heatmap.png' % args.cyto_mod_abs.name,
                'headline': 'Absolute Cytokines Correlation Heatmap'}
         args.images.append(img)
@@ -23,7 +24,8 @@ def pairwise_person(stage, args):
     elif stage == 'adj':
         plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
-        img = {'height': '900',
+        img = {'height': '700',
+               'width': '1000',
                'name': '%s_correlation_heatmap.png' % args.cyto_mod_adj.name,
                'headline': 'Adjusted Cytokines Correlation Heatmap'
                }
@@ -35,7 +37,8 @@ def mean_person(args):
                         cyList=sorted(args.cyto_mod_abs.cyDf.columns),
                         save_path=os.path.join(args.paths['correlation_figures'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name))
-    img = {'height': '500',
+    img = {'height': '1000',
+           'width': '500',
            'name': '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name,
            'headline': 'Absolute Cytokines Mean Correlation'
            }
@@ -48,12 +51,14 @@ def pairwise_corelletion_with_moudles(stage, args):
     cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.paths['clustering_figures'],
                                        figsize=(10, 6))
     cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths['clustering_figures'])
-    img = {'height': '900',
+    img = {'height': '700',
+           'width': '1000',
            'name': '%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
            'headline': 'Hierarchical Clustering Heatmap for %s Cytokines' % stage
            }
     args.images.append(img)
     img = {'height': '300',
+           'width': '500',
            'name':  '%s_color_label_legend.png' % args.cyto_modules[stage].name,
            'headline': 'Modules Labels'
            }
@@ -64,11 +69,13 @@ def same_cluster_reliability(stage,args):
     cytomod.io.plot_reliability(args.cyto_modules[stage], args.paths['clustering_figures'],
                                 figsize=(10, 6))
     cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths['clustering_figures'])
-    img = {'height': '900',
+    img = {'height': '700',
+           'width': '1000',
            'name':'%s_reliability.png' % args.cyto_modules[stage].name,
            'headline': 'Reliability Figure Of Pairwise Correlations of %s Cytokines' % stage}
     args.images.append(img)
     img = {'height': '300',
+           'width': '500',
            'name': '%s_color_label_legend.png' % args.cyto_modules[stage].name,
            'headline': 'Modules Labels'}
     args.images.append(img)
@@ -130,7 +137,8 @@ def figures(stage, args):
                                       figsize=(6, 9),
                                       save_fig_path=os.path.join(args.paths['association_figures'],
                                                                  'associations_abs.png'))
-            img = {'height': '500',
+            img = {'height': '1000',
+                   'width': '500',
                    'name':'associations_abs.png',
                    'headline': 'Associations of Absolute Cytokines'}
             args.images.append(img)
@@ -144,7 +152,8 @@ def figures(stage, args):
                                       figsize=(6, 9),
                                       save_fig_path=os.path.join(args.paths['association_figures'],
                                                                  'associations_adj.png'))
-            img = {'height': '500',
+            img = {'height': '1000',
+                   'width': '500',
                    'name': 'associations_adj.png',
                    'headline': 'Associations of Adjusted Cytokines'}
             args.images.append(img)

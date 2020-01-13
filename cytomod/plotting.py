@@ -80,7 +80,7 @@ def plotModuleEmbedding(dmatDf, labels, dropped=None, method='kpca', plotLabels=
     plt.draw()
 
 
-def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='XS', dropped=None, compCommVar=None):
+def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='M', dropped=None, compCommVar=None):
     """Make a corr plot for a module."""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped=dropped, sampleStr=sampleStr)
     modVar = '%s%s' % (sampleStr, plotLabel)
@@ -93,6 +93,7 @@ def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='XS', dropped=None, compCo
     if not dropped is None:
         tmpDf.columns = np.array([c + '*' if c in dropped and dropped[c] else c for c in tmpDf.columns])
 
+
     figh = plt.gcf()
     figh.clf()
     combocorrplot(tmpDf, method = 'pearson')
@@ -100,7 +101,7 @@ def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='XS', dropped=None, compCo
     axh.annotate('%s%s' % (sampleStr, plotLabel), xy=(0.5, 0.99), xycoords='figure fraction', va = 'top', ha='center')
 
 
-def plotInterModuleCorr(cyDf, labels, dropped = None, compCommVar = None, sampleStr='S'):
+def plotInterModuleCorr(cyDf, labels, dropped = None, compCommVar = None, sampleStr='M'):
     """Make a plot showing inter-module correlation"""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped = dropped, sampleStr=sampleStr)
     modVars = modDf.columns.tolist()
