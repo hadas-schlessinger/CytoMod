@@ -168,7 +168,8 @@ def plot_module_correl(clust_object, folder, args):
     """Plot intra-module correlation"""
     i = 0
     for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
-        plt.figure(50+i, figsize=(40, 24))
+        print(len(clust_object.labels))
+        plt.figure(50+i, figsize=(len(clust_object.labels), len(clust_object.labels)*(2/3)))
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
         plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
         img = {'height': '900',
@@ -177,6 +178,8 @@ def plot_module_correl(clust_object, folder, args):
                'headline': 'Modules Correlation of %s Cytokines no. %s ' % (clust_object.name, lab)}
         args.images.append(img)
         i += 1
+        return args
+
 
 def plot_cy_embedding(clust_object, folder):
     """Cytokine embedding"""

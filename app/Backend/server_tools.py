@@ -36,10 +36,9 @@ def clean_static():
 
 def clean_data():
     print('cleaning data')
-    for f in os.listdir('app/static/data_files/data'):
-        if f.endswith('.xisx') or f.endswith('.csv'):
-            print(f'deleting {f}')
-            os.remove('app/static/data_files/data/' + f)
-
+    for f in os.listdir('app/static/data_files/data/'):
+       # if f.endswith('.xisx'):
+        print(f'deleting {f}')
+        os.remove('app/static/data_files/data/' + f)
 
 

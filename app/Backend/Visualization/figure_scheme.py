@@ -30,6 +30,7 @@ def pairwise_person(stage, args):
                'headline': 'Adjusted Cytokines Correlation Heatmap'
                }
         args.images.append(img)
+    return args
 
 
 def mean_person(args):
@@ -43,9 +44,7 @@ def mean_person(args):
            'headline': 'Absolute Cytokines Mean Correlation'
            }
     args.images.append(img)
-
-
-
+    return args
 
 def pairwise_corelletion_with_moudles(stage, args):
     cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.paths['clustering_figures'],
@@ -63,7 +62,7 @@ def pairwise_corelletion_with_moudles(stage, args):
            'headline': 'Modules Labels'
            }
     args.images.append(img)
-
+    return args
 
 def same_cluster_reliability(stage,args):
     cytomod.io.plot_reliability(args.cyto_modules[stage], args.paths['clustering_figures'],
@@ -79,13 +78,11 @@ def same_cluster_reliability(stage,args):
            'name': '%s_color_label_legend.png' % args.cyto_modules[stage].name,
            'headline': 'Modules Labels'}
     args.images.append(img)
-
-
+    return args
 
 def modules_cytokine_correlation(stage, args):
-    cytomod.io.plot_module_correl(args.cyto_modules[stage], args.paths['clustering_figures'], args)
-    # args.images.append('%s_modules_correlations_%s.png' % (args.cyto_modules[stage].name, args.cyto_modules[stage].name))
-
+    args = cytomod.io.plot_module_correl(args.cyto_modules[stage], args.paths['clustering_figures'], args)
+    return args
 
 def write_results(args):
     cytomod.io.write_modules(args.cyto_modules['abs'], args.paths['clustering_info'])
@@ -112,7 +109,7 @@ def associations_to_outcomes(stage, args):
                                                         outcomeVars=args.outcomes,
                                                         adjustmentVars=args.covariates,
                                                         standardize=True)
-        elif stage == 'adj':
+        if stage == 'adj':
             args.mod_outcome_adj_df = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
                                                          analyzeModules=True,
                                                          outcomeVars=args.outcomes,
@@ -123,9 +120,10 @@ def associations_to_outcomes(stage, args):
                                                         outcomeVars=args.outcomes,
                                                         adjustmentVars=args.covariates,
                                                         standardize=True)
+    return args
 
 
-def figures(stage, args):
+def outcomes_figures(stage, args):
     if args.outcomes != []:
         if stage == 'abs':
             outcome.plotResultSummary(args.cyto_modules['abs'],
@@ -143,9 +141,9 @@ def figures(stage, args):
                    'headline': 'Associations of Absolute Cytokines'}
             args.images.append(img)
         elif stage == 'adj':
-            outcome.plotResultSummary(args.cyto_modules['abs'],
-                                      args.mod_outcome_abs_df,
-                                      args.cy_outcome_abs_df,
+            outcome.plotResultSummary(args.cyto_modules['adj'],
+                                      args.mod_outcome_adj_df,
+                                      args.cy_outcome_adj_df,
                                       args.outcomes,
                                       fdr_thresh_plot=0.2,
                                       compartmentName=args.name_compartment,
@@ -157,3 +155,4 @@ def figures(stage, args):
                    'name': 'associations_adj.png',
                    'headline': 'Associations of Adjusted Cytokines'}
             args.images.append(img)
+    return args

@@ -31,18 +31,22 @@ app.debug = True
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'file' not in request.files:
+        if 'file1' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        file = request.files['file']
+        file1 = request.files['file1']
+        file2 = request.files['file2']
         # if user does not select file, browser also
         # submit an empty part without filename
-        if file.filename == '':
+        if file1.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+        if file2 and allowed_file(file2.filename):
+            filename = secure_filename(file2.filename)
+            file2.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+        if file1 and allowed_file(file1.filename):
+            filename = secure_filename(file1.filename)
+            file1.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
             return render_template('set.html')
         else:
             flash('please upload an excel file')
@@ -50,10 +54,18 @@ def upload_file():
     return render_template('upload.html')
 
 
+@app.route('/explanation', methods=['GET', 'POST'])
+def explanation():
+    if request.method == 'POST':
+        return render_template('upload.html')
+    return render_template('explanation.html')
+
+
+
 @app.route('/')
 def welcome():
     if request.method == 'POST':
-        return render_template('upload.html')
+        return render_template('explanation.html')
     return render_template('welcome.html')
 
 
@@ -66,37 +78,29 @@ def allowed_file(filename):
 def generate():
     parameters = tools.Object()
     parameters.images = []
-    parameters.name_compartment = request.form.get('name_compartment')
-    print(parameters.name_compartment)
-    print(request.form.get('name_compartment', default='data'))
-    parameters.name_data = request.form.get('name_data')
-    print(request.form.get('name_data'))
+    parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
+    parameters.name_compartment = request.form.get('name_compartment', default='Compartment')
+    parameters.name_data = request.form.get('name_data',  default='data')
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
-    print(parameters.log_transform)
     parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=8)
-    print(parameters.max_testing_k)
     parameters.max_final_k = request.form.get('max_final_k', type=int, default=6)  # Must be <= max_testing_k
-    print(parameters.max_final_k)
-    parameters.recalculate_modules = False
+    parameters.recalculate_modules = True
     parameters.outcomes = request.form.get('outcomes')  # names of binary outcome columns
     parameters.outcomes = parameters.outcomes.split(", ")
     print(parameters.outcomes)
     parameters.covariates = request.form.get('covariates') # names of regression covariates to control for
     parameters.covariates = parameters.covariates.split(", ")
-    print(parameters.covariates)
     parameters.log_column_names = request.form.get('log_column_names')
     parameters.log_column_names = parameters.log_column_names.split(", ")   # or empty list: []
-    print(parameters.log_column_names)
     parameters.cytokines = request.form.get('cytokines', default='') # if none, will analyze all
     parameters.cytokines = parameters.cytokines.split(", ")
-    print(parameters.cytokines)
     # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
     # print(parameters.save_file)
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
-    Visualization.figures.calc_abs_figures(parameters)
-    Visualization.figures.calc_adj_figures(parameters)
-    logging.warning('finished')
+    parameters = Visualization.figures.calc_abs_figures(parameters)
+    parameters = Visualization.figures.calc_adj_figures(parameters)
+    logging.warning('finished to calc the method')
     ans = server_tools.make_ans(parameters)
     # server_tools.clean_static()
     server_tools.clean_data()

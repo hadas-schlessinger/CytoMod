@@ -9,6 +9,9 @@ warnings.simplefilter('ignore')
 
 
 def make_cyto_data(parameters):
+    if(parameters.luminex):
+        cy_data = tools.read_excel(os.path.join(parameters.paths['data'], 'cytokine_data.xlsx'), indexCol=0)
+        #insert to skip a row
     cy_data = tools.read_excel(os.path.join(parameters.paths['data'], 'cytokine_data.xlsx'), indexCol=0)
     cy_data.dropna(axis='index', how='all', inplace=True)
 

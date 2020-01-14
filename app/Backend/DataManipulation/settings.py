@@ -21,11 +21,10 @@ def set_data(parameters):
             #os.environ.get("SEED") #by configuration!!!!!!!!!
        # cy_data = server_tools.read_file()  # needs to be created
        # data_path = server_tools.save_data_on_local_path(cy_data)
-        data = tools.Object
-        data.cy_data = import_data.make_cyto_data(parameters)
-        data.patient_data = import_data.make_patiants_data(parameters)
-        log_transform(parameters, parameters.cy_data, parameters.patient_data)
-        print('finished set_data')
+        parameters.cy_data = import_data.make_cyto_data(parameters)
+        parameters.patient_data = import_data.make_patiants_data(parameters)
+        parameters.patient_data, parameters.cy_data = log_transform(parameters, parameters.cy_data, parameters.patient_data)
+        logging.warning('finished set_data')
         return parameters
     # dont forget to delete file!!!!
     return False
@@ -89,3 +88,5 @@ def log_transform(parameters, cy_data, patient_data):
                 if col_name in parameters.covariates:
                     parameters.covariates.remove(col_name)
                     parameters.covariates.append(new_col_name)
+
+    return patient_data, cy_data

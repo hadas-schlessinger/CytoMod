@@ -4,20 +4,20 @@ import tools
 import logging
 
 
-def adjust_cytokine(args):
-    args.do_recalculate = args.recalculate_modules or \
-            not os.path.exists(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'))
+def adjust_cytokine(parameters):
+    parameters.do_recalculate = parameters.recalculate_modules or \
+            not os.path.exists(os.path.join(parameters.paths['clustering'], 'cyto_mod_adj.dill'))
     # If modules file does not exist in storage,
-    # or args.recalculate_modules=True - prepare modules.
+    # or parameters.recalculate_modules=True - prepare modules.
     # Otherwise - read from file.
-    if args.do_recalculate:
+    if parameters.do_recalculate:
         # Absolute
-        args.cyto_mod_abs = cytomod.cytomod_class(args.name_data, args.name_compartment, False, args.cy_data)
+        parameters.cyto_mod_abs = cytomod.cytomod_class(parameters.name_data, parameters.name_compartment, False, parameters.cy_data)
         # Adjusted
-        args.cyto_mod_adj = cytomod.cytomod_class(args.name_data, args.name_compartment, True, args.cy_data)
+        parameters.cyto_mod_adj = cytomod.cytomod_class(parameters.name_data, parameters.name_compartment, True, parameters.cy_data)
     else:
-        args.cyto_mod_abs = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_abs.dill'))
-        args.cyto_mod_adj = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'))
-    args.cyto_modules = {'adj': args.cyto_mod_adj, 'abs': args.cyto_mod_abs}
+        parameters.cyto_mod_abs = tools.read_from_dill(os.path.join(parameters.paths['clustering'], 'cyto_mod_abs.dill'))
+        parameters.cyto_mod_adj = tools.read_from_dill(os.path.join(parameters.paths['clustering'], 'cyto_mod_adj.dill'))
+    parameters.cyto_modules = {'adj': parameters.cyto_mod_adj, 'abs': parameters.cyto_mod_abs}
     logging.info('finished adjustments')
-    return args
+    return parameters
