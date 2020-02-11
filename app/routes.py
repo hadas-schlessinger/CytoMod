@@ -82,12 +82,10 @@ def generate():
     parameters.name_compartment = request.form.get('name_compartment', default='Compartment')
     parameters.name_data = request.form.get('name_data',  default='data')
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
-    parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=8)
-    parameters.max_final_k = request.form.get('max_final_k', type=int, default=6)  # Must be <= max_testing_k
-    parameters.recalculate_modules = True
+    parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=6)  # Must be <= max_testing_k
+    parameters.recalculate_modules = False
     parameters.outcomes = request.form.get('outcomes')  # names of binary outcome columns
     parameters.outcomes = parameters.outcomes.split(", ")
-    print(parameters.outcomes)
     parameters.covariates = request.form.get('covariates') # names of regression covariates to control for
     parameters.covariates = parameters.covariates.split(", ")
     parameters.log_column_names = request.form.get('log_column_names')
@@ -103,9 +101,10 @@ def generate():
     logging.warning('finished to calc the method')
     ans = server_tools.make_ans(parameters)
     # server_tools.clean_static()
-    server_tools.clean_data()
+    #server_tools.clean_data()
     return render_template(
-        'results.html', results=ans)
+        'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
+        abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
 
 
 

@@ -19,15 +19,9 @@
         <h3 style="color: #5e9ca0;">log_transform</h3><br>
         <p style="color: #0B7478">Marking this will generate log transformation on the cytokine data</p>
       <input type="checkbox" name="log_transform" checked="True">
-      <br>
-        <h3 style="color: #5e9ca0;">max_testing_k</h3><br>
-         <p style="color: #0B7478">max number of cytokine groups to check.
-             i.e: maximal number of clusters to test the gap statistic for</p>
-      <input type="number" name="max_testing_k" placeholder="8">
-      <br>
         <h3 style="color: #5e9ca0;">max_final_k</h3><br>
          <p style="color: #0B7478">max modules size - the maximal number of clusters that can be chosen. must be smaller then "max_testing_k"</p>
-      <input type="number" name="max_final_k" placeholder="6">
+      <input type="number" name="max_testing_k" placeholder="6">
       <br>
         <h3 style="color: #5e9ca0;">outcomes</h3><br>
          <p style="color: #0B7478">Optional. Names of outcome variables from the patients_data.xlsx data-frame to be analyzed.

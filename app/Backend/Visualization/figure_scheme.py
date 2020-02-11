@@ -15,21 +15,21 @@ def pairwise_person(stage, args):
     if stage == 'abs':
         plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
-        img = {'height': '700',
-               'width': '1000',
-               'name': '%s_correlation_heatmap.png' % args.cyto_mod_abs.name,
-               'headline': 'Absolute Cytokines Correlation Heatmap'}
-        args.images.append(img)
-        #cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],figsize=(10, 6))
+        # img = {'height': '700',
+        #        'width': '1000',
+        #        'name': '%s_correlation_heatmap.png' % args.cyto_mod_abs.name,
+        #        'headline': 'Absolute Cytokines Correlation Heatmap'}
+        # args.images.append(img)
+        # cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],figsize=(10, 6))
     elif stage == 'adj':
         plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
-        img = {'height': '700',
-               'width': '1000',
-               'name': '%s_correlation_heatmap.png' % args.cyto_mod_adj.name,
-               'headline': 'Adjusted Cytokines Correlation Heatmap'
-               }
-        args.images.append(img)
+        # img = {'height': '700',
+        #        'width': '1000',
+        #        'name': '%s_correlation_heatmap.png' % args.cyto_mod_adj.name,
+        #        'headline': 'Adjusted Cytokines Correlation Heatmap'
+        #        }
+        # args.images.append(img)
     return args
 
 
@@ -95,30 +95,30 @@ def associations_to_outcomes(stage, args):
         standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
 
         for covariate in args.covariates:
-            if len(args.patient_data[covariate].unique()) > 2:
+            if covariate != '' and len(args.patient_data[covariate].unique()) > 2:
                 args.patient_data[[covariate]] = args.patient_data[[covariate]].apply(standardizeFunc)
 
         if stage == 'abs':
             args.mod_outcome_abs_df = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
                                                          analyzeModules=True,
-                                                         outcomeVars=args.outcomes,
-                                                         adjustmentVars=args.covariates,
+                                                         outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
+                                                         adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                          standardize=True)
             args.cy_outcome_abs_df = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
                                                         analyzeModules=False,
-                                                        outcomeVars=args.outcomes,
-                                                        adjustmentVars=args.covariates,
+                                                        outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
+                                                        adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                         standardize=True)
         if stage == 'adj':
             args.mod_outcome_adj_df = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
                                                          analyzeModules=True,
-                                                         outcomeVars=args.outcomes,
-                                                         adjustmentVars=args.covariates,
+                                                         outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
+                                                         adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                          standardize=True)
             args.cy_outcome_adj_df = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
                                                         analyzeModules=False,
-                                                        outcomeVars=args.outcomes,
-                                                        adjustmentVars=args.covariates,
+                                                        outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
+                                                        adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                         standardize=True)
     return args
 

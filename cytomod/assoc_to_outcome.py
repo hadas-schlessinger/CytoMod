@@ -75,6 +75,7 @@ def GLMResults(df, outcome, predictors, adj=[], logistic=True):
     outDf['res'] = resObj
     return outDf
 
+
 def outcomeAnalysis(cytomod_obj, patient_data,
                     analyzeModules=True,
                     outcomeVars=[],
@@ -82,10 +83,11 @@ def outcomeAnalysis(cytomod_obj, patient_data,
                     standardize=True):
     """Do these FLU-positive clusters correlate with outcome,
     with/without adjustment for bacterial coinfection?"""
-
+    df = pd.DataFrame(patient_data)
     modStr = 'Module' if analyzeModules else 'Analyte'
     resL = []
     for outcome in outcomeVars:
+        logistic = np.isin(df[outcome].dropna().unique(), [0, 1]).all()
         """Logistic regression on outcome"""
         if analyzeModules:
             dataDf = cytomod_obj.modDf
@@ -97,8 +99,7 @@ def outcomeAnalysis(cytomod_obj, patient_data,
 
         predictors = dataDf.columns
         data_outcome_Df = patient_data[outcomeVars + adjustmentVars].join(dataDf)
-
-        tmpres = GLMResults(data_outcome_Df, outcome, predictors, adj=adjustmentVars, logistic=True)
+        tmpres = GLMResults(data_outcome_Df, outcome, predictors, adj=adjustmentVars, logistic=logistic)
         tmpres['Outcome'] = outcome
         tmpres['Compartment'] = cytomod_obj.sampleStr
         tmpres['Adjusted'] = 'Yes' if cytomod_obj.adjusted else 'No'
@@ -119,6 +120,7 @@ def mapColors2Labels(labels, setStr='MapSet', cmap=None):
         """Use B+W colormap"""
     cmapLookup = {k:col for k, col in zip(sorted(np.unique(labels)), itertools.cycle(cmap))}
     return labels.map(cmapLookup.get)
+
 
 def adjust_pvals(res_df):
     res_df = deepcopy(res_df)

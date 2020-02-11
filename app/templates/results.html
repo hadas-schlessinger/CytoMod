@@ -1,12 +1,44 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Results</title>
+<meta charset="UTF-8">
+<title>Results</title>
 </head>
 <body>
+    <h1 style="color: #5e9ca0;">Modules</h1>
+    <h2 style="color: #0B7478">The created modules are:</h2>
+    <h3 style="color: #0B7478">{{abs_modules['headline']}}</h3>
+        <table>
+            <tbody>
+                  {% for module in abs_len %}
+                    <tr>
+                     <td> Module number {{module}}:</td>
+                     <td>
+                    {% for cy in abs_modules[module] %}
+                    {{cy}},
+                    {% endfor %}
+                    </td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       <h3 style="color: #0B7478">{{adj_modules['headline']}}</h3>
+        <table>
+            <tbody>
+                  {% for module in adj_len %}
+                    <tr>
+                     <td> Module number {{module}}:</td>
+                     <td>
+                    {% for cy in adj_modules[module] %}
+                    {{cy}},
+                    {% endfor %}
+                    </td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% if results %}
-    <h1 style="color: #5e9ca0;">Results</h1>
+    <h1 style="color: #5e9ca0;">Figures</h1>
     <h2 style="color: #0B7478">For download a figure, click on it!</h2>
         <table>
             <tbody>
@@ -25,3 +57,4 @@
     {% endif %}
 </body>
 </html>
+

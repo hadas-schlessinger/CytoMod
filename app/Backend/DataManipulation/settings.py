@@ -58,14 +58,12 @@ def check_input(parameters, paths):
     assert type(parameters.name_compartment) is str
     assert type(parameters.log_transform) is bool
     assert type(parameters.max_testing_k) is int
-    assert type(parameters.max_final_k) is int
-    assert parameters.max_final_k <= parameters.max_testing_k
     assert type(parameters.outcomes) is list
     assert type(parameters.covariates) is list
 
     for col_name in parameters.outcomes + parameters.covariates + parameters.log_column_names:
         assert type(col_name) is str
-        tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name) # change to other things
+        [tools.assert_column_exists_in_path(os.path.join(paths['data'], 'patient_data.xlsx'), col_name) if col_name != '' else ''] # change to other things
 
     return True
 
