@@ -8,12 +8,13 @@ from app.Backend import server_tools
 import logging
 import sys
 import os
+import pandas as pd
 
 # from .forms import LoginForm
 
 
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
-ALLOWED_EXTENSIONS = {'xlsx'}
+ALLOWED_EXTENSIONS = {'xlsx', 'xls'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.debug = True
 
@@ -31,22 +32,24 @@ app.debug = True
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'file1' not in request.files:
-            flash('No file part')
+        if 'cytokines' not in request.files:
+            flash('Please upload cytokine data')
             return redirect(request.url)
-        file1 = request.files['file1']
-        file2 = request.files['file2']
+        cytokines = request.files['cytokines']
+        patients = request.files['patients']
         # if user does not select file, browser also
         # submit an empty part without filename
-        if file1.filename == '':
+        if cytokines.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file2 and allowed_file(file2.filename):
-            filename = secure_filename(file2.filename)
-            file2.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
-        if file1 and allowed_file(file1.filename):
-            filename = secure_filename(file1.filename)
-            file1.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+        if patients and allowed_file(patients.filename):
+            filename = secure_filename(patients.filename)
+            patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+        if cytokines and allowed_file(cytokines.filename):
+            filename = secure_filename(cytokines.filename)
+            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+            files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename)])
+            tools.write_DF_to_excel(os.path.join('app/static', 'data_files_names.xlsx'), files)
             return render_template('set.html')
         else:
             flash('please upload an excel file')
@@ -59,7 +62,6 @@ def explanation():
     if request.method == 'POST':
         return render_template('upload.html')
     return render_template('explanation.html')
-
 
 
 @app.route('/')
@@ -78,12 +80,12 @@ def allowed_file(filename):
 def generate():
     parameters = tools.Object()
     parameters.images = []
-    parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.name_compartment = request.form.get('name_compartment', default='Compartment')
     parameters.name_data = request.form.get('name_data',  default='data')
+    parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=6)  # Must be <= max_testing_k
-    parameters.recalculate_modules = False
+    parameters.recalculate_modules = True
     parameters.outcomes = request.form.get('outcomes')  # names of binary outcome columns
     parameters.outcomes = parameters.outcomes.split(", ")
     parameters.covariates = request.form.get('covariates') # names of regression covariates to control for
@@ -101,7 +103,9 @@ def generate():
     logging.warning('finished to calc the method')
     ans = server_tools.make_ans(parameters)
     # server_tools.clean_static()
-    #server_tools.clean_data()
+    # server_tools.clean_data()
+    # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'abs_modules.xlsx'), parameters.modules[0])
+    # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'adj_modules.xlsx'), parameters.modules[1])
     return render_template(
         'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
         abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))

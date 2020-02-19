@@ -33,6 +33,6 @@ def extractK(stat, max_testing_k, max_final_k=6):
             break
 
     if final_k < 2 or final_k > max_final_k:
-        final_k = stat.loc[2:6, 'stat'].idxmax()
+        final_k = stat.loc[2:max_final_k, 'stat'].idxmax()
 
     return(final_k)

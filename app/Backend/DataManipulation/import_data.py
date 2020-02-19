@@ -9,22 +9,20 @@ warnings.simplefilter('ignore')
 
 
 def make_cyto_data(parameters):
-    if(parameters.luminex):
-        cy_data = tools.read_excel(os.path.join(parameters.paths['data'], 'cytokine_data.xlsx'), indexCol=0)
-        #insert to skip a row
-    cy_data = tools.read_excel(os.path.join(parameters.paths['data'], 'cytokine_data.xlsx'), indexCol=0)
+    print(parameters.luminex)
+    cy_data_name = tools.read_excel(os.path.join('app/static', 'data_files_names.xlsx')).get_value(0,0)
+    cy_data = tools.read_excel(os.path.join(parameters.paths['data'], cy_data_name), skiprows=[4, 5, 6, 7], indexCol=0, header = 3) if parameters.luminex \
+        else tools.read_excel(os.path.join(parameters.paths['data'], cy_data_name) , indexCol=0)
     cy_data.dropna(axis='index', how='all', inplace=True)
-
-    if parameters.cytokines is None:
-        parameters.cytokines = list(cy_data.columns)
-# Only cytokines contained in parameters.cytokines list
-        parameters.path_files = os.path.join(os.getcwd(), 'data_files')
+    parameters.cytokines = list(cy_data.columns) if parameters.cytokines[0] == '' and len(parameters.cytokines) == 1 else parameters.cytokines # None
+    cy_data = cy_data[parameters.cytokines]     # Only cytokines contained in parameters.cytokines list
     return cy_data
 
 
 def make_patiants_data(parameters):
-    if parameters.outcomes != []:
-        patient_data = tools.read_excel(os.path.join(parameters.paths['data'], 'patient_data.xlsx'), indexCol=0)
+    if parameters.outcomes[0] != '':
+        patient_data_name = tools.read_excel(os.path.join('app/static', 'data_files_names.xlsx')).get_value(1, 0)
+        patient_data = tools.read_excel(os.path.join(parameters.paths['data'], patient_data_name), indexCol=0)
         patient_data.dropna(axis='index', how='all', inplace=True)
         return patient_data
     return None

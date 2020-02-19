@@ -83,11 +83,14 @@ def outcomeAnalysis(cytomod_obj, patient_data,
                     standardize=True):
     """Do these FLU-positive clusters correlate with outcome,
     with/without adjustment for bacterial coinfection?"""
+    need_OR = False
     df = pd.DataFrame(patient_data)
     modStr = 'Module' if analyzeModules else 'Analyte'
     resL = []
     for outcome in outcomeVars:
         logistic = np.isin(df[outcome].dropna().unique(), [0, 1]).all()
+        if logistic:
+            need_OR = True
         """Logistic regression on outcome"""
         if analyzeModules:
             dataDf = cytomod_obj.modDf
@@ -108,7 +111,7 @@ def outcomeAnalysis(cytomod_obj, patient_data,
         resL.append(tmpres)
 
     resDf = pd.concat(resL, axis=0, ignore_index=True)
-    return resDf
+    return resDf, need_OR
 
 
 ####### outcome #######
@@ -138,7 +141,8 @@ def plotResultSummary(cytomod_obj,
                       compartmentName='BS',
                       showScalebar=True,
                       figsize=(6,9),
-                      save_fig_path=None):
+                      save_fig_path=None,
+                      logistic=False):
     mod_res_df = mod_res_df.copy()
     cy_res_df = cy_res_df.copy()
 
@@ -151,7 +155,11 @@ def plotResultSummary(cytomod_obj,
     name2mod = lambda a: '%s%1.0f' % (compartmentName, cytomod_obj.labels[a])
 
     cy_res_df.loc[:, 'Module'] = cy_res_df['Analyte'].map(name2mod)
-    cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'OR', 'N', 'FWER', 'FDR']
+    # ask liel!!!!
+    if logistic:
+       cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'OR', 'N', 'FWER', 'FDR']
+    else:
+        cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'Coef', 'N', 'FWER', 'FDR']
     hDf = pd.concat((mod_res_df[cols], cy_res_df[cols]), axis=0)
     hDf.loc[:, 'isAnalyte'] = (hDf['Module'] != hDf['Name'])
     order = hDf[['Module', 'Name', 'isAnalyte']].drop_duplicates().sort_values(by=['Module', 'isAnalyte', 'Name'])
@@ -171,11 +179,17 @@ def plotResultSummary(cytomod_obj,
 
     vals = np.log(foldH.values)
     pcParams = dict(vmin=-1, vmax=1, cmap=cmap)
-    scaleLabel = 'OR'
+
+    # ask liel!!!!
+    scaleLabel = 'OR' if logistic else 'Coef'
     if scaleLabel == 'OR':
         scaleLabel = 'Odds Ratio'
-    ytl = np.array(['1/2.5', '1/2', '1/1.5', 1, 1.5, 2, 2.5])
-    yt = np.log([1 / 2.5, 1 / 2, 1 / 1.5, 1, 1.5, 2, 2.5])
+        ytl = np.array(['1/2.5', '1/2', '1/1.5', 1, 1.5, 2, 2.5])
+        yt = np.log([1 / 2.5, 1 / 2, 1 / 1.5, 1, 1.5, 2, 2.5])
+    else:
+        scaleLabel = 'Beta Coefficient'
+        ytl = np.array(['-0.8', '-0.4', '0', 0.4, 0.8])
+        yt = np.array(['-0.8', '-0.4', '0', 0.4, 0.8])
 
     plt.figure(figsize=figsize)
     figh = plt.gcf()

@@ -20,7 +20,7 @@ def best_k(args):
         args.images.append(img)
         args.bestK['abs'] = gap_stat.getBestK(args.cyto_mod_abs.cyDf,
                                               max_testing_k=args.max_testing_k,
-                                              max_final_k=args.args.max_testing_k,
+                                              max_final_k=args.max_testing_k,
                                               save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_abs.png'))
         img = {'height': '500',
                'width': '700',

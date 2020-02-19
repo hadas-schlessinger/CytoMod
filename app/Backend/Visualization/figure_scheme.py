@@ -80,9 +80,11 @@ def same_cluster_reliability(stage,args):
     args.images.append(img)
     return args
 
+
 def modules_cytokine_correlation(stage, args):
     args = cytomod.io.plot_module_correl(args.cyto_modules[stage], args.paths['clustering_figures'], args)
     return args
+
 
 def write_results(args):
     cytomod.io.write_modules(args.cyto_modules['abs'], args.paths['clustering_info'])
@@ -99,23 +101,23 @@ def associations_to_outcomes(stage, args):
                 args.patient_data[[covariate]] = args.patient_data[[covariate]].apply(standardizeFunc)
 
         if stage == 'abs':
-            args.mod_outcome_abs_df = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
+            args.mod_outcome_abs_df, args.need_OR = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
                                                          analyzeModules=True,
                                                          outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
                                                          adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                          standardize=True)
-            args.cy_outcome_abs_df = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
+            args.cy_outcome_abs_df,  args.need_OR = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
                                                         analyzeModules=False,
                                                         outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
                                                         adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                         standardize=True)
         if stage == 'adj':
-            args.mod_outcome_adj_df = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
+            args.mod_outcome_adj_df,  args.need_OR = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
                                                          analyzeModules=True,
                                                          outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
                                                          adjustmentVars=args.covariates if args.covariates[0] != '' else [],
                                                          standardize=True)
-            args.cy_outcome_adj_df = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
+            args.cy_outcome_adj_df,  args.need_OR = outcome.outcomeAnalysis(args.cyto_modules['adj'], args.patient_data,
                                                         analyzeModules=False,
                                                         outcomeVars=args.outcomes if args.outcomes[0] != '' else [],
                                                         adjustmentVars=args.covariates if args.covariates[0] != '' else [],
@@ -134,7 +136,8 @@ def outcomes_figures(stage, args):
                                       compartmentName=args.name_compartment,
                                       figsize=(6, 9),
                                       save_fig_path=os.path.join(args.paths['association_figures'],
-                                                                 'associations_abs.png'))
+                                                                 'associations_abs.png'),
+                                      logistic= args.need_OR)
             img = {'height': '1000',
                    'width': '500',
                    'name':'associations_abs.png',
@@ -149,7 +152,8 @@ def outcomes_figures(stage, args):
                                       compartmentName=args.name_compartment,
                                       figsize=(6, 9),
                                       save_fig_path=os.path.join(args.paths['association_figures'],
-                                                                 'associations_adj.png'))
+                                                                 'associations_adj.png'),
+                                      logistic=args.need_OR)
             img = {'height': '1000',
                    'width': '500',
                    'name': 'associations_adj.png',

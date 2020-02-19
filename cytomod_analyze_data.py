@@ -42,11 +42,11 @@ Arguments to be manually defined:
 * args.log_transform
        Boolean indicating whether to perform a log (base 10) transformation (True) or not (False).
 * args.outcomes
-       Optional. Names of outcome variables from the patients_data.xlsx data-frame to be analyzed.
+       Optional. Names of outcome variables from the patient_data.xlsx data-frame to be analyzed.
        If list is left empty (i.e., []), will not perform the associations to outcomes analysis.
        This code currently supports binary outcome variables only, by using logistic regression.
 * args.covariates
-       Optional. Names of covariate variables (columns) from the patients_data.xlsx data-frame
+       Optional. Names of covariate variables (columns) from the patient_data.xlsx data-frame
        to be controlled for in the regression models. If list is left empty (i.e., []),
        will not controll the associations to outcomes analysis with any covariate variables.
 * args.log_column_names

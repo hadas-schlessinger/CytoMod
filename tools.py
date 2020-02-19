@@ -14,8 +14,8 @@ class Object(object):
     pass
 
 
-def read_excel(path, sheet=0, indexCol=None, nrows=None):
-    df = pd.read_excel(path, sheet_name=sheet, index_col=indexCol, nrows=nrows)
+def read_excel(path, sheet=0, indexCol=None, nrows=None, skiprows=[], header = 0):
+    df = pd.read_excel(path, sheet_name=sheet, skiprows=skiprows, index_col=indexCol, nrows=nrows, header=header)
     return df
 
 
