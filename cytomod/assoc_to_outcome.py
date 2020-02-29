@@ -189,7 +189,7 @@ def plotResultSummary(cytomod_obj,
     else:
         scaleLabel = 'Beta Coefficient'
         ytl = np.array(['-0.8', '-0.4', '0', 0.4, 0.8])
-        yt = np.array(['-0.8', '-0.4', '0', 0.4, 0.8])
+        yt = np.log([-0.8, -0.4, 0, 0.4, 0.8])
 
     plt.figure(figsize=figsize)
     figh = plt.gcf()
@@ -240,7 +240,10 @@ def plotResultSummary(cytomod_obj,
         cb.set_label(scaleLabel, size=9)
         cb.ax.set_yticklabels(ytl, fontsize=8)
 
+    plt.show()
+
     if save_fig_path is None:
         plt.show()
     else:
         plt.savefig(save_fig_path)
+

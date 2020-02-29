@@ -6,10 +6,13 @@
     <p style="color: #2e6c80;">Please upload 2 excel files:
         one for the cytokins raw data and the other one for the patients data
     </p>
-    <form method=post enctype=multipart/form-data>
-         <p style="color: #2e6c80;">Cytokines data: </p>
+ <form method=post enctype=multipart/form-data>
+     <h3 style="color: #5e9ca0;">Project Name:</h3>
+        <p style="color: #0B7478">Insert the name of the data/chort</p>
+      <input type="text" name="name_data" placeholder="name">
+         <p style="color: #2e6c80;">Cytokines Data: </p>
          <input type = "file" name = "cytokines" />
-         <p style="color: #2e6c80;">Patients data: </p>
+         <p style="color: #2e6c80;">Patients Data: </p>
           <input type = "file" name = "patients" />
          <input type = "submit" value="Upload"/>
       </form>

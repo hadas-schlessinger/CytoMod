@@ -32,6 +32,10 @@ app.debug = True
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
+        name = request.form.get('name_data', default='data')
+        project_name = name if name != '' else 'Unknown project'
+        tools.create_folder(os.path.join('app/static/', project_name))
+        tools.create_folder(os.path.join('app/static/', project_name, 'data_files'))
         if 'cytokines' not in request.files:
             flash('Please upload cytokine data')
             return redirect(request.url)
@@ -44,13 +48,13 @@ def upload_file():
             return redirect(request.url)
         if patients and allowed_file(patients.filename):
             filename = secure_filename(patients.filename)
-            patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+            patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
         if cytokines and allowed_file(cytokines.filename):
             filename = secure_filename(cytokines.filename)
-            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', 'data_files', 'data'), filename))
+            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
             files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename)])
-            tools.write_DF_to_excel(os.path.join('app/static', 'data_files_names.xlsx'), files)
-            return render_template('set.html')
+            tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
+            return render_template('set.html', project=project_name)
         else:
             flash('please upload an excel file')
             return redirect(request.url)
@@ -80,12 +84,12 @@ def allowed_file(filename):
 def generate():
     parameters = tools.Object()
     parameters.images = []
+    parameters.name_data = request.form.get('name_data', default='data')
     parameters.name_compartment = request.form.get('name_compartment', default='Compartment')
-    parameters.name_data = request.form.get('name_data',  default='data')
     parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=6)  # Must be <= max_testing_k
-    parameters.recalculate_modules = True
+    parameters.recalculate_modules = False
     parameters.outcomes = request.form.get('outcomes')  # names of binary outcome columns
     parameters.outcomes = parameters.outcomes.split(", ")
     parameters.covariates = request.form.get('covariates') # names of regression covariates to control for
@@ -102,8 +106,8 @@ def generate():
     parameters = Visualization.figures.calc_adj_figures(parameters)
     logging.warning('finished to calc the method')
     ans = server_tools.make_ans(parameters)
-    # server_tools.clean_static()
-    # server_tools.clean_data()
+    # server_tools.clean_static(parameters)
+    # server_tools.clean_data(parameters)
     # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'abs_modules.xlsx'), parameters.modules[0])
     # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'adj_modules.xlsx'), parameters.modules[1])
     return render_template(

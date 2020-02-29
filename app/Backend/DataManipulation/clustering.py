@@ -11,7 +11,7 @@ def best_k(args):
         args.bestK['adj'] = gap_stat.getBestK(args.cyto_mod_adj.cyDf,
                                               max_testing_k=args.max_testing_k,
                                               max_final_k=args.max_testing_k,
-                                              save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_adj.png'))
+                                              save_fig_path=os.path.join(args.path_files, 'gap_stat_adj.png'))
         img = {'height': '500',
                'width': '700',
                'name': 'gap_stat_adj.png',
@@ -21,7 +21,7 @@ def best_k(args):
         args.bestK['abs'] = gap_stat.getBestK(args.cyto_mod_abs.cyDf,
                                               max_testing_k=args.max_testing_k,
                                               max_final_k=args.max_testing_k,
-                                              save_fig_path=os.path.join(args.paths['gap_statistic'], 'gap_stat_abs.png'))
+                                              save_fig_path=os.path.join(args.path_files, 'gap_stat_abs.png'))
         img = {'height': '500',
                'width': '700',
                'name': 'gap_stat_abs.png',
@@ -29,10 +29,10 @@ def best_k(args):
                }
         args.images.append(img)
 
-        tools.write_DF_to_excel(os.path.join(args.paths['clustering'], 'bestK.xlsx'), args.bestK)
+        tools.write_DF_to_excel(os.path.join(args.path_files, 'bestK.xlsx'), args.bestK)
     else:
         # Get modules from storage
-        args.bestK = tools.read_excel(os.path.join(args.paths['clustering'], 'bestK.xlsx'))
+        args.bestK = tools.read_excel(os.path.join(args.path_files, 'bestK.xlsx'))
         args.bestK = dict(args.bestK['value'])
     return args
 
@@ -42,11 +42,11 @@ def clustering(args):
     if args.do_recalculate:
         args.cyto_mod_adj.cluster_cytokines(K=args.bestK['adj'])
         args.cyto_mod_abs.cluster_cytokines(K=args.bestK['abs'])
-        tools.write_to_dill(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'), args.cyto_mod_adj)
-        tools.write_to_dill(os.path.join(args.paths['clustering'], 'cyto_mod_abs.dill'), args.cyto_mod_abs)
+        tools.write_to_dill(os.path.join(args.path_files, 'cyto_mod_adj.dill'), args.cyto_mod_adj)
+        tools.write_to_dill(os.path.join(args.path_files, 'cyto_mod_abs.dill'), args.cyto_mod_abs)
     else: # Read modules from file
-        args.cyto_mod_adj = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_adj.dill'))
-        args.cyto_mod_abs = tools.read_from_dill(os.path.join(args.paths['clustering'], 'cyto_mod_abs.dill'))
+        args.cyto_mod_adj = tools.read_from_dill(os.path.join(args.path_files, 'cyto_mod_adj.dill'))
+        args.cyto_mod_abs = tools.read_from_dill(os.path.join(args.path_files, 'cyto_mod_abs.dill'))
 
     args.cyto_modules = {'adj': args.cyto_mod_adj, 'abs': args.cyto_mod_abs}
     return args

@@ -14,7 +14,7 @@ warnings.simplefilter('ignore')
 def pairwise_person(stage, args):
     if stage == 'abs':
         plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
-                        save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
+                        save_path=os.path.join(args.path_files, '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
         # img = {'height': '700',
         #        'width': '1000',
         #        'name': '%s_correlation_heatmap.png' % args.cyto_mod_abs.name,
@@ -23,7 +23,7 @@ def pairwise_person(stage, args):
         # cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],figsize=(10, 6))
     elif stage == 'adj':
         plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
-                        save_path=os.path.join(args.paths['correlation_figures'], '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
+                        save_path=os.path.join(args.path_files, '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
         # img = {'height': '700',
         #        'width': '1000',
         #        'name': '%s_correlation_heatmap.png' % args.cyto_mod_adj.name,
@@ -36,7 +36,7 @@ def pairwise_person(stage, args):
 def mean_person(args):
     cyplot.plotMeanCorr(args.cyto_mod_abs.withMean, args.cyto_mod_abs.meanS.name,
                         cyList=sorted(args.cyto_mod_abs.cyDf.columns),
-                        save_path=os.path.join(args.paths['correlation_figures'],
+                        save_path=os.path.join(args.path_files,
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name))
     img = {'height': '1000',
            'width': '500',
@@ -47,9 +47,9 @@ def mean_person(args):
     return args
 
 def pairwise_corelletion_with_moudles(stage, args):
-    cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.paths['clustering_figures'],
+    cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.path_files,
                                        figsize=(10, 6))
-    cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths['clustering_figures'])
+    cytomod.io.plot_color_legend(args.cyto_modules[stage], args.path_files)
     img = {'height': '700',
            'width': '1000',
            'name': '%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
@@ -65,9 +65,9 @@ def pairwise_corelletion_with_moudles(stage, args):
     return args
 
 def same_cluster_reliability(stage,args):
-    cytomod.io.plot_reliability(args.cyto_modules[stage], args.paths['clustering_figures'],
+    cytomod.io.plot_reliability(args.cyto_modules[stage], args.path_files,
                                 figsize=(10, 6))
-    cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths['clustering_figures'])
+    cytomod.io.plot_color_legend(args.cyto_modules[stage], args.path_files)
     img = {'height': '700',
            'width': '1000',
            'name':'%s_reliability.png' % args.cyto_modules[stage].name,
@@ -82,13 +82,13 @@ def same_cluster_reliability(stage,args):
 
 
 def modules_cytokine_correlation(stage, args):
-    args = cytomod.io.plot_module_correl(args.cyto_modules[stage], args.paths['clustering_figures'], args)
+    args = cytomod.io.plot_module_correl(args.cyto_modules[stage], args.path_files, args)
     return args
 
 
 def write_results(args):
-    cytomod.io.write_modules(args.cyto_modules['abs'], args.paths['clustering_info'])
-    cytomod.io.write_modules(args.cyto_modules['adj'], args.paths['clustering_info'])
+    cytomod.io.write_modules(args.cyto_modules['abs'], args.path_files)
+    cytomod.io.write_modules(args.cyto_modules['adj'], args.path_files)
 
 
 def associations_to_outcomes(stage, args):
@@ -135,7 +135,7 @@ def outcomes_figures(stage, args):
                                       fdr_thresh_plot=0.2,
                                       compartmentName=args.name_compartment,
                                       figsize=(6, 9),
-                                      save_fig_path=os.path.join(args.paths['association_figures'],
+                                      save_fig_path=os.path.join(args.path_files,
                                                                  'associations_abs.png'),
                                       logistic= args.need_OR)
             img = {'height': '1000',
@@ -151,7 +151,7 @@ def outcomes_figures(stage, args):
                                       fdr_thresh_plot=0.2,
                                       compartmentName=args.name_compartment,
                                       figsize=(6, 9),
-                                      save_fig_path=os.path.join(args.paths['association_figures'],
+                                      save_fig_path=os.path.join(args.path_files,
                                                                  'associations_adj.png'),
                                       logistic=args.need_OR)
             img = {'height': '1000',

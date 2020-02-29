@@ -4,17 +4,21 @@
 
     <h1>Settings</h1>
     <form action="/generate" method="post">
-        <h3 style="color: #5e9ca0;">name_data</h3>
-        <p style="color: #0B7478">Insert the name of the data/chort</p>
-      <input type="text" name="name_data" placeholder="name">
+        {% if project %}
+        <h2 style="color: #5e9ca0;">set parameters for project: {{project}}</h2>
+        {% else %}
+          <h2 style="color: #5e9ca0;">set parameters for your project </h2>
+        {% endif %}
+          <h3 style="color: #5e9ca0;">name_data</h3>
+      <input name="name_data" value={{project}}>
         <h3 style="color: #5e9ca0;">name_compartment</h3>
          <p style="color: #0B7478">Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
-      <input type="text" name="name_compartment" placeholder="Plasma, BS, Nasal">
+      <input type="text" name="name_compartment" placeholder="Plasma, Nasal Wash">
          <h3 style="color: #5e9ca0;">Luminex</h3>
         <p style="color: #0B7478">Mark this if your file is a luminex measurements file. Note - if you are using luminex directly, please make sure all value are specific.
             if a value is mentioned as > or < - please change it to a chosen real number </p>
       <input type="checkbox" name="luminex" checked="True">
-        <h3 style="color: #5e9ca0;">log_transform</h3>
+        <h3 style="color: #5e9ca0;">log_transform_cytokines</h3>
         <p style="color: #0B7478">Marking this will generate log transformation on the cytokine data</p>
       <input type="checkbox" name="log_transform" checked="True">
         <h3 style="color: #5e9ca0;">max_testing_k</h3>
