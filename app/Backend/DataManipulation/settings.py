@@ -16,14 +16,13 @@ def set_data(parameters):
     tools.create_folder(parameters.path_files)
     if check_input(parameters):
         parameters.seed = 1234
-            #os.environ.get("SEED") #by configuration!!!!!!!!!
-       # data_path = server_tools.save_data_on_local_path(cy_data)
+        # todo: inser seed by configuration  - > os.environ.get("SEED")
         parameters.cy_data = import_data.make_cyto_data(parameters)
         parameters.patient_data = import_data.make_patiants_data(parameters)
         parameters.patient_data, parameters.cy_data, parameters = log_transform(parameters, parameters.cy_data, parameters.patient_data)
         logging.warning('finished set_data')
         return parameters
-    # dont forget to delete file!!!!
+    # Todo: dont forget to delete file!!!!
     return False
 
 
@@ -70,7 +69,6 @@ def check_input(parameters):
 
 
 def log_transform(parameters, cy_data, patient_data):
-    # log transform cytokines and
     if parameters.log_transform:
         cy_data = _log_cytokines(parameters, cy_data)
     if parameters.log_column_names != [''] and parameters.outcomes != ['']:
@@ -81,19 +79,30 @@ def log_transform(parameters, cy_data, patient_data):
 def _log_covariates_and_outcomes(parameters, patient_data):
     # log transform args.log_column_names
     if parameters.log_column_names != [''] and parameters.outcomes != ['']:
-        for col_name in parameters.log_column_names:
-            new_col_name = 'log_' + col_name  # log transform variable
-            patient_data[new_col_name] = np.log10(patient_data[col_name]) # replace column with new log transformed column
-            if col_name in parameters.covariates:
-                parameters.covariates.remove(col_name)
-                parameters.covariates.append(new_col_name)
-    return  patient_data, parameters
+        for col_name in parameters.log_column_names+parameters.outcomes:
+            if(_is_continues(col_name, patient_data)):
+                new_col_name = 'log_' + col_name  # log transform variable
+                #patient_data[col_name] = patient_data[col_name][patient_data[col_name] != 0]
+                patient_data[new_col_name] = np.log10(patient_data[col_name]) # replace column with new log transformed column
+                # print( patient_data[new_col_name])
+                # if col_name in parameters.outcomes:
+                #     parameters.outcomes.remove(col_name)
+                #     parameters.outcomes.append(new_col_name)
+                if col_name in parameters.covariates:
+                    parameters.covariates.remove(col_name)
+                    parameters.covariates.append(new_col_name)
+    # print(patient_data)
+    return patient_data, parameters
+
+
+def _is_continues(col_name, df):
+    return not np.isin(df[col_name].dropna().unique(), [0, 1]).all()
 
 
 def _log_cytokines(parameters, cy_data):
     if parameters.log_transform and parameters.luminex:
         cy_data = np.log10(cy_data.astype(float))
-        # use cy_data.dtypes to automatically log all data according to types
+        # TODO: use cy_data.dtypes to automatically log all data according to types
     if parameters.log_transform and not parameters.luminex:
         cy_data = np.log10(cy_data)
     return cy_data

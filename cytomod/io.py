@@ -177,7 +177,7 @@ def plot_module_correl(clust_object, folder, args):
                'headline': 'Modules Correlation of %s Cytokines no. %s ' % (clust_object.name, lab)}
         args.images.append(img)
         i += 1
-        return args
+    return args
 
 
 def plot_cy_embedding(clust_object, folder):

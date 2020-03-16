@@ -15,6 +15,7 @@ def make_cyto_data(parameters):
     cy_data.dropna(axis='index', how='all', inplace=True)
     parameters.cytokines = list(cy_data.columns) if parameters.cytokines[0] == '' and len(parameters.cytokines) == 1 else parameters.cytokines # None
     cy_data = cy_data[parameters.cytokines]     # Only cytokines contained in parameters.cytokines list
+    # TODO: ADD convertLevel
     return cy_data
 
 

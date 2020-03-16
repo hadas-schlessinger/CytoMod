@@ -15,21 +15,9 @@ def pairwise_person(stage, args):
     if stage == 'abs':
         plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.path_files, '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
-        # img = {'height': '700',
-        #        'width': '1000',
-        #        'name': '%s_correlation_heatmap.png' % args.cyto_mod_abs.name,
-        #        'headline': 'Absolute Cytokines Correlation Heatmap'}
-        # args.images.append(img)
-        # cytomod.io.plot_clustering_heatmap(args.cyto_modules['abs'], args.paths['clustering_figures'],figsize=(10, 6))
     elif stage == 'adj':
         plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.path_files, '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
-        # img = {'height': '700',
-        #        'width': '1000',
-        #        'name': '%s_correlation_heatmap.png' % args.cyto_mod_adj.name,
-        #        'headline': 'Adjusted Cytokines Correlation Heatmap'
-        #        }
-        # args.images.append(img)
     return args
 
 
@@ -45,6 +33,7 @@ def mean_person(args):
            }
     args.images.append(img)
     return args
+
 
 def pairwise_corelletion_with_moudles(stage, args):
     cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.path_files,
