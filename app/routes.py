@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect, request, url_for
+from flask import  render_template, flash, redirect, request, url_for
 from werkzeug.utils import secure_filename
 from app import app
 import tools
@@ -11,8 +11,6 @@ import os
 import pandas as pd
 
 # from .forms import LoginForm
-
-
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
 ALLOWED_EXTENSIONS = {'xlsx', 'xls'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
