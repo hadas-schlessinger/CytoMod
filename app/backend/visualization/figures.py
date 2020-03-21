@@ -1,6 +1,6 @@
-from app.Backend.DataManipulation import clustering
-from app.Backend.Visualization import figure_scheme
-from app.Backend import server_tools
+from app.backend.data_manipulation import clustering
+from app.backend.visualization import figure_scheme
+from app.backend import server_tools
 import logging
 
 

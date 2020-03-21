@@ -2,19 +2,19 @@ from flask import  render_template, flash, redirect, request, url_for
 from werkzeug.utils import secure_filename
 from app import app
 import tools
-from app.Backend import DataManipulation as dm
-from app.Backend import Visualization
-from app.Backend import server_tools
+from app.backend import data_manipulation as dm
+from app.backend import visualization
+from app.backend import server_tools
 import logging
 import sys
 import os
 import pandas as pd
+import time
 
 # from .forms import LoginForm
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
 ALLOWED_EXTENSIONS = {'xlsx', 'xls'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.debug = True
 
 
 # @app.route('/login', methods=['GET', 'POST'])
@@ -25,6 +25,13 @@ app.debug = True
 #             form.username.data, form.remember_me.data))  # for debugging, shows massage to user
 #         return redirect('welcome.html')
 #     return render_template('login.html', title='Sign In', form=form)
+
+
+
+@app.route('/time')
+def get_current_time():
+    return {'time': time.time()}
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -65,6 +72,9 @@ def explanation():
         return render_template('upload.html')
     return render_template('explanation.html')
 
+# @app.route('/')
+# def index():
+#     return render_template('index.html', token = 'hadas')
 
 @app.route('/')
 def welcome():
@@ -100,8 +110,8 @@ def generate():
     # print(parameters.save_file)
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
-    parameters = Visualization.figures.calc_abs_figures(parameters)
-    parameters = Visualization.figures.calc_adj_figures(parameters)
+    parameters = visualization.figures.calc_abs_figures(parameters)
+    parameters = visualization.figures.calc_adj_figures(parameters)
     logging.warning('finished to calc the method')
     ans = server_tools.make_ans(parameters)
     # server_tools.clean_static(parameters)
