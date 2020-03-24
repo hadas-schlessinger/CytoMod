@@ -1,35 +1,30 @@
-import React,  { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React , { useEffect } from 'react';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { NavigationBar } from './components/NavigationBar';
+import { Home } from './components/Home/Home';
+import SetData from './components/SetData/SetData';
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
-
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
-
+  // useEffect(() => {
+  //   fetch('/').then(response => {
+  //     response.json().then("Hi");
+  //   })
+  //   return () => {
+  //   }
+  // }, [input])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>The current time is {currentTime}.</p>
-
-      </header>
-    </div>
+    <React.Fragment>
+      <Router>
+      <NavigationBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/set" component={SetData} />
+          {/* <Route component={NoMatch} /> */}
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
 }
 

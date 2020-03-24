@@ -28,9 +28,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
+# @app.route('/time')
+# def get_current_time():
+#     return {'time': time.time()}
 
 
 @app.route('/upload', methods=['GET', 'POST'])
