@@ -1,16 +1,20 @@
 // import { Tab, Tabs } from "@blueprintjs/core";
 import React from 'react'
 import  MethodExplanationPanel  from './MethodExplanationPanel'
+import WelcomePanel from './WelcomePanel'
+import ContactPanel from './ContactPanel'
 import { Tab } from 'semantic-ui-react'
 
+
 const panes = [
+  { menuItem: 'Welcome', render: () => <Tab.Pane>{< WelcomePanel />}</Tab.Pane> },
   { menuItem: 'Method Explanation', render: () => <Tab.Pane>{< MethodExplanationPanel />}</Tab.Pane> },
-  { menuItem: 'Example', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  { menuItem: 'Contact', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+  { menuItem: 'Example', render: () => <Tab.Pane>Will Put here the Jupiter Notebook</Tab.Pane> },
+  { menuItem: 'Contact', render: () => <Tab.Pane>{<ContactPanel / >}</Tab.Pane> },
 ]
 
 const SideBar = () => (
-  <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+  <Tab style={{fontSize: 20}} menu={{ fluid: true, vertical: true, tabular: true }} grid={{paneWidth: 14, tabWidth: 2}} panes={panes} />
 )
 
 export default SideBar

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SideBar from './SideBar'
+import background from '../../background.jpg'
 
 const GridWrapper = styled.div`
   display: 
@@ -12,7 +13,7 @@ const GridWrapper = styled.div`
   grid-auto-rows: minmax(25px, auto);
 `;
 export const Home = (props) => (
-  <div>
+  <div styles = {{ backgroundImage:`url(${background})` }} >
   <SideBar / >
   <GridWrapper>
   </GridWrapper>

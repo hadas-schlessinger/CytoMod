@@ -3,41 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__color_label_legend.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__color_label_legend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__correlation_heatmap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__cy_mean_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__cy_mean_correlation.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__hierchical_clust_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__hierchical_clust_heatmap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__reliability.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__reliability.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__color_label_legend.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__color_label_legend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__correlation_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__correlation_heatmap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__hierchical_clust_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__hierchical_clust_heatmap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__modules_correlations_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__reliability.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__reliability.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/associations_abs.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/associations_abs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/associations_adj.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/associations_adj.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/bestK.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/bestK.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/cyto_mod_abs.dill" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/cyto_mod_abs.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/cyto_mod_adj.dill" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/cyto_mod_adj.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/gap_stat_abs.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/gap_stat_abs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/gap_stat_adj.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/gap_stat_adj.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +51,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="flaskenv" value="91" />
-          <entry key="html" value="1247" />
+          <entry key="html" value="1249" />
           <entry key="js" value="183" />
           <entry key="json" value="173" />
           <entry key="py" value="4595" />
@@ -94,7 +59,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1247" />
+          <entry key="HTML" value="1249" />
           <entry key="JSON" value="173" />
           <entry key="JavaScript" value="183" />
           <entry key="PLAIN_TEXT" value="91" />
@@ -135,14 +100,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/explanation.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/background.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/app/templates/explanation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -271,15 +235,16 @@
         <option value="$PROJECT_DIR$/react-frontend/src/components/Nebar.js" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/app/templates/explanation.html" />
       </list>
     </option>
   </component>
   <component name="JupyterTrust" id="3e742fb1-3623-496e-ac64-761021e8fa9e" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-1920" />
-    <option name="y" value="-525" />
-    <option name="width" value="1920" />
-    <option name="height" value="976" />
+    <option name="y" value="-519" />
+    <option name="width" value="1680" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectId" id="1VLIbcF1QbP0gu8m0f5DLkFOJK8" />
   <component name="ProjectView">
@@ -304,6 +269,32 @@
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="react-frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="react-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="react-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="react-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="SetData" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -537,9 +528,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-525" width="1920" height="976" extended-state="0" />
+    <frame x="-1920" y="-519" width="1680" height="946" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2090574" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23930079" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -550,7 +541,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3290398" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.0" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3407494" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3280543" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -878,11 +869,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/explanation.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/background.jpg">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/explanation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

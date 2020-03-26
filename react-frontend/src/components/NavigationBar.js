@@ -5,12 +5,13 @@ import styled from 'styled-components';
 const Styles = styled.div`
   .navbar { background-color: #ffff; }
   a, .navbar-nav, .navbar-light .nav-link {
+    font-size: 1.2em;
     color: #00695c;
     &:hover { color: #2BBBAD; }
   }
   .navbar-brand {
-    font-size: 1.4em;
-    color: #9FFFCB;
+    font-size: 2em;
+    color: #00B894;
     &:hover { color: white; }
   }
   .form-center {

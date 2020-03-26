@@ -15,6 +15,7 @@ function App() {
   //   }
   // }, [input])
   return (
+    <div >
     <React.Fragment>
       <Router>
       <NavigationBar />
@@ -25,6 +26,7 @@ function App() {
         </Switch>
       </Router>
     </React.Fragment>
+    </div>
   );
 }
 
