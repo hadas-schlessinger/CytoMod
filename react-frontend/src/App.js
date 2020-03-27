@@ -2,9 +2,10 @@ import React , { useEffect } from 'react';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NavigationBar } from './components/NavigationBar';
+import NavigationBar  from './components/NavigationBar';
 import { Home } from './components/Home/Home';
 import SetData from './components/SetData/SetData';
+import Results from './components/Results/Results';
 
 function App() {
   // useEffect(() => {
@@ -22,7 +23,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/set" component={SetData} />
-          {/* <Route component={NoMatch} /> */}
+          <Route exact path="/results" component={Results} />
         </Switch>
       </Router>
     </React.Fragment>

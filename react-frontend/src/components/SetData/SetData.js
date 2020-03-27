@@ -1,9 +1,10 @@
 import React from 'react'
+import SideBar from './SideBar'
 
 export default function SetData() {
     return (
         <div>
-            <h1>Working</h1>
+        <SideBar / >
         </div>
     )
 }

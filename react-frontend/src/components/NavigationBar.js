@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Styles = styled.div`
@@ -20,7 +20,7 @@ const Styles = styled.div`
     right: 25%;
   }
 `;
-export const NavigationBar = () => (
+ const NavigationBar = () => (
   <Styles>
     <Navbar expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -28,10 +28,12 @@ export const NavigationBar = () => (
         <Nav className="mr-auto">
           <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item> 
           <Nav.Item><Nav.Link href="/set">Set</Nav.Link></Nav.Item> 
-          <Nav.Item><Nav.Link eventKey="disabled" disabled>Results</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/results">Results</Nav.Link></Nav.Item>
         </Nav>
         <Navbar.Brand>Cytomod Server</Navbar.Brand>
       </Navbar.Collapse>
     </Navbar>
   </Styles>
 )
+
+export default NavigationBar

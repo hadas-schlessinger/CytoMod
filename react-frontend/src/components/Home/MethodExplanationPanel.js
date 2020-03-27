@@ -1,11 +1,12 @@
 import React from 'react'
 import * as classNames from "classnames";
 import methodFlow from './methodFlow.jpg';
+import beckgroungTransperant from '../../beckgroungTransperant.png'
 
 
 export default function MethodExplanationPanel() {
     return (
-        <div>
+        <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>
             <h1><span style={{color: '#0FA6AB'}}>The Method Flow</span></h1>
              <img src={methodFlow} alt="The flow as presented in the article" />;
              <h3 style={{color: '#0B7478', fontSize: 20}}>The Flow</h3> 
@@ -15,7 +16,7 @@ export default function MethodExplanationPanel() {
                  Modules are generated using unsupervised hierarchical clustering. 
                  Associations are then tested between module levels (4) and clinical phenotypes (5). 
                  By significantly reducing the number of associations tested CytoMod increases the statistical power to detect associations. 
-                 By comparing modules across datasets, CytoMod can also identify “cores” of cytokines that consistently co-signal together.<a href="https://www.frontiersin.org/articles/10.3389/fimmu.2019.01338/">(Cohen et al., 2019)</a>   
+                 By comparing modules across datasets, CytoMod can also identify “cores” of cytokines that consistently co-signal together. <a href="https://www.frontiersin.org/articles/10.3389/fimmu.2019.01338/">(Cohen et al., 2019)</a>   
                  </p>
             <h1><span style={{color: '#0FA6AB'}}>Further Explanation</span></h1>
             <p style={{fontSize: 20}} className="pt-running-text">
@@ -45,7 +46,8 @@ export default function MethodExplanationPanel() {
             In addition, the coefficients were pronounced using two adjusted p-values: 
             1. false-discovery rate (FDR, Benjamini Hochberg procedure, significant when q ≤ 0.2) 
             2. Family-wise error rate (FWER, Bonferroni-Holm method, more stringent, significant when p ≤ 0.05). 
-            Both are fitted to handle multiple hypothesis tests. Hence, the coefficients were the value symbolizing the relationships between cytokines (modules/absolute) and the outcomes and these values’ p-values were adjusted by two different corrections.
+            Both are fitted to handle multiple hypothesis tests. 
+            Hence, the coefficients were the value symbolizing the relationships between cytokines (modules/absolute) and the outcomes and these values’ p-values were adjusted by two different corrections.
             </p> 
             
         </div>

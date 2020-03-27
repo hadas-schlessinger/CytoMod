@@ -3,6 +3,66 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/runtime/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@semantic-ui-react/event-stack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@semantic-ui-react/event-stack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@stardust-ui/react-component-event-listener/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@stardust-ui/react-component-event-listener/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@stardust-ui/react-component-ref/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@stardust-ui/react-component-ref/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/classnames/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/classnames/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/create-react-context/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/create-react-context/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deep-equal/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/deep-equal/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/define-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/define-properties/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/2015/CreateDataProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/2015/CreateDataProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/2016/CreateDataProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/2016/CreateDataProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/2017/CreateDataProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/2017/CreateDataProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/2018/CreateDataProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/2018/CreateDataProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/2019/CreateDataProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/2019/CreateDataProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/test/es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/test/es5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-abstract/test/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-abstract/test/tests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/es-to-primitive/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/es-to-primitive/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/exenv/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/exenv/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/function-bind/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/function-bind/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gud/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/gud/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/has-symbols/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/has-symbols/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/has/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/has/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-arguments/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-arguments/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-callable/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-callable/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-date-object/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-date-object/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-regex/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/is-symbol/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-symbol/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/js-tokens/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/js-tokens/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/keyboard-key/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/keyboard-key/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/loose-envify/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/loose-envify/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-assign/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/object-assign/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-inspect/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/object-inspect/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/object-is/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object-keys/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/object-keys/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/object.assign/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/object.assign/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prop-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/prop-types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-is/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-popper/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-popper/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/regenerator-runtime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/regenerator-runtime/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/regexp.prototype.flags/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/regexp.prototype.flags/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/shallowequal/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/shallowequal/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/string.prototype.trimleft/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/string.prototype.trimleft/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/string.prototype.trimright/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/string.prototype.trimright/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/typed-styles/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/typed-styles/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/warning/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/warning/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/ContactPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Home/ContactPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/MethodExplanationPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Home/MethodExplanationPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Home/SideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/WelcomePanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Home/WelcomePanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/NavigationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/NavigationBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/SetData.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SetData/SetData.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/react-frontend/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+            <state relative-caret-position="45">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -826,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/react-frontend/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        <state relative-caret-position="45">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
         </state>
       </provider>
     </entry>
