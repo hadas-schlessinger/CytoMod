@@ -14,13 +14,17 @@ export default function UploadForm() {
 
   async function onSubmit(event) {
     event.preventDefault();
-    const result =  Upload.upload(name, cytokinesFile, patientsFile)
-    // .then(
-    //   setSuccess(true),
-    //   navigateTo('set')
-    // ).catch(setError(true))
-    console.log(result)
-    }
+    const result = Upload.upload(name, cytokinesFile, patientsFile)
+      .then(() => {
+        setError(false);
+        setSuccess(true);
+        navigateTo("set");
+      })
+      .catch(() => {
+        setError(true);
+      });
+    console.log(result);
+  }
 
   function navigateTo(serviceName) {
     history.push(`/${serviceName}`);
@@ -37,22 +41,21 @@ export default function UploadForm() {
      <h3>Project Name:</h3>
         <p>Insert the name of the data/chort</p> 
         <label> Name: </label>
-      <input type="text" name="name_data" placeholder="name" onChange={event => setName(event.target.value)}/>
+      <input type="text" name="name_data" placeholder="Your project name" onChange={event => setName(event.target.value)}/>
       <h3>Cytokines Data:</h3>
       <p>
       <label> Cytokines Data: </label>
          <input type = "file" name = "cytokines" onChange={event => setCytokines(event.target.files[0])} />
       </p>
+      {error && <small className='error'>please insert cytokine data</small>}
       <h3>Patients Data:</h3>
          <p>
-         <label>Patients Data: </label>
+         <label>Patients Data:</label>
           <input type = "file" name = "patients" onChange={event => setPatients(event.target.files[0])} />
          </p>
-        <button onClick={(event) => onSubmit(event)}>Submit</button>
-        </form>
-        {error && <small className="error">please insert cytokine data</small>}
+         <input type="submit" value="Submit" onClick={(event) => onSubmit(event)} />
         {success &&  <div style={{color: '#0B7478'}}>SUCCESS! your data was uploaded. please set your params</div>}   
-        {/* {success && }       */}
+        </form>
     </div>
   );
 }

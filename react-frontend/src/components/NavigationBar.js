@@ -12,7 +12,7 @@ const Styles = styled.div`
   .navbar-brand {
     font-size: 2em;
     color: #00B894;
-    &:hover { color: white; }
+    &:hover { color: #00B894; }
   }
   .form-center {
     position: absolute !important;

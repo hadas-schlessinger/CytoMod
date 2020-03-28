@@ -41,28 +41,32 @@ def upload_file():
         project_name = name if name != '' else 'Unknown project'
         tools.create_folder(os.path.join('app/static/', project_name))
         tools.create_folder(os.path.join('app/static/', project_name, 'data_files'))
+        if 'patients' in request.files:
+            patients = request.files['patients']
+        else:
+            patients = None
         if 'cytokines' not in request.files:
-            flash('Please upload cytokine data')
-            return redirect(request.url)
+            return json.dumps({ "error": 'no cytokine file was found' }), 400
         cytokines = request.files['cytokines']
-        patients = request.files['patients']
-        # if user does not select file, browser also
-        # submit an empty part without filename
+        # if user does not select file
         if cytokines.filename == '':
-            return json.dumps({ "error": 'no file was found' }), 400
-        if patients and allowed_file(patients.filename):
-            filename = secure_filename(patients.filename)
-            patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
+            return json.dumps({ "error": 'no cytokine file was found' }), 400
+        if patients != None:
+            if allowed_file(patients.filename):
+                filename = secure_filename(patients.filename)
+                patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
         if cytokines and allowed_file(cytokines.filename):
             filename = secure_filename(cytokines.filename)
             cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
-            files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename)])
-            tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
-            return render_template('set.html', project=project_name)
+            if patients != None:
+                files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename), project_name])
+                tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
+            else:
+                files = pd.DataFrame([secure_filename(cytokines.filename), "", project_name])
+                tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
+            return {'project' : project_name}
         else:
-            flash('please upload an excel file')
-            return redirect(request.url)
-    return render_template('upload.html')
+            return json.dumps({ "error": 'no cytokine file was found' }), 400
 
 
 @app.route('/explanation', methods=['POST'])
@@ -81,7 +85,7 @@ def allowed_file(filename):
 def generate():
     parameters = tools.Object()
     parameters.images = []
-    parameters.name_data = request.form.get('name_data', default='data')
+    # parameters.name_data = request.form.get('name_data', default='data')
     parameters.name_compartment = request.form.get('name_compartment', default='Compartment')
     parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
@@ -97,6 +101,16 @@ def generate():
     parameters.cytokines = parameters.cytokines.split(", ")
     # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
     # print(parameters.save_file)
+    print(parameters.name_compartment)
+    print(parameters.luminex)
+    print(parameters.log_transform)
+    print(parameters.max_testing_k)
+    print(parameters.outcomes)
+    print(parameters.covariates)
+    print(parameters.log_column_names)
+    print(parameters.cytokines)
+
+
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     parameters = visualization.figures.calc_abs_figures(parameters)

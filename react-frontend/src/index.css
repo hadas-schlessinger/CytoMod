@@ -11,3 +11,120 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #279098;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Headers */
+
+h1{
+color: #0FA6AB;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  font-weight: 300;
+  font-family: "OpenSansCondensed", sans-serif;
+  margin-bottom: 1rem;
+}
+
+h2.white {
+  color: white;
+}
+
+h3 {
+  font-size: 13px;
+  line-height: 18px;
+  color: #0B7478;
+  text-transform: uppercase;
+}
+
+/* Links */
+
+a {
+  /* color: #83cdbb; */
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #83cdbb;
+}
+
+label{
+margin-left: 2mm;
+margin-right: 2mm;
+}
+
+/* Buttons */
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: solid 1px #15171c;
+  background-color: #659b91;
+  text-transform: capitalize;
+  outline: none;
+}
+
+
+input[type="button"].large,
+input[type="submit"].large,
+input[type="reset"].large {
+  padding: 10px 20px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #3e5f59;
+}
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  opacity: 0.3;  
+}
+
+/* Input */
+input[type="number"],
+input[type="text"],
+input[type="search"],
+input[type="password"] {
+  margin-left: 2mm;
+  background-color: inherit;
+  border: 0;
+  border: 1px #00B894 solid; 
+  padding: 8px;
+  font-size: 14px;
+}
+
+input[type="text"]::placeholder,
+input[type="search"]::placeholder,
+input[type="password"]::placeholder {
+  color: #9aa7bd;
+  opacity: 1;
+  font-style: italic;
+  opacity: 1;
+}
+
+.error {
+    color: #f02424;
+    position: relative;
+    top: 6px;
+    height: 0;
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import SideBar from './SideBar'
 
-export default function SetData() {
+export default function SetData(index) {
     return (
         <div>
-        <SideBar index = {0}/ >
+        <SideBar index = {index}/ >
         </div>
     )
 }

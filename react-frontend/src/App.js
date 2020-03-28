@@ -22,7 +22,7 @@ function App() {
       <NavigationBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/set" component={SetData} />
+          <Route exact path="/set" component={SetData}  />
           <Route exact path="/results" component={Results} />
         </Switch>
       </Router>
