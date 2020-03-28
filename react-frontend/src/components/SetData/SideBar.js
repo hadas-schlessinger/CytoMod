@@ -9,8 +9,11 @@ const panes = [
     { menuItem: 'Set Parameters', render: () => <Tab.Pane>{< ParametersPanel />}</Tab.Pane> },
 ]
 
-const SideBar = () => (
-  <Tab style={{fontSize: 20}} menu={{ fluid: true, vertical: true, tabular: true }} grid={{paneWidth: 14, tabWidth: 2}} panes={panes} />
+
+const SideBar = (index) => (
+  <div >
+    <Tab style={{fontSize: 20}} menu={{ fluid: true, vertical: true, tabular: true }} grid={{paneWidth: 14, tabWidth: 2}} panes={panes}/>
+  </div>
 )
 
 export default SideBar

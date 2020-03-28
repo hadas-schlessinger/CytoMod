@@ -9,7 +9,7 @@ import logging
 import sys
 import os
 import pandas as pd
-import time
+import json
 
 # from .forms import LoginForm
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
@@ -33,7 +33,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #     return {'time': time.time()}
 
 
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -49,8 +49,7 @@ def upload_file():
         # if user does not select file, browser also
         # submit an empty part without filename
         if cytokines.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
+            return json.dumps({ "error": 'no file was found' }), 400
         if patients and allowed_file(patients.filename):
             filename = secure_filename(patients.filename)
             patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
@@ -66,21 +65,11 @@ def upload_file():
     return render_template('upload.html')
 
 
-@app.route('/explanation', methods=['GET', 'POST'])
+@app.route('/explanation', methods=['POST'])
 def explanation():
     if request.method == 'POST':
         return render_template('upload.html')
     return render_template('explanation.html')
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html', token = 'hadas')
-
-@app.route('/')
-def welcome():
-    if request.method == 'POST':
-        return render_template('explanation.html')
-    return render_template('welcome.html')
 
 
 def allowed_file(filename):
@@ -121,10 +110,5 @@ def generate():
     return render_template(
         'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
         abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
-
-
-
-
-
 
 

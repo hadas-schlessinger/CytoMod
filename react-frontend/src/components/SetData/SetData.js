@@ -4,7 +4,7 @@ import SideBar from './SideBar'
 export default function SetData() {
     return (
         <div>
-        <SideBar / >
+        <SideBar index = {0}/ >
         </div>
     )
 }

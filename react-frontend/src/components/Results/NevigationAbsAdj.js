@@ -12,7 +12,7 @@ export default class NevigationAbsAdj extends Component {
     const { activeItem } = this.state
 
     return (
-      <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>
+      <div >
         <Menu pointing secondary>
           <Menu.Item
             name='Absolute Cytokines'
