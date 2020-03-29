@@ -1,22 +1,40 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import  UploadPanel  from './UploadPanel'
 import ParametersPanel from './ParametersPanel'
 import { Tab }  from 'semantic-ui-react'
+import { useHistory } from 'react-router-dom'
 
 
-const panes = [
+export default function SideBar(props) {
+  
+  const history = useHistory()
+  const routes = { 0: 'set',
+                   1: 'set/parameters'}
+
+
+  // useEffect(() => {
+  //   navigateTo(routes[props.index])
+  // }, [props.index])
+
+  function navigateTo(route) {
+    history.push(`/${route}`);
+  }
+
+  const panes = [
     { menuItem: 'Upload Data', render: () => <Tab.Pane>{< UploadPanel />}</Tab.Pane> },
     { menuItem: 'Set Parameters', render: () => <Tab.Pane>{< ParametersPanel />}</Tab.Pane> },
 ]
+  
+  return (<Tab style={{fontSize: 20}} 
+    menu={{ fluid: true, vertical: true, tabular: true }} 
+    grid={{paneWidth: 14, tabWidth: 2}} 
+    panes={panes} 
+    defaultActiveIndex = {props.index}
+    onTabChange= {() => navigateTo(routes[props.index])}
+    />)
+}
+  
 
-
-const SideBar = (index) => (
-  <div >
-    <Tab style={{fontSize: 20}} menu={{ fluid: true, vertical: true, tabular: true }} grid={{paneWidth: 14, tabWidth: 2}} panes={panes} />
-  </div>
-)
-
-export default SideBar
       
       
          

@@ -35,15 +35,12 @@ export default function ParametersForm() {
     history.push(`/${serviceName}`);
   }
 
-
-
-
 return (
 <div> 
  <h1>Settings</h1>
  <form action="/generate" method="post">
      <h2>Please set parameters for your project </h2>
-        <h3>name_data</h3>
+        {/* <h3>name_data</h3> */}
             {/* <input name="name_data" value={{project}}/> */}
         <h3>name of the compartment</h3>
             <p>Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>

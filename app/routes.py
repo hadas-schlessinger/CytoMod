@@ -109,8 +109,6 @@ def generate():
     print(parameters.covariates)
     print(parameters.log_column_names)
     print(parameters.cytokines)
-
-
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     parameters = visualization.figures.calc_abs_figures(parameters)

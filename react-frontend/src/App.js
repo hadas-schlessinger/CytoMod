@@ -4,8 +4,10 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavigationBar  from './components/NavigationBar';
 import { Home } from './components/Home/Home';
-import SetData from './components/SetData/SetData';
+import SideBar from './components/SetData/SideBar';
 import Results from './components/Results/Results';
+
+
 
 function App() {
   // useEffect(() => {
@@ -22,7 +24,8 @@ function App() {
       <NavigationBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/set" component={SetData}  />
+          <Route exact path="/set" render={(props) => <SideBar {...props} index={0} />}  />
+          <Route exact path="/set/parameters" render={(props) => <SideBar {...props} index={1} />}  />
           <Route exact path="/results" component={Results} />
         </Switch>
       </Router>

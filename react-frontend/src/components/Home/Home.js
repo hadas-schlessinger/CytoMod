@@ -1,7 +1,7 @@
 import React from 'react';
 import SideBar from './SideBar'
 
-export const Home = (props) => (
+export const Home = () => (
   <div>
     <SideBar / >
   </div>

@@ -1,12 +1,12 @@
 import React from 'react'
 import * as classNames from "classnames";
 import methodFlow from './methodFlow.jpg';
-import beckgroungTransperant from '../../beckgroungTransperant.png'
+import transperantBackground from '../../transperantBackground.png'
 
 
 export default function MethodExplanationPanel() {
     return (
-        <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>
+        <div style={{backgroundImage: `url(${transperantBackground})`}}>
             <h1><span style={{color: '#0FA6AB'}}>The Method Flow</span></h1>
              <img src={methodFlow} alt="The flow as presented in the article" />;
              <h3 style={{color: '#0B7478', fontSize: 20}}>The Flow</h3> 

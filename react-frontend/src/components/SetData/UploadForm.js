@@ -18,7 +18,6 @@ export default function UploadForm() {
       .then(() => {
         setError(false);
         setSuccess(true);
-        navigateTo("set");
       })
       .catch(() => {
         setError(true);
@@ -26,13 +25,12 @@ export default function UploadForm() {
     console.log(result);
   }
 
-  function navigateTo(serviceName) {
-    history.push(`/${serviceName}`);
+  function navigateTo(route) {
+    history.push(`/${route}`);
   }
 
   return (
 <div>
-    <title>Upload Files</title>
     <h1>Upload your data</h1>
     <p>Please upload 2 excel files:
         one for the cytokins raw data and the other one for the patients data
@@ -54,7 +52,10 @@ export default function UploadForm() {
           <input type = "file" name = "patients" onChange={event => setPatients(event.target.files[0])} />
          </p>
          <input type="submit" value="Submit" onClick={(event) => onSubmit(event)} />
-        {success &&  <div style={{color: '#0B7478'}}>SUCCESS! your data was uploaded. please set your params</div>}   
+        {/* {success &&  <div style={{color: '#0B7478'}}>SUCCESS! your data was uploaded. please set your params</div>}  */}
+        {success &&  navigateTo("set/parameters")}  
+ 
+        
         </form>
     </div>
   );
