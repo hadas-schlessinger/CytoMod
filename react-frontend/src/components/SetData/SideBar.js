@@ -6,15 +6,16 @@ import { useHistory } from 'react-router-dom'
 
 
 export default function SideBar(props) {
-  
   const history = useHistory()
   const routes = { 0: 'set',
                    1: 'set/parameters'}
 
 
-  // useEffect(() => {
-  //   navigateTo(routes[props.index])
-  // }, [props.index])
+ 
+
+  function handleOnTabChange(e, { activeIndex }) {
+    navigateTo(routes[activeIndex]);
+  }
 
   function navigateTo(route) {
     history.push(`/${route}`);
@@ -29,8 +30,8 @@ export default function SideBar(props) {
     menu={{ fluid: true, vertical: true, tabular: true }} 
     grid={{paneWidth: 14, tabWidth: 2}} 
     panes={panes} 
-    defaultActiveIndex = {props.index}
-    onTabChange= {() => navigateTo(routes[props.index])}
+    activeIndex = {props.index}
+    onTabChange= {handleOnTabChange}
     />)
 }
   

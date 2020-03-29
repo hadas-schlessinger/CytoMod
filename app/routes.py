@@ -64,7 +64,7 @@ def upload_file():
             else:
                 files = pd.DataFrame([secure_filename(cytokines.filename), "", project_name])
                 tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
-            return {'project' : project_name}
+            return {'project': project_name}
         else:
             return json.dumps({ "error": 'no cytokine file was found' }), 400
 
