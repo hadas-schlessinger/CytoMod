@@ -38,7 +38,7 @@ def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         name = request.form.get('name_data', default='data')
-        project_name = name if name != '' else 'Unknown project'
+        project_name = name if name != '' else ('Unknown project')
         tools.create_folder(os.path.join('app/static/', project_name))
         tools.create_folder(os.path.join('app/static/', project_name, 'data_files'))
         if 'patients' in request.files:
@@ -85,12 +85,14 @@ def allowed_file(filename):
 def generate():
     parameters = tools.Object()
     parameters.images = []
-    # parameters.name_data = request.form.get('name_data', default='data')
+    parameters.name_data = request.form.get('name_data', default='data')
+    if parameters.name_data == '':
+        parameters.name_data = 'Unknown project'
     parameters.name_compartment = request.form.get('name_compartment', default='Compartment')
     parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=6)  # Must be <= max_testing_k
-    parameters.recalculate_modules = False
+    parameters.recalculate_modules = True
     parameters.outcomes = request.form.get('outcomes')  # names of binary outcome columns
     parameters.outcomes = parameters.outcomes.split(", ")
     parameters.covariates = request.form.get('covariates') # names of regression covariates to control for
@@ -101,14 +103,6 @@ def generate():
     parameters.cytokines = parameters.cytokines.split(", ")
     # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
     # print(parameters.save_file)
-    print(parameters.name_compartment)
-    print(parameters.luminex)
-    print(parameters.log_transform)
-    print(parameters.max_testing_k)
-    print(parameters.outcomes)
-    print(parameters.covariates)
-    print(parameters.log_column_names)
-    print(parameters.cytokines)
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     parameters = visualization.figures.calc_abs_figures(parameters)

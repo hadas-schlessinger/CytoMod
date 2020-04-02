@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import * as SetParams from  '../../services/SetParams'
 import { useHistory } from "react-router-dom";
+import transperantBackground from '../../transperantBackground.png'
 
-export default function ParametersForm() {
+export default function ParametersForm({projectName}) {
   const [comperament, setComperament] = useState("")
   const [luminex, setLuminex] = useState(false)
   const [logCytokines, setLogCytokines] = useState(true)
@@ -19,7 +20,7 @@ export default function ParametersForm() {
   async function onSubmit(event) {
     setLoading(true)
     event.preventDefault();
-    const result = SetParams.setParameters(comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines)
+    SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines)
       .then(() => {
         setError(false);
         setSuccess(true);
@@ -28,7 +29,6 @@ export default function ParametersForm() {
       .catch(() => {
         setError(true);
       });
-    console.log(result);
   }
 
   function navigateTo(serviceName) {
@@ -36,12 +36,10 @@ export default function ParametersForm() {
   }
 
 return (
-<div> 
+<div style={{backgroundImage: `url(${transperantBackground})`}}> 
  <h1>Settings</h1>
  <form action="/generate" method="post">
-     <h2>Please set parameters for your project </h2>
-        {/* <h3>name_data</h3> */}
-            {/* <input name="name_data" value={{project}}/> */}
+     <h2>Please set parameters for your project - {projectName}</h2>     
         <h3>name of the compartment</h3>
             <p>Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
             <label>Name Compartment</label>

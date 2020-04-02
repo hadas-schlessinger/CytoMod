@@ -158,6 +158,7 @@ def plotResultSummary(cytomod_obj,
        cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'OR', 'N', 'FWER', 'FDR']
     else:
        cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'Coef', 'N', 'FWER', 'FDR']
+
     hDf = pd.concat((mod_res_df[cols], cy_res_df[cols]), axis=0)
     hDf.loc[:, 'isAnalyte'] = (hDf['Module'] != hDf['Name'])
     order = hDf[['Module', 'Name', 'isAnalyte']].drop_duplicates().sort_values(by=['Module', 'isAnalyte', 'Name'])
@@ -175,57 +176,98 @@ def plotResultSummary(cytomod_obj,
 
     cmap = palettable.colorbrewer.diverging.PuOr_9_r.mpl_colormap
 
-    vals = np.log(foldH.values)
-    pcParams = dict(vmin=-1, vmax=1, cmap=cmap)
-
-    scaleLabel = 'OR' if logistic else 'Coef'
-    if scaleLabel == 'OR':
+    if logistic:
         scaleLabel = 'Odds Ratio'
         ytl = np.array(['1/2.5', '1/2', '1/1.5', 1, 1.5, 2, 2.5])
         yt = np.log([1 / 2.5, 1 / 2, 1 / 1.5, 1, 1.5, 2, 2.5])
+        vals = np.log(foldH.values)
+        pcParams = dict(vmin=-1, vmax=1, cmap=cmap)
+        plt.figure(figsize=figsize)
+        figh = plt.gcf()
+        plt.clf()
+        axh = figh.add_subplot(plt.GridSpec(1, 1, left=0.6, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        axh.grid(None)
+        pcolOut = plt.pcolormesh(vals, **pcParams)
+        plt.yticks(())
+        plt.xticks(np.arange(fdrH.shape[1]) + 0.5, fdrH.columns, size=11, rotation=90)
+        axh.xaxis.set_ticks_position('top')
+        plt.xlim((0, fdrH.shape[1]))
+        plt.ylim((0, fdrH.shape[0]))
+        axh.invert_yaxis()
+        for cyi, cy in enumerate(foldH.index):
+            for outi, out in enumerate(foldH.columns):
+                if fwerH.loc[cy, out] < 0.0005:
+                    ann = '***'
+                elif fwerH.loc[cy, out] < 0.005:
+                    ann = '**'
+                elif fwerH.loc[cy, out] < 0.05:
+                    ann = '*'
+                else:
+                    ann = ''
+                if not ann == '':
+                    plt.annotate(ann, xy=(outi + 0.5, cyi + 0.75), weight='bold', size=14, ha='center', va='center')
+
+        """Colorbar showing module membership: Add labels, make B+W"""
+        cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        cbAxh.grid(None)
+        cmap = [(0.3, 0.3, 0.3),
+                (0.7, 0.7, 0.7)]
+        cbS = mapColors2Labels(order.set_index('Name')['Module'], cmap=cmap)
+        _ = cbAxh.imshow([[x] for x in cbS.values], interpolation='nearest', aspect='auto', origin='lower')
+        plt.ylim((0, fdrH.shape[0]))
+        plt.yticks(np.arange(fdrH.shape[0]), fdrH.index, size=11)
+        plt.xlim((0, 0.5))
+        plt.ylim((-0.5, fdrH.shape[0] - 0.5))
+        plt.xticks(())
+        cbAxh.invert_yaxis()
     else:
+        betaVals = hDf.pivot(index='Name', columns='Outcome', values='Coef').loc[order.Name, outcomeVars]  # LIEL
+        betaVals.values[censorInd] = 0.
+        vals = betaVals.values
+        print(f'vals = {vals}')
+        pcParams = dict(vmin=-0.8, vmax=0.8, cmap=cmap)
         scaleLabel = 'Beta Coefficient'
-        ytl = np.array(['-0.8', '-0.4', '0.0', 0.4, 0.8])
+        ytl = np.array([-0.8, -0.4, 0, 0.4, 0.8])
         yt = np.array([-0.8, -0.4, 0, 0.4, 0.8])
 
-    plt.figure(figsize=figsize)
-    figh = plt.gcf()
-    plt.clf()
-    axh = figh.add_subplot(plt.GridSpec(1, 1, left=0.6, bottom=0.05, right=0.95, top=0.85)[0, 0])
-    axh.grid(None)
-    pcolOut = plt.pcolormesh(vals, **pcParams)
-    plt.yticks(())
-    plt.xticks(np.arange(fdrH.shape[1]) + 0.5, fdrH.columns, size=11, rotation=90)
-    axh.xaxis.set_ticks_position('top')
-    plt.xlim((0, fdrH.shape[1]))
-    plt.ylim((0, fdrH.shape[0]))
-    axh.invert_yaxis()
-    for cyi, cy in enumerate(foldH.index):
-        for outi, out in enumerate(foldH.columns):
-            if fwerH.loc[cy, out] < 0.0005:
-                ann = '***'
-            elif fwerH.loc[cy, out] < 0.005:
-                ann = '**'
-            elif fwerH.loc[cy, out] < 0.05:
-                ann = '*'
-            else:
-                ann = ''
-            if not ann == '':
-                plt.annotate(ann, xy=(outi + 0.5, cyi + 0.75), weight='bold', size=14, ha='center', va='center')
+        figh = plt.gcf()
+        plt.clf()
+        axh = figh.add_subplot(plt.GridSpec(1, 1, left=0.6, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        axh.grid(None)
+        pcolOut = plt.pcolormesh(vals, **pcParams)
+        plt.yticks(())
+        plt.xticks(np.arange(betaVals.shape[1]) + 0.5, betaVals.columns, size=11, rotation=90)
+        axh.xaxis.set_ticks_position('top')
+        plt.xlim((0, betaVals.shape[1]))
+        plt.ylim((0, betaVals.shape[0]))
+        axh.invert_yaxis()
+        for cyi, cy in enumerate(betaVals.index):
+            for outi, out in enumerate(betaVals.columns):
+                if fwerH.loc[cy, out] < 0.0005:
+                    ann = '***'
+                elif fwerH.loc[cy, out] < 0.005:
+                    ann = '**'
+                elif fwerH.loc[cy, out] < 0.05:
+                    ann = '*'
+                else:
+                    ann = ''
+                if not ann == '':
+                    plt.annotate(ann, xy=(outi + 0.5, cyi + 0.75), weight='bold', size=14, ha='center', va='center')
 
-    """Colorbar showing module membership: Add labels, make B+W"""
-    cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.59, top=0.85)[0, 0])
-    cbAxh.grid(None)
-    cmap = [(0.3, 0.3, 0.3),
-            (0.7, 0.7, 0.7)]
-    cbS = mapColors2Labels(order.set_index('Name')['Module'], cmap=cmap)
-    _ = cbAxh.imshow([[x] for x in cbS.values], interpolation='nearest', aspect='auto', origin='lower')
-    plt.ylim((0, fdrH.shape[0]))
-    plt.yticks(np.arange(fdrH.shape[0]), fdrH.index, size=11)
-    plt.xlim((0, 0.5))
-    plt.ylim((-0.5, fdrH.shape[0] - 0.5))
-    plt.xticks(())
-    cbAxh.invert_yaxis()
+        """Colorbar showing module membership: Add labels, make B+W"""
+        cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.59, top=0.85)[0, 0])
+        cbAxh.grid(None)
+        cmap = [(0.3, 0.3, 0.3),
+                (0.7, 0.7, 0.7)]
+        cbS = mapColors2Labels(order.set_index('Name')['Module'], cmap=cmap)
+        _ = cbAxh.imshow([[x] for x in cbS.values], interpolation='nearest', aspect='auto', origin='lower')
+        plt.ylim((0, betaVals.shape[0]))
+        plt.yticks(np.arange(betaVals.shape[0]), betaVals.index, size=11)
+        plt.xlim((0, 0.5))
+        plt.ylim((-0.5, betaVals.shape[0] - 0.5))
+        plt.xticks(())
+        cbAxh.invert_yaxis()
+
     for lab in order['Module'].unique():
         y = np.mean(np.arange(order.shape[0])[np.nonzero(order['Module'] == lab)]) - 0.5
         plt.annotate(lab, xy=(0.25, y), ha='center', va='center', rotation=90, color='white', size=12)

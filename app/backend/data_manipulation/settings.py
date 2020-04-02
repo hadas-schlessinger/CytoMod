@@ -59,8 +59,9 @@ def check_input(parameters):
     assert type(parameters.outcomes) is list
     assert type(parameters.covariates) is list
     if parameters.outcomes != ['']:
-        path = os.path.join(parameters.data_files,
-                         tools.read_excel(os.path.join(parameters.path_files, 'data_files_names.xlsx')).get_value(1, 0))
+        file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_names.xlsx')).get_value(1, 0)
+        # TODO: INSERT CHECK FILE
+        path = os.path.join(parameters.data_files, file_name)
         for col_name in parameters.outcomes + parameters.covariates + parameters.log_column_names:
             assert type(col_name) is str
             if col_name != '':
@@ -72,14 +73,14 @@ def log_transform(parameters, cy_data, patient_data):
     if parameters.log_transform:
         cy_data = _log_cytokines(parameters, cy_data)
     if parameters.log_column_names != [''] and parameters.outcomes != ['']:
-        patient_data, parameters = _log_covariates_and_outcomes(parameters, patient_data)
+        patient_data, parameters = _log_covariates(parameters, patient_data)
     return patient_data, cy_data, parameters
 
 
-def _log_covariates_and_outcomes(parameters, patient_data):
+def _log_covariates(parameters, patient_data):
     # log transform args.log_column_names
     if parameters.log_column_names != [''] and parameters.outcomes != ['']:
-        for col_name in parameters.log_column_names+parameters.outcomes:
+        for col_name in parameters.log_column_names:
             if(_is_continues(col_name, patient_data)):
                 new_col_name = 'log_' + col_name  # log transform variable
                 #patient_data[col_name] = patient_data[col_name][patient_data[col_name] != 0]
@@ -91,7 +92,6 @@ def _log_covariates_and_outcomes(parameters, patient_data):
                 if col_name in parameters.covariates:
                     parameters.covariates.remove(col_name)
                     parameters.covariates.append(new_col_name)
-    # print(patient_data)
     return patient_data, parameters
 
 

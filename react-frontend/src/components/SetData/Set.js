@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react'
-import  UploadPanel  from './UploadPanel'
-import ParametersPanel from './ParametersPanel'
+import  UploadForm  from './UploadForm'
+import ParametersForm from './ParametersForm'
 import { Tab }  from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
 
 export default function SideBar(props) {
+  const [name, setName] = useState("")
   const history = useHistory()
   const routes = { 0: 'set',
                    1: 'set/parameters'}
 
 
- 
 
   function handleOnTabChange(e, { activeIndex }) {
     navigateTo(routes[activeIndex]);
@@ -22,8 +22,9 @@ export default function SideBar(props) {
   }
 
   const panes = [
-    { menuItem: 'Upload Data', render: () => <Tab.Pane>{< UploadPanel />}</Tab.Pane> },
-    { menuItem: 'Set Parameters', render: () => <Tab.Pane>{< ParametersPanel />}</Tab.Pane> },
+    { menuItem: 'Upload Data', render: () => <Tab.Pane>{< UploadForm onSetName = {(currentName)=>{
+      setName(currentName)}} />}</Tab.Pane> },
+    { menuItem: 'Set Parameters', render: () => <Tab.Pane>{< ParametersForm projectName = {name}/>}</Tab.Pane> },
 ]
   
   return (<Tab style={{fontSize: 20}} 
