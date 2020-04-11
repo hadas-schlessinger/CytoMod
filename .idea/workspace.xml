@@ -2,34 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/liel_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/data_manipulation/clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/data_manipulation/clustering.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/data_manipulation/import_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/data_manipulation/import_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/server_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/visualization/figure_scheme.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/visualization/figure_scheme.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/visualization/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/visualization/figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__color_label_legend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__correlation_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__cy_mean_correlation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__hierchical_clust_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__modules_correlations_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__normalized_conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__normalized_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__pwrel_dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__raw_log-conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__raw_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__reliability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__cluster_labels.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__color_label_legend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__correlation_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__hierchical_clust_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__modules_correlations_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__normalized_conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__normalized_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__pwrel_dmat.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__raw_log-conc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__raw_modules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_adjusted__reliability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_BS_absolute__cluster_labels.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__cluster_labels.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__color_label_legend.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__correlation_heatmap.png" beforeDir="false" />
@@ -41,6 +22,8 @@
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_3.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_4.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__modules_correlations_7.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__normalized_conc.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__normalized_modules.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_absolute__pwrel_dmat.csv" beforeDir="false" />
@@ -62,29 +45,72 @@
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__raw_log-conc.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__raw_modules.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__reliability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/associations_abs.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/associations_abs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/associations_adj.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/associations_adj.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/associations_abs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/associations_adj.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/Flu09/bestK.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files/Shosh_with_str.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files/cytokine_data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files/patient_data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files/patient_data_linear.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files_names.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Try/data_files_names.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files_names.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Unknown project/data_files_names.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/cyto_mod_abs.dill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/cyto_mod_adj.dill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/gap_stat_abs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/gap_stat_adj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__cluster_labels.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__color_label_legend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__correlation_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__cy_mean_correlation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__hierchical_clust_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__modules_correlations_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__normalized_conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__normalized_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__pwrel_dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__raw_log-conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__raw_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_absolute__reliability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__cluster_labels.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__color_label_legend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__correlation_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__hierchical_clust_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__modules_correlations_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__normalized_conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__normalized_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__pwrel_dmat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__raw_log-conc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__raw_modules.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/Shosh_Plasma_adjusted__reliability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/bestK.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/cyto_mod_abs.dill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/cyto_mod_adj.dill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/data_files/Hertz_23.5.19.Detail-_corrected_Ben.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/data_files/Shosh_with_str.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/data_files_names.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/gap_stat_abs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Shosh/gap_stat_adj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/Hertz_23.5.19.Detail-_corrected_Ben.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/Shosh_with_str.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/Table_1_A_Modular_Cytokine_Analysis_Method_Reveals_Novel_Associations_With_Clinical_Phenotypes_and_Identifies_Sets_of_Co-signaling_Cytokines_Across_In.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/cytokine_data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/patient_data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/patient_data_linear.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/picflu_patients.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files/picflu_serum.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Try/data_files_names.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/Unknown project__absolute__correlation_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/Unknown project__absolute__cy_mean_correlation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files/Hertz_23.5.19.Detail-_corrected_Ben.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files/Shosh_with_str.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files/Table_1_A_Modular_Cytokine_Analysis_Method_Reveals_Novel_Associations_With_Clinical_Phenotypes_and_Identifies_Sets_of_Co-signaling_Cytokines_Across_In.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files/cytokine_data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files/patient_data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files/patient_data_linear.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Unknown project/data_files_names.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cytomod/assoc_to_outcome.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/assoc_to_outcome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Home/SideBar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/Results.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Results/Results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/SideBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytomod/io.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/io.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liel_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/liel_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/OverviewPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Results/OverviewPanel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/ParametersForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SetData/ParametersForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/ParametersPanel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/SetData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/SetForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/SideBar.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/UploadForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SetData/UploadForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/UploadPanel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-frontend/src/services/SetParams.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/services/SetParams.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,44 +127,46 @@
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="6" />
-          <entry key="csv" value="8" />
+          <entry key="csv" value="12" />
           <entry key="flaskenv" value="2" />
-          <entry key="html" value="21" />
+          <entry key="html" value="22" />
           <entry key="jpg" value="2" />
           <entry key="js" value="13" />
           <entry key="json" value="2" />
           <entry key="log" value="1" />
-          <entry key="png" value="43" />
-          <entry key="py" value="87" />
+          <entry key="png" value="108" />
+          <entry key="py" value="104" />
           <entry key="svg" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="21" />
-          <entry key="Image" value="45" />
+          <entry key="HTML" value="22" />
+          <entry key="Image" value="110" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="13" />
-          <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="87" />
+          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="Python" value="104" />
           <entry key="SVG" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="19" />
+          <entry key="dummy" value="6" />
           <entry key="flaskenv" value="91" />
           <entry key="html" value="1249" />
           <entry key="js" value="183" />
           <entry key="json" value="173" />
-          <entry key="py" value="5433" />
+          <entry key="py" value="6178" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -147,97 +175,102 @@
           <entry key="HTML" value="1249" />
           <entry key="JSON" value="173" />
           <entry key="JavaScript" value="183" />
-          <entry key="PLAIN_TEXT" value="91" />
-          <entry key="Python" value="5433" />
+          <entry key="PLAIN_TEXT" value="97" />
+          <entry key="Python" value="6178" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/clustering.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="902">
-              <caret line="125" column="7" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cytomod/assoc_to_outcome.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="156" column="16" lean-forward="true" selection-start-line="156" selection-start-column="16" selection-end-line="156" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/static/Flu09/associations_adj.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/static/Flu09/associations_abs.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/import_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/liel_script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="707" column="17" lean-forward="true" selection-start-line="707" selection-start-column="17" selection-end-line="707" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.7539749">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/routes.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="47">
+                  <caret line="95" column="41" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
+                  <folding>
+                    <element signature="e#0#69#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="211">
+                  <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_abs/Flu09_Plasma_absolute__hierchical_clust_heatmap.png">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_abs/Flu09_Plasma_absolute__reliability.png">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="42" selection-start-line="42" selection-end-line="42" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="749">
+                  <caret line="55" selection-start-line="55" selection-end-line="55" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/liel_script.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="214">
+                  <caret line="770" selection-start-line="770" selection-end-line="771" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/backend/visualization/figures.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="149">
+                  <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+                  <folding>
+                    <element signature="e#0#52#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -249,18 +282,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>warning</find>
-      <find>type</find>
-      <find>outcomeAnalysis</find>
-      <find>yt</find>
-      <find>ytl</find>
-      <find>GLMResults</find>
-      <find>modStr</find>
-      <find>log</find>
-      <find>g</find>
-      <find>cols</find>
-      <find>print</find>
-      <find>corell</find>
       <find>corre</find>
       <find>path_files</find>
       <find>cyto_modules</find>
@@ -275,10 +296,22 @@
       <find>printTab</find>
       <find>standardize</find>
       <find>foldH</find>
-      <find>fdrH</find>
       <find>mod_outcome_abs_df</find>
       <find>hDf</find>
       <find>standardizeFunc</find>
+      <find>normalized</find>
+      <find>figsize</find>
+      <find>vals</find>
+      <find>cyInd</find>
+      <find>fdrH</find>
+      <find>make_patients_data</find>
+      <find>create_folders</find>
+      <find>cluster</find>
+      <find>img</find>
+      <find>.modules</find>
+      <find>create_modules_dict</find>
+      <find>correlation_h</find>
+      <find>relia</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -299,7 +332,6 @@
         <option value="$PROJECT_DIR$/app/templates/set.html" />
         <option value="$PROJECT_DIR$/app/Backend/DataManipulation/settings.py" />
         <option value="$PROJECT_DIR$/app/Backend/Visualization/figure_scheme.py" />
-        <option value="$PROJECT_DIR$/cytomod/io.py" />
         <option value="$PROJECT_DIR$/react-frontend/config/paths.js" />
         <option value="$PROJECT_DIR$/react-frontend/config/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/react-frontend/package.json" />
@@ -315,20 +347,24 @@
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/app/templates/explanation.html" />
         <option value="$PROJECT_DIR$/react-frontend/src/index.css" />
+        <option value="$PROJECT_DIR$/liel_script.py" />
+        <option value="$PROJECT_DIR$/app/backend/data_manipulation/import_data.py" />
+        <option value="$PROJECT_DIR$/cytomod/assoc_to_outcome.py" />
         <option value="$PROJECT_DIR$/app/backend/data_manipulation/clustering.py" />
+        <option value="$PROJECT_DIR$/app/backend/server_tools.py" />
+        <option value="$PROJECT_DIR$/app/backend/visualization/figure_scheme.py" />
+        <option value="$PROJECT_DIR$/cytomod/io.py" />
         <option value="$PROJECT_DIR$/app/routes.py" />
         <option value="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" />
-        <option value="$PROJECT_DIR$/liel_script.py" />
-        <option value="$PROJECT_DIR$/cytomod/assoc_to_outcome.py" />
       </list>
     </option>
   </component>
   <component name="JupyterTrust" id="3e742fb1-3623-496e-ac64-761021e8fa9e" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-1920" />
-    <option name="y" value="-525" />
-    <option name="width" value="1920" />
-    <option name="height" value="976" />
+    <option name="y" value="29" />
+    <option name="width" value="1680" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectId" id="1VLIbcF1QbP0gu8m0f5DLkFOJK8" />
   <component name="ProjectView">
@@ -336,7 +372,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,6 +388,19 @@
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="visualization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -368,14 +416,15 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="Flu09" type="462c0819:PsiDirectoryNode" />
-              <item name="data_files" type="462c0819:PsiDirectoryNode" />
+              <item name="clustering_abs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="PICFLU" type="462c0819:PsiDirectoryNode" />
+              <item name="Flu09" type="462c0819:PsiDirectoryNode" />
+              <item name="clustering_adj" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
@@ -386,12 +435,18 @@
             <path>
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="cytomod" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="react-frontend" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -401,7 +456,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="שדם&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/cytomod/assoc_to_outcome.py&#10;figu&#9;RUN_CONFIGURATION&#9;figures&#10;sch&#9;null&#9;null&#10;clu&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/app/backend/data_manipulation/clustering.py&#10;loggi&#9;null&#9;null&#10;tools&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/tools.py&#10;log&#9;null&#9;null&#10;dill&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/data_files/output/clustering/cyto_mod_abs.dill" />
+    <property name="SearchEverywhereHistoryKey" value="figure&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/app/backend/visualization/figure_scheme.py&#10;שדם&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/cytomod/assoc_to_outcome.py&#10;figu&#9;RUN_CONFIGURATION&#9;figures&#10;sch&#9;null&#9;null&#10;clu&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/app/backend/data_manipulation/clustering.py&#10;loggi&#9;null&#9;null&#10;tools&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/tools.py&#10;log&#9;null&#9;null&#10;dill&#9;FILE&#9;file:///Users/hadasch/PycharmProjects/CytoMod/data_files/output/clustering/cyto_mod_abs.dill" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/static" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -619,46 +674,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-525" width="1920" height="976" extended-state="6" />
+    <frame x="-1920" y="29" width="1680" height="946" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14323328" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19529837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3280543" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3266979" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290398" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3284974" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.34276018" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29274005" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32746115" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23930079" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.37002343" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="2" weight="0.3290398" />
-      <window_info anchor="bottom" id="Python Console" order="3" weight="0.3290398" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.3290398" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.3290398" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -698,128 +734,6 @@
     <state x="505" y="230" width="670" height="676" key="search.everywhere.popup/0.23.1680.946@0.23.1680.946" timestamp="1578516262670" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/react-frontend/config/webpack.config.js" />
-    <entry file="file://$PROJECT_DIR$/react-frontend/src/App.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cytomod/otherTools/corrplots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cytomod/preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/yarn-error.log" />
-    <entry file="file://$PROJECT_DIR$/react-frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.flaskenv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/cli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="239" selection-start-line="239" selection-end-line="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/src/logo.png" />
-    <entry file="file://$PROJECT_DIR$/react-frontend/public/logo512.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/public/logo192.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/src/components/Nebar.js" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dill/_dill.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="269" selection-start-line="269" selection-end-line="269" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1700">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-frontend/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/templating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="2462" selection-start-line="2462" selection-end-line="2462" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/background.jpg" />
-    <entry file="file://$PROJECT_DIR$/app/templates/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/react-frontend/src/components/SetData/UploadForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -897,76 +811,176 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__normalized_modules.csv">
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/Flu09_Plasma_adjusted__normalized_modules.csv" />
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/gap_stat_abs.png" />
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/gap_stat_adj.png" />
+    <entry file="file://$PROJECT_DIR$/cytomod/example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="2750" column="4" selection-start-line="2750" selection-start-column="4" selection-end-line="2750" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cytomod/clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3315">
+          <caret line="232" column="8" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/import_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/data_files/output/associations/associations_adj.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/data_files/output/associations/associations_abs.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/associations_adj.png" />
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/associations_abs.png" />
+    <entry file="file://$PROJECT_DIR$/cytomod/plotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-757">
+          <caret line="245" column="75" selection-start-line="245" selection-start-column="75" selection-end-line="245" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/results.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="27" column="85" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/mathtext.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="174" selection-start-line="174" selection-end-line="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cytomod/io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2475">
+          <caret line="175" column="32" selection-start-line="175" selection-start-column="32" selection-end-line="175" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cytomod/assoc_to_outcome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3285">
+          <caret line="231" column="47" selection-start-line="231" selection-start-column="47" selection-end-line="231" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/correlation_figures_abs/Flu09_Plasma_absolute__correlation_heatmap.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
+        <state relative-caret-position="47">
+          <caret line="95" column="41" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
           <folding>
             <element signature="e#0#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/clustering.py">
+    <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="26" />
+        <state relative-caret-position="749">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/overview/Flu09_Plasma_adjusted__cluster_labels.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="125" column="7" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/overview/Flu09_Plasma_absolute__normalized_modules.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/Flu09/gap_stat_abs.png">
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/overview/Flu09_Plasma_adjusted__raw_modules.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/overview/Flu09_Plasma_adjusted__dmat.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/overview/Flu09_Plasma_absolute__cy_mean_correlation.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/Flu09/gap_stat_adj.png">
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_abs/gap_stat_abs.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/import_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/liel_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="707" column="17" lean-forward="true" selection-start-line="707" selection-start-column="17" selection-end-line="707" selection-end-column="17" />
+        <state relative-caret-position="214">
+          <caret line="770" selection-start-line="770" selection-end-line="771" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/Flu09/associations_adj.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/Flu09/associations_abs.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cytomod/assoc_to_outcome.py">
+    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="156" column="16" lean-forward="true" selection-start-line="156" selection-start-column="16" selection-end-line="156" selection-end-column="16" />
+        <state relative-caret-position="149">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/data_manipulation/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_abs/Flu09_Plasma_absolute__hierchical_clust_heatmap.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_abs/Flu09_Plasma_absolute__reliability.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_abs/Flu09_Plasma_absolute__color_label_legend.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_adj/Flu09_Plasma_adjusted__reliability.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_adj/Flu09_Plasma_adjusted__hierchical_clust_heatmap.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/Flu09/clustering_adj/Flu09_Plasma_adjusted__color_label_legend.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

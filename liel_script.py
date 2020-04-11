@@ -1341,3 +1341,162 @@ outcomesPairPlot_Age(ds['nnw'].cyDf, ['Total', 'Systemic'], ['FLT3L', 'GM-CSF', 
 
 outcomesPairPlot(ds['nnw'].cyDf, ['Total', 'Systemic'], ['FLT3L', 'GM-CSF', 'IL12-P70', 'IL2', 'IL5', 'IL7', 'TGF-alpha', 'TNF-beta'])
 '''
+
+
+
+
+def plotResultSummary(cytomod_obj,
+                      mod_res_df,
+                      cy_res_df,
+                      outcomeVars,
+                      fdr_thresh_plot=0.2,
+                      compartmentName='BS',
+                      showScalebar=True,
+                      figsize=(3.6,9),
+                      save_fig_path=None,
+                      logistic=False):
+    mod_res_df = mod_res_df.copy()
+    cy_res_df = cy_res_df.copy()
+
+    mod_res_df.loc[:, 'Name'] = mod_res_df['Module']
+    cy_res_df.loc[:, 'Name'] = cy_res_df['Analyte']
+
+    cy_res_df = adjust_pvals(cy_res_df)
+    mod_res_df = adjust_pvals(mod_res_df)
+
+    name2mod = lambda a: '%s%1.0f' % (compartmentName, cytomod_obj.labels[a])
+
+    cy_res_df.loc[:, 'Module'] = cy_res_df['Analyte'].map(name2mod)
+    if logistic:
+       cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'OR', 'N', 'FWER', 'FDR']
+    else:
+       cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'Coef', 'N', 'FWER', 'FDR']
+
+    hDf = pd.concat((mod_res_df[cols], cy_res_df[cols]), axis=0)
+    hDf.loc[:, 'isAnalyte'] = (hDf['Module'] != hDf['Name'])
+    order = hDf[['Module', 'Name', 'isAnalyte']].drop_duplicates().sort_values(by=['Module', 'isAnalyte', 'Name'])
+    fdrH = hDf.pivot(index='Name', columns='Outcome', values='FDR').loc[order.Name, outcomeVars]
+    fdrH = fdrH.fillna(1)
+    fwerH = hDf.pivot(index='Name', columns='Outcome', values='FWER').loc[order.Name, outcomeVars]
+    fwerH = fwerH.fillna(1)
+    foldH = hDf.pivot(index='Name', columns='Outcome', values='Fold-diff').loc[order.Name, outcomeVars]
+
+    censorInd = fdrH.values > fdr_thresh_plot
+
+    fdrH.values[censorInd] = 1.
+    foldH.values[censorInd] = 1.
+    foldH = foldH.fillna(1)
+
+    cmap = palettable.colorbrewer.diverging.PuOr_9_r.mpl_colormap
+
+    if logistic:
+        print('######starting logistic regression')
+        scaleLabel = 'Odds Ratio'
+        ytl = np.array(['1/2.5', '1/2', '1/1.5', 1, 1.5, 2, 2.5])
+        yt = np.log([1 / 2.5, 1 / 2, 1 / 1.5, 1, 1.5, 2, 2.5])
+        vals = np.log(foldH.values)
+        pcParams = dict(vmin=-1, vmax=1, cmap=cmap)
+        plt.figure(figsize=figsize)
+        figh = plt.gcf()
+        plt.clf()
+        axh = figh.add_subplot(plt.GridSpec(1, 1, left=0.6, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        axh.grid(None)
+        pcolOut = plt.pcolormesh(vals, **pcParams)
+        plt.yticks(())
+        plt.xticks(np.arange(fdrH.shape[1]) + 0.5, fdrH.columns, size=11, rotation=90)
+        axh.xaxis.set_ticks_position('top')
+        plt.xlim((0, fdrH.shape[1]))
+        plt.ylim((0, fdrH.shape[0]))
+        axh.invert_yaxis()
+        for cyi, cy in enumerate(foldH.index):
+            for outi, out in enumerate(foldH.columns):
+                if fwerH.loc[cy, out] < 0.0005:
+                    ann = '***'
+                elif fwerH.loc[cy, out] < 0.005:
+                    ann = '**'
+                elif fwerH.loc[cy, out] < 0.05:
+                    ann = '*'
+                else:
+                    ann = ''
+                if not ann == '':
+                    plt.annotate(ann, xy=(outi + 0.5, cyi + 0.75), weight='bold', size=14, ha='center', va='center')
+
+        """Colorbar showing module membership: Add labels, make B+W"""
+        cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        cbAxh.grid(None)
+        cmap = [(0.3, 0.3, 0.3),
+                (0.7, 0.7, 0.7)]
+        cbS = mapColors2Labels(order.set_index('Name')['Module'], cmap=cmap)
+        _ = cbAxh.imshow([[x] for x in cbS.values], interpolation='nearest', aspect='auto', origin='lower')
+        plt.ylim((0, fdrH.shape[0]))
+        plt.yticks(np.arange(fdrH.shape[0]), fdrH.index, size=11)
+        plt.xlim((0, 0.5))
+        plt.ylim((-0.5, fdrH.shape[0] - 0.5))
+        plt.xticks(())
+        cbAxh.invert_yaxis()
+    else:
+        print('######starting linear regression')
+        betaVals = hDf.pivot(index='Name', columns='Outcome', values='Coef').loc[order.Name, outcomeVars]  # LIEL
+        betaVals.values[censorInd] = 0.
+        vals = betaVals.values
+        pcParams = dict(vmin=-0.8, vmax=0.8, cmap=cmap)
+        scaleLabel = 'Beta Coefficient'
+        ytl = np.array([-0.8, -0.4, 0, 0.4, 0.8])
+        yt = np.array([-0.8, -0.4, 0, 0.4, 0.8])
+
+        figh = plt.gcf()
+        plt.clf()
+        axh = figh.add_subplot(plt.GridSpec(1, 1, left=0.6, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        axh.grid(None)
+        pcolOut = plt.pcolormesh(vals, **pcParams)
+        plt.yticks(())
+        plt.xticks(np.arange(betaVals.shape[1]) + 0.5, betaVals.columns, size=11, rotation=90)
+        axh.xaxis.set_ticks_position('top')
+        plt.xlim((0, betaVals.shape[1]))
+        plt.ylim((0, betaVals.shape[0]))
+        axh.invert_yaxis()
+        for cyi, cy in enumerate(betaVals.index):
+            for outi, out in enumerate(betaVals.columns):
+                if fwerH.loc[cy, out] < 0.0005:
+                    ann = '***'
+                elif fwerH.loc[cy, out] < 0.005:
+                    ann = '**'
+                elif fwerH.loc[cy, out] < 0.05:
+                    ann = '*'
+                else:
+                    ann = ''
+                if not ann == '':
+                    plt.annotate(ann, xy=(outi + 0.5, cyi + 0.75), weight='bold', size=14, ha='center', va='center')
+
+        """Colorbar showing module membership: Add labels, make B+W"""
+        cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.59, top=0.85)[0, 0])
+        cbAxh.grid(None)
+        cmap = [(0.3, 0.3, 0.3),
+                (0.7, 0.7, 0.7)]
+        cbS = mapColors2Labels(order.set_index('Name')['Module'], cmap=cmap)
+        _ = cbAxh.imshow([[x] for x in cbS.values], interpolation='nearest', aspect='auto', origin='lower')
+        plt.ylim((0, betaVals.shape[0]))
+        plt.yticks(np.arange(betaVals.shape[0]), betaVals.index, size=11)
+        plt.xlim((0, 0.5))
+        plt.ylim((-0.5, betaVals.shape[0] - 0.5))
+        plt.xticks(())
+        cbAxh.invert_yaxis()
+
+    for lab in order['Module'].unique():
+        y = np.mean(np.arange(order.shape[0])[np.nonzero(order['Module'] == lab)]) - 0.5
+        plt.annotate(lab, xy=(0.25, y), ha='center', va='center', rotation=90, color='white', size=12)
+
+    """Scale colorbar"""
+    if showScalebar:
+        scaleAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.1, bottom=0.87, right=0.2, top=0.98)[0, 0])
+        cb = figh.colorbar(pcolOut, cax=scaleAxh, ticks=yt)
+        cb.set_label(scaleLabel, size=9)
+        cb.ax.set_yticklabels(ytl, fontsize=8)
+
+    plt.show()
+
+    if save_fig_path is None:
+        plt.show()
+    else:
+        plt.savefig(save_fig_path)
+

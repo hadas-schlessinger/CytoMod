@@ -73,6 +73,7 @@ def GLMResults(df, outcome, predictors, adj=[], logistic=True):
     outDf['params'] = params
     outDf['pvalues'] = pvalues
     outDf['res'] = resObj
+    print(f'outDf = {outDf}')
     return outDf
 
 
@@ -153,7 +154,6 @@ def plotResultSummary(cytomod_obj,
     name2mod = lambda a: '%s%1.0f' % (compartmentName, cytomod_obj.labels[a])
 
     cy_res_df.loc[:, 'Module'] = cy_res_df['Analyte'].map(name2mod)
-    # ask liel!!!!
     if logistic:
        cols = ['Outcome', 'Name', 'Module', 'Fold-diff', 'OR', 'N', 'FWER', 'FDR']
     else:
@@ -166,17 +166,18 @@ def plotResultSummary(cytomod_obj,
     fdrH = fdrH.fillna(1)
     fwerH = hDf.pivot(index='Name', columns='Outcome', values='FWER').loc[order.Name, outcomeVars]
     fwerH = fwerH.fillna(1)
-    foldH = hDf.pivot(index='Name', columns='Outcome', values='Fold-diff').loc[order.Name, outcomeVars]
-
     censorInd = fdrH.values > fdr_thresh_plot
 
     fdrH.values[censorInd] = 1.
-    foldH.values[censorInd] = 1.
-    foldH = foldH.fillna(1)
+
 
     cmap = palettable.colorbrewer.diverging.PuOr_9_r.mpl_colormap
 
     if logistic:
+        print("####starting logistic regression")
+        foldH = hDf.pivot(index='Name', columns='Outcome', values='Fold-diff').loc[order.Name, outcomeVars]
+        foldH.values[censorInd] = 1.
+        foldH = foldH.fillna(1)
         scaleLabel = 'Odds Ratio'
         ytl = np.array(['1/2.5', '1/2', '1/1.5', 1, 1.5, 2, 2.5])
         yt = np.log([1 / 2.5, 1 / 2, 1 / 1.5, 1, 1.5, 2, 2.5])
@@ -208,7 +209,7 @@ def plotResultSummary(cytomod_obj,
                     plt.annotate(ann, xy=(outi + 0.5, cyi + 0.75), weight='bold', size=14, ha='center', va='center')
 
         """Colorbar showing module membership: Add labels, make B+W"""
-        cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.95, top=0.85)[0, 0])
+        cbAxh = figh.add_subplot(plt.GridSpec(1, 1, left=0.5, bottom=0.05, right=0.59, top=0.85)[0, 0])
         cbAxh.grid(None)
         cmap = [(0.3, 0.3, 0.3),
                 (0.7, 0.7, 0.7)]
@@ -221,21 +222,22 @@ def plotResultSummary(cytomod_obj,
         plt.xticks(())
         cbAxh.invert_yaxis()
     else:
+        print('######starting linear regression')
         betaVals = hDf.pivot(index='Name', columns='Outcome', values='Coef').loc[order.Name, outcomeVars]  # LIEL
         betaVals.values[censorInd] = 0.
         vals = betaVals.values
-        print(f'vals = {vals}')
         pcParams = dict(vmin=-0.8, vmax=0.8, cmap=cmap)
         scaleLabel = 'Beta Coefficient'
         ytl = np.array([-0.8, -0.4, 0, 0.4, 0.8])
         yt = np.array([-0.8, -0.4, 0, 0.4, 0.8])
-
+        plt.figure(figsize=figsize)
         figh = plt.gcf()
         plt.clf()
         axh = figh.add_subplot(plt.GridSpec(1, 1, left=0.6, bottom=0.05, right=0.95, top=0.85)[0, 0])
         axh.grid(None)
         pcolOut = plt.pcolormesh(vals, **pcParams)
         plt.yticks(())
+
         plt.xticks(np.arange(betaVals.shape[1]) + 0.5, betaVals.columns, size=11, rotation=90)
         axh.xaxis.set_ticks_position('top')
         plt.xlim((0, betaVals.shape[1]))
@@ -285,4 +287,3 @@ def plotResultSummary(cytomod_obj,
         plt.show()
     else:
         plt.savefig(save_fig_path)
-

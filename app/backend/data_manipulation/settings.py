@@ -4,6 +4,7 @@ sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 import tools
 import warnings
 from . import import_data
+from .. import server_tools
 import numpy as np
 import pandas as pd
 warnings.filterwarnings('ignore')
@@ -15,10 +16,9 @@ def set_data(parameters):
     parameters = set_path(parameters)
     tools.create_folder(parameters.path_files)
     if check_input(parameters):
-        parameters.seed = 1234
         # todo: inser seed by configuration  - > os.environ.get("SEED")
         parameters.cy_data = import_data.make_cyto_data(parameters)
-        parameters.patient_data = import_data.make_patiants_data(parameters)
+        parameters.patient_data = import_data.make_patients_data(parameters)
         parameters.patient_data, parameters.cy_data, parameters = log_transform(parameters, parameters.cy_data, parameters.patient_data)
         logging.warning('finished set_data')
         return parameters
@@ -29,25 +29,16 @@ def set_data(parameters):
 def set_path(parameters):
     parameters.path_files = os.path.join('app/static', parameters.name_data)
     parameters.data_files = os.path.join(parameters.path_files, 'data_files')
-    # parameters.paths = {'files': os.path.join('app/static', 'data_files'),
-    #               'data': os.path.join('app/static', 'data_files', 'data'),
-    #               'gap_statistic': os.path.join('app/static'),
-    #               'clustering': os.path.join('app/static'),
-    #               'clustering_info': os.path.join('app/static'),
-    #               'clustering_figures': os.path.join('app/static'),
-    #               'correlation_figures': os.path.join('app/static'),
-    #               'association_figures': os.path.join('app/static'),
-                # 'data': os.path.join('app/static', 'data_files', 'data'),
-                # 'gap_statistic': os.path.join('app/static', 'data_files', 'output', 'gap_statistic'),
-                # 'clustering': os.path.join('app/static', 'data_files', 'output', 'clustering'),
-                # 'clustering_info': os.path.join('app/static', 'data_files', 'output', 'clustering', 'info'),
-                # 'clustering_figures': os.path.join('app/static', 'data_files', 'output', 'clustering',
-                #                                    'figures'),
-                # 'correlation_figures': os.path.join('app/static', 'data_files', 'output', 'correlations'),
-                # 'association_figures': os.path.join('app/static', 'data_files', 'output', 'associations'),
-
-                  # }
-    # server_tools.create_folders(parameters.paths)
+    parameters.paths = {
+                    'overview': os.path.join(parameters.path_files, 'overview'),
+                  'clustering_abs': os.path.join(parameters.path_files, 'clustering_abs'),
+                  'clustering_adj': os.path.join(parameters.path_files, 'clustering_adj'),
+                  'correlation_figures_abs': os.path.join(parameters.path_files, 'correlation_figures_abs'),
+                  'correlation_figures_adj': os.path.join(parameters.path_files, 'correlation_figures_adj'),
+                  'outcome_abs': os.path.join(parameters.path_files, 'outcome_abs'),
+                  'outcome_adj': os.path.join(parameters.path_files, 'outcome_adj'),
+                  }
+    server_tools.create_folders(parameters.paths)
     return parameters
 
 
@@ -80,12 +71,11 @@ def log_transform(parameters, cy_data, patient_data):
 def _log_covariates(parameters, patient_data):
     # log transform args.log_column_names
     if parameters.log_column_names != [''] and parameters.outcomes != ['']:
-        for col_name in parameters.log_column_names:
+        for col_name in parameters.log_column_names + parameters.outcomes:
             if(_is_continues(col_name, patient_data)):
                 new_col_name = 'log_' + col_name  # log transform variable
-                #patient_data[col_name] = patient_data[col_name][patient_data[col_name] != 0]
+                patient_data[col_name] = patient_data[col_name][patient_data[col_name] != 0]
                 patient_data[new_col_name] = np.log10(patient_data[col_name]) # replace column with new log transformed column
-                # print( patient_data[new_col_name])
                 # if col_name in parameters.outcomes:
                 #     parameters.outcomes.remove(col_name)
                 #     parameters.outcomes.append(new_col_name)

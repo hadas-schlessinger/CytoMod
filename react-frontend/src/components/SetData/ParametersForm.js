@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import * as SetParams from  '../../services/SetParams'
 import { useHistory } from "react-router-dom";
 import transperantBackground from '../../transperantBackground.png'
+import LoadingState from'./LoadingState'
 
 export default function ParametersForm({projectName}) {
   const [comperament, setComperament] = useState("")
@@ -18,17 +19,19 @@ export default function ParametersForm({projectName}) {
   const [Loading, setLoading] = useState(false)
 
   async function onSubmit(event) {
-    setLoading(true)
     event.preventDefault();
-    SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines)
+    setLoading(true)
+    const result = SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines)
       .then(() => {
-        setError(false);
+        // setError(false);
         setSuccess(true);
-        navigateTo("results");
+        setLoading(false)
+        //navigateTo("results");
       })
       .catch(() => {
         setError(true);
       });
+      console.log(result);
   }
 
   function navigateTo(serviceName) {
@@ -79,11 +82,13 @@ return (
             <p>List of cytokines to be analyzed. If None, will analyze all cytokines in the cytokine_data file</p>
             <label>Cytokines</label>
              <input type="text" name="cytokines" placeholder="List of cytokines" onChange={event => setCytokines(event.target.value)}/ >
-      {/* onclick=loading */}
+         
     </form>
     <p></p>
         <input type="submit" value="Submit" onClick={(event) => onSubmit(event)}/>
         <p>Clicking the "Submit" button, will start the analysis</p>
+        {Loading &&  <LoadingState />}
+        {success &&  navigateTo("results")}  
         {/* {error && <small className='error'>please insert cytokine data</small>} */}
 
 </div>

@@ -173,7 +173,7 @@ def plot_module_correl(clust_object, folder, args):
         plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
         img = {'height': '900',
                'width': '1300',
-               'name': '%s_modules_correlations_%s.png' % (clust_object.name, lab),
+               'path': folder + '%s_modules_correlations_%s.png' % (clust_object.name, lab),
                'headline': 'Modules Correlation of %s Cytokines no. %s ' % (clust_object.name, lab)}
         args.images.append(img)
         i += 1

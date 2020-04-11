@@ -8,21 +8,22 @@ warnings.simplefilter('ignore')
 
 
 
-# def create_folders(paths):
-#     tools.create_folder(paths['gap_statistic'])
-#     tools.create_folder(paths['clustering_info'])
-#     tools.create_folder(paths['clustering_figures'])
-#     tools.create_folder(paths['correlation_figures'])
-#     tools.create_folder(paths['association_figures'])
+def create_folders(paths):
+    tools.create_folder(paths['overview'])
+    tools.create_folder(paths['clustering_abs'])
+    tools.create_folder(paths['clustering_adj'])
+    tools.create_folder(paths['correlation_figures_abs'])
+    tools.create_folder(paths['correlation_figures_adj'])
+    tools.create_folder(paths['outcome_abs'])
+    tools.create_folder(paths['outcome_adj'])
 
 
 def make_ans(parameters):
     ans_pics_path=[]
     for img in parameters.images:
-        ans = {'path': os.path.join('/static',parameters.name_data, img['name']),
+        ans = {'path':img['path'],
                'height': img['height'],
                'width': img['width'],
-               'name': img['name'],
                'headline': img['headline']}
         ans_pics_path.append(ans)
     return ans_pics_path

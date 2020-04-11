@@ -9,7 +9,7 @@ export default function UploadForm({onSetName}) {
   const [cytokinesFile, setCytokines] = useState(null)
   const [patientsFile, setPatients] = useState(null)
   const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false);
+  const [Cytoerror, setCytoError] = useState(false);
   const history = useHistory();
 
 
@@ -17,14 +17,13 @@ export default function UploadForm({onSetName}) {
     event.preventDefault();
     const result = Upload.upload(name, cytokinesFile, patientsFile)
       .then(() => {
-        setError(false);
+        setCytoError(false);
         setSuccess(true);
         onSetName(name)
       })
       .catch(() => {
-        setError(true);
+        setCytoError(true);
       });
-    console.log(result);
   }
 
   function navigateTo(route) {
@@ -47,7 +46,7 @@ export default function UploadForm({onSetName}) {
           <label> Cytokines Data: </label>
             <input type = "file" name = "cytokines" onChange={event => setCytokines(event.target.files[0])} />
           </p>
-          {error && <small className='error'>please insert cytokine data</small>}
+          {Cytoerror && <small className='error'>please insert cytokine data</small>}
           <h3>Patients Data:</h3>
             <p>
             <label>Patients Data:</label>

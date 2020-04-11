@@ -19,7 +19,7 @@ def make_cyto_data(parameters):
     return cy_data
 
 
-def make_patiants_data(parameters):
+def make_patients_data(parameters):
     if parameters.outcomes[0] != '':
         patient_data_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_names.xlsx')).get_value(1, 0)
         patient_data = tools.read_excel(os.path.join(parameters.data_files, patient_data_name), indexCol=0)

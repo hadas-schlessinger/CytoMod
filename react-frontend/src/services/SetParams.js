@@ -12,6 +12,9 @@ export async function setParameters(projectName, comperament, luminex, logCytoki
     data.append('covariates', covariates)
     data.append('log_column_names', logColumns)
     data.append('cytokines', cytokines)
-    const response = await axios.post("/generate",data)      
-    return response.data 
+    console.log({data: data});
+    axios.defaults.timeout = 10*60*60*1000;
+    const response = await axios.post("/generate", data) 
+    console.log({response: response});
+    return response
 }
