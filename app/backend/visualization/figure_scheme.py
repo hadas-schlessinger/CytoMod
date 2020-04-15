@@ -83,12 +83,14 @@ def write_results(args):
 
 def associations_to_outcomes(stage, args):
     # standardize numeric covariates
-    if args.covariates != []:
-        standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
+    standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
 
+    if args.covariates != []:
         for covariate in args.covariates:
-            if covariate != '' and len(args.patient_data[covariate].unique()) > 2:
+            if covariate != '':
                 args.patient_data[[covariate]] = args.patient_data[[covariate]].apply(standardizeFunc)
+
+    if args.outcomes != []:
 
         if stage == 'abs':
             args.mod_outcome_abs_df, args.need_OR = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,

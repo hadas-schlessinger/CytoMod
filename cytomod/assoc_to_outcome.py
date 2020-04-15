@@ -1,5 +1,6 @@
 import os.path as op
-
+import os
+import tools
 # import plotting as cyplot
 # from biplot import biplot
 # import plotting as cyplot
@@ -11,6 +12,7 @@ import palettable
 import itertools
 import seaborn as sns
 import statsmodels as sm
+import time
 
 # sys.path.append('C:/Users/liel-/PycharmProjects/LielTools/')
 # from write2Excel import writeDF2Excel
@@ -73,7 +75,7 @@ def GLMResults(df, outcome, predictors, adj=[], logistic=True):
     outDf['params'] = params
     outDf['pvalues'] = pvalues
     outDf['res'] = resObj
-    print(f'outDf = {outDf}')
+    # print(f'outDf = {outDf} for {outcome}')
     return outDf
 
 
@@ -82,25 +84,29 @@ def outcomeAnalysis(cytomod_obj, patient_data,
                     outcomeVars=[],
                     adjustmentVars=[],
                     standardize=True):
+
+    standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
     need_OR = False
     df = pd.DataFrame(patient_data)
     modStr = 'Module' if analyzeModules else 'Analyte'
     resL = []
+    if analyzeModules: # todo: check where they are adjusted
+        dataDf = cytomod_obj.modDf
+    else:
+        dataDf = cytomod_obj.cyDf
+        if standardize:  # standardize cytokine values
+            dataDf = dataDf.apply(standardizeFunc)
+
     for outcome in outcomeVars:
         logistic = np.isin(df[outcome].dropna().unique(), [0, 1]).all() # checks if the data is binary
         if logistic:
             need_OR = True
-        """Logistic regression on outcome"""
-        if analyzeModules:
-            dataDf = cytomod_obj.modDf
         else:
-            dataDf = cytomod_obj.cyDf
-            if standardize:  # standardize cytokine values
-                standardizeFunc = lambda col: (col - np.nanmean(col)) / np.nanstd(col)
-                dataDf = dataDf.apply(standardizeFunc)
-
+            patient_data[[outcome]] = patient_data[[outcome]].apply(standardizeFunc)
+        # regression on outcome
         predictors = dataDf.columns
         data_outcome_Df = patient_data[outcomeVars + adjustmentVars].join(dataDf)
+        # print(f'data for GLM: {data_outcome_Df}')
         tmpres = GLMResults(data_outcome_Df, outcome, predictors, adj=adjustmentVars, logistic=logistic)
         tmpres['Outcome'] = outcome
         tmpres['Compartment'] = cytomod_obj.sampleStr
@@ -108,8 +114,9 @@ def outcomeAnalysis(cytomod_obj, patient_data,
         tmpres['Fold-diff'] = np.exp(tmpres['Diff'])
         tmpres[modStr] = predictors
         resL.append(tmpres)
-
     resDf = pd.concat(resL, axis=0, ignore_index=True)
+    if not logistic:
+        patient_data = patient_data.apply(standardizeFunc)
     return resDf, need_OR
 
 
@@ -167,14 +174,13 @@ def plotResultSummary(cytomod_obj,
     fwerH = hDf.pivot(index='Name', columns='Outcome', values='FWER').loc[order.Name, outcomeVars]
     fwerH = fwerH.fillna(1)
     censorInd = fdrH.values > fdr_thresh_plot
-
     fdrH.values[censorInd] = 1.
 
 
     cmap = palettable.colorbrewer.diverging.PuOr_9_r.mpl_colormap
 
     if logistic:
-        print("####starting logistic regression")
+        print("####starting logistic regression plot")
         foldH = hDf.pivot(index='Name', columns='Outcome', values='Fold-diff').loc[order.Name, outcomeVars]
         foldH.values[censorInd] = 1.
         foldH = foldH.fillna(1)
@@ -222,7 +228,7 @@ def plotResultSummary(cytomod_obj,
         plt.xticks(())
         cbAxh.invert_yaxis()
     else:
-        print('######starting linear regression')
+        print('######starting linear regression plot')
         betaVals = hDf.pivot(index='Name', columns='Outcome', values='Coef').loc[order.Name, outcomeVars]  # LIEL
         betaVals.values[censorInd] = 0.
         vals = betaVals.values

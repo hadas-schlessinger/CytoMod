@@ -5,7 +5,8 @@ import tools
 import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
-
+import io
+import base64
 
 
 def create_folders(paths):

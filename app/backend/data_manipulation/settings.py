@@ -17,10 +17,11 @@ def set_data(parameters):
     tools.create_folder(parameters.path_files)
     if check_input(parameters):
         # todo: inser seed by configuration  - > os.environ.get("SEED")
+        parameters.seed = 1234
         parameters.cy_data = import_data.make_cyto_data(parameters)
         parameters.patient_data = import_data.make_patients_data(parameters)
         parameters.patient_data, parameters.cy_data, parameters = log_transform(parameters, parameters.cy_data, parameters.patient_data)
-        logging.warning('finished set_data')
+        logging.info('finished set_data')
         return parameters
     # Todo: dont forget to delete file!!!!
     return False
@@ -71,11 +72,11 @@ def log_transform(parameters, cy_data, patient_data):
 def _log_covariates(parameters, patient_data):
     # log transform args.log_column_names
     if parameters.log_column_names != [''] and parameters.outcomes != ['']:
-        for col_name in parameters.log_column_names + parameters.outcomes:
+        for col_name in parameters.log_column_names:
             if(_is_continues(col_name, patient_data)):
                 new_col_name = 'log_' + col_name  # log transform variable
                 patient_data[col_name] = patient_data[col_name][patient_data[col_name] != 0]
-                patient_data[new_col_name] = np.log10(patient_data[col_name]) # replace column with new log transformed column
+                patient_data[new_col_name] = np.log(patient_data[col_name]) # replace column with new log transformed column
                 # if col_name in parameters.outcomes:
                 #     parameters.outcomes.remove(col_name)
                 #     parameters.outcomes.append(new_col_name)

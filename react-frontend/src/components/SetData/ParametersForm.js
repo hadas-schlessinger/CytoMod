@@ -7,7 +7,7 @@ import LoadingState from'./LoadingState'
 export default function ParametersForm({projectName}) {
   const [comperament, setComperament] = useState("")
   const [luminex, setLuminex] = useState(false)
-  const [logCytokines, setLogCytokines] = useState(true)
+  const [logCytokines, setLogCytokines] = useState(false)
   const [k, setK] = useState(6)
   const [outcomes, setOutcomes] = useState("")
   const [covariates, setCovariates] = useState("")
@@ -24,14 +24,17 @@ export default function ParametersForm({projectName}) {
     const result = SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines)
       .then(() => {
         // setError(false);
+        console.log(result)
         setSuccess(true);
         setLoading(false)
         //navigateTo("results");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(result)
+        console.log(error)
         setError(true);
       });
-      console.log(result);
+      
   }
 
   function navigateTo(serviceName) {

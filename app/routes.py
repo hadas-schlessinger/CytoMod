@@ -1,4 +1,4 @@
-from flask import  render_template, flash, redirect, request, url_for
+from flask import  render_template, flash, redirect, request, url_for, send_file
 from werkzeug.utils import secure_filename
 from app import app
 import tools
@@ -83,8 +83,8 @@ def allowed_file(filename):
 
 @app.route('/generate', methods=['POST'])
 def generate():
+    logging.info('got a request')
     parameters = tools.Object()
-    parameters.seed = 1234
     parameters.images = []
     parameters.name_data = request.form.get('name_data', default='data')
     if parameters.name_data == '':
@@ -106,18 +106,18 @@ def generate():
     # print(parameters.save_file)
     parameters = dm.settings.set_data(parameters)
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
+    parameters = visualization.figures.calc_clustering(parameters)
     parameters = visualization.figures.calc_abs_figures(parameters)
-    #return json.dumps({'ans': ''})
     parameters = visualization.figures.calc_adj_figures(parameters)
     ans = server_tools.make_ans(parameters)
-    logging.warning('finished to calc the method')
+    logging.info('finished to calc the method')
+    return send_file(ans[0]['path'], mimetype='image/png')
     # server_tools.clean_static(parameters)
     # server_tools.clean_data(parameters)
     # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'abs_modules.xlsx'), parameters.modules[0])
     # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'adj_modules.xlsx'), parameters.modules[1])
-    return {'ans': ans}
-    # return render_template(
-    #     'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
-    #     abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
+    return render_template(
+        'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
+        abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
 
 
