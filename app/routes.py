@@ -93,7 +93,7 @@ def generate():
     parameters.luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
     parameters.max_testing_k = request.form.get('max_testing_k', type=int, default=6)  # Must be <= max_testing_k
-    parameters.recalculate_modules = True
+    parameters.recalculate_modules = False
     parameters.outcomes = request.form.get('outcomes')  # names of binary outcome columns
     parameters.outcomes = parameters.outcomes.split(", ")
     parameters.covariates = request.form.get('covariates') # names of regression covariates to control for
