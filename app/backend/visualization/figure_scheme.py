@@ -39,19 +39,19 @@ def mean_person(args):
 def pairwise_correlation_with_moudles(stage, args):
     cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.paths[f'clustering_{stage}'],
                                        figsize=(10, 6))
-    cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths[f'clustering_{stage}'])
+    # cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths[f'clustering_{stage}'])
     img = {'height': '700',
            'width': '1000',
            'path': args.paths[f'clustering_{stage}'] +  '%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
            'headline': 'Hierarchical Clustering Heatmap for %s Cytokines' % stage
            }
     args.images.append(img)
-    img = {'height': '300',
-           'width': '500',
-           'path': args.paths[f'clustering_{stage}'] +  '%s_color_label_legend.png' % args.cyto_modules[stage].name,
-           'headline': 'Modules Labels'
-           }
-    args.images.append(img)
+    # img = {'height': '300',
+    #        'width': '500',
+    #        'path': args.paths[f'clustering_{stage}'] +  '%s_color_label_legend.png' % args.cyto_modules[stage].name,
+    #        'headline': 'Modules Labels'
+    #        }
+    # args.images.append(img)
     return args
 
 def same_cluster_reliability(stage,args):

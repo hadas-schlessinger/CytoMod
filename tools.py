@@ -35,11 +35,10 @@ def write_DF_to_excel(path, dataframe):
 
 def assert_column_exists_in_path(file_path, col_name, sheet=0):
     df = read_excel(file_path, sheet=sheet, nrows=3)
-
     if col_name not in df.columns:
         print('Column', col_name, 'does not exist')
         print('in file', file_path, '.')
-        raise Exception('assert_column_exists_in_path: Fix column name and re-run script.')
+        raise Exception(f'assert_column_exists_in_path: Fix column name {col_name} and re-run script.')
 
 
 def write_to_dill(path, variable):

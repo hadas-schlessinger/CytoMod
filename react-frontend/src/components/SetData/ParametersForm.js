@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import * as SetParams from  '../../services/SetParams'
 import { useHistory } from "react-router-dom";
 import transperantBackground from '../../transperantBackground.png'
 import LoadingState from'./LoadingState'
+import {default as UUID} from "node-uuid";
+import Calculating from './Calculating';
+
 
 export default function ParametersForm({projectName}) {
   const [comperament, setComperament] = useState("")
@@ -16,27 +19,26 @@ export default function ParametersForm({projectName}) {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false);
   const history = useHistory();
-  const [Loading, setLoading] = useState(false)
+  const [formID, setId] = useState('initial id')
+  const [wasSubmitted, setwasSubmitted] = useState(false)
+  // useEffect()
 
   async function onSubmit(event) {
     event.preventDefault();
-    setLoading(true)
-    const result = SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines)
-      .then(() => {
-        // setError(false);
-        console.log(result)
-        setSuccess(true);
-        setLoading(false)
-        //navigateTo("results");
-      })
-      .catch((error) => {
-        console.log(result)
+   
+    console.log(formID)
+    SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines).then(
+        (response) => {
+        const id = response.data.id.id
+        setId({id})
+        setSuccess(true)
+        }).catch((error) => {
+        setError(true)
         console.log(error)
-        setError(true);
-      });
+      })
       
   }
-
+  
   function navigateTo(serviceName) {
     history.push(`/${serviceName}`);
   }
@@ -45,7 +47,7 @@ return (
 <div style={{backgroundImage: `url(${transperantBackground})`}}> 
  <h1>Settings</h1>
  <form action="/generate" method="post">
-     <h2>Please set parameters for your project - {projectName}</h2>     
+     <h2>Please set parameters for your project - {projectName}</h2>
         <h3>name of the compartment</h3>
             <p>Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
             <label>Name Compartment</label>
@@ -90,9 +92,8 @@ return (
     <p></p>
         <input type="submit" value="Submit" onClick={(event) => onSubmit(event)}/>
         <p>Clicking the "Submit" button, will start the analysis</p>
-        {Loading &&  <LoadingState />}
-        {success &&  navigateTo("results")}  
-        {/* {error && <small className='error'>please insert cytokine data</small>} */}
+        {error && <small className='error'>please go back to the upload tab and insert your data and project name</small>}
+        {success && <Calculating projectName = {projectName} formID={formID} / >   }  
 
 </div>
 

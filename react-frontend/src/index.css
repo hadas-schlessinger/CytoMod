@@ -133,6 +133,8 @@ input[type="password"]::placeholder {
     top: 6px;
     height: 0;
 }
+
+
 /* 
 .loader {
   position: fixed;

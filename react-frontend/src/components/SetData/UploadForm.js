@@ -10,19 +10,26 @@ export default function UploadForm({onSetName}) {
   const [patientsFile, setPatients] = useState(null)
   const [success, setSuccess] = useState(false)
   const [Cytoerror, setCytoError] = useState(false);
+  const [Nameerror, setNameError] = useState(false);
   const history = useHistory();
 
 
   async function onSubmit(event) {
+    setNameError(false);
+    setCytoError(false);
     event.preventDefault();
     const result = Upload.upload(name, cytokinesFile, patientsFile)
       .then(() => {
+        setNameError(false);
         setCytoError(false);
         setSuccess(true);
         onSetName(name)
       })
-      .catch(() => {
-        setCytoError(true);
+      .catch((e) => {
+        if(e.message == 'Request failed with status code 403')
+          setNameError(true)
+        else
+          setCytoError(true);
       });
   }
 
@@ -41,6 +48,7 @@ export default function UploadForm({onSetName}) {
             <p>Insert the name of the data/chort</p> 
             <label> Name: </label>
           <input type="text" name="name_data" placeholder="Your project name" onChange={event => setName(event.target.value)}/>
+          {Nameerror && <small className='error'>please insert your project's name</small>}
           <h3>Cytokines Data:</h3>
           <p>
           <label> Cytokines Data: </label>

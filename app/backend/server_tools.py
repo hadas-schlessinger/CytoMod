@@ -67,3 +67,20 @@ def create_modules_dict(parameters):
     parameters.modules.append(modules_abs)
     parameters.modules.append(modules_adj)
     return parameters
+
+
+def create_parameters_object(name_data, id, name_compartment, luminex, log_transform, max_testing_k, recalculate_modules, outcomes, covariates, log_column_names, cytokines):
+    parameters = tools.Object()
+    parameters.images = []
+    parameters.name_data = name_data
+    parameters.id =id
+    parameters.name_compartment= name_compartment
+    parameters.luminex =luminex
+    parameters.log_transform = log_transform
+    parameters.max_testing_k = max_testing_k
+    parameters.recalculate_modules =recalculate_modules
+    parameters.outcomes = outcomes
+    parameters.covariates = covariates
+    parameters.log_column_names = log_column_names
+    parameters.cytokines = cytokines
+    return parameters
