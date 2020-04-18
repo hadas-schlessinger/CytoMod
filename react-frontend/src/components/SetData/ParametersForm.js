@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react'
 import * as SetParams from  '../../services/SetParams'
 import { useHistory } from "react-router-dom";
 import transperantBackground from '../../transperantBackground.png'
-import LoadingState from'./LoadingState'
-import {default as UUID} from "node-uuid";
 import Calculating from './Calculating';
 
 
