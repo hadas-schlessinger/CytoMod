@@ -25,14 +25,12 @@ export default function Results(props) {
 
 
   const results = () => {
-    console.log({props: props})
-
-      ResultsService.getResults(name).then((response) =>{
+      ResultsService.getResults(props.projectName).then((response) =>{
         const data = response.data
         setdata(data)
         console.log({data: data});
-        setGotResults(true)
         setOldProjec(false)
+        setGotResults(true)
 
       //   if (response.data.status == "DONE"){
       //     setSuccess(true)
@@ -46,14 +44,18 @@ export default function Results(props) {
     }
     
   useEffect(() => {
-    if(props.projectName != null){
+    console.log(props.projectName)
+    if(props.projectName != null ){
       setName(props.projectName)
+      results()
+
     }
     if(props.projectName==null && name == "")
     {   
         setOldProjec(true)
+
     }
-    else{
+    if(name != ""){
       results()
     }
     

@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/server_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/all_results.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/all_results.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/overview/abs_modules.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/overview/abs_modules.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/overview/adj_modules.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/overview/adj_modules.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/Flu09/process_id_status.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/process_id_status.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/OverviewPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Results/OverviewPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/Results.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Results/Results.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +67,7 @@
           <entry key="html" value="1249" />
           <entry key="js" value="183" />
           <entry key="json" value="173" />
-          <entry key="py" value="10129" />
+          <entry key="py" value="10188" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -68,23 +77,23 @@
           <entry key="JSON" value="173" />
           <entry key="JavaScript" value="183" />
           <entry key="PLAIN_TEXT" value="97" />
-          <entry key="Python" value="10129" />
+          <entry key="Python" value="10188" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36203647">
+    <splitter split-orientation="horizontal" split-proportion="0.70333123">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/routes.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="368">
-                  <caret line="131" selection-start-line="131" selection-end-line="131" />
+                <state relative-caret-position="324">
+                  <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#80#0" expanded="true" />
-                    <marker date="1587655939684" expanded="true" signature="6182:6204" ph="..." />
+                    <marker date="1587825623130" expanded="true" signature="6166:6188" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -120,12 +129,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="329">
-                  <caret line="132" column="47" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
+                <state relative-caret-position="283">
+                  <caret line="28" column="17" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
-                    <marker date="1587655271194" expanded="true" signature="2127:2243" ph="..." />
-                    <marker date="1587655271194" expanded="true" signature="4293:4298" ph="..." />
+                    <marker date="1587838282683" expanded="true" signature="2129:2245" ph="..." />
+                    <marker date="1587838282683" expanded="true" signature="4295:4300" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -134,8 +143,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/templates/results.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+                <state relative-caret-position="147">
+                  <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -172,7 +181,7 @@
                   <caret line="19" selection-start-line="19" selection-end-line="19" />
                   <folding>
                     <element signature="e#0#52#0" expanded="true" />
-                    <marker date="1586771966859" expanded="true" signature="261:540" ph="..." />
+                    <marker date="1587823905617" expanded="true" signature="261:540" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -204,8 +213,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vals</find>
-      <find>cyInd</find>
       <find>fdrH</find>
       <find>make_patients_data</find>
       <find>create_folders</find>
@@ -234,6 +241,8 @@
       <find>app.run</find>
       <find>if __</find>
       <find>img</find>
+      <find>dict</find>
+      <find>create_modules</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -278,8 +287,8 @@
         <option value="$PROJECT_DIR$/tools.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/cytomod/io.py" />
-        <option value="$PROJECT_DIR$/app/backend/server_tools.py" />
         <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/app/backend/server_tools.py" />
       </list>
     </option>
   </component>
@@ -327,37 +336,6 @@
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Flu09" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Flu09" type="462c0819:PsiDirectoryNode" />
-              <item name="clustering_adj" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Flu09" type="462c0819:PsiDirectoryNode" />
-              <item name="correlation_figures_abs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Flu09" type="462c0819:PsiDirectoryNode" />
-              <item name="data_files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
@@ -597,8 +575,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="976" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16219063" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16219063" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -609,7 +588,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3284974" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.47058824" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.47058824" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32746115" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -800,6 +779,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="96" column="54" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -870,7 +852,7 @@
           <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
-            <marker date="1586771966859" expanded="true" signature="261:540" ph="..." />
+            <marker date="1587823905617" expanded="true" signature="261:540" ph="..." />
           </folding>
         </state>
       </provider>
@@ -879,6 +861,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="159" column="42" selection-start-line="159" selection-start-column="42" selection-end-line="159" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#80#0" expanded="true" />
+            <marker date="1587825623130" expanded="true" signature="6166:6188" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -891,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        <state relative-caret-position="147">
+          <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -903,42 +913,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-          <folding>
-            <element signature="e#0#80#0" expanded="true" />
-            <marker date="1587655939684" expanded="true" signature="6182:6204" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="132" column="47" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
+        <state relative-caret-position="283">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="17" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1587655271194" expanded="true" signature="2127:2243" ph="..." />
-            <marker date="1587655271194" expanded="true" signature="4293:4298" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1587838282683" expanded="true" signature="2129:2245" ph="..." />
+            <marker date="1587838282683" expanded="true" signature="4295:4300" ph="..." />
           </folding>
         </state>
       </provider>

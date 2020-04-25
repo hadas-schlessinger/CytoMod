@@ -28,6 +28,8 @@ def save_images_and_modules(parameters):
     for img in parameters.images:
         with open(img['path'], "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read())
+
+
         result = {'index': f'row_{index}',
                    'type': 'image',
                    'image': encoded_string,

@@ -3,11 +3,8 @@ import beckgroungTransperant from '../../beckgroungTransperant.png'
 import { useHistory } from "react-router-dom";
 
 export default function OverviewPanel(props) {
-    const [oldProject, setOldProject] = useState(false)
-    const [name, setName] = useState("")
-    const [id, setID] = useState("")
+    const [hasResults, sethasResults] = useState(false)
     const [results, setResults] = useState({})
-    const history = useHistory();
 
    
     
@@ -25,43 +22,52 @@ export default function OverviewPanel(props) {
         console.log({results_prop: props.results})
         if(props.results!=''){
             setResults(props.results)
-            console.log({results_after_change: results})
+            sethasResults(true)
         }
-        if(results!=''){
-            console.log(props.results.location.row_1)
-        }
-        return () => {
-            // if(props.projectName==null){
-            //     setOldProject(true)
-            // }
-           
-                      
+        // if(results!=''){
+        //     console.log({results_after_change: results})
+        //     sethasResults(true)
+
+        //     // var image = new Image();
+        //     // image.src = 'data:image/png;base64,'+props.results.image.row_1
+
+        // }
+        return () => {  
+            // <div>  
+            // <tr>
+            // <td style="color: #0B7478"><span style= "font-size: 16pt;">yayy </span></td>
+            // <img src={'data:image/png;base64,'+props.results.image.row_1} >      </img>
+            // </tr>    
+            // </div>       
         }
     }, [])
 
-   
-    return (
-        <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>
-            {/* {oldProject &&                
-                <div>
-                    <form>
-                    <h3>Results for old project</h3>
-                <p>please insert your old project name and id</p>
-                <p>please note - the results will only be shown if the analysis occured in the past week</p>
-            <label>Name</label>
-             <input type="text" name="name_data" placeholder="project name" onChange={event => setName(event.target.value)}/ >
+    const decoder = (img) => {
+        var image = img
+        console.log({image: img})
 
-             <label>Id</label>
-             <input type="text" name="id" placeholder="id" onChange={event => setID(event.target.value)}/ >            </form>
-             <p></p>
-             <input type="submit" value="Submit" onClick={(event) => onSubmit(event)}/>
-             <p>Clicking the "Submit" button, will return old project results</p>
-                </div>
-                } */}
+        var src = `data:image/png;base64,${props.results.image.row_1}`
+        console.log({src: src})
+        
+
+    }
+
+  
+    console.log(props.results.image.row_1)
+    return (
+        <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>           
             
-            <div>
                  <h1>Overview for project {props.projectName}</h1>
-            </div>
+                 <h2>image:</h2>
+                 {/* <tr>
+                <td style="color: #0B7478"><span style= "font-size: 16pt;">yayy </span></td> */}
+                { hasResults && 
+                    <img src = {`data:image/png;base64,${props.results.image.row_2}`} width ={400} lengh = {400}/>  
+                }
+                
+                {/* </tr>   */}
+               
+            
 
          
            

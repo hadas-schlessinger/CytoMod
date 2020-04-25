@@ -126,8 +126,8 @@ def results():
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence
     results = tools.read_excel(os.path.join('app/static/',  name, 'all_results.xlsx')).set_index('index').to_json()
-    print(results)
-    logging.info(f'the results sent to client for project {name} are {results}')
+
+    # logging.info(f'the results sent to client for project {name} are {results}')
     return results
 
 
