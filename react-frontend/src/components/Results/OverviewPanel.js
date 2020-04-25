@@ -6,29 +6,38 @@ export default function OverviewPanel(props) {
     const [oldProject, setOldProject] = useState(false)
     const [name, setName] = useState("")
     const [id, setID] = useState("")
+    const [results, setResults] = useState({})
     const history = useHistory();
 
+   
     
-    // console.log(props.results.location.row_1)
+    // function onSubmit() {
+    //     setOldProject(false)
+    //     console.log(name)
+    //    navigateTo('results')       
+    //   }
     
-    function onSubmit() {
-        setOldProject(false)
-        console.log(name)
-       navigateTo('results')       
-      }
-    
-      function navigateTo(serviceName) {
-        history.push(`/${serviceName}`, name);
-   }
-    // useEffect(() => {
-        
-    //     return () => {
-    //         if(props.projectName==null){
-    //             setOldProject(true)
-    //         }
+//       function navigateTo(serviceName) {
+//         history.push(`/${serviceName}`, name);
+//    }
+    useEffect(() => {
+        console.log({results: results})
+        console.log({results_prop: props.results})
+        if(props.results!=''){
+            setResults(props.results)
+            console.log({results_after_change: results})
+        }
+        if(results!=''){
+            console.log(props.results.location.row_1)
+        }
+        return () => {
+            // if(props.projectName==null){
+            //     setOldProject(true)
+            // }
            
-    //     }
-    // }, [])
+                      
+        }
+    }, [])
 
    
     return (
@@ -49,12 +58,12 @@ export default function OverviewPanel(props) {
              <p>Clicking the "Submit" button, will return old project results</p>
                 </div>
                 } */}
-            {!oldProject &&
+            
             <div>
                  <h1>Overview for project {props.projectName}</h1>
             </div>
 
-            }
+         
            
             
         </div>

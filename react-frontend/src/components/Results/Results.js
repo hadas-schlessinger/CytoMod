@@ -28,11 +28,12 @@ export default function Results(props) {
     console.log({props: props})
 
       ResultsService.getResults(name).then((response) =>{
-        setGotResults(true)
-        setOldProjec(false)
         const data = response.data
         setdata(data)
         console.log({data: data});
+        setGotResults(true)
+        setOldProjec(false)
+
       //   if (response.data.status == "DONE"){
       //     setSuccess(true)
       //     navigateTo("results")

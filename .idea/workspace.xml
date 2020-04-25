@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/data_manipulation/clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/data_manipulation/clustering.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/server_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/visualization/figure_scheme.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/visualization/figure_scheme.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/data_files_names.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/Flu09/process_id_status.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/Flu09/process_id_status.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytomod/io.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytomod/io.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/OverviewPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Results/OverviewPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/Results/Results.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/Results/Results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/Calculating.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SetData/Calculating.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/LoadingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SetData/LoadingPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/LoadingState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SetData/ParametersForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SetData/ParametersForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/services/Results.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/src/services/SetParams.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/services/SetParams.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +74,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6731615">
+    <splitter split-orientation="horizontal" split-proportion="0.36203647">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -197,8 +181,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="222">
-                  <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+                <state relative-caret-position="192">
+                  <caret line="80" selection-start-line="80" selection-end-line="80" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -951,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        <state relative-caret-position="192">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
