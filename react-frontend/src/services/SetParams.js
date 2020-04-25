@@ -27,14 +27,6 @@ export async function setParameters(projectName, comperament, luminex, logCytoki
         console.log({data: data});
        return await axios.post("/status", data)
 
-      
-        // let source = axios.CancelToken.source()
-        // setTimeout(() => {
-        //     source.cancel();
-        // }, 10*60*60*10000);
-        // let timeout = setTimeout(() => source.cancel('Timeout'), 10*60*60*10000); // connection timeout here in ms 
-        // clearTimeout(timeout); 
-        // axios.defaults.timeout = 10*60*60*10000;
     
         
             }

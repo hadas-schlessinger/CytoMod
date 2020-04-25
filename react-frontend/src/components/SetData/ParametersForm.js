@@ -16,9 +16,7 @@ export default function ParametersForm({projectName}) {
   const [cytokines, setCytokines] = useState("")
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false);
-  const history = useHistory();
   const [formID, setId] = useState('initial id')
-  const [wasSubmitted, setwasSubmitted] = useState(false)
   // useEffect()
 
   async function onSubmit(event) {
@@ -37,12 +35,10 @@ export default function ParametersForm({projectName}) {
       
   }
   
-  function navigateTo(serviceName) {
-    history.push(`/${serviceName}`);
-  }
 
 return (
 <div style={{backgroundImage: `url(${transperantBackground})`}}> 
+{!success && <div>
  <h1>Settings</h1>
  <form action="/generate" method="post">
      <h2>Please set parameters for your project - {projectName}</h2>
@@ -90,6 +86,7 @@ return (
     <p></p>
         <input type="submit" value="Submit" onClick={(event) => onSubmit(event)}/>
         <p>Clicking the "Submit" button, will start the analysis</p>
+        </div>}
         {error && <small className='error'>please go back to the upload tab and insert your data and project name</small>}
         {success && <Calculating projectName = {projectName} formID={formID} / >   }  
 

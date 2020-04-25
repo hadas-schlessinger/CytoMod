@@ -15,9 +15,8 @@ export default function Calculating(props) {
       {
         navigateTo("set")
       }
-      console.log(props.projectName, props.formID)
       SetParams.methodStatus(props.projectName, props.formID.id).then((response) =>{
-        console.log({data: response.data.status});
+        console.log({status: response.data.status});
         if (response.data.status == "DONE"){
           setSuccess(true)
           navigateTo("results")
@@ -27,13 +26,19 @@ export default function Calculating(props) {
       })
   }
       
-        const interval = setInterval(() => {
-        request()
-        }, 1000*60)  
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    request()
+    }, 1000*60)  
+  return () => {
+    clearInterval(interval)
+  }
+}, [])     
        
 
      function navigateTo(serviceName) {
-    history.push(`/${serviceName}`);
+       history.push(`/${serviceName}`, props.projectName);
   }
     
       return (
@@ -41,8 +46,6 @@ export default function Calculating(props) {
             <h2 style={{color: '#194d33', fontSize: 18, textAlign: 'center'}}>Your project ID is - {props.formID.id}</h2>
             <h2 style={{color: '#194d33', fontSize: 18, textAlign: 'center'}}>Your project name is -{props.projectName} </h2>
             <LoadingPage/>
-            {interval}
-            {success && clearInterval(interval)}
             {success &&  navigateTo("results")}
                
         </div>

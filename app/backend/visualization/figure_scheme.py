@@ -30,7 +30,8 @@ def mean_person(args):
            'width': '500',
            'path': os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name),
-           'headline': 'Absolute Cytokines Mean Correlation'
+           'headline': 'Absolute Cytokines Mean Correlation',
+           'location': 'overview'
            }
     args.images.append(img)
     return args
@@ -42,8 +43,9 @@ def pairwise_correlation_with_moudles(stage, args):
     # cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths[f'clustering_{stage}'])
     img = {'height': '700',
            'width': '1000',
-           'path': args.paths[f'clustering_{stage}'] +  '%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
-           'headline': 'Hierarchical Clustering Heatmap for %s Cytokines' % stage
+           'path': args.paths[f'clustering_{stage}'] +  '/%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
+           'headline': 'Hierarchical Clustering Heatmap for %s Cytokines' % stage ,
+          'location': f'clustering_{stage}'
            }
     args.images.append(img)
     # img = {'height': '300',
@@ -60,13 +62,15 @@ def same_cluster_reliability(stage,args):
     cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths[f'clustering_{stage}'])
     img = {'height': '700',
            'width': '1000',
-           'path': args.paths[f'clustering_{stage}'] + '%s_reliability.png' % args.cyto_modules[stage].name,
-           'headline': 'Reliability Figure Of Pairwise Correlations of %s Cytokines' % stage}
+           'path': args.paths[f'clustering_{stage}'] + '/%s_reliability.png' % args.cyto_modules[stage].name,
+           'headline': 'Reliability Figure Of Pairwise Correlations of %s Cytokines' % stage,
+           'location': f'clustering_{stage}'}
     args.images.append(img)
     img = {'height': '300',
            'width': '500',
-           'path': args.paths[f'clustering_{stage}'] + '%s_color_label_legend.png' % args.cyto_modules[stage].name,
-           'headline': 'Modules Labels'}
+           'path': args.paths[f'clustering_{stage}'] + '/%s_color_label_legend.png' % args.cyto_modules[stage].name,
+           'headline': 'Modules Labels',
+           'location': f'clustering_{stage}'}
     args.images.append(img)
     return args
 
@@ -134,7 +138,8 @@ def outcomes_figures(stage, args):
                    'width': '500',
                    'path':os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
-                   'headline': 'Associations of Absolute Cytokines'}
+                   'headline': 'Associations of Absolute Cytokines',
+                   'location':'outcome_abs'}
             args.images.append(img)
         elif stage == 'adj':
             outcome.plotResultSummary(args.cyto_modules['adj'],
@@ -151,6 +156,8 @@ def outcomes_figures(stage, args):
                    'width': '500',
                    'path': os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
-                   'headline': 'Associations of Adjusted Cytokines'}
+                   'headline': 'Associations of Adjusted Cytokines',
+                   'location':'outcome_adj'
+            }
             args.images.append(img)
     return args

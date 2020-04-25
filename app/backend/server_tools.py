@@ -7,7 +7,10 @@ warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 import io
 import base64
-
+from app.backend import data_manipulation as dm
+from app.backend import visualization
+import logging
+import pandas as pd
 
 def create_folders(paths):
     tools.create_folder(paths['overview'])
@@ -19,15 +22,44 @@ def create_folders(paths):
     tools.create_folder(paths['outcome_adj'])
 
 
-def make_ans(parameters):
-    ans_pics_path=[]
+def save_images_and_modules(parameters):
+    results=[]
+    index = 1
     for img in parameters.images:
-        ans = {'path':img['path'],
-               'height': img['height'],
-               'width': img['width'],
-               'headline': img['headline']}
-        ans_pics_path.append(ans)
-    return ans_pics_path
+        with open(img['path'], "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        result = {'index': f'row_{index}',
+                   'type': 'image',
+                   'image': encoded_string,
+                   'height': img['height'],
+                   'width': img['width'],
+                   'headline': img['headline'],
+                   'location':img['location']}
+        index = index + 1
+        results.append(result)
+
+    abs_module = {'index': f'row_{index}',
+                'type': 'module',
+                'absolute': parameters.modules[0],
+                  'location': 'overview'}
+    adj_module = {'index': f'row_{index+1}',
+                'type': 'module',
+                'adjusted': parameters.modules[1],
+                  'location': 'overview'}
+
+    results.append(abs_module)
+    results.append(adj_module)
+
+    tools.write_DF_to_excel(os.path.join('app/static/', parameters.name_data, 'all_results.xlsx'),
+                            pd.DataFrame(results))
+    tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'abs_modules.xlsx'), parameters.modules[0])
+    tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'adj_modules.xlsx'), parameters.modules[1])
+
+
+# def results(project_name):
+#     images = []
+#     with open(img['path'], "rb") as image_file:
+#         encoded_string = base64.b64encode(image_file.read())
 
 
 def clean_static(parameters):
@@ -84,3 +116,18 @@ def create_parameters_object(name_data, id, name_compartment, luminex, log_trans
     parameters.log_column_names = log_column_names
     parameters.cytokines = cytokines
     return parameters
+
+def run_server(*parameters_dict):
+    parameters = create_parameters_object(*parameters_dict)
+    parameters = dm.settings.set_data(parameters)
+    parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
+    parameters = visualization.figures.calc_clustering(parameters)
+    parameters = visualization.figures.calc_abs_figures(parameters)
+    parameters = visualization.figures.calc_adj_figures(parameters)
+    save_images_and_modules(parameters)
+    parameters.id = {'id': parameters.id,
+                     'status': 'DONE'}
+    tools.write_DF_to_excel(os.path.join('app/static/', parameters.name_data, 'process_id_status.xlsx'), parameters.id)
+    # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
+    # print(parameters.save_file)
+    logging.info('finished to calc the method')

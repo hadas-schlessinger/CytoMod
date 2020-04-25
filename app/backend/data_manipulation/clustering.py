@@ -15,7 +15,9 @@ def best_k(args):
         img = {'height': '500',
                'width': '700',
                'headline': 'Gap Statistic for Adjusted Cytokines',
-                'path': os.path.join(args.paths['clustering_adj'], 'gap_stat_adj.png')
+                'path': os.path.join(args.paths['clustering_adj'], 'gap_stat_adj.png' ),
+                 'location':'clustering_adj'
+
                }
         args.images.append(img)
         args.bestK['abs'] = gap_stat.getBestK(args.cyto_mod_abs.cyDf,
@@ -25,7 +27,8 @@ def best_k(args):
         img = {'height': '500',
                'width': '700',
                'headline': 'Gap Statistic for Absolute Cytokines',
-               'path': os.path.join(args.paths['clustering_abs'], 'gap_stat_abs.png')
+               'path': os.path.join(args.paths['clustering_abs'], 'gap_stat_abs.png'),
+               'location': 'clustering_abs'
                }
         args.images.append(img)
 
