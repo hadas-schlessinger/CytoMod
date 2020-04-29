@@ -11,6 +11,10 @@ from app.backend import data_manipulation as dm
 from app.backend import visualization
 import logging
 import pandas as pd
+from PIL import Image
+from io import BytesIO
+
+
 
 def create_folders(paths):
     tools.create_folder(paths['overview'])
@@ -26,13 +30,9 @@ def save_images_and_modules(parameters):
     results=[]
     index = 1
     for img in parameters.images:
-        with open(img['path'], "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read())
-
-
         result = {'index': f'row_{index}',
                    'type': 'image',
-                   'image': encoded_string,
+                   'image': img['path'],
                    'height': img['height'],
                    'width': img['width'],
                    'headline': img['headline'],
@@ -41,10 +41,12 @@ def save_images_and_modules(parameters):
         results.append(result)
 
     abs_module = {'index': f'row_{index}',
+                  'image': 'not',
                 'type': 'module',
                 'absolute': parameters.modules[0],
                   'location': 'overview'}
     adj_module = {'index': f'row_{index+1}',
+                  'image':'not',
                 'type': 'module',
                 'adjusted': parameters.modules[1],
                   'location': 'overview'}
@@ -58,10 +60,16 @@ def save_images_and_modules(parameters):
     tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'adj_modules.xlsx'), parameters.modules[1])
 
 
-# def results(project_name):
-#     images = []
-#     with open(img['path'], "rb") as image_file:
-#         encoded_string = base64.b64encode(image_file.read())
+def encode_images(name):
+    xls_results = tools.read_excel(os.path.join('app/static/',  name, 'all_results.xlsx')).set_index('index')
+    index = 1
+    for image in xls_results['image']:
+        if image != 'not':
+            with open(image, "rb") as image_file:
+                encoded_string = base64.b64encode(image_file.read())
+                xls_results['image'][f'row_{index}']= f'{encoded_string}'
+        index = index +1
+    return xls_results
 
 
 def clean_static(parameters):

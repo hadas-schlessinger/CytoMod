@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
-import InternalSideBar from './InternalSideBar'
 import beckgroungTransperant from '../../beckgroungTransperant.png'
 
 export default class NevigationAbsAdj extends Component {

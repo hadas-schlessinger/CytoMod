@@ -125,9 +125,8 @@ def results():
         logging.warning(f'invalid name {name}, returning error')
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence
-    results = tools.read_excel(os.path.join('app/static/',  name, 'all_results.xlsx')).set_index('index').to_json()
-
+    results = server_tools.encode_images(name)
     # logging.info(f'the results sent to client for project {name} are {results}')
-    return results
+    return results.to_json()
 
 

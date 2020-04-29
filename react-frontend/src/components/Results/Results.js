@@ -19,13 +19,13 @@ export default function Results(props) {
   const [id, setID] = useState("")
 
   function onSubmit() {
-    console.log(name)
-    results()
+    results(name)
   }
 
 
-  const results = () => {
-      ResultsService.getResults(props.projectName).then((response) =>{
+  const results = (Name) => {
+    if(name != null ){}
+      ResultsService.getResults(Name).then((response) =>{
         const data = response.data
         setdata(data)
         console.log({data: data});
@@ -44,19 +44,18 @@ export default function Results(props) {
     }
     
   useEffect(() => {
-    console.log(props.projectName)
-    if(props.projectName != null ){
-      setName(props.projectName)
-      results()
-
-    }
     if(props.projectName==null && name == "")
     {   
         setOldProjec(true)
 
     }
+    if(props.projectName != null ){
+      setName(props.projectName)
+      results(props.projectName)
+
+    }
     if(name != ""){
-      results()
+      results(name)
     }
     
     return () => {
