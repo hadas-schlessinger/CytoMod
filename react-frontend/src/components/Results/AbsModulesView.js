@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 
 
-export default function ModulesView(props) {
+export default function AbsModulesView(props) {
     const exportTableToExcel = (tableID, filename = '') =>{
         var downloadLink;
         var dataType = 'application/vnd.ms-excel';
@@ -77,14 +77,4 @@ export default function ModulesView(props) {
 }
 
 
- {/* <button onclick={exportTableToExcel('tblDataAdj', 'adjusted modules')}>Export Absolute Modules To Excel File</button> */}
-
-                {/* <tr>
-                <td>
-                <h3>Image: {props.results.headline[props.row]}</h3>
-                <p>Explanation: {props.results.explanation[props.row]}</p>
-                <a download = {String(props.results.headline[props.row]) + '.png'} href= {decoder(props.results.image[props.row])} title={props.results.headline[props.row]} >                    
-                <img src = {decoder(props.results.image[props.row])} width = {props.results.width[props.row]} height = {props.results.height[props.row]}/></a>
-                </td>
-                </tr> */}
                 
