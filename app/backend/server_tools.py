@@ -36,19 +36,22 @@ def save_images_and_modules(parameters):
                    'height': img['height'],
                    'width': img['width'],
                    'headline': img['headline'],
-                   'location':img['location']}
+                   'location':img['location'],
+                   'explanation': img['explanation']}
         index = index + 1
         results.append(result)
 
     abs_module = {'index': f'row_{index}',
                   'image': 'not',
                 'type': 'module',
-                'absolute': parameters.modules[0],
+                'absolute': arrange_modules(parameters.modules[0]),
+                  'explanation':'this is the absolute cytokines moduls',
                   'location': 'overview'}
     adj_module = {'index': f'row_{index+1}',
                   'image':'not',
                 'type': 'module',
-                'adjusted': parameters.modules[1],
+                'adjusted': arrange_modules(parameters.modules[1]),
+                  'explanation': 'this is the adjusted cytokines moduls',
                   'location': 'overview'}
 
     results.append(abs_module)
@@ -56,9 +59,17 @@ def save_images_and_modules(parameters):
 
     tools.write_DF_to_excel(os.path.join('app/static/', parameters.name_data, 'all_results.xlsx'),
                             pd.DataFrame(results))
-    tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'abs_modules.xlsx'), parameters.modules[0])
-    tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'adj_modules.xlsx'), parameters.modules[1])
+    # tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'abs_modules.xlsx'), parameters.modules[0])
+    # tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'adj_modules.xlsx'), parameters.modules[1])
 
+
+def arrange_modules(modules):
+    string_modules = []
+    for module in modules:
+        module_string = ', '.join(module)
+        print(module_string)
+        string_modules.append([module_string])
+    return string_modules
 
 def encode_images(name):
     xls_results = tools.read_excel(os.path.join('app/static/',  name, 'all_results.xlsx')).set_index('index')
@@ -87,27 +98,28 @@ def clean_data(parameters):
 
 
 def create_modules_dict(parameters):
-    modules_adj = {'headline': 'Adjusted Modules:'}
+    modules_adj = []
     counter = 1
     for module in range(len(parameters.cyto_mod_adj.modDf.columns)):
-        modules_adj[module+1] = []
+        modules_adj.append([])
         i = 0
         for cytokine in parameters.cyto_mod_adj.labels:
-            modules_adj.get(module+1).append(parameters.cyto_mod_adj.cyDf.columns[i]) if cytokine == counter else ""
+            modules_adj[module].append(parameters.cyto_mod_adj.cyDf.columns[i]) if cytokine == counter else ""
             i = i + 1
         counter = counter+1
-    modules_abs = {'headline': 'Absolute Modules:'}
+    modules_abs = []
     counter = 1
     for module in range(len(parameters.cyto_mod_abs.modDf.columns)):
-        modules_abs[module+1] = []
+        modules_abs.append([])
         i = 0
         for cytokine in parameters.cyto_mod_abs.labels:
-            modules_abs.get(module+1).append(parameters.cyto_mod_abs.cyDf.columns[i]) if cytokine == counter else ""
+            modules_abs[module].append(parameters.cyto_mod_abs.cyDf.columns[i]) if cytokine == counter else ""
             i = i + 1
         counter = counter + 1
     parameters.modules = []
     parameters.modules.append(modules_abs)
     parameters.modules.append(modules_adj)
+    print(modules_abs)
     return parameters
 
 

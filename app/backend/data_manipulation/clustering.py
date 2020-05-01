@@ -16,7 +16,8 @@ def best_k(args):
                'width': '700',
                'headline': 'Gap Statistic for Adjusted Cytokines',
                 'path': os.path.join(args.paths['clustering_adj'], 'gap_stat_adj.png' ),
-                 'location':'clustering_adj'
+                 'location':'clustering_adj',
+           'explanation': 'here will put explanation'
 
                }
         args.images.append(img)
@@ -28,7 +29,8 @@ def best_k(args):
                'width': '700',
                'headline': 'Gap Statistic for Absolute Cytokines',
                'path': os.path.join(args.paths['clustering_abs'], 'gap_stat_abs.png'),
-               'location': 'clustering_abs'
+               'location': 'clustering_abs',
+           'explanation': 'here will put explanation'
                }
         args.images.append(img)
 

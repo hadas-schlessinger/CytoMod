@@ -114,9 +114,9 @@ def generate():
     # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'abs_modules.xlsx'), parameters.modules[0])
     # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'adj_modules.xlsx'), parameters.modules[1])
     # return send_file(ans[0]['path'], mimetype='image/png')
-    return render_template(
-        'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
-        abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
+    # return render_template(
+    #     'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
+    #     abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
 
 @app.route('/results' , methods=['POST'])
 def results():

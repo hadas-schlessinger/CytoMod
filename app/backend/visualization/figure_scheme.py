@@ -31,7 +31,8 @@ def mean_person(args):
            'path': os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name),
            'headline': 'Absolute Cytokines Mean Correlation',
-           'location': 'overview'
+           'location': 'overview',
+           'explanation': 'here will put explanation'
            }
     args.images.append(img)
     return args
@@ -45,7 +46,8 @@ def pairwise_correlation_with_moudles(stage, args):
            'width': '1000',
            'path': args.paths[f'clustering_{stage}'] +  '/%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
            'headline': 'Hierarchical Clustering Heatmap for %s Cytokines' % stage ,
-          'location': f'clustering_{stage}'
+          'location': f'clustering_{stage}',
+           'explanation': 'here will put explanation'
            }
     args.images.append(img)
     # img = {'height': '300',
@@ -64,13 +66,15 @@ def same_cluster_reliability(stage,args):
            'width': '1000',
            'path': args.paths[f'clustering_{stage}'] + '/%s_reliability.png' % args.cyto_modules[stage].name,
            'headline': 'Reliability Figure Of Pairwise Correlations of %s Cytokines' % stage,
-           'location': f'clustering_{stage}'}
+           'location': f'clustering_{stage}',
+           'explanation': 'here will put explanation'}
     args.images.append(img)
     img = {'height': '300',
            'width': '500',
            'path': args.paths[f'clustering_{stage}'] + '/%s_color_label_legend.png' % args.cyto_modules[stage].name,
            'headline': 'Modules Labels',
-           'location': f'clustering_{stage}'}
+           'location': f'clustering_{stage}',
+           'explanation': 'here will put explanation'}
     args.images.append(img)
     return args
 
@@ -139,7 +143,8 @@ def outcomes_figures(stage, args):
                    'path':os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
                    'headline': 'Associations of Absolute Cytokines',
-                   'location':'outcome_abs'}
+                   'location':'outcome_abs',
+           'explanation': 'here will put explanation'}
             args.images.append(img)
         elif stage == 'adj':
             outcome.plotResultSummary(args.cyto_modules['adj'],
@@ -157,7 +162,8 @@ def outcomes_figures(stage, args):
                    'path': os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
                    'headline': 'Associations of Adjusted Cytokines',
-                   'location':'outcome_adj'
+                   'location':'outcome_adj',
+           'explanation': 'here will put explanation'
             }
             args.images.append(img)
     return args
