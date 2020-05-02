@@ -67,7 +67,6 @@ def arrange_modules(modules):
     string_modules = []
     for module in modules:
         module_string = ', '.join(module)
-        print(module_string)
         string_modules.append([module_string])
     return string_modules
 
@@ -90,10 +89,10 @@ def clean_static(parameters):
 
 
 def clean_data(parameters):
-    print('cleaning data')
+    logging.info('cleaning data')
     for f in os.listdir(parameters.data_files):
        # if f.endswith('.xisx'):
-        print(f'deleting {f}')
+        logging.info(f'deleting {f}')
         os.remove(parameters.data_files + f)
 
 
@@ -119,7 +118,6 @@ def create_modules_dict(parameters):
     parameters.modules = []
     parameters.modules.append(modules_abs)
     parameters.modules.append(modules_adj)
-    print(modules_abs)
     return parameters
 
 

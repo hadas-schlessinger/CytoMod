@@ -1,6 +1,6 @@
 import React from 'react'
-import { Table } from 'semantic-ui-react'
-
+import TableViewer from 'react-js-table-with-csv-dl';
+import PreperTable from '../../services/PreperTable'
 
 export default function AbsModulesView(props) {
     
@@ -11,30 +11,13 @@ export default function AbsModulesView(props) {
             
             <React.Fragment>
             <h3>Adjusted Module</h3>
-            {/* <table id="tblDataAdj">
-            <tbody> */}
-                <Table color={'teal'} key={'teal'}>
-                <Table.Header>
-                  <Table.Row>
-                    <Table.HeaderCell>Module</Table.HeaderCell>
-                    <Table.HeaderCell>Cytokines</Table.HeaderCell>
-                  </Table.Row>
-                </Table.Header>
-           { AdjModules.map((module, index)=>
-                <Table.Body>
-                  <Table.Row>
-                     <Table.Cell>{index+1} </Table.Cell>
-                        <Table.Cell>{module.substring(1).replace("[", "").replace("]", "").replace("'", "").replace("'", "")} </Table.Cell>
-                    
-                  </Table.Row>
-                 
-                </Table.Body>
-            
-           
-                                   )
-            } 
-                          </Table>
-          
+            <TableViewer
+            content={PreperTable(AdjModules)}
+            headers={["Module", "Cytokines"]}
+            // minHeight={0}
+            // maxHeight={400}
+            activateDownloadButton={true}
+            />
                 </React.Fragment>
         )
     }

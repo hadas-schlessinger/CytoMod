@@ -65,9 +65,9 @@ export default function Results(props) {
 
   const panes = [
       { menuItem: 'Overview', render: () => <Tab.Pane>{< OverviewPanel projectName = {name} results = {data}/ >}</Tab.Pane> },
-      { menuItem: 'Models Clustering', render: () => <Tab.Pane>{< ModelsClusteringPanel />}</Tab.Pane> },
-      { menuItem: 'Models Correlations', render: () => <Tab.Pane>{< ModelsCorrelationPanel />}</Tab.Pane> },
-      { menuItem: 'Outcom Analysis', render: () => <Tab.Pane>{< OutcomAnalysis />}</Tab.Pane> }]
+      { menuItem: 'Models Clustering', render: () => <Tab.Pane>{< ModelsClusteringPanel projectName = {name} results = {data}/>}</Tab.Pane> },
+      { menuItem: 'Models Correlations', render: () => <Tab.Pane>{< ModelsCorrelationPanel projectName = {name} results = {data}/>}</Tab.Pane> },
+      { menuItem: 'Outcom Analysis', render: () => <Tab.Pane>{< OutcomAnalysis projectName = {name} results = {data}/>}</Tab.Pane> }]
   
 
 

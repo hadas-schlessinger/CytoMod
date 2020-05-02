@@ -1,12 +1,36 @@
 import React from 'react'
-import NevigationAbsAdj from './NevigationAbsAdj'
 import beckgroungTransperant from '../../beckgroungTransperant.png'
+import { Tab } from 'semantic-ui-react'
+import ResultsSchema from './ResultsSchema'
 
-export default function OutcomAnalysis() {
+export default function OutcomAnalysis(props) {
+    const panes = [
+        {
+          menuItem: 'Absolute Cytokines',
+          render: () => <Tab.Pane>{< ResultsSchema projectName = {props.projectName} 
+          results = {props.results} 
+          panel={'Outcome Analysis'}
+          state={'Absolute'}
+          location={'outcome_abs'}/ >}</Tab.Pane>,
+        },
+        {
+          menuItem: 'Adjusted Cytokines',
+          render: () => <Tab.Pane>{< ResultsSchema projectName = {props.projectName} 
+          results = {props.results} 
+          panel={'Outcome Analysis'}
+          state={'Adjusted'}
+          location={'outcome_adj'}/ >}</Tab.Pane>,
+        },
+       
+      ]
+
     return (
         <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>
-            <NevigationAbsAdj / >
-             <h1>Outcom Analysis</h1>
+
+
+
+         <Tab panes={panes} />
+
         </div>
     )
 }

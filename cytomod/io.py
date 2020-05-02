@@ -164,7 +164,7 @@ def plot_color_legend(clust_object, folder):
 
     plt.figure(48).savefig(os.path.join(folder, '%s_color_label_legend.png' % clust_object.name), dpi=300)
 
-def plot_module_correl(clust_object, folder, args):
+def plot_module_correl(clust_object, folder, args, stage):
     """Plot intra-module correlation"""
     i = 0
     for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
@@ -175,7 +175,7 @@ def plot_module_correl(clust_object, folder, args):
                'width': '1300',
                'path': folder + '/%s_modules_correlations_%s.png' % (clust_object.name, lab),
                'headline': 'Modules Correlation of %s Cytokines no. %s ' % (clust_object.name, lab),
-               'location': f'correlation_figures_{clust_object.name}',
+               'location': f'correlation_{stage}',
            'explanation': 'here will put explanation'
                }
         args.images.append(img)

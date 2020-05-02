@@ -33,8 +33,7 @@ export default function OverviewPanel(props) {
                     )
                 }
                 <h2>Figures</h2>
-                 {/* <tr>
-                <td style="color: #0B7478"><span style= "font-size: 16pt;">yayy </span></td> */}
+                 
                 { hasResults && 
                   <table>
                   <tbody>

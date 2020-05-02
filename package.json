@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.19.2",
+    "react-js-table-with-csv-dl": "^0.9.6",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2"
   }

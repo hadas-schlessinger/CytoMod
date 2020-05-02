@@ -80,7 +80,7 @@ def same_cluster_reliability(stage,args):
 
 
 def modules_cytokine_correlation(stage, args):
-    args = cytomod.io.plot_module_correl(args.cyto_modules[stage], args.paths[f'correlation_figures_{stage}'], args)
+    args = cytomod.io.plot_module_correl(args.cyto_modules[stage], args.paths[f'correlation_figures_{stage}'], args, stage)
     return args
 
 
