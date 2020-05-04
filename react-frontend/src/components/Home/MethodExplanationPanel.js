@@ -7,18 +7,29 @@ import transperantBackground from '../../transperantBackground.png'
 export default function MethodExplanationPanel() {
     return (
         <div style={{backgroundImage: `url(${transperantBackground})`}}>
-            <h1><span style={{color: '#0FA6AB'}}>The Method Flow</span></h1>
-             <img src={methodFlow} alt="The flow as presented in the article" />;
-             <h3 style={{color: '#0B7478', fontSize: 20}}>The Flow</h3> 
-             <p style={{fontSize: 20}}> CytoMod—a modular data driven approach to identify cytokine modules and assess their associations with clinical phenotypes. 
-                 Traditionally, associations between cytokine data (1) and clinical phenotypes (5) are tested directly using univariate models. 
-                 CytoMod independently uses absolute cytokine profiles (1) or adjusted cytokine profiles (2) to generate cytokine modules (3)-sets of co-signaling cytokines within a given cohort. 
+            <h1><span style={{color: '#0FA6AB'}}>The Method</span></h1>
+            <table>
+            <tr>
+            <td style={{verticalAlign: 'top'}}>
+             <h2 >General Overview</h2> 
+             <p style={{fontSize: 20}}> CytoMod—a modular data driven approach to identify 
+                cytokine modules and assess their associations with clinical phenotypes. 
+                 Traditionally, associations between cytokine data (1) and clinical phenotypes (5) 
+                 are tested directly using univariate models. 
+                 CytoMod independently uses absolute cytokine profiles (1) or adjusted cytokine profiles (2) 
+                 to generate cytokine modules (3)-sets of co-signaling cytokines within a given cohort. 
                  Modules are generated using unsupervised hierarchical clustering. 
                  Associations are then tested between module levels (4) and clinical phenotypes (5). 
-                 By significantly reducing the number of associations tested CytoMod increases the statistical power to detect associations. 
-                 By comparing modules across datasets, CytoMod can also identify “cores” of cytokines that consistently co-signal together. <a href="https://www.frontiersin.org/articles/10.3389/fimmu.2019.01338/">(Cohen et al., 2019)</a>   
-                 </p>
-            <h1><span style={{color: '#0FA6AB'}}>Further Explanation</span></h1>
+                 By significantly reducing the number of associations tested CytoMod increases the statistical 
+                 power to detect associations. 
+                 By comparing modules across datasets, CytoMod can also identify “cores” of cytokines that consistently 
+                 co-signal together. <a href="https://www.frontiersin.org/articles/10.3389/fimmu.2019.01338/">(Cohen et al., 2019)</a>   
+                 </p></td>
+                 <td><img src={methodFlow} alt="The flow as presented in the article" />;</td>
+            </tr>
+            </table>
+            
+            <h2><span >Further Explanation</span></h2>
             <p style={{fontSize: 20}} className="pt-running-text">
             Since analyzing large amount of cytokines requires multiple hypothesizes, which under takes the statistical power of the analysis, Cohen et al developed a computational approach, names CytoMod, for analyzing and identifying cytokines modules with statistical efficiency (Cohen et al., 2019).  
             The method is composed from two parallel pipelines, containing several identical stages but on different data appearance - absolute values and adjusted values of cytokines concentrations. The motivation for also using the adjusted values was to discover hidden relationships by disabling the noise of the whole immune system reaction (which is typically high while dealing with attackers). 
