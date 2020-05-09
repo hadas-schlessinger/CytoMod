@@ -23,8 +23,7 @@ export async function setParameters(id, projectName, comperament, luminex, logCy
         const data = new FormData()
         data.append('name_data', projectName)
         data.append('id', formID)
-        console.log({data: data});
-       return await axios.post("/status", data)
+        return await axios.post("/status", data)
 
     
         

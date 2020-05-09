@@ -22,7 +22,7 @@ export default function OverviewPanel(props) {
  
     return (
         <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>           
-                 <h1>Overview for project {props.projectName}</h1>
+                 <h1>Overview for project {props.id}</h1>
                  <h2>Modules</h2>
                  {rows.map(row =>                  
                     <AbsModulesView results = {props.results} row = {row} />

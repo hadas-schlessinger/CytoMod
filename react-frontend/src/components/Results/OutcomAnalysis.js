@@ -7,7 +7,7 @@ export default function OutcomAnalysis(props) {
     const panes = [
         {
           menuItem: 'Absolute Cytokines',
-          render: () => <Tab.Pane>{< ResultsSchema projectName = {props.projectName} 
+          render: () => <Tab.Pane>{< ResultsSchema id = {props.id}
           results = {props.results} 
           panel={'Outcome Analysis'}
           state={'Absolute'}
@@ -15,7 +15,7 @@ export default function OutcomAnalysis(props) {
         },
         {
           menuItem: 'Adjusted Cytokines',
-          render: () => <Tab.Pane>{< ResultsSchema projectName = {props.projectName} 
+          render: () => <Tab.Pane>{< ResultsSchema id = {props.id}
           results = {props.results} 
           panel={'Outcome Analysis'}
           state={'Adjusted'}

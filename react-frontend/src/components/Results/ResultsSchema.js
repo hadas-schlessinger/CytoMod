@@ -1,19 +1,46 @@
 import React, { useState, useEffect} from 'react'
 import beckgroungTransperant from '../../beckgroungTransperant.png'
 import ImageView from './ImageView';
+import NoResults from './NoResults';
 
 
 
 export default function ResultsSchema(props) {
     const [hasResults, sethasResults] = useState(false)
-    const [rows, setrows] = useState([])
- 
+    const [NoFigures, setNoFigures] = useState(false)
+    const [rows, setrows] = useState(Object.keys(props.results.image))
+    
+    const hasFigure = () =>{
+        if(props.results!=''){
+            let counter = 0
+            for(const row of rows) {
+                if(props.results.location[row]==props.location){
+                    console.log('inn')
+                    counter=counter+1
+                }
+            }
+            console.log(counter)
+            if (counter==0){
+                setNoFigures(true)
+            }                      
+        }
+       
+    }
+
     useEffect(() => {
         if(props.results!=''){
+            setrows(Object.keys(props.results.image)) 
             sethasResults(true)
-            setrows(Object.keys(props.results.image))
-                      
         }
+        hasFigure()
+        // if(props.results!='' && hasFigure()){
+        //     sethasResults(true)
+                      
+        // }
+        // if(!hasFigure()){
+        //     sethasResults(false) 
+
+        // }
         return () => {     
         }
     }, [])
@@ -21,7 +48,7 @@ export default function ResultsSchema(props) {
  
     return (
         <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>           
-                 <h1>{props.panel} Results for {props.state} Cytokines for Project {props.projectName}</h1>
+                 <h1>{props.panel} Results for {props.state} Cytokines for Project {props.id}</h1>
                 <h2>Figures</h2>
                  
                 { hasResults && 
@@ -35,6 +62,9 @@ export default function ResultsSchema(props) {
                 }
                 </tbody>
                 </table>
+                }
+                 { NoFigures &&  <NoResults />
+                
                 }
         </div>
     )

@@ -17,6 +17,7 @@ export default function AbsModulesView(props) {
             // minHeight={0}
             // maxHeight={400}
             activateDownloadButton={true}
+            filename='Adjusted Models.csv'
             />
                 </React.Fragment>
         )

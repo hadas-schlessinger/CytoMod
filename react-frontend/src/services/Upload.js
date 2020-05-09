@@ -7,6 +7,5 @@ export async function upload(name, cytokine_data, patients_data) {
     if (patients_data != null) {
         data.append('patients', patients_data)
     }
-    console.log({data: data});
     return await axios.post("/upload",data)      
 }

@@ -20,8 +20,6 @@ export default function ParametersForm(props) {
   // useEffect()
 
   async function onSubmit(event) {
-    console.log(props.id)
-    console.log(props.projectName)
     event.preventDefault();   
     SetParams.setParameters(props.id, props.projectName, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines).then(
         (response) => {

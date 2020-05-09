@@ -28,7 +28,6 @@ export default function Results({state}) {
       ResultsService.getResults(id).then((response) =>{
         const data = response.data
         setdata(data)
-        console.log({data: data});
         setOldProjec(false)
         setGotResults(true)
       
@@ -66,10 +65,10 @@ export default function Results({state}) {
   }, [])
 
   const panes = [
-      { menuItem: 'Overview', render: () => <Tab.Pane>{< OverviewPanel projectName = {name} results = {data}/ >}</Tab.Pane> },
-      { menuItem: 'Models Clustering', render: () => <Tab.Pane>{< ModelsClusteringPanel projectName = {name} results = {data}/>}</Tab.Pane> },
-      { menuItem: 'Models Correlations', render: () => <Tab.Pane>{< ModelsCorrelationPanel projectName = {name} results = {data}/>}</Tab.Pane> },
-      { menuItem: 'Outcom Analysis', render: () => <Tab.Pane>{< OutcomAnalysis projectName = {name} results = {data}/>}</Tab.Pane> }]
+      { menuItem: 'Overview', render: () => <Tab.Pane>{< OverviewPanel id = {id} results = {data}/ >}</Tab.Pane> },
+      { menuItem: 'Models Clustering', render: () => <Tab.Pane>{< ModelsClusteringPanel id = {id} results = {data}/>}</Tab.Pane> },
+      { menuItem: 'Models Correlations', render: () => <Tab.Pane>{< ModelsCorrelationPanel id = {id} results = {data}/>}</Tab.Pane> },
+      { menuItem: 'Outcom Analysis', render: () => <Tab.Pane>{< OutcomAnalysis id = {id} results = {data}/>}</Tab.Pane> }]
   
 
 
@@ -85,11 +84,8 @@ return (
         {menuItem: 'Old Results', render: () => <Tab.Pane>{ <div style={{backgroundImage: `url(${beckgroungTransperant})`}} >
         <form>
         <h3>Results for old project</h3>
-          <p>please insert your old project name and id</p>
+          <p>please insert your old project id</p>
           <p>please note - the results will only be shown if the analysis occured in the past week</p>
-        <label>Name</label>
-        <input type="text" name="name_data" placeholder="project name" onChange={event => setName(event.target.value)}/ >
-  
         <label>Id</label>
         <input type="text" name="id" placeholder="id" onChange={event => setID(event.target.value)}/ >            </form>
         <p></p>
