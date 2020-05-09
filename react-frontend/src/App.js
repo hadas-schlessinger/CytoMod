@@ -26,7 +26,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/set" render={(props) => <Set {...props} index={0} />}  />
           <Route exact path="/set/parameters" render={(props) => <Set {...props} index={1} />}  />
-          <Route exact path="/results" render={(props) => <Results projectName={props.location.state} />}/>
+          <Route exact path="/results" render={(props) => <Results state={props.location.state} />}/>
           {/* <Route exact path="/calculating" render={(props) => <Calculating {...props} projectName={props.location.state} />}></Route> */}
         </Switch>
       </Router>

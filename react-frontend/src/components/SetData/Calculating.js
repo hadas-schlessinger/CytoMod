@@ -38,7 +38,8 @@ useEffect(() => {
        
 
      function navigateTo(serviceName) {
-       history.push(`/${serviceName}`, props.projectName);
+       const state = {'name': props.projectName, 'id': props.formID.id}
+       history.push(`/${serviceName}`, state);
   }
     
       return (

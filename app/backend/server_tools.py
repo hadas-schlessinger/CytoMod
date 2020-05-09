@@ -1,18 +1,16 @@
 import os
-import sys
+
 # sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 import tools
 import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
-import io
 import base64
 from app.backend import data_manipulation as dm
 from app.backend import visualization
 import logging
 import pandas as pd
-from PIL import Image
-from io import BytesIO
+
 
 
 
@@ -57,7 +55,7 @@ def save_images_and_modules(parameters):
     results.append(abs_module)
     results.append(adj_module)
 
-    tools.write_DF_to_excel(os.path.join('app/static/', parameters.name_data, 'all_results.xlsx'),
+    tools.write_DF_to_excel(os.path.join('app/static/', parameters.id['id'], 'all_results.xlsx'),
                             pd.DataFrame(results))
     # tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'abs_modules.xlsx'), parameters.modules[0])
     # tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'adj_modules.xlsx'), parameters.modules[1])
@@ -70,8 +68,8 @@ def arrange_modules(modules):
         string_modules.append([module_string])
     return string_modules
 
-def encode_images(name):
-    xls_results = tools.read_excel(os.path.join('app/static/',  name, 'all_results.xlsx')).set_index('index')
+def encode_images(id):
+    xls_results = tools.read_excel(os.path.join('app/static/',  id, 'all_results.xlsx')).set_index('index')
     index = 1
     for image in xls_results['image']:
         if image != 'not':
@@ -145,9 +143,9 @@ def run_server(*parameters_dict):
     parameters = visualization.figures.calc_abs_figures(parameters)
     parameters = visualization.figures.calc_adj_figures(parameters)
     save_images_and_modules(parameters)
-    parameters.id = {'id': parameters.id,
+    parameters.id = {'id': parameters.id['id'],
                      'status': 'DONE'}
-    tools.write_DF_to_excel(os.path.join('app/static/', parameters.name_data, 'process_id_status.xlsx'), parameters.id)
+    tools.write_DF_to_excel(os.path.join('app/static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
     # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
     # print(parameters.save_file)
     logging.info('finished to calc the method')

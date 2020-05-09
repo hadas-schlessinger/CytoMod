@@ -5,7 +5,7 @@ import transperantBackground from '../../transperantBackground.png'
 import Calculating from './Calculating';
 
 
-export default function ParametersForm({projectName}) {
+export default function ParametersForm(props) {
   const [comperament, setComperament] = useState("")
   const [luminex, setLuminex] = useState(false)
   const [logCytokines, setLogCytokines] = useState(false)
@@ -16,14 +16,14 @@ export default function ParametersForm({projectName}) {
   const [cytokines, setCytokines] = useState("")
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false);
-  const [formID, setId] = useState('initial id')
+  const [formID, setId] = useState(props.id)
   // useEffect()
 
   async function onSubmit(event) {
-    event.preventDefault();
-   
-    console.log(formID)
-    SetParams.setParameters({projectName}, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines).then(
+    console.log(props.id)
+    console.log(props.projectName)
+    event.preventDefault();   
+    SetParams.setParameters(props.id, props.projectName, comperament, luminex, logCytokines, k, outcomes, covariates, logColumns, cytokines).then(
         (response) => {
         const id = response.data.id.id
         setId({id})
@@ -41,7 +41,7 @@ return (
 {!success && <div>
  <h1>Settings</h1>
  <form action="/generate" method="post">
-     <h2>Please set parameters for your project - {projectName}</h2>
+<h2>Please set parameters for your project - {props.projectName} </h2>
         <h3>name of the compartment</h3>
             <p>Insert the name of compartment from which cytokines were extracted, e.g., serum (for writing files)</p>
             <label>Name Compartment</label>
@@ -87,8 +87,8 @@ return (
         <input type="submit" value="Submit" onClick={(event) => onSubmit(event)}/>
         <p>Clicking the "Submit" button, will start the analysis</p>
         </div>}
-        {error && <small className='error'>please go back to the upload tab and insert your data and project name</small>}
-        {success && <Calculating projectName = {projectName} formID={formID} / >   }  
+        {error && <medium className='error'>Something went wrong - please go back to the upload tab and insert your data and project name</medium>}
+        {success && <Calculating projectName = {props.projectName} formID={formID} / >   }  
 
 </div>
 

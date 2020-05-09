@@ -28,7 +28,7 @@ def set_data(parameters):
 
 
 def set_path(parameters):
-    parameters.path_files = os.path.join('app/static', parameters.name_data)
+    parameters.path_files = os.path.join('app/static', parameters.id['id'])
     parameters.data_files = os.path.join(parameters.path_files, 'data_files')
     parameters.paths = {
                     'overview': os.path.join(parameters.path_files, 'overview'),
@@ -51,7 +51,7 @@ def check_input(parameters):
     assert type(parameters.outcomes) is list
     assert type(parameters.covariates) is list
     if parameters.outcomes != ['']:
-        file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_names.xlsx')).get_value(1, 0)
+        file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
         # TODO: INSERT CHECK FILE
         path = os.path.join(parameters.data_files, file_name)
         for col_name in parameters.outcomes + parameters.covariates + parameters.log_column_names:

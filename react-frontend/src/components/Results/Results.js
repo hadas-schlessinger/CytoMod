@@ -10,7 +10,7 @@ import beckgroungTransperant from '../../beckgroungTransperant.png'
 
 
 
-export default function Results(props) {
+export default function Results({state}) {
   const [oldProject, setOldProjec] = useState(false)
   const [error, setError] = useState(false)
   const [data, setdata] = useState('')
@@ -19,19 +19,19 @@ export default function Results(props) {
   const [id, setID] = useState("")
 
   function onSubmit() {
-    results(name)
+    results(id)
   }
 
 
-  const results = (Name) => {
-    if(name != null ){}
-      ResultsService.getResults(Name).then((response) =>{
+  const results = (id) => {
+    if(id != null ){
+      ResultsService.getResults(id).then((response) =>{
         const data = response.data
         setdata(data)
         console.log({data: data});
         setOldProjec(false)
         setGotResults(true)
-
+      
       //   if (response.data.status == "DONE"){
       //     setSuccess(true)
       //     navigateTo("results")
@@ -41,21 +41,23 @@ export default function Results(props) {
         setError(true)
   
       })
-    }
+    }}
     
   useEffect(() => {
-    if(props.projectName==null && name == "")
+    console.log({state: state})
+    if(state==null && name == "")
     {   
         setOldProjec(true)
 
     }
-    if(props.projectName != null ){
-      setName(props.projectName)
-      results(props.projectName)
+    else if(state.name != null && state.id != null){
+      setName(state.name)
+      setID(state.id)
+      results(state.id)
 
     }
-    if(name != ""){
-      results(name)
+    else if(id != ""){
+      results(id)
     }
     
     return () => {

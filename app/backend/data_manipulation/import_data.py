@@ -9,7 +9,7 @@ warnings.simplefilter('ignore')
 
 
 def make_cyto_data(parameters):
-    cy_data_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_names.xlsx')).get_value(0,0)
+    cy_data_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(0,0)
     cy_data = tools.read_excel(os.path.join(parameters.data_files, cy_data_name), skiprows=[4, 5, 6, 7], indexCol=0, header = 3) if parameters.luminex \
         else tools.read_excel(os.path.join(parameters.data_files, cy_data_name), indexCol=0)
     cy_data.dropna(axis='index', how='all', inplace=True)
@@ -21,7 +21,7 @@ def make_cyto_data(parameters):
 
 def make_patients_data(parameters):
     if parameters.outcomes[0] != '':
-        patient_data_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_names.xlsx')).get_value(1, 0)
+        patient_data_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
         patient_data = tools.read_excel(os.path.join(parameters.data_files, patient_data_name), indexCol=0)
         patient_data.dropna(axis='index', how='all', inplace=True)
         return patient_data

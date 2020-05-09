@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function Set(props) {
   const [name, setName] = useState("")
+  const [id, setID] = useState("")
   const history = useHistory()
   const routes = { 0: 'set',
                    1: 'set/parameters'}
@@ -22,11 +23,13 @@ export default function Set(props) {
   }
 
   const panes = [
-    { menuItem: 'Upload Data', render: () => <Tab.Pane>{< UploadForm onSetName = {(currentName)=>{
+    { menuItem: 'Upload Data', render: () => <Tab.Pane>{< UploadForm 
+      onSetName = {(currentName, id)=>{
       setName(currentName)
+      setID(id)
       }
     } />}</Tab.Pane> },
-    { menuItem: 'Set Parameters', render: () => <Tab.Pane>{< ParametersForm projectName = {name}/>}</Tab.Pane> },
+    { menuItem: 'Set Parameters', render: () => <Tab.Pane>{< ParametersForm projectName = {name} id = {id}/>}</Tab.Pane> },
 ]
   
   return ( 

@@ -31,12 +31,13 @@ def upload_file():
 
         if name != '':
             project_name = name
-            tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'process_id_status.xlsx'),
+            tools.create_folder(os.path.join('app/static/', id['id'].__str__()))
+            tools.create_folder(os.path.join('app/static/', id['id'].__str__(), 'data_files'))
+            tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'process_id_status.xlsx'),
                                     id)
         else:
             return json.dumps({ "error": 'cant access the server without a name' }), 403
-        tools.create_folder(os.path.join('app/static/', project_name))
-        tools.create_folder(os.path.join('app/static/', project_name, 'data_files'))
+
         if 'patients' in request.files:
             patients = request.files['patients']
         else:
@@ -50,16 +51,16 @@ def upload_file():
         if patients != None:
             if allowed_file(patients.filename):
                 filename = secure_filename(patients.filename)
-                patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
+                patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static',  id['id'].__str__(), 'data_files'), filename))
         if cytokines and allowed_file(cytokines.filename):
             filename = secure_filename(cytokines.filename)
-            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static', project_name, 'data_files'), filename))
+            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static',  id['id'].__str__(), 'data_files'), filename))
             if patients != None:
                 files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename), project_name])
-                tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
+                tools.write_DF_to_excel(os.path.join('app/static/',  id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             else:
                 files = pd.DataFrame([secure_filename(cytokines.filename), "", project_name])
-                tools.write_DF_to_excel(os.path.join('app/static/', project_name, 'data_files_names.xlsx'), files)
+                tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             return {'id': id['id']}
         else:
             return json.dumps({ "error": 'no cytokine file was found' }), 400
@@ -79,9 +80,9 @@ def allowed_file(filename):
 
 @app.route('/status', methods=['POST'])
 def method_status():
-    project_name = request.form.get('name_data')
+    # project_name = request.form.get('name_data')
     id = request.form.get('id')
-    statuses = tools.read_excel(os.path.join('app/static/', project_name, 'process_id_status.xlsx'))
+    statuses = tools.read_excel(os.path.join('app/static/', id, 'process_id_status.xlsx'))
     status = statuses['value'][1]
     #todo: check thread status and return status
     return {'status': status}
@@ -93,8 +94,12 @@ def generate():
     name = request.form.get('name_data')
     if name == '':
         return json.dumps({"error": 'please insert your data and project name'}), 400
-    id = {'id': tools.read_excel(os.path.join('app/static/',  name, 'process_id_status.xlsx'))['value'][0],
-                    'status': 'PENDING'}
+    id = request.form.get('id')
+    if id not in os.listdir('app/static'):
+        logging.warning(f'invalid id {id}, returning error')
+        return json.dumps({"error": 'invalid name'}), 400
+    id = {'id': id,
+         'status': 'PENDING'}
     luminex = request.form.get('luminex') in ['true', '1', 'True', 'TRUE', 'on']
     log_transform = request.form.get('log_transform') in ['true', '1', 'True', 'TRUE', 'on']
     outcomes = request.form.get('outcomes')
@@ -109,10 +114,7 @@ def generate():
     method.start()
     logging.info(f'Tread {method.name} started running and calculating the method')
     return {'id': id}
-    # server_tools.clean_static(parameters)
-    # server_tools.clean_data(parameters)
-    # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'abs_modules.xlsx'), parameters.modules[0])
-    # tools.write_DF_to_excel(os.path.join(parameters.paths['data'], 'adj_modules.xlsx'), parameters.modules[1])
+
     # return send_file(ans[0]['path'], mimetype='image/png')
     # return render_template(
     #     'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
@@ -120,12 +122,14 @@ def generate():
 
 @app.route('/results' , methods=['POST'])
 def results():
-    name = request.form.get('name_data')
-    if name not in os.listdir('app/static'):
-        logging.warning(f'invalid name {name}, returning error')
+    id = request.form.get('id')
+    print( os.listdir('app/static'))
+    print(id)
+    if id not in os.listdir('app/static'):
+        logging.warning(f'invalid id {id}, returning error')
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence
-    results = server_tools.encode_images(name)
+    results = server_tools.encode_images(id)
     # logging.info(f'the results sent to client for project {name} are {results}')
     return results.to_json()
 
