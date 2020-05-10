@@ -23,7 +23,6 @@ def set_data(parameters):
         parameters.patient_data, parameters.cy_data, parameters = log_transform(parameters, parameters.cy_data, parameters.patient_data)
         logging.info('finished set_data')
         return parameters
-    # Todo: dont forget to delete file!!!!
     return False
 
 
@@ -52,14 +51,27 @@ def check_input(parameters):
     assert type(parameters.covariates) is list
     if parameters.outcomes != ['']:
         file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
-        # TODO: INSERT CHECK FILE
+        if type(file_name) is float:
+            return False
         path = os.path.join(parameters.data_files, file_name)
-        for col_name in parameters.outcomes + parameters.covariates + parameters.log_column_names:
-            assert type(col_name) is str
-            if col_name != '':
-                tools.assert_column_exists_in_path(file_path=path, col_name=col_name)
+        if not check_columns(parameters.outcomes, path):
+            return False
+        if not check_columns(parameters.covariates, path):
+            return False
+        if not check_columns(parameters.log_column_names, path):
+            return False
+        # TODO: INSERT CHECK FILE
     return True
 
+def check_columns(list_to_check, path):
+    print(list_to_check)
+    for col_name in list_to_check:
+        assert type(col_name) is str
+        if col_name != '':
+            is_in_path = server_tools.assert_column_exists_in_path(file_path=path, col_name=col_name)
+            if not is_in_path:
+                return False
+    return True
 
 def log_transform(parameters, cy_data, patient_data):
     if parameters.log_transform:
@@ -77,9 +89,6 @@ def _log_covariates(parameters, patient_data):
                 new_col_name = 'log_' + col_name  # log transform variable
                 patient_data[col_name] = patient_data[col_name][patient_data[col_name] != 0]
                 patient_data[new_col_name] = np.log(patient_data[col_name]) # replace column with new log transformed column
-                # if col_name in parameters.outcomes:
-                #     parameters.outcomes.remove(col_name)
-                #     parameters.outcomes.append(new_col_name)
                 if col_name in parameters.covariates:
                     parameters.covariates.remove(col_name)
                     parameters.covariates.append(new_col_name)

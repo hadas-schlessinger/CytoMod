@@ -12,8 +12,6 @@ import logging
 import pandas as pd
 
 
-
-
 def create_folders(paths):
     tools.create_folder(paths['overview'])
     tools.create_folder(paths['clustering_abs'])
@@ -57,8 +55,6 @@ def save_images_and_modules(parameters):
 
     tools.write_DF_to_excel(os.path.join('app/static/', parameters.id['id'], 'all_results.xlsx'),
                             pd.DataFrame(results))
-    # tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'abs_modules.xlsx'), parameters.modules[0])
-    # tools.write_DF_to_excel(os.path.join(parameters.paths['overview'], 'adj_modules.xlsx'), parameters.modules[1])
 
 
 def arrange_modules(modules):
@@ -67,6 +63,7 @@ def arrange_modules(modules):
         module_string = ', '.join(module)
         string_modules.append([module_string])
     return string_modules
+
 
 def encode_images(id):
     xls_results = tools.read_excel(os.path.join('app/static/',  id, 'all_results.xlsx')).set_index('index')
@@ -135,9 +132,24 @@ def create_parameters_object(name_data, id, name_compartment, luminex, log_trans
     parameters.cytokines = cytokines
     return parameters
 
+def assert_column_exists_in_path(file_path, col_name, sheet=0):
+    df = tools.read_excel(file_path, sheet=sheet, nrows=3)
+    if col_name not in df.columns:
+        logging.error(f'Column {col_name} does not exist in file {file_path}')
+        return False
+    return True
+
+
 def run_server(*parameters_dict):
     parameters = create_parameters_object(*parameters_dict)
+    id = parameters.id['id']
     parameters = dm.settings.set_data(parameters)
+    if parameters is False:
+        logging.error('setting data was incorrect')
+        error_id = {'id': id,
+                    'status': 'ERROR'}
+        tools.write_DF_to_excel(os.path.join('app/static/', id, 'process_id_status.xlsx'), error_id)
+        exit()
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     parameters = visualization.figures.calc_clustering(parameters)
     parameters = visualization.figures.calc_abs_figures(parameters)

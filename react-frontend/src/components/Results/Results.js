@@ -4,7 +4,7 @@ import ModelsClusteringPanel from './ModelsClusteringPanel'
 import ModelsCorrelationPanel from './ModelsCorrelationPanel'
 import OutcomAnalysis from './OutcomAnalysis'
 import { Tab } from 'semantic-ui-react'
-import { useHistory } from "react-router-dom";
+import AllResults from '../Results/AllResults'
 import * as ResultsService from '../../services/ResultsService'
 import beckgroungTransperant from '../../beckgroungTransperant.png'
 
@@ -30,11 +30,7 @@ export default function Results({state}) {
         setdata(data)
         setOldProjec(false)
         setGotResults(true)
-      
-      //   if (response.data.status == "DONE"){
-      //     setSuccess(true)
-      //     navigateTo("results")
-      //  }
+    
       }).catch((e)=>{
         console.log(e)
         setError(true)
@@ -68,7 +64,8 @@ export default function Results({state}) {
       { menuItem: 'Overview', render: () => <Tab.Pane>{< OverviewPanel id = {id} results = {data}/ >}</Tab.Pane> },
       { menuItem: 'Models Clustering', render: () => <Tab.Pane>{< ModelsClusteringPanel id = {id} results = {data}/>}</Tab.Pane> },
       { menuItem: 'Models Correlations', render: () => <Tab.Pane>{< ModelsCorrelationPanel id = {id} results = {data}/>}</Tab.Pane> },
-      { menuItem: 'Outcom Analysis', render: () => <Tab.Pane>{< OutcomAnalysis id = {id} results = {data}/>}</Tab.Pane> }]
+      { menuItem: 'Outcom Analysis', render: () => <Tab.Pane>{< OutcomAnalysis id = {id} results = {data}/>}</Tab.Pane> },
+      { menuItem: 'All Results', render: () => <Tab.Pane>{< AllResults id = {id} results = {data}/>}</Tab.Pane> }]
   
 
 
@@ -96,15 +93,12 @@ return (
                
                 }
       {(gotResults) && 
-      <div>
       <Tab style={{fontSize: 20}} 
       menu={{ fluid: true, vertical: true, tabular: true }} 
       grid={{paneWidth: 14, tabWidth: 2}} 
       panes={panes}
-      />
-      {error &&  <h3 style = {{ textAlign: "center" }} className='error'>sorry can not render the page</h3>}
-      </div>}
-      {/* {oldProject &&  'add bot for old results'} */}
+      />}
+      {error &&  <h3 style = {{ textAlign: "center" }} className='error'>Can't find the ID, please insert another project ID</h3>}
     </div>
     
     )

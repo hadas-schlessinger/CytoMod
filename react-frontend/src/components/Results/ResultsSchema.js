@@ -15,7 +15,6 @@ export default function ResultsSchema(props) {
             let counter = 0
             for(const row of rows) {
                 if(props.results.location[row]==props.location){
-                    console.log('inn')
                     counter=counter+1
                 }
             }
@@ -33,14 +32,6 @@ export default function ResultsSchema(props) {
             sethasResults(true)
         }
         hasFigure()
-        // if(props.results!='' && hasFigure()){
-        //     sethasResults(true)
-                      
-        // }
-        // if(!hasFigure()){
-        //     sethasResults(false) 
-
-        // }
         return () => {     
         }
     }, [])
@@ -48,10 +39,13 @@ export default function ResultsSchema(props) {
  
     return (
         <div style={{backgroundImage: `url(${beckgroungTransperant})`}}>           
-                 <h1>{props.panel} Results for {props.state} Cytokines for Project {props.id}</h1>
-                <h2>Figures</h2>
+                 <h1>{props.panel} Results for {props.state} Cytokines for the {props.id} Project </h1>
+                
                  
                 { hasResults && 
+                <React.Fragment>
+                <h4>To download an output you can click on it!</h4>  
+                <h2>Figures</h2>
                   <table>
                   <tbody>
                 {rows.map(row =>                  
@@ -62,6 +56,7 @@ export default function ResultsSchema(props) {
                 }
                 </tbody>
                 </table>
+                </React.Fragment>
                 }
                  { NoFigures &&  <NoResults />
                 

@@ -17,10 +17,14 @@ export default function Calculating(props) {
       }
       SetParams.methodStatus(props.projectName, props.formID.id).then((response) =>{
         console.log({status: response.data.status});
+        if (response.data.status == "ERROR"){
+          setError(true)
+       }
         if (response.data.status == "DONE"){
           setSuccess(true)
           navigateTo("results")
        }
+      
       }).catch((e)=>{
         console.log(e)
       })
@@ -44,11 +48,15 @@ useEffect(() => {
     
       return (
         <div style={{height: '100%', width:'100%'}}>
-            <h2 style={{color: '#194d33', fontSize: 18, textAlign: 'center'}}>Your project ID is - {props.formID.id}</h2>
-            <h2 style={{color: '#194d33', fontSize: 18, textAlign: 'center'}}>Your project name is -{props.projectName} </h2>
-            <LoadingPage/>
+            {!error &&
+            <React.Fragment>
+               <h2 style={{color: '#194d33', fontSize: 20, textAlign: 'center'}}>Your project ID is - {props.formID.id}</h2>
+               <h2 style={{color: '#194d33', fontSize: 20, textAlign: 'center'}}>Your project name is -{props.projectName} </h2>
+               <LoadingPage/>
+            </React.Fragment>
+            }
             {success &&  navigateTo("results")}
-               
+            {error && <h3 className='error' style={{fontSize: 20, textAlign: 'center'}}>Someting is wrong with the given parameters, please check them again</h3>}  
         </div>
     )
 }
