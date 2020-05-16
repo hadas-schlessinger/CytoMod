@@ -123,8 +123,6 @@ def generate():
 @app.route('/results' , methods=['POST'])
 def results():
     id = request.form.get('id')
-    print( os.listdir('app/static'))
-    print(id)
     if id not in os.listdir('app/static'):
         logging.warning(f'invalid id {id}, returning error')
         return json.dumps({"error": 'invalid name'}), 400

@@ -1,18 +1,9 @@
 import React from 'react'
+import decoder from '../../services/ImageDecoder'
 
 export default function ImageView(props) { 
 
-    const decoder = (img) => {
-        if(img != 'not'){
-            var image = new Image();
-        var cleanImange = img.substring(2, img.length - 1)
-        image.src = `data:image/png;base64,${cleanImange}`;
-        return(image.src)
-        }
-        else{
-            return('')
-        }
-    }
+  
     if(props.results.location[props.row]==props.location){
         if(props.results.type[props.row]=='image')
         return (

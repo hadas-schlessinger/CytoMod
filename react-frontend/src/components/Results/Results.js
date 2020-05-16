@@ -28,6 +28,7 @@ export default function Results({state}) {
       ResultsService.getResults(id).then((response) =>{
         const data = response.data
         setdata(data)
+        setError(false)
         setOldProjec(false)
         setGotResults(true)
     

@@ -6,6 +6,7 @@ import ResultsSchema from './ResultsSchema'
 import JSZip from "jszip";
 import { saveAs } from 'file-saver';
 import NoResults from './NoResults';
+import decoder from '../../services/ImageDecoder'
 
 
 export default function AllResults(props) {
@@ -26,23 +27,26 @@ export default function AllResults(props) {
         }
     }, [])
 
-    async function onSubmit(event) {
-        event.preventDefault();
-        let zip = new JSZip();
-        let folder = zip.folder('results');
+    // async function onSubmit(event) {
+    //     event.preventDefault();
+    //     let zip = new JSZip();
+    //     let folder = zip.folder('results');
 
-        // need to add files to zip
-        /* Add the image to the folder */
-        // rows.map(row =>                  
-        //     folder.file(`${props.results.image[props.row]}.png`);
-        //     )
+    //     /* Add the image to the folder */
+    //     rows.map((row) =>{
+    //         if(props.results.type[row]=='image'){
+    //             folder.file(`${decoder(props.results.image[row])}.png`)
+    //         }                
+    //     }  
+           
+    //      ) 
         
 
-        /* Generate a zip file asynchronously and trigger the download */
-        folder.generateAsync({ type: "blob" }).then(content => saveAs(content, "files"));
+    //     /* Generate a zip file asynchronously and trigger the download */
+    //     folder.generateAsync({ type: "blob" }).then(content => saveAs(content, "files"));
    
           
-      }
+    //   }
 
     
     return (
@@ -51,7 +55,7 @@ export default function AllResults(props) {
                 {error && <NoResults/>}
                 {hasResults &&
                 <React.Fragment>
-                 <input type="submit" value="Download Results Zip File" onClick={(event) => onSubmit(event)}/>      
+                 {/* <input type="submit" value="Download Results Zip File" onClick={(event) => onSubmit(event)}/>       */}
                  <h1>The Modules for the Project</h1>
                  {rows.map(row =>                  
                     <AbsModulesView results = {props.results} row = {row} />

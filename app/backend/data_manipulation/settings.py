@@ -6,7 +6,6 @@ import warnings
 from . import import_data
 from .. import server_tools
 import numpy as np
-import pandas as pd
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 import logging
@@ -64,7 +63,6 @@ def check_input(parameters):
     return True
 
 def check_columns(list_to_check, path):
-    print(list_to_check)
     for col_name in list_to_check:
         assert type(col_name) is str
         if col_name != '':
