@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    app:
+        build: ./app
+        expose:
+            - 5000
+        ports:
+            - 5000:5000
+        #command: python server_run.py run -h 0.0.0.0
+        volumes:
+          - ./app/:/usr/src/app/
+        environment:
+            - FLASK_ENV=development
+            - FLASK_APP=server_run.py
+            - FLASK_DEBUG=1
+    react-frontend:
+        build: ./react-frontend
+        stdin_open: true
+        expose:
+            - 3000
+        ports:
+            - '3000:3000'
+#        volumes:
+#        environment:
+#          - NODE_ENV=development
+        links:
+          - app
