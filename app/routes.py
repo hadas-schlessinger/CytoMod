@@ -1,18 +1,15 @@
-from flask import  render_template, flash, redirect, request, url_for, send_file
+from flask import  render_template, request
 from werkzeug.utils import secure_filename
 from app import app
-import tools
 import logging
 import sys
 import os
 import pandas as pd
 import json
-from concurrent.futures import ThreadPoolExecutor
 import uuid
-import subprocess
 import flask_executor
 import threading
-from app.backend import server_tools
+from app.backend import server_tools, tools
 
 # from .forms import LoginForm
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
@@ -57,7 +54,7 @@ def upload_file():
             cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static',  id['id'].__str__(), 'data_files'), filename))
             if patients != None:
                 files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename), project_name])
-                tools.write_DF_to_excel(os.path.join('app/static/',  id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
+                tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             else:
                 files = pd.DataFrame([secure_filename(cytokines.filename), "", project_name])
                 tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)

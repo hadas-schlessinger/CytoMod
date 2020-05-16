@@ -1,6 +1,6 @@
 import random
-from cytomod import run_gap_statistic as gap_stat
-import tools
+from app.cytomod import run_gap_statistic as gap_stat
+from app.backend import tools
 import os
 
 
@@ -17,7 +17,11 @@ def best_k(args):
                'headline': 'Gap Statistic for Adjusted Cytokines',
                 'path': os.path.join(args.paths['clustering_adj'], 'gap_stat_adj.png' ),
                  'location':'clustering_adj',
-           'explanation': 'here will put explanation'
+           'explanation': 'Automated selection of the optimal number of modules. '
+                          'The Tibshirani gap statistic is used to automatically determine the optimal number of modules. '
+                          'The cytokine profiles are clustered into several K clusters as inserted in the settings section and the optimal K is selected. '
+                          'The plot shows the δ gap statistic, defined as Gap(K) − (Gap(K + 1) − Sk + 1) for as dependent in K. '
+                          'The optimal number of modules is selected by identifying the first value of K for which this measure is positive or, is there are no positive values, the highest measurment'
 
                }
         args.images.append(img)
@@ -30,7 +34,12 @@ def best_k(args):
                'headline': 'Gap Statistic for Absolute Cytokines',
                'path': os.path.join(args.paths['clustering_abs'], 'gap_stat_abs.png'),
                'location': 'clustering_abs',
-           'explanation': 'here will put explanation'
+               'explanation': 'Automated selection of the optimal number of modules. '
+                          'The Tibshirani gap statistic is used to automatically determine the optimal number of modules. '
+                          'The cytokine profiles are clustered into several K clusters as inserted in the settings section and the optimal K is selected. '
+                          'The plot shows the δ gap statistic, defined as Gap(K) − (Gap(K + 1) − Sk + 1) for as dependent in K. '
+                          'The optimal number of modules is selected by identifying the first value of K for which this measure is positive or, is there are no positive values, the highest measurment'
+
                }
         args.images.append(img)
 

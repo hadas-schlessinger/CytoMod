@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
-import tools
+from app.backend import tools
 import warnings
 from . import import_data
 from .. import server_tools

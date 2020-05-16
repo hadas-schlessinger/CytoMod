@@ -1,16 +1,17 @@
 import os
 
 # sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
-import tools
 import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 import base64
-from app.backend import data_manipulation as dm
+from app.backend import data_manipulation as dm, tools
 from app.backend import visualization
 import logging
 import pandas as pd
+import time
 
+DELETION_TIME = 604800
 
 def create_folders(paths):
     tools.create_folder(paths['overview'])
@@ -66,7 +67,7 @@ def arrange_modules(modules):
 
 
 def encode_images(id):
-    xls_results = tools.read_excel(os.path.join('app/static/',  id, 'all_results.xlsx')).set_index('index')
+    xls_results = tools.read_excel(os.path.join('app/static/', id, 'all_results.xlsx')).set_index('index')
     index = 1
     for image in xls_results['image']:
         if image != 'not':
@@ -77,18 +78,29 @@ def encode_images(id):
     return xls_results
 
 
-def clean_static(parameters):
-    for f in os.listdir(parameters.path_files):
-        if f.endswith('.png'):
-            os.remove(parameters.path_files + f)
+# def clean_images(path):
+#     for image in os.listdir(path):
+#         if image.endswith('.png'):
+#             os.remove(os.path.join(path,  image))
 
 
-def clean_data(parameters):
+def clean_folder(path):
+    for file in os.listdir(path):
+        logging.info(f'deleting {file}')
+        os.remove(os.path.join(path,  file))
+    delete_folder(path)
+
+
+def delete_folder(folder_path):
+    logging.info(f'deleting {folder_path}')
+    os.rmdir(os.path.join(folder_path))
+
+def clean_project(parameters):
     logging.info('cleaning data')
-    for f in os.listdir(parameters.data_files):
-       # if f.endswith('.xisx'):
-        logging.info(f'deleting {f}')
-        os.remove(parameters.data_files + f)
+    for folder_path in parameters.paths.values():
+        clean_folder(folder_path)
+    clean_folder(parameters.data_files)
+    clean_folder(parameters.path_files)
 
 
 def create_modules_dict(parameters):
@@ -161,3 +173,7 @@ def run_server(*parameters_dict):
     # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
     # print(parameters.save_file)
     logging.info('finished to calc the method')
+    time.sleep(DELETION_TIME)
+    # todo: insert email send
+    logging.info('deleting the data')
+    clean_project(parameters)
