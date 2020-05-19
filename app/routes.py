@@ -28,8 +28,8 @@ def upload_file():
 
         if name != '':
             project_name = name
-            tools.create_folder(os.path.join('app/static/', id['id'].__str__()))
-            tools.create_folder(os.path.join('app/static/', id['id'].__str__(), 'data_files'))
+            tools.create_folder(os.path.join('static/', id['id'].__str__()))
+            tools.create_folder(os.path.join('static/', id['id'].__str__(), 'data_files'))
             tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'process_id_status.xlsx'),
                                     id)
         else:

@@ -26,7 +26,7 @@ def set_data(parameters):
 
 
 def set_path(parameters):
-    parameters.path_files = os.path.join('app/static', parameters.id['id'])
+    parameters.path_files = os.path.join('static', parameters.id['id'])
     parameters.data_files = os.path.join(parameters.path_files, 'data_files')
     parameters.paths = {
                     'overview': os.path.join(parameters.path_files, 'overview'),
