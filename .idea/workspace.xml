@@ -278,36 +278,6 @@
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Flu09" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="react" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="react-frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -541,9 +511,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22696155" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22696155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -554,7 +523,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4996986" weight="0.3290398" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4996986" weight="0.32786885" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.88098997" visible="true" weight="0.42279792" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.88098997" visible="true" weight="0.42279792" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11901001" side_tool="true" visible="true" weight="0.42279792" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3266979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
