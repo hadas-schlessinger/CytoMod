@@ -175,7 +175,7 @@ def plot_module_correl(clust_object, folder, args, stage):
                'path': folder + '/%s_modules_correlations_%s.png' % (clust_object.name, lab),
                'headline': 'Modules Correlation of %s Cytokines no. %s ' % (clust_object.name, lab),
                'location': f'correlation_{stage}',
-           'explanation': f'this plot demonstrates the cytokine correlations im module {lab}'
+           'explanation': f'this plot demonstrates the cytokine correlations in module {lab}'
                }
         args.images.append(img)
         i += 1

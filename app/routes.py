@@ -30,7 +30,7 @@ def upload_file():
             project_name = name
             tools.create_folder(os.path.join('static/', id['id'].__str__()))
             tools.create_folder(os.path.join('static/', id['id'].__str__(), 'data_files'))
-            tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'process_id_status.xlsx'),
+            tools.write_DF_to_excel(os.path.join('static/', id['id'].__str__(), 'process_id_status.xlsx'),
                                     id)
         else:
             return json.dumps({ "error": 'cant access the server without a name' }), 403
@@ -48,16 +48,16 @@ def upload_file():
         if patients != None:
             if allowed_file(patients.filename):
                 filename = secure_filename(patients.filename)
-                patients.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static',  id['id'].__str__(), 'data_files'), filename))
+                patients.save(os.path.join(os.path.join(os.getcwd(), 'static',  id['id'].__str__(), 'data_files'), filename))
         if cytokines and allowed_file(cytokines.filename):
             filename = secure_filename(cytokines.filename)
-            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'app', 'static',  id['id'].__str__(), 'data_files'), filename))
+            cytokines.save(os.path.join(os.path.join(os.getcwd(), 'static',  id['id'].__str__(), 'data_files'), filename))
             if patients != None:
                 files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename), project_name])
-                tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
+                tools.write_DF_to_excel(os.path.join('static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             else:
                 files = pd.DataFrame([secure_filename(cytokines.filename), "", project_name])
-                tools.write_DF_to_excel(os.path.join('app/static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
+                tools.write_DF_to_excel(os.path.join('static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             return {'id': id['id']}
         else:
             return json.dumps({ "error": 'no cytokine file was found' }), 400
@@ -79,7 +79,7 @@ def allowed_file(filename):
 def method_status():
     # project_name = request.form.get('name_data')
     id = request.form.get('id')
-    statuses = tools.read_excel(os.path.join('app/static/', id, 'process_id_status.xlsx'))
+    statuses = tools.read_excel(os.path.join('static/', id, 'process_id_status.xlsx'))
     status = statuses['value'][1]
     #todo: check thread status and return status
     return {'status': status}
@@ -87,12 +87,12 @@ def method_status():
 
 @app.route('/generate', methods=['POST'])
 def generate():
-    logging.info('got a request')
+    logging.info(f'got a request {request.form}')
     name = request.form.get('name_data')
     if name == '':
         return json.dumps({"error": 'please insert your data and project name'}), 400
     id = request.form.get('id')
-    if id not in os.listdir('app/static'):
+    if id not in os.listdir('static'):
         logging.warning(f'invalid id {id}, returning error')
         return json.dumps({"error": 'invalid name'}), 400
     id = {'id': id,
@@ -120,7 +120,7 @@ def generate():
 @app.route('/results' , methods=['POST'])
 def results():
     id = request.form.get('id')
-    if id not in os.listdir('app/static'):
+    if id not in os.listdir('static'):
         logging.warning(f'invalid id {id}, returning error')
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence

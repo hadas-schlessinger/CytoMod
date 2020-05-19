@@ -11,7 +11,7 @@ import logging
 import pandas as pd
 import time
 
-DELETION_TIME = 604800
+DELETION_TIME = 600
 
 def create_folders(paths):
     tools.create_folder(paths['overview'])
@@ -54,7 +54,7 @@ def save_images_and_modules(parameters):
     results.append(abs_module)
     results.append(adj_module)
 
-    tools.write_DF_to_excel(os.path.join('app/static/', parameters.id['id'], 'all_results.xlsx'),
+    tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'all_results.xlsx'),
                             pd.DataFrame(results))
 
 
@@ -67,7 +67,7 @@ def arrange_modules(modules):
 
 
 def encode_images(id):
-    xls_results = tools.read_excel(os.path.join('app/static/', id, 'all_results.xlsx')).set_index('index')
+    xls_results = tools.read_excel(os.path.join('static/', id, 'all_results.xlsx')).set_index('index')
     index = 1
     for image in xls_results['image']:
         if image != 'not':
@@ -160,7 +160,7 @@ def run_server(*parameters_dict):
         logging.error('setting data was incorrect')
         error_id = {'id': id,
                     'status': 'ERROR'}
-        tools.write_DF_to_excel(os.path.join('app/static/', id, 'process_id_status.xlsx'), error_id)
+        tools.write_DF_to_excel(os.path.join('static/', id, 'process_id_status.xlsx'), error_id)
         exit()
     parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
     parameters = visualization.figures.calc_clustering(parameters)
@@ -169,7 +169,7 @@ def run_server(*parameters_dict):
     save_images_and_modules(parameters)
     parameters.id = {'id': parameters.id['id'],
                      'status': 'DONE'}
-    tools.write_DF_to_excel(os.path.join('app/static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+    tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
     # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
     # print(parameters.save_file)
     logging.info('finished to calc the method')
