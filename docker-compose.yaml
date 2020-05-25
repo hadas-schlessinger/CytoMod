@@ -23,10 +23,10 @@ services:
             - 3000
         ports:
             - '80:3000'
-        environment:
-            - HTTPS=true
-            - SSL_CRT_FILE=cert.pem
-            - SSL_KEY_FILE=key.pem
+#        environment:
+#            - HTTPS=true
+#            - SSL_CRT_FILE=cert.pem
+#            - SSL_KEY_FILE=key.pem
 #        volumes:
 #        environment:
 #          - NODE_ENV=development
