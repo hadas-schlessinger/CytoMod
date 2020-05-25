@@ -14,6 +14,8 @@ services:
             - FLASK_ENV=development
             - FLASK_APP=server_run.py
             - FLASK_DEBUG=1
+            - FLASK_RUN_CERT=cert.pem
+            - FLASK_RUN_KEY=key.pem
     react_frontend:
         build: ./react_frontend
         stdin_open: true
@@ -21,10 +23,10 @@ services:
             - 3000
         ports:
             - '80:3000'
-#      environment:
-#        - HTTPS=true
-#        - SSL_CRT_FILE=cert.crt
-#        - SSL_KEY_FILE=cert.key
+#        environment:
+#            - HTTPS=true
+#            - SSL_CRT_FILE=cert.pem
+#            - SSL_KEY_FILE=key.pem
 #        volumes:
 #        environment:
 #          - NODE_ENV=development

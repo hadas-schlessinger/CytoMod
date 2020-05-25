@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flaskenv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/server_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/server_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/server_run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-app.service" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cert.pem" beforeDir="false" afterPath="$PROJECT_DIR$/app/cert.pem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lightsail-compose.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-frontend/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/key.pem" beforeDir="false" afterPath="$PROJECT_DIR$/app/key.pem" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +31,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Dockerfile" value="5" />
+          <entry key="Dockerfile" value="6" />
           <entry key="LICENSE" value="1" />
           <entry key="css" value="7" />
           <entry key="csv" value="14" />
@@ -57,6 +46,7 @@
           <entry key="lock" value="1" />
           <entry key="log" value="1" />
           <entry key="md" value="2" />
+          <entry key="pem" value="1" />
           <entry key="png" value="175" />
           <entry key="py" value="164" />
           <entry key="service" value="2" />
@@ -74,7 +64,7 @@
           <entry key="JSON" value="7" />
           <entry key="JavaScript" value="13" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="34" />
+          <entry key="PLAIN_TEXT" value="36" />
           <entry key="Python" value="164" />
           <entry key="SVG" value="2" />
           <entry key="YAML" value="2" />
@@ -89,10 +79,10 @@
           <entry key="html" value="1249" />
           <entry key="js" value="183" />
           <entry key="json" value="173" />
-          <entry key="py" value="13001" />
+          <entry key="py" value="13003" />
           <entry key="sh" value="5" />
           <entry key="txt" value="10" />
-          <entry key="yaml" value="233" />
+          <entry key="yaml" value="294" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -102,8 +92,8 @@
           <entry key="JSON" value="173" />
           <entry key="JavaScript" value="183" />
           <entry key="PLAIN_TEXT" value="291" />
-          <entry key="Python" value="13001" />
-          <entry key="YAML" value="233" />
+          <entry key="Python" value="13003" />
+          <entry key="YAML" value="294" />
         </counts>
       </usages-collector>
     </session>
@@ -113,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="130" selection-start-line="130" selection-end-line="130" />
+            <state relative-caret-position="806">
+              <caret line="131" selection-start-line="131" selection-start-column="2" selection-end-line="132" selection-end-column="50" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -122,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2211">
@@ -139,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/server_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -149,7 +139,7 @@
         <entry file="file://$PROJECT_DIR$/app/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -161,16 +151,16 @@
         <entry file="file://$PROJECT_DIR$/app/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
-              <caret line="79" column="11" lean-forward="true" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+              <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="312">
+              <caret line="28" column="35" selection-start-line="25" selection-start-column="7" selection-end-line="28" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -283,13 +273,13 @@
         <option value="$PROJECT_DIR$/docker-compose-app.service" />
         <option value="$PROJECT_DIR$/lightsail-compose.sh" />
         <option value="$PROJECT_DIR$/react-frontend/Dockerfile" />
-        <option value="$PROJECT_DIR$/docker-compose.yaml" />
         <option value="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" />
         <option value="$PROJECT_DIR$/app/requirements.txt" />
-        <option value="$PROJECT_DIR$/app/routes.py" />
-        <option value="$PROJECT_DIR$/app/server_run.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/app/backend/server_tools.py" />
+        <option value="$PROJECT_DIR$/app/server_run.py" />
+        <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/docker-compose.yaml" />
       </list>
     </option>
   </component>
@@ -343,18 +333,19 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/static/react" />
-      <recent name="$PROJECT_DIR$/app/" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/backend" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/react_frontend" />
       <recent name="$PROJECT_DIR$/app/static/react/media" />
       <recent name="$PROJECT_DIR$/app/static/data_files/data" />
       <recent name="$PROJECT_DIR$/app/static" />
       <recent name="$PROJECT_DIR$/CytoWebServer/Backend/Visualization" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/static/react" />
+      <recent name="$PROJECT_DIR$/app/" />
+      <recent name="$PROJECT_DIR$/app/backend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -557,7 +548,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="976" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22696155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -572,7 +562,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4996986" weight="0.32786885" />
       <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.6182201" visible="true" weight="0.46153846" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.38177988" side_tool="true" weight="0.42279792" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3266979" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32579187" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -646,7 +636,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/results.html" />
     <entry file="file://$PROJECT_DIR$/app/cytomod/plotting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -829,13 +818,6 @@
     <entry file="file://$PROJECT_DIR$/react_frontend/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/react_frontend/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -861,13 +843,6 @@
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -885,34 +860,7 @@
     <entry file="file://$PROJECT_DIR$/app/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
-          <caret line="79" column="11" lean-forward="true" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/server_run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -925,6 +873,50 @@
             <marker date="1590391159589" expanded="true" signature="2896:2899" ph="..." />
             <marker date="1590391159589" expanded="true" signature="2929:3130" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/server_run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="131" selection-start-line="131" selection-start-column="2" selection-end-line="132" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/react_frontend/key.pem">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="28" column="35" selection-start-line="25" selection-start-column="7" selection-end-line="28" selection-end-column="35" />
         </state>
       </provider>
     </entry>

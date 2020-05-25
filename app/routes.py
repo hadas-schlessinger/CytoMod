@@ -128,3 +128,6 @@ def results():
     # logging.info(f'the results sent to client for project {name} are {results}')
     return results.to_json()
 
+
+# if __name__ == "__main__":
+#     app.run(ssl_context=('cert.pem', 'key.pem'))
