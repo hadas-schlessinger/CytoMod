@@ -120,8 +120,9 @@ def generate():
 @app.route('/results' , methods=['POST'])
 def results():
     id = request.form.get('id')
-    if id not in os.listdir('static'):
-        logging.warning(f'invalid id {id}, returning error')
+    dir = os.listdir('static')
+    if id not in dir:
+        logging.warning(f'invalid id {id}, not found in {dir} returning error')
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence
     results = server_tools.encode_images(id)

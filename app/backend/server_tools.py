@@ -171,7 +171,8 @@ def run_server(*parameters_dict):
         # todo: insert email send
         logging.info('deleting the data')
         clean_project(parameters)
-    except Exception:
+    except Exception as e:
+        logging.error(f'an error occured while calculating the method: {e}')
         parameters.id = {'id': parameters.id['id'],
                          'status': 'ERROR'}
         tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
