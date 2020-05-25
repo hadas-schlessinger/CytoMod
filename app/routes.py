@@ -128,4 +128,3 @@ def results():
     # logging.info(f'the results sent to client for project {name} are {results}')
     return results.to_json()
 
-

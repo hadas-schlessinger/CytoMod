@@ -15,7 +15,7 @@ def set_data(parameters):
     parameters = set_path(parameters)
     tools.create_folder(parameters.path_files)
     if check_input(parameters):
-        # todo: inser seed by configuration  - > os.environ.get("SEED")
+        # todo: insert seed by configuration  - > os.environ.get("SEED")
         parameters.seed = 1234
         parameters.cy_data = import_data.make_cyto_data(parameters)
         parameters.patient_data = import_data.make_patients_data(parameters)

@@ -1,6 +1,4 @@
 import os
-
-# sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'otherTools'))
 import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
@@ -78,12 +76,6 @@ def encode_images(id):
     return xls_results
 
 
-# def clean_images(path):
-#     for image in os.listdir(path):
-#         if image.endswith('.png'):
-#             os.remove(os.path.join(path,  image))
-
-
 def clean_folder(path):
     for file in os.listdir(path):
         logging.info(f'deleting {file}')
@@ -94,6 +86,7 @@ def clean_folder(path):
 def delete_folder(folder_path):
     logging.info(f'deleting {folder_path}')
     os.rmdir(os.path.join(folder_path))
+
 
 def clean_project(parameters):
     logging.info('cleaning data')
@@ -154,26 +147,35 @@ def assert_column_exists_in_path(file_path, col_name, sheet=0):
 
 def run_server(*parameters_dict):
     parameters = create_parameters_object(*parameters_dict)
-    id = parameters.id['id']
-    parameters = dm.settings.set_data(parameters)
-    if parameters is False:
-        logging.error('setting data was incorrect')
-        error_id = {'id': id,
-                    'status': 'ERROR'}
-        tools.write_DF_to_excel(os.path.join('static/', id, 'process_id_status.xlsx'), error_id)
-        exit()
-    parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
-    parameters = visualization.figures.calc_clustering(parameters)
-    parameters = visualization.figures.calc_abs_figures(parameters)
-    parameters = visualization.figures.calc_adj_figures(parameters)
-    save_images_and_modules(parameters)
-    parameters.id = {'id': parameters.id['id'],
-                     'status': 'DONE'}
-    tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
-    # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
-    # print(parameters.save_file)
-    logging.info('finished to calc the method')
-    time.sleep(DELETION_TIME)
-    # todo: insert email send
-    logging.info('deleting the data')
-    clean_project(parameters)
+    try:
+        id = parameters.id['id']
+        parameters = dm.settings.set_data(parameters)
+        if parameters is False:
+            logging.error('setting data was incorrect')
+            error_id = {'id': id,
+                        'status': 'ERROR'}
+            tools.write_DF_to_excel(os.path.join('static/', id, 'process_id_status.xlsx'), error_id)
+            exit()
+        parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
+        parameters = visualization.figures.calc_clustering(parameters)
+        parameters = visualization.figures.calc_abs_figures(parameters)
+        parameters = visualization.figures.calc_adj_figures(parameters)
+        save_images_and_modules(parameters)
+        parameters.id = {'id': parameters.id['id'],
+                         'status': 'DONE'}
+        tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+        # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
+        # print(parameters.save_file)
+        logging.info('finished to calc the method')
+        time.sleep(DELETION_TIME)
+        # todo: insert email send
+        logging.info('deleting the data')
+        clean_project(parameters)
+    except Exception:
+        parameters.id = {'id': parameters.id['id'],
+                         'status': 'ERROR'}
+        tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+        time.sleep(600)
+        logging.info('deleting the data')
+        clean_project(parameters)
+
