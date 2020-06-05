@@ -9,7 +9,8 @@ import logging
 import pandas as pd
 import time
 
-DELETION_TIME = 600
+DELETION_TIME = 60*60
+
 
 def create_folders(paths):
     tools.create_folder(paths['overview'])
@@ -164,8 +165,8 @@ def run_server(*parameters_dict):
         parameters.id = {'id': parameters.id['id'],
                          'status': 'DONE'}
         tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+        # todo: insert save file to database
         # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
-        # print(parameters.save_file)
         logging.info('finished to calc the method')
         time.sleep(DELETION_TIME)
         # todo: insert email send

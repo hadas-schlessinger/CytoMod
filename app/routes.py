@@ -11,7 +11,6 @@ import flask_executor
 import threading
 from app.backend import server_tools, tools
 
-# from .forms import LoginForm
 UPLOAD_FOLDER = sys.path.append(os.path.join(os.getcwd(), 'cytomod', 'data_files', 'data'))
 ALLOWED_EXTENSIONS = {'xlsx', 'xls'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -77,11 +76,9 @@ def allowed_file(filename):
 
 @app.route('/status', methods=['POST'])
 def method_status():
-    # project_name = request.form.get('name_data')
     id = request.form.get('id')
     statuses = tools.read_excel(os.path.join('static/', id, 'process_id_status.xlsx'))
     status = statuses['value'][1]
-    #todo: check thread status and return status
     return {'status': status}
 
 
@@ -112,10 +109,6 @@ def generate():
     logging.info(f'Tread {method.name} started running and calculating the method')
     return {'id': id}
 
-    # return send_file(ans[0]['path'], mimetype='image/png')
-    # return render_template(
-    #     'results.html', results=ans, abs_modules=parameters.modules[0], adj_modules=parameters.modules[1],
-    #     abs_len= range(1,len(parameters.cyto_mod_abs.modDf.columns)+1), adj_len=range(1,len(parameters.cyto_mod_adj.modDf.columns)+1))
 
 @app.route('/results' , methods=['POST'])
 def results():
@@ -126,7 +119,6 @@ def results():
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence
     results = server_tools.encode_images(id)
-    # logging.info(f'the results sent to client for project {name} are {results}')
     return results.to_json()
 
 
