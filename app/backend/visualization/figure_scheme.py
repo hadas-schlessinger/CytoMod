@@ -24,8 +24,8 @@ def mean_person(args):
                         cyList=sorted(args.cyto_mod_abs.cyDf.columns),
                         save_path=os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name))
-    img = {'height': '700',
-           'width': '350',
+    img = {'height': '800',
+            'width': '400',
            'path': os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name),
            'headline': 'Absolute Cytokines Mean Correlation',
@@ -132,8 +132,8 @@ def outcomes_figures(stage, args):
                                       save_fig_path=os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
                                       logistic= args.need_OR)
-            img = {'height': '700',
-                   'width': '350',
+            img = {'height': '800',
+                   'width': '400',
                    'path':os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
                    'headline': 'Associations of Absolute Cytokines',
@@ -154,8 +154,8 @@ def outcomes_figures(stage, args):
                                       save_fig_path=os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
                                       logistic=args.need_OR)
-            img = {'height': '700',
-                   'width': '350',
+            img = {'height': '800',
+                   'width': '400',
                    'path': os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
                    'headline': 'Associations of Adjusted Cytokines',
