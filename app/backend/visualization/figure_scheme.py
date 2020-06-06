@@ -24,8 +24,8 @@ def mean_person(args):
                         cyList=sorted(args.cyto_mod_abs.cyDf.columns),
                         save_path=os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name))
-    img = {'height': '1000',
-           'width': '500',
+    img = {'height': '700',
+           'width': '350',
            'path': os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name),
            'headline': 'Absolute Cytokines Mean Correlation',
@@ -39,7 +39,6 @@ def mean_person(args):
 def pairwise_correlation_with_moudles(stage, args):
     app.cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.paths[f'clustering_{stage}'],
                                            figsize=(10, 6))
-    # cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths[f'clustering_{stage}'])
     img = {'height': '700',
            'width': '1000',
            'path': args.paths[f'clustering_{stage}'] +  '/%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
@@ -48,12 +47,6 @@ def pairwise_correlation_with_moudles(stage, args):
            'explanation': f"Pairwise Pearson's correlations among the {stage} cytokine levels in the given cohort. Cytokines were sorted along both axes using hierarchical clustering (complete-linkage)"
            }
     args.images.append(img)
-    # img = {'height': '300',
-    #        'width': '500',
-    #        'path': args.paths[f'clustering_{stage}'] +  '%s_color_label_legend.png' % args.cyto_modules[stage].name,
-    #        'headline': 'Modules Labels'
-    #        }
-    # args.images.append(img)
     return args
 
 def same_cluster_reliability(stage,args):
@@ -139,8 +132,8 @@ def outcomes_figures(stage, args):
                                       save_fig_path=os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
                                       logistic= args.need_OR)
-            img = {'height': '1000',
-                   'width': '500',
+            img = {'height': '700',
+                   'width': '350',
                    'path':os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
                    'headline': 'Associations of Absolute Cytokines',
@@ -161,8 +154,8 @@ def outcomes_figures(stage, args):
                                       save_fig_path=os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
                                       logistic=args.need_OR)
-            img = {'height': '1000',
-                   'width': '500',
+            img = {'height': '700',
+                   'width': '350',
                    'path': os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
                    'headline': 'Associations of Adjusted Cytokines',

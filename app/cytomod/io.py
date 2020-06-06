@@ -170,8 +170,8 @@ def plot_module_correl(clust_object, folder, args, stage):
         plt.figure(50+i, figsize=(len(clust_object.labels), len(clust_object.labels)*(2/3)))
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
         plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
-        img = {'height': '900',
-               'width': '1300',
+        img = {'height': '800',
+               'width': '1200',
                'path': folder + '/%s_modules_correlations_%s.png' % (clust_object.name, lab),
                'headline': 'Modules Correlation of %s Cytokines no. %s ' % (clust_object.name, lab),
                'location': f'correlation_{stage}',
