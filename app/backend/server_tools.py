@@ -9,7 +9,7 @@ import logging
 import pandas as pd
 import time
 
-DELETION_TIME = 60*60
+DELETION_TIME = 60*60*60
 
 
 def create_folders(paths):
