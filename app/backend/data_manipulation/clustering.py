@@ -21,7 +21,7 @@ def best_k(args):
                           'The Tibshirani gap statistic is used to automatically determine the optimal number of modules. '
                           'The cytokine profiles are clustered into several K clusters as inserted in the settings section and the optimal K is selected. '
                           'The plot shows the δ gap statistic, defined as Gap(K) − (Gap(K + 1) − Sk + 1) for as dependent in K. '
-                          'The optimal number of modules is selected by identifying the first value of K for which this measure is positive or, is there are no positive values, the highest measurment'
+                          'The optimal number of modules is selected by identifying the first value of K for which this measure is positive or, if there are no positive values, the highest measurment'
 
                }
         args.images.append(img)

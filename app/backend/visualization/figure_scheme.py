@@ -30,7 +30,7 @@ def mean_person(args):
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name),
            'headline': 'Absolute Cytokines Mean Correlation',
            'location': 'overview',
-           'explanation': 'this plot demonstrates the correlations between cytokine levels and mean cytokine levels for each subject'
+           'explanation': 'this plot demonstrates the correlations between cytokine levels and mean cytokine levels'
            }
     args.images.append(img)
     return args
@@ -138,8 +138,8 @@ def outcomes_figures(stage, args):
                                                                  'associations_abs.png'),
                    'headline': 'Associations of Absolute Cytokines',
                    'location':'outcome_abs',
-           'explanation': 'Absolute cytokine associations with clinical phenotypes as well as the modules assosiations with those phenotypes. '
-                          'Associations were identified using the relevant regression (linear foe continues outcomes and logistic for binary outcomes) controlling for the inserted covariates. '
+           'explanation': 'Absolute cytokine associations  with clinical phenotypes as well as the modules assosiations with those phenotypes. '
+                          'Associations were identified using the relevant regression (linear for continues outcomes and logistic for binary outcomes) controlling for the inserted covariates. '
                           'Each cytokine or module is indicated along the rows, grouped by their assigned module. Heatmap color indicates the direction and magnitude of the regression coefficient between cytokine or module level with a given clinical phenotype. '
                           'Only associations with false-discovery rate (FDR)-adjusted q-value ≤ 0.2 are colored. Asterisks indicate family-wise error rate (FWER)-adjusted p-values with ***, **, and * indicating p ≤ 0.0005, 0.005, and 0.05, respectively.'}
             args.images.append(img)
@@ -161,7 +161,7 @@ def outcomes_figures(stage, args):
                    'headline': 'Associations of Adjusted Cytokines',
                    'location':'outcome_adj',
            'explanation': 'Adjusted cytokine associations with clinical phenotypes as well as the modules assosiations with those phenotypes. '
-                          'Associations were identified using the relevant regression (linear foe continues outcomes and logistic for binary outcomes) controlling for the inserted covariates. '
+                          'Associations were identified using the relevant regression (linear for continues outcomes and logistic for binary outcomes) controlling for the inserted covariates. '
                           'Each cytokine or module is indicated along the rows, grouped by their assigned module. Heatmap color indicates the direction and magnitude of the regression coefficient between cytokine or module level with a given clinical phenotype. '
                           'Only associations with false-discovery rate (FDR)-adjusted q-value ≤ 0.2 are colored. Asterisks indicate family-wise error rate (FWER)-adjusted p-values with ***, **, and * indicating p ≤ 0.0005, 0.005, and 0.05, respectively.'}
             args.images.append(img)
