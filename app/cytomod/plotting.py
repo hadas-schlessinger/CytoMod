@@ -79,7 +79,7 @@ def plotModuleEmbedding(dmatDf, labels, dropped=None, method='kpca', plotLabels=
     plt.draw()
 
 
-def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='s', dropped=None, compCommVar=None):
+def plotModuleCorr(cyDf, labels, plotLabel, sampleStr='M', dropped=None, compCommVar=None):
     """Make a corr plot for a module."""
     modDf = makeModuleVariables(cyDf[labels.index], labels, dropped=dropped, sampleStr=sampleStr)
     modVar = '%s%s' % (sampleStr, plotLabel)
