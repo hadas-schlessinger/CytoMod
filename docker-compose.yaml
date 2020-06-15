@@ -3,7 +3,7 @@ version: '3.7'
 services:
     app:
         build: ./app
-#        image: hadassch/app:latest
+        image: hadassch/app:latest
         expose:
             - 5000
         ports:
@@ -18,15 +18,15 @@ services:
             - FLASK_RUN_CERT=cert.pem
             - FLASK_RUN_KEY=key.pem
         #mem_limit: 100000000000
-#        deploy:
-#            resources:
-#                limits:
-#                    memory: 3GB
-#                reservations:
-#                    memory: 100MB
+        deploy:
+            resources:
+                limits:
+                    memory: 3GB
+                reservations:
+                    memory: 100MB
     react_frontend:
         build: ./react_frontend
-#        image: hadassch/frontend:latest
+        image: hadassch/frontend:latest
         stdin_open: true
         expose:
             - 3000
