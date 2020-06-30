@@ -48,6 +48,11 @@ def check_input(parameters):
     assert type(parameters.max_testing_k) is int
     assert type(parameters.outcomes) is list
     assert type(parameters.covariates) is list
+    outcomes_file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
+    print(outcomes_file_name)
+    if outcomes_file_name == "no file":
+        print("here")
+        return True
     if parameters.outcomes != ['']:
         file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
         if type(file_name) is float:
@@ -62,6 +67,7 @@ def check_input(parameters):
         # TODO: INSERT CHECK FILE
     return True
 
+
 def check_columns(list_to_check, path):
     for col_name in list_to_check:
         assert type(col_name) is str
@@ -71,10 +77,13 @@ def check_columns(list_to_check, path):
                 return False
     return True
 
+
 def log_transform(parameters, cy_data, patient_data):
     if parameters.log_transform:
         cy_data = _log_cytokines(parameters, cy_data)
-    if parameters.log_column_names != [''] and parameters.outcomes != ['']:
+    if patient_data is None:
+        return patient_data, cy_data, parameters
+    if parameters.log_column_names != ['']:
         patient_data, parameters = _log_covariates(parameters, patient_data)
     return patient_data, cy_data, parameters
 

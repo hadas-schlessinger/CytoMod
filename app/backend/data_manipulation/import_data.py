@@ -21,6 +21,8 @@ def make_cyto_data(parameters):
 def make_patients_data(parameters):
     if parameters.outcomes[0] != '':
         patient_data_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
+        if patient_data_name == "no file":
+            return None
         patient_data = tools.read_excel(os.path.join(parameters.data_files, patient_data_name), indexCol=0)
         patient_data.dropna(axis='index', how='all', inplace=True)
         return patient_data

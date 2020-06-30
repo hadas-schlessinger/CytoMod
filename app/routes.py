@@ -55,18 +55,18 @@ def upload_file():
                 files = pd.DataFrame([secure_filename(cytokines.filename), secure_filename(patients.filename), project_name])
                 tools.write_DF_to_excel(os.path.join('static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             else:
-                files = pd.DataFrame([secure_filename(cytokines.filename), "", project_name])
+                files = pd.DataFrame([secure_filename(cytokines.filename), "no file", project_name])
                 tools.write_DF_to_excel(os.path.join('static/', id['id'].__str__(), 'data_files_and_project_names.xlsx'), files)
             return {'id': id['id']}
         else:
             return json.dumps({ "error": 'no cytokine file was found' }), 400
 
 
-@app.route('/explanation', methods=['POST'])
-def explanation():
-    if request.method == 'POST':
-        return render_template('upload.html')
-    return render_template('explanation.html')
+# @app.route('/explanation', methods=['POST'])
+# def explanation():
+#     if request.method == 'POST':
+#         return render_template('upload.html')
+#     return render_template('explanation.html')
 
 
 def allowed_file(filename):
