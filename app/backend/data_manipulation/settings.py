@@ -49,9 +49,7 @@ def check_input(parameters):
     assert type(parameters.outcomes) is list
     assert type(parameters.covariates) is list
     outcomes_file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
-    print(outcomes_file_name)
     if outcomes_file_name == "no file":
-        print("here")
         return True
     if parameters.outcomes != ['']:
         file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)

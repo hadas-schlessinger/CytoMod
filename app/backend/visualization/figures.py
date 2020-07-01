@@ -14,6 +14,7 @@ def calc_clustering(parameters):
     parameters = server_tools.create_modules_dict(parameters)
     return parameters
 
+
 def calc_abs_figures(parameters):
     # parameters = figure_scheme.pairwise_person('abs', parameters)
     logging.info('starting correlations for absolute cytokines')
