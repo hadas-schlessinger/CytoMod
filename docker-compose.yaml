@@ -3,7 +3,7 @@ version: '3.7'
 services:
     app:
         build: ./app
-#        image: hadassch/app:latest
+        image: hadassch/app:latest
         expose:
             - 5000
         ports:
@@ -26,7 +26,7 @@ services:
                     memory: 100MB
     react_frontend:
         build: ./react_frontend
- #       image: hadassch/frontend:latest
+        image: hadassch/frontend:latest
         stdin_open: true
         expose:
             - 3000
