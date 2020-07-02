@@ -14,7 +14,7 @@ def best_k(args):
                                               save_fig_path=os.path.join(args.paths['clustering_adj'], 'gap_stat_adj.png'))
         img = {'height': '500',
                'width': '700',
-               'headline': 'Gap Statistic for Adjusted Cytokines',
+               'headline': 'Gap Statistic (adjusted cytokines)',
                 'path': os.path.join(args.paths['clustering_adj'], 'gap_stat_adj.png' ),
                  'location':'clustering_adj',
            'explanation': 'Automated selection of the optimal number of modules. '
@@ -31,7 +31,7 @@ def best_k(args):
                                               save_fig_path=os.path.join(args.paths['clustering_abs'], 'gap_stat_abs.png'))
         img = {'height': '500',
                'width': '700',
-               'headline': 'Gap Statistic for Absolute Cytokines',
+               'headline': 'Gap Statistic (absolute cytokines)',
                'path': os.path.join(args.paths['clustering_abs'], 'gap_stat_abs.png'),
                'location': 'clustering_abs',
                'explanation': 'Automated selection of the optimal number of modules. '

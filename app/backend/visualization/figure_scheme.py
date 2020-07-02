@@ -28,9 +28,9 @@ def mean_person(args):
             'width': '400',
            'path': os.path.join(args.paths['overview'],
                                                '%s_cy_mean_correlation.png' % args.cyto_mod_abs.name),
-           'headline': 'Absolute Cytokines Mean Correlation',
+           'headline': 'Correlations of the absolute cytokine levels with the mean cytokine level',
            'location': 'overview',
-           'explanation': 'this plot demonstrates the correlations between cytokine levels and mean cytokine levels'
+           'explanation': 'This plot demonstrates the correlations between cytokine levels and mean cytokine levels'
            }
     args.images.append(img)
     return args
@@ -58,9 +58,9 @@ def same_cluster_reliability(stage,args):
            'path': args.paths[f'clustering_{stage}'] + '/%s_reliability.png' % args.cyto_modules[stage].name,
            'headline': 'Reliability Figure Of Pairwise Correlations of %s Cytokines' % stage,
            'location': f'clustering_{stage}',
-           'explanation': 'Heatmap of cytokine modules - Complete linkage clustering over the Pearson pairwise correlation similarity measure is used to cluster cytokines into K modules, where K is decided using the gap statistic. '
+           'explanation': 'Heatmap of cytokine modules - Complete linkage clustering over the Pearson pairwise correlation similarity measure is used to cluster cytokines into K modules, where K is selected using the gap statistic. '
                           'A clustering reliability score is computed over 1, 000 samplings of subjects that are sampled with replacement. '
-                          'The score for each pair of cytokines represents the fraction of times they clustered together across 1, 000 random samples. '
+                          'The score for each pair of cytokines represents the fraction of times they clustered together across 1,000 random samples. '
                           'The reliability score of the chosen K is presented here. The final modules are then constructed by clustering the pairwise reliability scores, and are represented by the colored stripes below the clustering dendrogram.'}
     args.images.append(img)
     img = {'height': '300',
@@ -68,7 +68,7 @@ def same_cluster_reliability(stage,args):
            'path': args.paths[f'clustering_{stage}'] + '/%s_color_label_legend.png' % args.cyto_modules[stage].name,
            'headline': 'Modules Labels',
            'location': f'clustering_{stage}',
-           'explanation': 'the modules are presented in the following colors'}
+           'explanation': 'Modules are presented by the following colors'}
     args.images.append(img)
     return args
 
@@ -136,9 +136,9 @@ def outcomes_figures(stage, args):
                    'width': '400',
                    'path':os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
-                   'headline': 'Associations of Absolute Cytokines',
+                   'headline': 'Associations with clinical outcomes (absolute cytokines)',
                    'location':'outcome_abs',
-           'explanation': 'Absolute cytokine associations  with clinical phenotypes as well as the modules assosiations with those phenotypes. '
+           'explanation': 'Associations of cytokine modules, and individual cytokines with clinical phenotypes.'
                           'Associations were identified using the relevant regression (linear for continues outcomes and logistic for binary outcomes) controlling for the inserted covariates. '
                           'Each cytokine or module is indicated along the rows, grouped by their assigned module. Heatmap color indicates the direction and magnitude of the regression coefficient between cytokine or module level with a given clinical phenotype. '
                           'Only associations with false-discovery rate (FDR)-adjusted q-value ≤ 0.2 are colored. Asterisks indicate family-wise error rate (FWER)-adjusted p-values with ***, **, and * indicating p ≤ 0.0005, 0.005, and 0.05, respectively.'}
@@ -158,9 +158,9 @@ def outcomes_figures(stage, args):
                    'width': '400',
                    'path': os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
-                   'headline': 'Associations of Adjusted Cytokines',
+                   'headline': 'Associations with clinical outcomes (adjusted cytokines)',
                    'location':'outcome_adj',
-           'explanation': 'Adjusted cytokine associations with clinical phenotypes as well as the modules assosiations with those phenotypes. '
+           'explanation': 'Associations of cytokine modules, and individual cytokines with clinical phenotypes.'
                           'Associations were identified using the relevant regression (linear for continues outcomes and logistic for binary outcomes) controlling for the inserted covariates. '
                           'Each cytokine or module is indicated along the rows, grouped by their assigned module. Heatmap color indicates the direction and magnitude of the regression coefficient between cytokine or module level with a given clinical phenotype. '
                           'Only associations with false-discovery rate (FDR)-adjusted q-value ≤ 0.2 are colored. Asterisks indicate family-wise error rate (FWER)-adjusted p-values with ***, **, and * indicating p ≤ 0.0005, 0.005, and 0.05, respectively.'}
