@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 
 services:
     app:
@@ -31,7 +31,8 @@ services:
             - 3000
         ports:
             - '80:3000'
-#        environment:
+        environment:
+            - DANGEROUSLY_DISABLE_HOST_CHECK=true
 #            - HTTPS=true
 #            - SSL_CRT_FILE=cert.pem
 #            - SSL_KEY_FILE=key.pem
