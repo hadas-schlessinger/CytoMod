@@ -17,4 +17,4 @@ WORKDIR /usr/src/front_end
 RUN npm install
 
 # start app
-CMD [ "npm", "start"]
+CMD [ "npm", "start", "--host=0.0.0.0"]
