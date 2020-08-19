@@ -23,7 +23,8 @@ def upload_file():
         # check if the post request has the file part
         name = request.form.get('name_data')
         id =  {'id': uuid.uuid1(),
-                'status': 'PENDING'}
+                'status': 'PENDING',
+               'message': 'pending job'}
 
         if name != '':
             project_name = name
@@ -73,9 +74,14 @@ def allowed_file(filename):
 @app.route('/status', methods=['POST'])
 def method_status():
     id = request.form.get('id')
+    if not os.path.exists(os.path.join('static', id, 'process_id_status.xlsx')):
+        return {'status': 'RUN TIME ERROR',
+                'message': 'project was deleted due to server internal error, please try again'}
     statuses = tools.read_excel(os.path.join('static/', id, 'process_id_status.xlsx'))
     status = statuses['value'][1]
-    return {'status': status}
+    message = statuses['value'][2]
+    return {'status': status,
+            'message': message}
 
 
 @app.route('/generate', methods=['POST'])

@@ -80,23 +80,19 @@ def encode_images(id):
 
 
 def clean_folder(path):
+    if not os.path.exists(path):
+        return
+    logging.info(f'cleaning folder in path = {path}')
     for file in os.listdir(path):
-        logging.info(f'deleting {file}')
+        logging.info(f'deleting file = {file}')
         os.remove(os.path.join(path,  file))
     delete_folder(path)
 
 
 def delete_folder(folder_path):
-    logging.info(f'deleting {folder_path}')
-    os.rmdir(os.path.join(folder_path))
+    logging.info(f'deleting folder = {folder_path}')
+    os.rmdir(folder_path)
 
-
-def clean_project_by(parameters):
-    logging.info('cleaning data')
-    for folder_path in parameters.paths.values():
-        clean_folder(folder_path)
-    clean_folder(parameters.data_files)
-    clean_folder(parameters.path_files)
 
 def clean_running_project(parameters):
     logging.info('cleaning data')
@@ -105,21 +101,23 @@ def clean_running_project(parameters):
     clean_folder(parameters.data_files)
     clean_folder(parameters.path_files)
 
+
 def clean_static():
     for project in os.listdir('static'):
+        logging.info(f'checking if project {project} should be deleted')
         example = 'b3462340-bc90-11ea-871f-0242ac120002'
         if project == example:
             continue
         logging.info(f'checking deletion conditions for = {project}')
         if not os.path.exists(os.path.join('static', project, 'all_results.xlsx')) \
-                or not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
-                or time_to_delete(project) \
-                or error_status(project):
+            or not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
+            or error_status(project) or time_to_delete(project):
             logging.info(f'cleaning old project = {project}')
             clean_old_project(project)
 
 
 def clean_old_project(project):
+    logging.warning(f'cleaning project {project}')
     clean_folder(os.path.join('static', project, 'overview'))
     clean_folder(os.path.join('static', project, 'clustering_abs'))
     clean_folder(os.path.join('static', project, 'clustering_adj'))
@@ -133,16 +131,15 @@ def clean_old_project(project):
 
 
 def time_to_delete(project):
-    project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx')).set_index('index')
-    project_time = project_metadata.get_value('timestamp', 'value')
-    print(f'project time is {project_time}')
+    project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx'))
+    project_time = project_metadata['value'][2]
     current_time = time.time()
     return current_time - project_time > DELETION_TIME
 
 def error_status(project):
-    project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx')).set_index('index')
-    project_status = project_metadata.get_value('status', 'value')
-    return project_status == 'ERROR'
+    project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx'))
+    project_status = project_metadata['value'][1]
+    return project_status == 'DATA ERROR' or project_status == 'RUN TIME ERROR'
 
 def create_modules_dict(parameters):
     modules_adj = []
@@ -185,25 +182,31 @@ def create_parameters_object(name_data, id, name_compartment, luminex, log_trans
     parameters.cytokines = cytokines
     return parameters
 
+
 def assert_column_exists_in_path(file_path, col_name, sheet=0):
     df = tools.read_excel(file_path, sheet=sheet, nrows=3)
     if col_name not in df.columns:
-        logging.error(f'Column {col_name} does not exist in file {file_path}')
-        return False
-    return True
+        message = f'column {col_name} does not exist in file {file_path}'
+        logging.error(message)
+        return False, message
+    return True, "success"
 
 
 def run_server(*parameters_dict):
     parameters = create_parameters_object(*parameters_dict)
     try:
         id = parameters.id['id']
-        parameters = dm.settings.set_data(parameters)
+        parameters, message = dm.settings.set_data(parameters)
         if parameters is False:
             logging.error('setting data was incorrect')
             error_id = {'id': id,
-                        'status': 'ERROR'}
+                        'status': 'DATA ERROR',
+                        'message': f'wrong data settings - {message}'}
             tools.write_DF_to_excel(os.path.join('static/', id, 'process_id_status.xlsx'), error_id)
+            time.sleep(600)
+            clean_old_project(id)
             exit()
+            return
         parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
         parameters = visualization.figures.calc_clustering(parameters)
         parameters = visualization.figures.calc_abs_figures(parameters)
@@ -217,14 +220,11 @@ def run_server(*parameters_dict):
         # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
         logging.info('finished to calc the method')
         clean_static()
-        time.sleep(DELETION_TIME)
-        # todo: insert email send
-        logging.info('deleting the data')
-        clean_running_project(parameters)
     except Exception as e:
         logging.error(f'an error occurred while calculating the method: {e}')
         parameters.id = {'id': parameters.id['id'],
-                         'status': 'ERROR'}
+                         'status': 'RUN TIME ERROR',
+                         'message': e}
         tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
         time.sleep(600)
         logging.info('deleting the data')

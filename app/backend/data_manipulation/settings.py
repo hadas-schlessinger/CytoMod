@@ -14,15 +14,16 @@ import logging
 def set_data(parameters):
     parameters = set_path(parameters)
     tools.create_folder(parameters.path_files)
-    if check_input(parameters):
+    input_is_ok, message = check_input(parameters)
+    if input_is_ok:
         # todo: insert seed by configuration  - > os.environ.get("SEED")
         parameters.seed = 1234
         parameters.cy_data = import_data.make_cyto_data(parameters)
         parameters.patient_data = import_data.make_patients_data(parameters)
         parameters.patient_data, parameters.cy_data, parameters = log_transform(parameters, parameters.cy_data, parameters.patient_data)
         logging.info('finished set_data')
-        return parameters
-    return False
+        return parameters, "finished setting data successfully"
+    return False, message
 
 
 def set_path(parameters):
@@ -50,30 +51,33 @@ def check_input(parameters):
     assert type(parameters.covariates) is list
     outcomes_file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
     if outcomes_file_name == "no file":
-        return True
+        return True, "no outcome file"
     if parameters.outcomes != ['']:
         file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
         if type(file_name) is float:
-            return False
+            return False, "file does not match"
         path = os.path.join(parameters.data_files, file_name)
-        if not check_columns(parameters.outcomes, path):
-            return False
-        if not check_columns(parameters.covariates, path):
-            return False
-        if not check_columns(parameters.log_column_names, path):
-            return False
+        outcome_columns_exists, message = check_columns(parameters.outcomes, path)
+        if not outcome_columns_exists:
+            return False, message
+        covariates_columns_exists, message = check_columns(parameters.covariates, path)
+        if not covariates_columns_exists:
+            return False, message
+        log_columns_names_exists, message = check_columns(parameters.log_column_names, path)
+        if not log_columns_names_exists:
+            return False, message
         # TODO: INSERT CHECK FILE
-    return True
+    return True, "success"
 
 
 def check_columns(list_to_check, path):
     for col_name in list_to_check:
         assert type(col_name) is str
         if col_name != '':
-            is_in_path = server_tools.assert_column_exists_in_path(file_path=path, col_name=col_name)
+            is_in_path, message = server_tools.assert_column_exists_in_path(file_path=path, col_name=col_name)
             if not is_in_path:
-                return False
-    return True
+                return False, message
+    return True, "column is ok"
 
 
 def log_transform(parameters, cy_data, patient_data):
@@ -106,8 +110,8 @@ def _is_continues(col_name, df):
 
 def _log_cytokines(parameters, cy_data):
     if parameters.log_transform and parameters.luminex:
-        cy_data = np.log10(cy_data.astype(float))
+        cy_data = np.log10(cy_data.astype(float) + 1)
         # TODO: use cy_data.dtypes to automatically log all data according to types
     if parameters.log_transform and not parameters.luminex:
-        cy_data = np.log10(cy_data)
+        cy_data = np.log10(cy_data + 1)
     return cy_data

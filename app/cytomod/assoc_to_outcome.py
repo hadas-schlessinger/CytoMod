@@ -6,7 +6,7 @@ import palettable
 import itertools
 import seaborn as sns
 import statsmodels as sm
-
+import logging
 # sys.path.append('C:/Users/liel-/PycharmProjects/LielTools/')
 # from write2Excel import writeDF2Excel
 # from dillReadWrite import writeDf2Dill
@@ -99,7 +99,6 @@ def outcomeAnalysis(cytomod_obj, patient_data,
         # regression on outcome
         predictors = dataDf.columns
         data_outcome_Df = patient_data[outcomeVars + adjustmentVars].join(dataDf)
-        # print(f'data for GLM: {data_outcome_Df}')
         tmpres = GLMResults(data_outcome_Df, outcome, predictors, adj=adjustmentVars, logistic=logistic)
         tmpres['Outcome'] = outcome
         tmpres['Compartment'] = cytomod_obj.sampleStr
