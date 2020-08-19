@@ -107,6 +107,9 @@ def clean_running_project(parameters):
 
 def clean_static():
     for project in os.listdir('static'):
+        example = 'b3462340-bc90-11ea-871f-0242ac120002'
+        if project == example:
+            continue
         logging.info(f'checking deletion conditions for = {project}')
         if not os.path.exists(os.path.join('static', project, 'all_results.xlsx')) \
                 or not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
@@ -226,3 +229,4 @@ def run_server(*parameters_dict):
         time.sleep(600)
         logging.info('deleting the data')
         clean_running_project(parameters)
+

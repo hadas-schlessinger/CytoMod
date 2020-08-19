@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/server_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +77,7 @@
           <entry key="html" value="1249" />
           <entry key="js" value="183" />
           <entry key="json" value="173" />
-          <entry key="py" value="14313" />
+          <entry key="py" value="14353" />
           <entry key="sh" value="5" />
           <entry key="txt" value="10" />
           <entry key="yaml" value="447" />
@@ -93,7 +90,7 @@
           <entry key="JSON" value="173" />
           <entry key="JavaScript" value="183" />
           <entry key="PLAIN_TEXT" value="299" />
-          <entry key="Python" value="14313" />
+          <entry key="Python" value="14353" />
           <entry key="YAML" value="447" />
         </counts>
       </usages-collector>
@@ -105,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
-              <caret line="116" column="35" lean-forward="true" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
+              <caret line="116" column="35" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -113,11 +110,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+            <state relative-caret-position="186">
+              <caret line="107" column="19" lean-forward="true" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
               <folding>
-                <marker date="1597770712829" expanded="true" signature="4004:5012" ph="..." />
-                <marker date="1597770712829" expanded="true" signature="5039:5264" ph="..." />
+                <marker date="1597827042123" expanded="true" signature="4113:5121" ph="..." />
+                <marker date="1597827042123" expanded="true" signature="5148:5373" ph="..." />
               </folding>
             </state>
           </provider>
@@ -136,7 +133,7 @@
         <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/excel/_base.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
-              <caret line="265" column="17" lean-forward="true" selection-start-line="265" selection-start-column="17" selection-end-line="265" selection-end-column="17" />
+              <caret line="265" column="17" selection-start-line="265" selection-start-column="17" selection-end-line="265" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -314,13 +311,6 @@
             <path>
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="b3462340-bc90-11ea-871f-0242ac120002" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="react_frontend" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -343,19 +333,19 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/static/react" />
+      <recent name="$PROJECT_DIR$/app/" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/react_frontend" />
       <recent name="$PROJECT_DIR$/app/static/react/media" />
       <recent name="$PROJECT_DIR$/app/static/data_files/data" />
       <recent name="$PROJECT_DIR$/app/static" />
       <recent name="$PROJECT_DIR$/CytoWebServer/Backend/Visualization" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/static/react" />
-      <recent name="$PROJECT_DIR$/app/" />
-      <recent name="$PROJECT_DIR$/app/backend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -560,7 +550,7 @@
     <frame x="-1920" y="-254" width="1920" height="976" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14744602" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14744602" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -571,7 +561,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4996986" weight="0.3290398" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4996986" weight="0.32786885" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.6182201" visible="true" weight="0.35972852" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.6182201" visible="true" weight="0.35972852" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.38177988" side_tool="true" weight="0.42279792" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32475248" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -878,7 +868,7 @@
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/excel/_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
-          <caret line="265" column="17" lean-forward="true" selection-start-line="265" selection-start-column="17" selection-end-line="265" selection-end-column="17" />
+          <caret line="265" column="17" selection-start-line="265" selection-start-column="17" selection-end-line="265" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -899,17 +889,17 @@
     <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
-          <caret line="116" column="35" lean-forward="true" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
+          <caret line="116" column="35" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+        <state relative-caret-position="186">
+          <caret line="107" column="19" lean-forward="true" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
           <folding>
-            <marker date="1597770712829" expanded="true" signature="4004:5012" ph="..." />
-            <marker date="1597770712829" expanded="true" signature="5039:5264" ph="..." />
+            <marker date="1597827042123" expanded="true" signature="4113:5121" ph="..." />
+            <marker date="1597827042123" expanded="true" signature="5148:5373" ph="..." />
           </folding>
         </state>
       </provider>
