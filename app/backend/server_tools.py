@@ -66,6 +66,8 @@ def arrange_modules(modules):
 
 
 def encode_images(id):
+    if not os.path.exists(os.path.join('static', id, 'all_results.xlsx')):
+        return
     xls_results = tools.read_excel(os.path.join('static/', id, 'all_results.xlsx')).set_index('index')
     index = 1
     for image in xls_results['image']:
@@ -89,13 +91,55 @@ def delete_folder(folder_path):
     os.rmdir(os.path.join(folder_path))
 
 
-def clean_project(parameters):
+def clean_project_by(parameters):
     logging.info('cleaning data')
     for folder_path in parameters.paths.values():
         clean_folder(folder_path)
     clean_folder(parameters.data_files)
     clean_folder(parameters.path_files)
 
+def clean_running_project(parameters):
+    logging.info('cleaning data')
+    for folder_path in parameters.paths.values():
+        clean_folder(folder_path)
+    clean_folder(parameters.data_files)
+    clean_folder(parameters.path_files)
+
+def clean_static():
+    for project in os.listdir('static'):
+        logging.info(f'checking deletion conditions for = {project}')
+        if not os.path.exists(os.path.join('static', project, 'all_results.xlsx')) \
+                or not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
+                or time_to_delete(project) \
+                or error_status(project):
+            logging.info(f'cleaning old project = {project}')
+            clean_old_project(project)
+
+
+def clean_old_project(project):
+    clean_folder(os.path.join('static', project, 'overview'))
+    clean_folder(os.path.join('static', project, 'clustering_abs'))
+    clean_folder(os.path.join('static', project, 'clustering_adj'))
+    clean_folder(os.path.join('static', project, 'correlation_figures_abs'))
+    clean_folder(os.path.join('static', project, 'correlation_figures_adj'))
+    clean_folder(os.path.join('static', project, 'outcome_abs'))
+    clean_folder(os.path.join('static', project, 'overview'))
+    clean_folder(os.path.join('static', project, 'outcome_adj'))
+    clean_folder(os.path.join('static', project, 'data_files'))
+    clean_folder(os.path.join('static', project))
+
+
+def time_to_delete(project):
+    project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx')).set_index('index')
+    project_time = project_metadata.get_value('timestamp', 'value')
+    print(f'project time is {project_time}')
+    current_time = time.time()
+    return current_time - project_time > DELETION_TIME
+
+def error_status(project):
+    project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx')).set_index('index')
+    project_status = project_metadata.get_value('status', 'value')
+    return project_status == 'ERROR'
 
 def create_modules_dict(parameters):
     modules_adj = []
@@ -163,21 +207,22 @@ def run_server(*parameters_dict):
         parameters = visualization.figures.calc_adj_figures(parameters)
         save_images_and_modules(parameters)
         parameters.id = {'id': parameters.id['id'],
-                         'status': 'DONE'}
+                         'status': 'DONE',
+                         'timestamp': time.time()}
         tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
         # todo: insert save file to database
         # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
         logging.info('finished to calc the method')
+        clean_static()
         time.sleep(DELETION_TIME)
         # todo: insert email send
         logging.info('deleting the data')
-        clean_project(parameters)
+        clean_running_project(parameters)
     except Exception as e:
-        logging.error(f'an error occured while calculating the method: {e}')
+        logging.error(f'an error occurred while calculating the method: {e}')
         parameters.id = {'id': parameters.id['id'],
                          'status': 'ERROR'}
         tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
         time.sleep(600)
         logging.info('deleting the data')
-        clean_project(parameters)
-
+        clean_running_project(parameters)

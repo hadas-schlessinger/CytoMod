@@ -96,7 +96,7 @@ def generate():
     covariates = request.form.get('covariates')  # names of regression covariates to control for
     log_column_names = request.form.get('log_column_names')
     cytokines = request.form.get('cytokines', default='') # if none, will analyze all
-    parameters = [name, id, request.form.get('name_compartment', default='Compartment'), luminex, log_transform, request.form.get('max_testing_k', type=int, default=6),
+    parameters = [name, id, request.form.get('name_compartment', default='Plasma'), luminex, log_transform, request.form.get('max_testing_k', type=int, default=6),
                   False, outcomes.split(", "), covariates.split(", "), log_column_names.split(", ") , cytokines.split(", ")
                   ]
     method = threading.Thread(target=server_tools.run_server, args=(parameters))
@@ -115,6 +115,9 @@ def results():
         return json.dumps({"error": 'invalid name'}), 400
     # todo: add check for file existence
     results = server_tools.encode_images(id)
+    if results is None:
+        logging.warning(f'invalid id {id}, not found in {dir} returning error')
+        return json.dumps({"error": 'invalid name'}), 400
     return results.to_json()
 
 
