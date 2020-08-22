@@ -166,8 +166,10 @@ def plot_color_legend(clust_object, folder):
 def plot_module_correl(clust_object, folder, args, stage):
     """Plot intra-module correlation"""
     i = 0
-    for lab in list(cy.labels2modules(clust_object.labels, clust_object.dropped).keys()):
-        plt.figure(50+i, figsize=(len(clust_object.labels), len(clust_object.labels)*(2/3)))
+    modules_dict = cy.labels2modules(clust_object.labels, clust_object.dropped)
+    for lab in list(modules_dict.keys()):
+        fig_size_addition = 7 if len(list(modules_dict[lab])) < 4 else 0
+        plt.figure(50+i, figsize=(len(clust_object.labels)+fig_size_addition, len(clust_object.labels)*(2/3)+fig_size_addition))
         cyplot.plotModuleCorr(clust_object.cyDf, clust_object.labels, lab, dropped=clust_object.dropped)
         plt.figure(50+i).savefig(os.path.join(folder, '%s_modules_correlations_%s.png' % (clust_object.name, lab)), dpi=300)
         img = {'height': '800',

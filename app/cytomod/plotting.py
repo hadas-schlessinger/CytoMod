@@ -244,7 +244,7 @@ def logisticRegressionBars(df, outcome, predictors, adj = [], useFDR = False, si
 
 def plotMeanCorr(cyDf, meanVar, cyList=None, method='pearson', save_path=None):
     plt.switch_backend('Agg')
-    plt.figure(212, figsize=(7, 11.8))
+    plt.figure(212, figsize=(10, 20))
     """Plot of each cytokine's correlation with the mean."""
     corrDf = meanCorr(cyDf, meanVar, cyList, method=method)
     """Use p-value significance threshold"""

@@ -8,13 +8,14 @@ import warnings
 warnings.filterwarnings('ignore')
 warnings.simplefilter('ignore')
 import app.cytomod.io
+from pandas.api.types import is_string_dtype
 
 def pairwise_person(stage, args):
     if stage == 'abs':
-        plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(20, 15),
+        plotHColCluster(args.cyto_mod_abs.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures_abs'], '%s_correlation_heatmap.png' % args.cyto_mod_abs.name))
     elif stage == 'adj':
-        plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(20, 15),
+        plotHColCluster(args.cyto_mod_adj.cyDf, method='complete', metric='pearson-signed', figsize=(10, 6),
                         save_path=os.path.join(args.paths['correlation_figures_adj'], '%s_correlation_heatmap.png' % args.cyto_mod_adj.name))
     return args
 
@@ -35,10 +36,14 @@ def mean_person(args):
     args.images.append(img)
     return args
 
+def figsize(args, many_cytokines_size, small_cytokine_size):
+    if args.num_of_cytokines < 50:
+        return small_cytokine_size
+    return many_cytokines_size
 
 def pairwise_correlation_with_moudles(stage, args):
     app.cytomod.io.plot_clustering_heatmap(args.cyto_modules[stage], args.paths[f'clustering_{stage}'],
-                                           figsize=(20, 15))
+                                           figsize=figsize(args, (15, 9), (10, 6)))
     img = {'height': '700',
            'width': '1000',
            'path': args.paths[f'clustering_{stage}'] +  '/%s_hierchical_clust_heatmap.png' % args.cyto_modules[stage].name,
@@ -51,7 +56,7 @@ def pairwise_correlation_with_moudles(stage, args):
 
 def same_cluster_reliability(stage,args):
     app.cytomod.io.plot_reliability(args.cyto_modules[stage], args.paths[f'clustering_{stage}'],
-                                    figsize=(20, 15))
+                                    figsize=figsize(args, (15, 9), (10, 6)))
     app.cytomod.io.plot_color_legend(args.cyto_modules[stage], args.paths[f'clustering_{stage}'])
     img = {'height': '700',
            'width': '1000',
@@ -93,7 +98,6 @@ def associations_to_outcomes(stage, args):
                 args.patient_data[[covariate]] = args.patient_data[[covariate]].apply(standardizeFunc)
 
     if args.outcomes != []:
-
         if stage == 'abs':
             args.mod_outcome_abs_df, args.need_OR = outcome.outcomeAnalysis(args.cyto_modules['abs'], args.patient_data,
                                                          analyzeModules=True,
@@ -128,7 +132,7 @@ def outcomes_figures(stage, args):
                                       args.outcomes,
                                       fdr_thresh_plot=0.2,
                                       compartmentName=args.name_compartment,
-                                      figsize=(11, 14),
+                                      figsize=figsize(args, (8, 12), (6, 9)),
                                       save_fig_path=os.path.join(args.paths['outcome_abs'],
                                                                  'associations_abs.png'),
                                       logistic= args.need_OR)
@@ -150,7 +154,7 @@ def outcomes_figures(stage, args):
                                       args.outcomes,
                                       fdr_thresh_plot=0.2,
                                       compartmentName=args.name_compartment,
-                                      figsize=(11, 14),
+                                      figsize=figsize(args, (8, 12), (6, 9)),
                                       save_fig_path=os.path.join(args.paths['outcome_adj'],
                                                                  'associations_adj.png'),
                                       logistic=args.need_OR)

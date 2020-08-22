@@ -104,13 +104,12 @@ def clean_running_project(parameters):
 
 def clean_static():
     for project in os.listdir('static'):
-        logging.info(f'checking if project {project} should be deleted')
+        logging.info(f'checking deletion conditions for project {project}')
         example = 'b3462340-bc90-11ea-871f-0242ac120002'
         if project == example:
+            logging.info(f'project {project} is the example and will not be deleted')
             continue
-        logging.info(f'checking deletion conditions for = {project}')
-        if not os.path.exists(os.path.join('static', project, 'all_results.xlsx')) \
-            or not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
+        if not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
             or error_status(project) or time_to_delete(project):
             logging.info(f'cleaning old project = {project}')
             clean_old_project(project)
@@ -132,9 +131,10 @@ def clean_old_project(project):
 
 def time_to_delete(project):
     project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx'))
+    project_status = project_metadata['value'][1]
     project_time = project_metadata['value'][2]
     current_time = time.time()
-    return current_time - project_time > DELETION_TIME
+    return (project_status == 'DONE') and (current_time - project_time > DELETION_TIME)
 
 def error_status(project):
     project_metadata = tools.read_excel(os.path.join('static/', project, 'process_id_status.xlsx'))
@@ -194,39 +194,39 @@ def assert_column_exists_in_path(file_path, col_name, sheet=0):
 
 def run_server(*parameters_dict):
     parameters = create_parameters_object(*parameters_dict)
-    try:
-        id = parameters.id['id']
-        parameters, message = dm.settings.set_data(parameters)
-        if parameters is False:
-            logging.error('setting data was incorrect')
-            error_id = {'id': id,
-                        'status': 'DATA ERROR',
-                        'message': f'wrong data settings - {message}'}
-            tools.write_DF_to_excel(os.path.join('static/', id, 'process_id_status.xlsx'), error_id)
-            time.sleep(600)
-            clean_old_project(id)
-            exit()
-            return
-        parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
-        parameters = visualization.figures.calc_clustering(parameters)
-        parameters = visualization.figures.calc_abs_figures(parameters)
-        parameters = visualization.figures.calc_adj_figures(parameters)
-        save_images_and_modules(parameters)
-        parameters.id = {'id': parameters.id['id'],
-                         'status': 'DONE',
-                         'timestamp': time.time()}
-        tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
-        # todo: insert save file to database
-        # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
-        logging.info('finished to calc the method')
-        clean_static()
-    except Exception as e:
-        logging.error(f'an error occurred while calculating the method: {e}')
-        parameters.id = {'id': parameters.id['id'],
-                         'status': 'RUN TIME ERROR',
-                         'message': e}
-        tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+    # try:
+    id = parameters.id['id']
+    parameters, message = dm.settings.set_data(parameters)
+    if parameters is False:
+        logging.error('setting data was incorrect')
+        error_id = {'id': id,
+                    'status': 'DATA ERROR',
+                    'message': message}
+        tools.write_DF_to_excel(os.path.join('static/', id, 'process_id_status.xlsx'), error_id)
         time.sleep(600)
-        logging.info('deleting the data')
-        clean_running_project(parameters)
+        clean_old_project(id)
+        exit()
+        return
+    parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
+    parameters = visualization.figures.calc_clustering(parameters)
+    parameters = visualization.figures.calc_abs_figures(parameters)
+    parameters = visualization.figures.calc_adj_figures(parameters)
+    save_images_and_modules(parameters)
+    parameters.id = {'id': parameters.id['id'],
+                     'status': 'DONE',
+                     'timestamp': time.time()}
+    tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+    # todo: insert save file to database
+    # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
+    logging.info('finished to calc the method')
+    clean_static()
+    # except Exception as e:
+    #     logging.error(f'an error occurred while calculating the method: {e}')
+    #     parameters.id = {'id': parameters.id['id'],
+    #                      'status': 'RUN TIME ERROR',
+    #                      'message': e}
+    #     tools.write_DF_to_excel(os.path.join('static/', parameters.id['id'], 'process_id_status.xlsx'), parameters.id)
+    #     time.sleep(600)
+    #     logging.info('deleting the data')
+    #     clean_running_project(parameters)
 

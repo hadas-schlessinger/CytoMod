@@ -21,6 +21,7 @@ def set_data(parameters):
         parameters.cy_data = import_data.make_cyto_data(parameters)
         parameters.patient_data = import_data.make_patients_data(parameters)
         parameters.patient_data, parameters.cy_data, parameters = log_transform(parameters, parameters.cy_data, parameters.patient_data)
+        parameters.num_of_cytokines = len(parameters.cy_data) if parameters.cytokines == "" else len(parameters.cytokines)
         logging.info('finished set_data')
         return parameters, "finished setting data successfully"
     return False, message
@@ -49,6 +50,12 @@ def check_input(parameters):
     assert type(parameters.max_testing_k) is int
     assert type(parameters.outcomes) is list
     assert type(parameters.covariates) is list
+    if parameters.cytokines != "":
+        cytokines_file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(0, 0)
+        path = os.path.join(parameters.data_files, cytokines_file_name)
+        cytokines_columns_exists, message = check_columns(parameters.cytokines, path)
+        if not cytokines_columns_exists:
+            return False, message
     outcomes_file_name = tools.read_excel(os.path.join(parameters.path_files, 'data_files_and_project_names.xlsx')).get_value(1, 0)
     if outcomes_file_name == "no file":
         return True, "no outcome file"

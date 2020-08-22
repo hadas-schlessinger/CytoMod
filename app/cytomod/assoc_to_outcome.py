@@ -89,9 +89,8 @@ def outcomeAnalysis(cytomod_obj, patient_data,
         dataDf = cytomod_obj.cyDf
         if standardize:  # standardize cytokine values
             dataDf = dataDf.apply(standardizeFunc)
-
     for outcome in outcomeVars:
-        logistic = np.isin(df[outcome].dropna().unique(), [0, 1]).all() # checks if the data is binary
+        logistic = np.isin(df[outcome].dropna().unique(), [0, 1]).all()  # checks if the data is binary or true\false
         if logistic:
             need_OR = True
         else:
@@ -107,8 +106,8 @@ def outcomeAnalysis(cytomod_obj, patient_data,
         tmpres[modStr] = predictors
         resL.append(tmpres)
     resDf = pd.concat(resL, axis=0, ignore_index=True)
-    if not logistic:
-        patient_data = patient_data.apply(standardizeFunc)
+    # if not logistic:
+    #     patient_data = patient_data.apply(standardizeFunc)
     return resDf, need_OR
 
 
