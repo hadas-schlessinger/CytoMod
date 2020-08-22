@@ -284,3 +284,4 @@ def plotResultSummary(cytomod_obj,
         plt.show()
     else:
         plt.savefig(save_fig_path)
+    plt.close("all")

@@ -263,6 +263,7 @@ def plotMeanCorr(cyDf, meanVar, cyList=None, method='pearson', save_path=None):
 
     if save_path is not None:
         plt.figure(212).savefig(save_path, dpi=300)
+    plt.close("all")
 
 
 def plotCrossCompartmentBars(cyDfA, cyDfB, method='pearson'):

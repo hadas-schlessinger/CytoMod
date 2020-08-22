@@ -145,6 +145,8 @@ def plot_reliability(clust_object, folder, figsize=(15.5, 9.5)):
     colInds = cyplot.plotHierClust(1 - clust_object.pwrel, clust_object.Z, labels=clust_object.labels,
                                    titleStr='Pairwise reliability (%s)' % clust_object.name.replace('_', ' '), vRange=(0, 1))
     plt.figure(43).savefig(os.path.join(folder, '%s_reliability.png' % clust_object.name), dpi=300)
+    plt.close("all")
+
 
 def plot_color_legend(clust_object, folder):
     """color_label_legend"""
@@ -162,6 +164,7 @@ def plot_color_legend(clust_object, folder):
     axh.set_facecolor('white')
 
     plt.figure(48).savefig(os.path.join(folder, '%s_color_label_legend.png' % clust_object.name), dpi=300)
+    plt.close("all")
 
 def plot_module_correl(clust_object, folder, args, stage):
     """Plot intra-module correlation"""
@@ -181,6 +184,7 @@ def plot_module_correl(clust_object, folder, args, stage):
                }
         args.images.append(img)
         i += 1
+        plt.close("all")
     return args
 
 

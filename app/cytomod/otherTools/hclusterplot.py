@@ -325,7 +325,7 @@ def plotHColCluster(df=None, col_dmat=None, method='complete', metric='euclidean
 
     if save_path is not None:
         plt.figure(10).savefig(save_path, dpi=300)
-
+    plt.close("all")
     return colInd
 
 def plot1DHClust(distDf, hclusters, labels=None, titleStr=None, vRange=None, tickSz='small', cmap=None, colorbarLabel=None, labelCmap=None, noColorBar=False):

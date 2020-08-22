@@ -8,7 +8,9 @@ from app.backend import visualization
 import logging
 import pandas as pd
 import time
-
+import concurrent.futures
+import gc
+import sys
 DELETION_TIME = 60*60*24*7
 
 
@@ -106,8 +108,11 @@ def clean_static():
     for project in os.listdir('static'):
         logging.info(f'checking deletion conditions for project {project}')
         example = 'b3462340-bc90-11ea-871f-0242ac120002'
+        ignore_paths = ['react', '.DS_Store']
         if project == example:
             logging.info(f'project {project} is the example and will not be deleted')
+            continue
+        if project in ignore_paths:
             continue
         if not os.path.exists(os.path.join('static', project, 'process_id_status.xlsx')) \
             or error_status(project) or time_to_delete(project):
@@ -208,9 +213,17 @@ def run_server(*parameters_dict):
             exit()
             return
         parameters = dm.cytocine_adjustments.adjust_cytokine(parameters)
-        parameters = visualization.figures.calc_clustering(parameters)
-        parameters = visualization.figures.calc_abs_figures(parameters)
-        parameters = visualization.figures.calc_adj_figures(parameters)
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future = executor.submit(visualization.figures.calc_clustering, parameters)
+            parameters = future.result()
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future = executor.submit(visualization.figures.calc_abs_figures, parameters)
+            parameters = future.result()
+            gc.collect()
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future = executor.submit(visualization.figures.calc_adj_figures, parameters)
+            parameters = future.result()
+            gc.collect()
         save_images_and_modules(parameters)
         parameters.id = {'id': parameters.id['id'],
                          'status': 'DONE',
@@ -220,6 +233,8 @@ def run_server(*parameters_dict):
         # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
         logging.info('finished to calc the method')
         clean_static()
+        print(sys.getsizeof(parameters))
+        gc.collect()
     except Exception as e:
         logging.error(f'an error occurred while calculating the method: {e}')
         parameters.id = {'id': parameters.id['id'],
@@ -229,4 +244,5 @@ def run_server(*parameters_dict):
         time.sleep(600)
         logging.info('deleting the data')
         clean_running_project(parameters)
+
 
