@@ -19,7 +19,7 @@ services:
         deploy:
             resources:
                 limits:
-                    memory: 5GB
+                    memory: 8GB
                 reservations:
                     memory: 100MB
     react_frontend:
