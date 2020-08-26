@@ -233,7 +233,6 @@ def run_server(*parameters_dict):
         # parameters.save_file = request.form.get('save_file') in ['true', '1', 'True', 'TRUE', 'on']  # for saving the file in the server
         logging.info('finished to calc the method')
         clean_static()
-        print(sys.getsizeof(parameters))
         gc.collect()
     except Exception as e:
         logging.error(f'an error occurred while calculating the method: {e}')

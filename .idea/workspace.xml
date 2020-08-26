@@ -4,10 +4,6 @@
     <list default="true" id="8dc47000-026d-4981-830d-c55af89f906c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/backend/server_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/backend/server_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cytomod/assoc_to_outcome.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/cytomod/assoc_to_outcome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cytomod/io.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/cytomod/io.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cytomod/otherTools/hclusterplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/cytomod/otherTools/hclusterplot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cytomod/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/cytomod/plotting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/react/favicon.ico" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,17 +16,17 @@
     <session id="362080631">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="5" />
-          <entry key="project.open.time.3" value="6" />
+          <entry key="project.open.time.3" value="7" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="28" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,7 +81,7 @@
           <entry key="json" value="173" />
           <entry key="py" value="16502" />
           <entry key="sh" value="5" />
-          <entry key="txt" value="10" />
+          <entry key="txt" value="19" />
           <entry key="yaml" value="457" />
         </counts>
       </usages-collector>
@@ -95,7 +91,7 @@
           <entry key="HTML" value="1249" />
           <entry key="JSON" value="173" />
           <entry key="JavaScript" value="183" />
-          <entry key="PLAIN_TEXT" value="299" />
+          <entry key="PLAIN_TEXT" value="308" />
           <entry key="Python" value="16502" />
           <entry key="YAML" value="457" />
         </counts>
@@ -107,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/cytomod/assoc_to_outcome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="286" column="20" selection-start-line="286" selection-start-column="20" selection-end-line="286" selection-end-column="20" />
+            <state relative-caret-position="361">
+              <caret line="230" column="1" lean-forward="true" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
               <folding>
                 <element signature="e#109#126#0" expanded="true" />
               </folding>
@@ -116,10 +112,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="482">
               <caret line="172" selection-start-line="172" selection-end-line="172" />
               <folding>
                 <marker date="1598024968681" expanded="true" signature="1940:2043" ph="..." />
@@ -128,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="238" column="45" selection-start-line="238" selection-start-column="45" selection-end-line="238" selection-end-column="45" />
+            <state relative-caret-position="446">
+              <caret line="235" selection-start-line="235" selection-end-line="235" />
             </state>
           </provider>
         </entry>
@@ -140,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="1470">
               <caret line="109" column="18" selection-start-line="107" selection-start-column="4" selection-end-line="109" selection-end-column="18" />
             </state>
           </provider>
@@ -149,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/backend/visualization/figures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="195">
               <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
             </state>
           </provider>
@@ -158,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/cytomod/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
+            <state relative-caret-position="3720">
               <caret line="265" column="20" selection-start-line="265" selection-start-column="20" selection-end-line="265" selection-end-column="20" />
             </state>
           </provider>
@@ -176,7 +172,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/cytomod/io.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
+            <state relative-caret-position="2655">
               <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
             </state>
           </provider>
@@ -185,7 +181,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/cytomod/otherTools/hclusterplot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2000">
+            <state relative-caret-position="4740">
               <caret line="327" column="20" selection-start-line="327" selection-start-column="20" selection-end-line="327" selection-end-column="20" />
             </state>
           </provider>
@@ -203,7 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>explanation</find>
       <find>write_DF_to_excel</find>
       <find>app/s</find>
       <find>this plot</find>
@@ -233,6 +228,7 @@
       <find>GLM</find>
       <find>dtype</find>
       <find>figsize</find>
+      <find>print</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/static/d2ad3182-e225-11ea-b9f7-acde48001122</dir>
@@ -290,20 +286,20 @@
         <option value="$PROJECT_DIR$/app/backend/data_manipulation/settings.py" />
         <option value="$PROJECT_DIR$/app/backend/visualization/figure_scheme.py" />
         <option value="$PROJECT_DIR$/docker-compose.yaml" />
-        <option value="$PROJECT_DIR$/app/backend/server_tools.py" />
         <option value="$PROJECT_DIR$/app/cytomod/plotting.py" />
         <option value="$PROJECT_DIR$/app/cytomod/otherTools/hclusterplot.py" />
         <option value="$PROJECT_DIR$/app/cytomod/io.py" />
         <option value="$PROJECT_DIR$/app/cytomod/assoc_to_outcome.py" />
+        <option value="$PROJECT_DIR$/app/backend/server_tools.py" />
       </list>
     </option>
   </component>
   <component name="JupyterTrust" id="3e742fb1-3623-496e-ac64-761021e8fa9e" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="y" value="-254" />
-    <option name="width" value="1920" />
-    <option name="height" value="976" />
+    <option name="x" value="-1849" />
+    <option name="y" value="-219" />
+    <option name="width" value="1680" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectId" id="1VLIbcF1QbP0gu8m0f5DLkFOJK8" />
   <component name="ProjectView">
@@ -311,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,13 +329,23 @@
             <path>
               <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
               <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
               <item name="react_frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CytoMod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CytoMod" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -556,6 +563,14 @@
       <workItem from="1577551718101" duration="53187000" />
       <workItem from="1578844314844" duration="38883000" />
     </task>
+    <task id="LOCAL-00001" summary="clear plt">
+      <created>1598134742537</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598134742538</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -568,9 +583,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-254" width="1920" height="976" extended-state="0" />
+    <frame x="-1849" y="-219" width="1680" height="946" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14744602" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16845238" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -581,7 +596,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4996986" weight="0.3280543" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4996986" weight="0.32786885" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.6182201" visible="true" weight="0.35972852" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.6182201" visible="true" weight="0.37142858" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.38177988" side_tool="true" weight="0.42279792" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32475248" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -613,6 +628,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="clear plt" />
+    <option name="LAST_COMMIT_MESSAGE" value="clear plt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="578" y="250" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578512616190">
@@ -719,9 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -795,15 +811,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/47857578-e20d-11ea-8290-acde48001122/overview/Flu09__absolute__cy_mean_correlation.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/47857578-e20d-11ea-8290-acde48001122/clustering_abs/gap_stat_abs.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/47857578-e20d-11ea-8290-acde48001122/clustering_abs/Flu09__absolute__reliability.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/47857578-e20d-11ea-8290-acde48001122/overview/Flu09__absolute__cy_mean_correlation.png" />
+    <entry file="file://$PROJECT_DIR$/static/47857578-e20d-11ea-8290-acde48001122/clustering_abs/gap_stat_abs.png" />
+    <entry file="file://$PROJECT_DIR$/static/47857578-e20d-11ea-8290-acde48001122/clustering_abs/Flu09__absolute__reliability.png" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/numpy/core/fromnumeric.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -818,9 +828,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/d2ad3182-e225-11ea-b9f7-acde48001122/outcome_adj/associations_adj.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/d2ad3182-e225-11ea-b9f7-acde48001122/outcome_adj/associations_adj.png" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/seaborn/axisgrid.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -884,20 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/react_frontend/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="109" column="18" selection-start-line="107" selection-start-column="4" selection-end-line="109" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -905,61 +899,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/b3462340-bc90-11ea-871f-0242ac120002/outcome_adj/associations_adj.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/cytomod/io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/cytomod/assoc_to_outcome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="286" column="20" selection-start-line="286" selection-start-column="20" selection-end-line="286" selection-end-column="20" />
+        <state relative-caret-position="361">
+          <caret line="230" column="1" lean-forward="true" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
           <folding>
             <element signature="e#109#126#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/cytomod/otherTools/hclusterplot.py">
+    <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2000">
-          <caret line="327" column="20" selection-start-line="327" selection-start-column="20" selection-end-line="327" selection-end-column="20" />
+        <state relative-caret-position="1470">
+          <caret line="109" column="18" selection-start-line="107" selection-start-column="4" selection-end-line="109" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
+    <entry file="file://$PROJECT_DIR$/app/backend/visualization/figures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="238" column="45" selection-start-line="238" selection-start-column="45" selection-end-line="238" selection-end-column="45" />
+        <state relative-caret-position="195">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/cytomod/plotting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
+        <state relative-caret-position="3720">
           <caret line="265" column="20" selection-start-line="265" selection-start-column="20" selection-end-line="265" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/react_frontend/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/cytomod/io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2655">
+          <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/cytomod/otherTools/hclusterplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4740">
+          <caret line="327" column="20" selection-start-line="327" selection-start-column="20" selection-end-line="327" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/backend/visualization/figure_scheme.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
+        <state relative-caret-position="482">
           <caret line="172" selection-start-line="172" selection-end-line="172" />
           <folding>
             <marker date="1598024968681" expanded="true" signature="1940:2043" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/backend/server_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="235" selection-start-line="235" selection-end-line="235" />
         </state>
       </provider>
     </entry>
